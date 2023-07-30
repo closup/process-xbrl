@@ -51,8 +51,6 @@ def process_cell(td, sheet_name):
         else:
             format = 'ixt:num-dot-decimal'
             value = ""
-        if (td['id']=="Sheet1!B10"):
-            a = 5
         row = id[(len(sheet_name)+2):]
         name = names[row]
 
@@ -70,11 +68,16 @@ def process_cell(td, sheet_name):
 # Parse command line first
 parser = argparse.ArgumentParser()
 parser.add_argument('--i', type=str, metavar="input_file(xlsx)", required=True, help="Input xlsx file name")
+parser.add_argument('--o', type=str, metavar="output_file(html)", help="Output html file name")
+
 args = parser.parse_args()
 
 if args.i:
     input_file = args.i
-output_file = input_file.split(".")[0] + ".html"
+if args.o:
+    output_file = args.o
+else:
+    output_file = input_file.split(".")[0] + ".html"
 
 # Load lookup table between account caption names and taxonomy elements
 with open(conf.elements_path) as f:
@@ -135,7 +138,7 @@ for td in soup.find_all('td'):
 html_in = soup.prettify("utf-8").decode("utf-8")
 
 # Replace default html header tag with the one required for Inline XBRL
-html_out = conf.new_header + '\n' + conf.ix_header + '\n'
+html_out = conf.new_header + '\n' + conf.ix_header.replace("$place_id$", conf.place_id) + '\n'
 
 for line in html_in.splitlines():
     html_out = html_out + line + '\n'

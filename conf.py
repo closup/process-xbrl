@@ -30,7 +30,7 @@ ix_header = '''<div style="display:none"><ix:header>
     <ix:resources>
       <xbrli:context id="I20220630">
         <xbrli:entity>
-          <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+          <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">$place_id$</xbrli:identifier>
         </xbrli:entity>
         <xbrli:period>
           <xbrli:instant>2022-06-30</xbrli:instant>
@@ -38,7 +38,7 @@ ix_header = '''<div style="display:none"><ix:header>
       </xbrli:context>
       <xbrli:context id="I20220630_GovernmentalActivities">
         <xbrli:entity>
-          <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+          <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">$place_id$</xbrli:identifier>
           <xbrli:segment>
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:GovernmentalActivitiesMember</xbrldi:explicitMember>
           </xbrli:segment>
@@ -49,7 +49,7 @@ ix_header = '''<div style="display:none"><ix:header>
       </xbrli:context>
       <xbrli:context id="I20220630_BusinessTypeActivities">
         <xbrli:entity>
-          <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+          <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">$place_id$</xbrli:identifier>
           <xbrli:segment>
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:BusinessTypeActivitiesMember</xbrldi:explicitMember>
           </xbrli:segment>
@@ -64,6 +64,9 @@ ix_header = '''<div style="display:none"><ix:header>
     </ix:resources>
     </ix:header>
     </div>'''
+# place id
+global place_id
+place_id = "0613882"
 
 # valid characters for the first letter of table cell content
 global valid_chars
