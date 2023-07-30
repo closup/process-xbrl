@@ -134,7 +134,12 @@ for td in soup.find_all('td'):
         if content:
             td.string = content
 
-
+# Replace sheet name if contains space
+if " " in sheet_name:
+    for td in soup.find_all('td'):
+        id = td['id']
+        new_id = id.replace(" ", "").replace("!", "_")
+        td['id'] = new_id
 html_in = soup.prettify("utf-8").decode("utf-8")
 
 # Replace default html header tag with the one required for Inline XBRL
