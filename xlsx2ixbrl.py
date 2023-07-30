@@ -12,7 +12,7 @@ import conf
 
 # is the cell valid?
 def is_valid_cell(s):
-    return s is not None and s[0] in conf.valid_chars
+    return s is not None and s.string[0] in conf.valid_chars
 
 # get new cell value from old cell value
 def process_cell(td, sheet_name):
@@ -97,7 +97,7 @@ for td in soup.find_all('td'):
     if sheet_name is None:
         sheet_name = td['id'].split("!")[0]
     # Add text-align to all cells
-    if is_valid_cell(td.string):
+    if is_valid_cell(td):
         td['style'] = td['style'] + ';text-align:right'
     # Calculate Column
     col = id[len(sheet_name) + 1]
@@ -114,7 +114,7 @@ for td in soup.find_all('td'):
 for td in soup.find_all('td'):
     id = td['id']
     col = id[len(sheet_name) + 1]
-    if col in ['B', 'C', 'D'] and is_valid_cell(td.string):
+    if col in ['B', 'C', 'D'] and is_valid_cell(td):
         content = process_cell(td, sheet_name)
         if content:
             td.string = content
