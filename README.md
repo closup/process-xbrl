@@ -9,4 +9,4 @@ I don't see it and I don't see your id.  My Skype id is joffemd.
 
 Then please try to find me on skype using email
 acedev0816@outlook.com
-hhdream019@outlook.com
+acedev0816@gmail.com
