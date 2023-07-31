@@ -1169,22 +1169,27 @@ friend of the court service fee modified accrual,acfr:FriendOfTheCourtServiceFee
 friend of the court statutory handling fee modified accrual,acfr:FriendOfTheCourtStatutoryHandlingFeeModifiedAccrual
 fund balance,acfr:FundBalance
 fund balance assigned,acfr:FundBalanceAssigned
+assigned,acfr:FundBalanceAssigned
 fund balance assigned custom,acfr:FundBalanceAssignedCustom
 fund balance assigned modified accrual description,acfr:FundBalanceAssignedModifiedAccrualDescription
 fund balance committed,acfr:FundBalanceCommitted
+committed,acfr:FundBalanceCommitted
 fund balance committed custom,acfr:FundBalanceCommittedCustom
 fund balance committed modified accrual description,acfr:FundBalanceCommittedModifiedAccrualDescription
 fund balance line items,acfr:FundBalanceLineItems
 fund balance nonspendable,acfr:FundBalanceNonspendable
+nonspendable,acfr:FundBalanceNonspendable
 fund balance nonspendable custom,acfr:FundBalanceNonspendableCustom
 fund balance nonspendable inventory,acfr:FundBalanceNonspendableInventory
 fund balance nonspendable long term advances to other funds,acfr:FundBalanceNonspendableLongTermAdvancesToOtherFunds
 fund balance nonspendable modified accrual description,acfr:FundBalanceNonspendableModifiedAccrualDescription
 fund balance nonspendable prepaids,acfr:FundBalanceNonspendablePrepaids
 fund balance restricted,acfr:FundBalanceRestricted
+restricted,acfr:FundBalanceRestricted
 fund balance restricted custom,acfr:FundBalanceRestrictedCustom
 fund balance restricted modified accrual description,acfr:FundBalanceRestrictedModifiedAccrualDescription
 fund balance unassigned,acfr:FundBalanceUnassigned
+unassigned,acfr:FundBalanceUnassigned
 fund identifier axis,acfr:FundIdentifierAxis
 fund name,acfr:FundName
 fund type,acfr:FundType
