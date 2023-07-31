@@ -89,7 +89,7 @@ with open(conf.elements_path) as f:
 try:
     xlsx2html(input_file, output_file)
 except:
-    print("File not eixts or bad format")
+    print("File not exists or bad format")
     exit(0)
 
 # Because xlsx2html does not right align numeric values, add text-align:right clauses to style attributes for all numbers
