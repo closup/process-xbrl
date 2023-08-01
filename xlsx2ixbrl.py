@@ -15,16 +15,11 @@ def is_valid_cell(s):
     return s is not None and s.string[0] in conf.valid_chars
 
 # get new cell value from old cell value
-def process_cell(td, sheet_name):
+def process_cell(td, sheet_name, names):
     id = td['id']
     col = id[len(sheet_name) + 1]
     # calc context
-    if col == 'B':
-        context = "I20220630_GovernmentalActivities"
-    elif col == 'C':
-        context = "I20220630_BusinessTypeActivities"
-    elif col == 'D':
-        context = "I20220630"
+    context = conf.ix_context[col] if col in conf.ix_context else "I20220630"
     try:
         outstring = td.string
         outstring_int = td.string
@@ -52,7 +47,8 @@ def process_cell(td, sheet_name):
             format = 'ixt:num-dot-decimal'
             value = ""
         row = id[(len(sheet_name)+2):]
-        name = names[row]
+        
+        name = names[row] if row in names else ""
 
         cell_id = col + row
         content = f'{dollar}{minus}<ix:nonFraction contextRef="{context}" name="{name}" unitRef="USD" id="{cell_id}" decimals="0" format="{format}"{sign}{value}>' + \
@@ -131,12 +127,12 @@ for i in range(sheet_count):
             except:
                 pass
 
-    # Process column B, C, D
+    # Process column B~
     for td in soup.find_all('td'):
         id = td['id']
         col = id[len(sheet_name) + 1]
         if col != 'A' and is_valid_cell(td):
-            content = process_cell(td, sheet_name)
+            content = process_cell(td, sheet_name, names)
             if content:
                 td.string = content
 
