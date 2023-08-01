@@ -161,7 +161,9 @@ html_out = html_out.replace(f"{sheet_name}!", f"{sheet_name}_")
 with open(output_file, 'w') as f:
     f.write(html_out)
     print(f"Successfully converted to {output_file}")
-
+# Remove temp file
+for i in range(sheet_count):
+    os.remove(f"temp{i}")
 # Arelle functionality requires downloading and installing Arelle
 # These commands are intended to validate and display the processed xbrl file in the Javascript viewer
 # os.system('"C:\\Program Files\\Arelle\\arellecmdline" --file=D:\\xlsx2ixbrl\\ca_clayton_2022.html --plugins EdgarRenderer')
