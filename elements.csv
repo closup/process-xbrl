@@ -6,6 +6,7 @@ accounts payable modified accrual,acfr:AccountsPayableModifiedAccrual
 accounts payable noncurrent payable from restricted assets,acfr:AccountsPayableNoncurrentPayableFromRestrictedAssets
 accounts payable payable from restricted assets,acfr:AccountsPayablePayableFromRestrictedAssets
 accounts receivable,acfr:AccountsReceivable
+accounts receivable (net of allowances),acfr:AccountsReceivableNetOfAllowance
 accounts receivable allowance,acfr:AccountsReceivableAllowance
 accounts receivable modified accrual,acfr:AccountsReceivableModifiedAccrual
 accounts receivable net noncurrent,acfr:AccountsReceivableNetNoncurrent
@@ -34,6 +35,7 @@ accrued landfill closure and postclosure care costs,acfr:AccruedLandfillClosureA
 accrued liabilities,acfr:AccruedLiabilities
 accrued liabilities modified accrual,acfr:AccruedLiabilitiesModifiedAccrual
 accrued liabilities noncurrent,acfr:AccruedLiabilitiesNoncurrent
+accrued payroll,acfr:AccruedWagesPayable
 accrued payroll taxes modified accrual,acfr:AccruedPayrollTaxesModifiedAccrual
 accrued sick leave payable,acfr:AccruedSickLeavePayable
 accrued tuition and fees,acfr:AccruedTuitionAndFees
@@ -65,8 +67,8 @@ activities general revenues and changes in net position line items,acfr:Activiti
 actual rate of return on opeb assets prior five year period,acfr:ActualRateOfReturnOnOPEBAssetsPriorFiveYearPeriod
 actual rate of return on opeb assets prior one year period,acfr:ActualRateOfReturnOnOPEBAssetsPriorOneYearPeriod
 actual rate of return on opeb assets prior ten year period,acfr:ActualRateOfReturnOnOPEBAssetsPriorTenYearPeriod
-actual rate of return on pension assets prior5 year period,acfr:ActualRateOfReturnOnPensionAssetsPrior5YearPeriod
 actual rate of return on pension assets prior ten year period,acfr:ActualRateOfReturnOnPensionAssetsPriorTenYearPeriod
+actual rate of return on pension assets prior5 year period,acfr:ActualRateOfReturnOnPensionAssetsPrior5YearPeriod
 actuarial cost method opeb,acfr:ActuarialCostMethodOPEB
 actuarial cost method pension,acfr:ActuarialCostMethodPension
 actuarially determined opeb contribution using uniform assumptions,acfr:ActuariallyDeterminedOPEBContributionUsingUniformAssumptions
@@ -107,6 +109,7 @@ adjustments for transfer of revenues within activities custom,acfr:AdjustmentsFo
 adjustments in fund balances for restatements errors and accounting policy,acfr:AdjustmentsInFundBalancesForRestatementsErrorsAndAccountingPolicy
 adjustments in net position for restatements errors and accounting policy,acfr:AdjustmentsInNetPositionForRestatementsErrorsAndAccountingPolicy
 adjustments to reconcile net income loss to cash provided by used in operating activities,acfr:AdjustmentsToReconcileNetIncomeLossToCashProvidedByUsedInOperatingActivities
+advance to other funds modified accrual,acfr:AdvancesToOtherFundsModifiedAccrual
 advances current,acfr:AdvancesCurrent
 advances from component unit current modified accrual,acfr:AdvancesFromComponentUnitCurrentModifiedAccrual
 advances from component unit modified accrual,acfr:AdvancesFromComponentUnitModifiedAccrual
@@ -275,6 +278,7 @@ assets held for sale,acfr:AssetsHeldForSale
 assets held for sale modified accrual,acfr:AssetsHeldForSaleModifiedAccrual
 assets held for sale noncurrent,acfr:AssetsHeldForSaleNoncurrent
 assets modified accrual,acfr:AssetsModifiedAccrual
+assigned,acfr:FundBalanceAssigned
 assumed investment rate of return on pension assets net of investment and administrative expense,acfr:AssumedInvestmentRateOfReturnOnPensionAssetsNetOfInvestmentAndAdministrativeExpense
 attorney fee reimbursement modified accrual,acfr:AttorneyFeeReimbursementModifiedAccrual
 audit opinion,acfr:AuditOpinion
@@ -378,6 +382,7 @@ cash and cash equivalents with treasurer,acfr:CashAndCashEquivalentsWithTreasure
 cash and cash equivalents with treasurer modified accrual,acfr:CashAndCashEquivalentsWithTreasurerModifiedAccrual
 cash and cash equivalents with trustee,acfr:CashAndCashEquivalentsWithTrustee
 cash and cash equivalents with trustee modified accrual,acfr:CashAndCashEquivalentsWithTrusteeModifiedAccrual
+cash and investments,acfr:CashAndInvestmentsInSegregatedAccounts
 cash and investments in segregated accounts,acfr:CashAndInvestmentsInSegregatedAccounts
 cash and investments modified accrual,acfr:CashAndInvestmentsModifiedAccrual
 cash bonds payable,acfr:CashBondsPayable
@@ -469,10 +474,12 @@ claims and judgments receivable net of allowance,acfr:ClaimsAndJudgmentsReceivab
 claims and judgments receivable net of allowance modified accrual,acfr:ClaimsAndJudgmentsReceivableNetOfAllowanceModifiedAccrual
 combined public safety personnel,acfr:CombinedPublicSafetyPersonnel
 commercial forest reserve modified accrual,acfr:CommercialForestReserveModifiedAccrual
+committed,acfr:FundBalanceCommitted
 communication expense,acfr:CommunicationExpense
 community and economic development services member,acfr:CommunityAndEconomicDevelopmentServicesMember
 community promotion expense,acfr:CommunityPromotionExpense
 community service member,acfr:CommunityServiceMember
+compensated absences modified accrual,acfr:CompensatedAbsencesPayableModifiedAccrual
 compensated absences payable,acfr:CompensatedAbsencesPayable
 compensated absences payable current,acfr:CompensatedAbsencesPayableCurrent
 compensated absences payable modified accrual,acfr:CompensatedAbsencesPayableModifiedAccrual
@@ -603,6 +610,8 @@ deferred inflows of resources special assessments modified accrual,acfr:Deferred
 deferred inflows of resources taxes levied for a subsequent period,acfr:DeferredInflowsOfResourcesTaxesLeviedForASubsequentPeriod
 deferred inflows of resources taxes levied for a subsequent period modified accrual,acfr:DeferredInflowsOfResourcesTaxesLeviedForASubsequentPeriodModifiedAccrual
 deferred inflows of resources unavailable revenue modified accrual,acfr:DeferredInflowsOfResourcesUnavailableRevenueModifiedAccrual
+deferred inflows related to opeb,acfr:DeferredInflowsOfResourcesOPEB
+deferred inflows related to pension,acfr:DeferredInflowsOfResourcesPension
 deferred inflowsof resources opeb difference expected and actual,acfr:DeferredInflowsofResourcesOPEBDifferenceExpectedAndActual
 deferred inflowsof resources opeb net dif projected and actual earnings pension plan investments,acfr:DeferredInflowsofResourcesOPEBNetDifProjectedAndActualEarningsPensionPlanInvestments
 deferred inflowsof resources pension difference expected and actual,acfr:DeferredInflowsofResourcesPensionDifferenceExpectedAndActual
@@ -624,6 +633,8 @@ deferred outflows of resources pension changes in assumptions,acfr:DeferredOutfl
 deferred outflows of resources pension contributions made after measurement date,acfr:DeferredOutflowsOfResourcesPensionContributionsMadeAfterMeasurementDate
 deferred outflows of resources pension net dif projected and actual earnings pension plan investments,acfr:DeferredOutflowsOfResourcesPensionNetDifProjectedAndActualEarningsPensionPlanInvestments
 deferred outflows of resources state university retirement system,acfr:DeferredOutflowsOfResourcesStateUniversityRetirementSystem
+deferred outflows related to opeb,acfr:DeferredOutflowsOfResourcesOPEB
+deferred outflows related to pension,acfr:DeferredOutflowsOfResourcesPension
 deferred outflowsof resources opeb difference expected and actual,acfr:DeferredOutflowsofResourcesOPEBDifferenceExpectedAndActual
 deferred outflowsof resources pension difference expected and actual,acfr:DeferredOutflowsofResourcesPensionDifferenceExpectedAndActual
 deferred revenue,acfr:DeferredRevenue
@@ -645,6 +656,7 @@ depletable assets member,acfr:DepletableAssetsMember
 depletion depreciation and amortization expense,acfr:DepletionDepreciationAndAmortizationExpense
 deposits held for others modified accrual,acfr:DepositsHeldForOthersModifiedAccrual
 deposits heldfor others,acfr:DepositsHeldforOthers
+deposits payable,acfr:DepositsHeldforOthers
 deposits receivable,acfr:DepositsReceivable
 deposits receivable allowance,acfr:DepositsReceivableAllowance
 deposits receivable modified accrual,acfr:DepositsReceivableModifiedAccrual
@@ -652,6 +664,7 @@ deposits receivable net of allowance,acfr:DepositsReceivableNetOfAllowance
 deposits receivable net of allowance modified accrual,acfr:DepositsReceivableNetOfAllowanceModifiedAccrual
 deposits with fiscal agents,acfr:DepositsWithFiscalAgents
 deposits with fiscal agents modified accrual,acfr:DepositsWithFiscalAgentsModifiedAccrual
+depreciable assets net,acfr:CapitalAssetsBeingDepreciatedNet
 depreciation expense,acfr:DepreciationExpense
 depreciation expense modified accrual,acfr:DepreciationExpenseModifiedAccrual
 depreciation unallocated,acfr:DepreciationUnallocated
@@ -1169,27 +1182,22 @@ friend of the court service fee modified accrual,acfr:FriendOfTheCourtServiceFee
 friend of the court statutory handling fee modified accrual,acfr:FriendOfTheCourtStatutoryHandlingFeeModifiedAccrual
 fund balance,acfr:FundBalance
 fund balance assigned,acfr:FundBalanceAssigned
-assigned,acfr:FundBalanceAssigned
 fund balance assigned custom,acfr:FundBalanceAssignedCustom
 fund balance assigned modified accrual description,acfr:FundBalanceAssignedModifiedAccrualDescription
 fund balance committed,acfr:FundBalanceCommitted
-committed,acfr:FundBalanceCommitted
 fund balance committed custom,acfr:FundBalanceCommittedCustom
 fund balance committed modified accrual description,acfr:FundBalanceCommittedModifiedAccrualDescription
 fund balance line items,acfr:FundBalanceLineItems
 fund balance nonspendable,acfr:FundBalanceNonspendable
-nonspendable,acfr:FundBalanceNonspendable
 fund balance nonspendable custom,acfr:FundBalanceNonspendableCustom
 fund balance nonspendable inventory,acfr:FundBalanceNonspendableInventory
 fund balance nonspendable long term advances to other funds,acfr:FundBalanceNonspendableLongTermAdvancesToOtherFunds
 fund balance nonspendable modified accrual description,acfr:FundBalanceNonspendableModifiedAccrualDescription
 fund balance nonspendable prepaids,acfr:FundBalanceNonspendablePrepaids
 fund balance restricted,acfr:FundBalanceRestricted
-restricted,acfr:FundBalanceRestricted
 fund balance restricted custom,acfr:FundBalanceRestrictedCustom
 fund balance restricted modified accrual description,acfr:FundBalanceRestrictedModifiedAccrualDescription
 fund balance unassigned,acfr:FundBalanceUnassigned
-unassigned,acfr:FundBalanceUnassigned
 fund identifier axis,acfr:FundIdentifierAxis
 fund name,acfr:FundName
 fund type,acfr:FundType
@@ -1325,6 +1333,7 @@ interest paid electric power system debt,acfr:InterestPaidElectricPowerSystemDeb
 interest paid sewer system debt,acfr:InterestPaidSewerSystemDebt
 interest paid transit system debt,acfr:InterestPaidTransitSystemDebt
 interest paid water supply system debt,acfr:InterestPaidWaterSupplySystemDebt
+interest receivable,acfr:AccruedInterestReceivable
 interest receivable allowances,acfr:InterestReceivableAllowances
 intergovernmental agreement payable,acfr:IntergovernmentalAgreementPayable
 intergovernmental agreement payable due in more than one year,acfr:IntergovernmentalAgreementPayableDueInMoreThanOneYear
@@ -1345,6 +1354,7 @@ intergovernmental revenue from state streets and highways modified accrual,acfr:
 intergovernmental revenue from state survey and remonumentation modified accrual,acfr:IntergovernmentalRevenueFromStateSurveyAndRemonumentationModifiedAccrual
 intergovernmental revenue from state welfare modified accrual,acfr:IntergovernmentalRevenueFromStateWelfareModifiedAccrual
 internal balance,acfr:InternalBalance
+internal balances,acfr:InternalBalance
 internal balances payable,acfr:InternalBalancesPayable
 internal service funds member,acfr:InternalServiceFundsMember
 internal transfers,acfr:InternalTransfers
@@ -1358,6 +1368,8 @@ inventory road materials,acfr:InventoryRoadMaterials
 inventory road materials modified accrual,acfr:InventoryRoadMaterialsModifiedAccrual
 investment gains losses,acfr:InvestmentGainsLosses
 investment gains losses modified accrual,acfr:InvestmentGainsLossesModifiedAccrual
+investment in affordable housing,acfr:OtherNoncurrentAssets
+investment in affordable housing modfied accrual,acfr:OtherCurrentAssetsModifiedAccrual
 investment in capital assets modified accrual,acfr:InvestmentInCapitalAssetsModifiedAccrual
 investment income,acfr:InvestmentIncome
 investment income and rentals,acfr:InvestmentIncomeAndRentals
@@ -1418,6 +1430,7 @@ lease assets right of use modified accrual,acfr:LeaseAssetsRightOfUseModifiedAcc
 lease assets right of use net of accumulated amortization,acfr:LeaseAssetsRightOfUseNetOfAccumulatedAmortization
 lease investment income,acfr:LeaseInvestmentIncome
 lease investment income modified accrual,acfr:LeaseInvestmentIncomeModifiedAccrual
+lease payable,acfr:LeasesPayable
 lease receivable net noncurrent modified accrual,acfr:LeaseReceivableNetNoncurrentModifiedAccrual
 leasehold improvements,acfr:LeaseholdImprovements
 leasehold improvements member,acfr:LeaseholdImprovementsMember
@@ -1673,12 +1686,14 @@ noncurrent liabilities modified accrual,acfr:NoncurrentLiabilitiesModifiedAccrua
 noncurrent liabilities payable from restricted assets,acfr:NoncurrentLiabilitiesPayableFromRestrictedAssets
 noncurrent liabilities payable from restricted assets custom,acfr:NoncurrentLiabilitiesPayableFromRestrictedAssetsCustom
 noncurrent portion of uninsured claim liability,acfr:NoncurrentPortionOfUninsuredClaimLiability
+nondepreciable assets,acfr:CapitalAssetsNotBeingDepreciated
 nonemployer contributing entities total proportionate share of collective net opeb liability,acfr:NonemployerContributingEntitiesTotalProportionateShareOfCollectiveNetOPEBLiability
 nonemployer contributing entities total proportionate share of collective net pension liability,acfr:NonemployerContributingEntitiesTotalProportionateShareOfCollectiveNetPensionLiability
 nonoperating expenses,acfr:NonoperatingExpenses
 nonoperating revenues,acfr:NonoperatingRevenues
 nonoperating revenues and expenses,acfr:NonoperatingRevenuesAndExpenses
 nonoperating revenues expenses custom,acfr:NonoperatingRevenuesExpensesCustom
+non-spendable,acfr:FundBalanceNonspendable
 notes and loans payable due within one year modified accrual,acfr:NotesAndLoansPayableDueWithinOneYearModifiedAccrual
 notes and loans receivable net noncurrent,acfr:NotesAndLoansReceivableNetNoncurrent
 notes and loans receivable noncurrent,acfr:NotesAndLoansReceivableNoncurrent
@@ -1708,6 +1723,8 @@ number of pension funds invested in derivatives at fiscal year end,acfr:NumberOf
 number of police personnel,acfr:NumberOfPolicePersonnel
 number of students,acfr:NumberOfStudents
 o e p b administered by self,acfr:OEPBAdministeredBySelf
+office equipment and furniture,acfr:OfficeEquipmentAndFurniture
+office equipment and furniture member,acfr:OfficeEquipmentAndFurnitureMember
 opeb actual contributions from others,acfr:OPEBActualContributionsFromOthers
 opeb actual employee contribution,acfr:OPEBActualEmployeeContribution
 opeb actual employer contribution,acfr:OPEBActualEmployerContribution
@@ -1761,8 +1778,6 @@ opeb plan type,acfr:OPEBPlanType
 opeb plans line items,acfr:OPEBPlansLineItems
 opeb plans table,acfr:OPEBPlansTable
 opeb service cost,acfr:OPEBServiceCost
-office equipment and furniture,acfr:OfficeEquipmentAndFurniture
-office equipment and furniture member,acfr:OfficeEquipmentAndFurnitureMember
 operating contributions and premiums,acfr:OperatingContributionsAndPremiums
 operating expense,acfr:OperatingExpense
 operating expenses custom,acfr:OperatingExpensesCustom
@@ -1848,6 +1863,7 @@ other increase decrease in liabilities description,acfr:OtherIncreaseDecreaseInL
 other interest and rents modified accrual,acfr:OtherInterestAndRentsModifiedAccrual
 other investments,acfr:OtherInvestments
 other investments modified accrual,acfr:OtherInvestmentsModifiedAccrual
+other liabilities,acfr:OtherCurrentLiabilities
 other liabilities modified accrual,acfr:OtherLiabilitiesModifiedAccrual
 other liabilities modified accrual description,acfr:OtherLiabilitiesModifiedAccrualDescription
 other long term assets,acfr:OtherLongTermAssets
@@ -1872,6 +1888,7 @@ other operating expenses,acfr:OtherOperatingExpenses
 other operating expenses description,acfr:OtherOperatingExpensesDescription
 other operating revenue,acfr:OtherOperatingRevenue
 other operating revenue description,acfr:OtherOperatingRevenueDescription
+other payables modified accrual,acfr:OtherAdvancesModifiedAccrual
 other prepaid assets modified accrual,acfr:OtherPrepaidAssetsModifiedAccrual
 other receivables,acfr:OtherReceivables
 other receivables modified accrual,acfr:OtherReceivablesModifiedAccrual
@@ -2010,6 +2027,7 @@ prepaid expenses,acfr:PrepaidExpenses
 prepaid expenses and other assets modified accrual,acfr:PrepaidExpensesAndOtherAssetsModifiedAccrual
 prepaid expenses modified accrual,acfr:PrepaidExpensesModifiedAccrual
 prepaid insurance modified accrual,acfr:PrepaidInsuranceModifiedAccrual
+prepaid items modified accrual,acfr:PrepaidDepositsModifiedAccrual
 prepaids and other assets,acfr:PrepaidsAndOtherAssets
 primary government activities member,acfr:PrimaryGovernmentActivitiesMember
 printing and publishing expense,acfr:PrintingAndPublishingExpense
@@ -2173,6 +2191,7 @@ repayments of bond principal,acfr:RepaymentsOfBondPrincipal
 repayments of bonds and notes,acfr:RepaymentsOfBondsAndNotes
 restitutions payable,acfr:RestitutionsPayable
 restitutions payable modified accrual,acfr:RestitutionsPayableModifiedAccrual
+restricted,acfr:FundBalanceRestricted
 restricted accounts receivable net of allowance,acfr:RestrictedAccountsReceivableNetOfAllowance
 restricted accounts receivable noncurrent,acfr:RestrictedAccountsReceivableNoncurrent
 restricted assets,acfr:RestrictedAssets
@@ -2200,6 +2219,7 @@ restricted cash noncurrent,acfr:RestrictedCashNoncurrent
 restricted cash repairs replacement and improvements reserve,acfr:RestrictedCashRepairsReplacementAndImprovementsReserve
 restricted certificates of deposit,acfr:RestrictedCertificatesOfDeposit
 restricted components of net position custom,acfr:RestrictedComponentsOfNetPositionCustom
+restricted for special projects and programs,acfr:RestrictedNetPosition
 restricted investments modified accrual,acfr:RestrictedInvestmentsModifiedAccrual
 restricted investments noncurrent,acfr:RestrictedInvestmentsNoncurrent
 restricted net position,acfr:RestrictedNetPosition
@@ -2591,9 +2611,22 @@ title search fee modified accrual,acfr:TitleSearchFeeModifiedAccrual
 total all other purpose long term debt,acfr:TotalAllOtherPurposeLongTermDebt
 total all other purposes roll forward,acfr:TotalAllOtherPurposesRollForward
 total annual final appropriations for all funds,acfr:TotalAnnualFinalAppropriationsForAllFunds
+total assets,acfr:Assets
+total assets modified accrual,acfr:AssetsModifiedAccrual
 total capital contributions and transfers,acfr:TotalCapitalContributionsAndTransfers
+total current assets,acfr:CurrentAssets
+total current liabilities,acfr:CurrentLiabilities
+total deferred inflows of resources,acfr:DeferredInflowsOfResources
+total deferred outflows of resources,acfr:DeferredOutflowsOfResources
+total liabilities,acfr:Liabilities
+total liabilities and deferred inflows of resources and fund balances modified accrual,acfr:LiabilitiesAndDeferredInflowsOfResourcesAndFundBalancesModifiedAccrual
+total liabilities modified accrual,acfr:LiabilitiesModifiedAccrual
 total long term debt roll forward,acfr:TotalLongTermDebtRollForward
+total net position,acfr:NetPosition
+total noncurrent assets,acfr:NoncurrentAssets
+total noncurrent liabilities,acfr:NoncurrentLiabilities
 total other expenditures modified accrual,acfr:TotalOtherExpendituresModifiedAccrual
+total other financing sources (uses),acfr:OtherFinancingSourcesModifiedAccrual
 total other revenue,acfr:TotalOtherRevenue
 total other revenue modified accrual,acfr:TotalOtherRevenueModifiedAccrual
 total pension liability,acfr:TotalPensionLiability
@@ -2639,6 +2672,7 @@ unamortized premium on bonds,acfr:UnamortizedPremiumOnBonds
 unamortized premium on bonds due in more than one year,acfr:UnamortizedPremiumOnBondsDueInMoreThanOneYear
 unamortized premium on bonds modified accrual,acfr:UnamortizedPremiumOnBondsModifiedAccrual
 unamortized premium on bonds principal due within one year,acfr:UnamortizedPremiumOnBondsPrincipalDueWithinOneYear
+unassigned,acfr:FundBalanceUnassigned
 unbilled revenue,acfr:UnbilledRevenue
 unclaimed money,acfr:UnclaimedMoney
 unclaimed money modified accrual,acfr:UnclaimedMoneyModifiedAccrual
@@ -2665,6 +2699,7 @@ unlimited tax bonds,acfr:UnlimitedTaxBonds
 unlimited tax bonds principal due in more than one year,acfr:UnlimitedTaxBondsPrincipalDueInMoreThanOneYear
 unlimited tax bonds principal due within one year,acfr:UnlimitedTaxBondsPrincipalDueWithinOneYear
 unlimited tax bonds roll forward,acfr:UnlimitedTaxBondsRollForward
+unrestricted,acfr:UnrestrictedNetPosition
 unrestricted net position,acfr:UnrestrictedNetPosition
 use and admission fees modified accrual,acfr:UseAndAdmissionFeesModifiedAccrual
 utilities and water receivable,acfr:UtilitiesAndWaterReceivable
@@ -2693,29 +2728,3 @@ works of art,acfr:WorksOfArt
 writ of garnishment restitution attachment or execution modified accrual,acfr:WritOfGarnishmentRestitutionAttachmentOrExecutionModifiedAccrual
 yard and storage equipment,acfr:YardAndStorageEquipment
 yard and storage equipment member,acfr:YardAndStorageEquipmentMember
-cash and investments,acfr:CashAndInvestmentsInSegregatedAccounts
-accounts receivable (net of allowances),acfr:AccountsReceivableNetOfAllowance
-interest receivable,acfr:AccruedInterestReceivable
-internal balances,acfr:InternalBalance
-total current assets,acfr:CurrentAssets
-investment in affordable housing,acfr:OtherNoncurrentAssets
-nondepreciable assets,acfr:CapitalAssetsNotBeingDepreciated
-depreciable assets net,acfr:CapitalAssetsBeingDepreciatedNet
-total noncurrent assets,acfr:NoncurrentAssets
-total assets,acfr:Assets
-deferred outflows related to pension,acfr:DeferredOutflowsOfResourcesPension
-deferred outflows related to opeb,acfr:DeferredOutflowsOfResourcesOPEB
-total deferred outflows of resources,acfr:DeferredOutflowsOfResources
-deposits payable,acfr:DepositsHeldforOthers
-accrued payroll,acfr:AccruedWagesPayable
-other liabilities,acfr:OtherCurrentLiabilities
-total current liabilities,acfr:CurrentLiabilities
-lease payable,acfr:LeasesPayable
-total noncurrent liabilities,acfr:NoncurrentLiabilities
-total liabilities,acfr:Liabilities
-deferred inflows related to pension,acfr:DeferredInflowsOfResourcesPension
-deferred inflows related to opeb,acfr:DeferredInflowsOfResourcesOPEB
-total deferred inflows of resources,acfr:DeferredInflowsOfResources
-restricted for special projects and programs,acfr:RestrictedNetPosition
-unrestricted,acfr:UnrestrictedNetPosition
-total net position,acfr:NetPosition
