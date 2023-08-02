@@ -15,11 +15,11 @@ def is_valid_cell(s):
     return s is not None and s.string[0] in conf.valid_chars
 
 # get new cell value from old cell value
-def process_cell(td, sheet_name, names):
+def process_cell(td, sheet_name, name, context):
     id = td['id']
     col = id[len(sheet_name) + 1]
     # calc context
-    context = conf.ix_context[col] if col in conf.ix_context else "I20220630"
+    # context = conf.ix_context[col] if col in conf.ix_context else "I20220630"
     try:
         outstring = td.string
         outstring_int = td.string
@@ -48,8 +48,6 @@ def process_cell(td, sheet_name, names):
             value = ""
         row = id[(len(sheet_name)+2):]
         
-        name = names[row] if row in names else ""
-
         cell_id = col + row
         content = f'{dollar}{minus}<ix:nonFraction contextRef="{context}" name="{name}" unitRef="USD" id="{cell_id}" decimals="0" format="{format}"{sign}{value}>' + \
             outstring + '</ix:nonFraction>'
@@ -75,13 +73,48 @@ if args.o:
 else:
     output_file = input_file.split(".")[0] + ".html"
 
-# Load lookup table between account caption names and taxonomy elements
-with open(conf.elements_path) as f:
-    next(f)  # Skip the header
-    reader = csv.reader(f, skipinitialspace=True)
-    elements = dict(reader)
+# Parse Context first
+try:
+    xlsx2html("contexts.xlsx", "temp")
+except:
+    print("No context file!")
+    exit(0)
+with open("temp", 'r') as f:
+    html = f.read()
+    # Remove header
+html = html.replace(conf.original_header, '')
+    # Analyze
+soup = BeautifulSoup(html, 'html.parser')
+context_skip_lines = 1
+i = 0
+context_name_map = {}
+context_ref_map = {}
+for tr in soup.find_all('tr'):
+    # Skip some lines
+    if i < context_skip_lines:
+        i += 1
+        continue
 
-# Use xlsx2html library to Convert Excel Worksheet to html
+    tds = tr.findAll('td')
+    if len(tds) == 4:
+        statement = tds[0].string.strip().lower()
+        header = tds[1].string.strip().lower()
+        name = tds[2].string.strip()
+        ref = pprint.pformat(tds[3].contents)
+        ref_index = ref.find("<xbrli:context")
+        if ref_index == -1: #critical error : invalid xbrli content
+            continue
+        ref = ref[ref_index:-1]
+        # Add to context name map
+        if not statement in context_name_map:
+            context_name_map[statement] = {}
+        context_name_map[statement][header] = name
+        # Add to context ref map
+        if not statement in context_ref_map:
+            context_ref_map[statement] = {}
+        context_ref_map[statement][header] = ref
+
+# Read Sheets
 sheet_count = 0
 while True:
     try:
@@ -92,10 +125,11 @@ while True:
     except:
         print("File not exists or bad format")
         exit(0)
-    
-# Because xlsx2html does not right align numeric values, add text-align:right clauses to style attributes for all numbers
-# Also use Beautiful Soup to add Inline XBRL ix:nonFraction tags
+
+
+# Process sheets
 html_in = ""
+ix_header_content = ""
 for i in range(sheet_count):
     with open(f"temp{i}", 'r') as f:
         html = f.read()
@@ -105,36 +139,57 @@ for i in range(sheet_count):
 
     # Parse html
     soup = BeautifulSoup(html_trunc, 'html.parser')
-    names = {}
     sheet_name = None
 
+    name = None
+    statement = None
+    header_row = None # row of header of the table
+    header_titles = {} # dict of header titles "col" -> "title"
     for td in soup.find_all('td'):
         id = td['id']
         # Get sheet name
         if sheet_name is None:
             sheet_name = td['id'].split("!")[0]
+        if "F9" in id:
+            a = 6
         # Add text-align to all cells
         if is_valid_cell(td):
             td['style'] = td['style'] + ';text-align:right'
         # Calculate Column
         col = id[len(sheet_name) + 1]
+        row = int(id[(len(sheet_name) + 2):])
+        # Calculate Statement
+        if col + str(row)  == "B3":
+            statement = td.string.strip().lower()
+
+        # Calculate header titles
+        if row == header_row:
+            header_titles[col] = td.string.strip().lower()
+
         # Process column A
         if col == 'A':
-            caption = pprint.pformat((td.contents)).lower()[2:-2]
+            name = td.string.strip()
+            if name == "XBRL Element":
+                header_row = row
+        # Process other columns
+        elif col > 'B' and name and is_valid_cell(td):
             try:
-                row = id[(len(sheet_name)+2):]
-                names[row] = elements[caption]
+                ht = header_titles[col].strip().lower()
+                context_name = context_name_map[statement][ht]
             except:
-                pass
+                context_name = 'I20220630'
 
-    # Process column B~
-    for td in soup.find_all('td'):
-        id = td['id']
-        col = id[len(sheet_name) + 1]
-        if col != 'A' and is_valid_cell(td):
-            content = process_cell(td, sheet_name, names)
+            content = process_cell(td, sheet_name, name, context_name)
             if content:
                 td.string = content
+    
+    # Remove column A
+    for td in soup.find_all('td'):
+        id = td['id']
+        # Calculate Column
+        col = id[len(sheet_name) + 1]
+        if col == 'A':
+            td.decompose()
 
     # Replace sheet name if contains space
     if " " in sheet_name:
@@ -142,10 +197,19 @@ for i in range(sheet_count):
             id = td['id']
             new_id = id.replace(" ", "").replace("!", "_")
             td['id'] = new_id
+    # calculate ix_header_content
+    for header,ref in header_titles.items():
+        if header and  ref and statement:
+            try:
+                ix_header_content += "\n" + context_ref_map[statement][ref]
+            except:
+                print("No ix header for", statement, ref)
 
     html_in += soup.prettify("utf-8").decode("utf-8")
+# Calculate ix_header
+ix_header = conf.ix_header_start + ix_header_content +  conf.ix_header_end
 # Replace default html header tag with the one required for Inline XBRL
-html_out = conf.new_header + '\n' + conf.ix_header.replace("$place_id$", conf.place_id) + '\n'
+html_out = conf.new_header + '\n' + ix_header.replace("$place_id$", conf.place_id) + '\n'
 
 for line in html_in.splitlines():
     html_out = html_out + line + '\n'
@@ -162,8 +226,8 @@ with open(output_file, 'w') as f:
     f.write(html_out)
     print(f"Successfully converted to {output_file}")
 # Remove temp file
-for i in range(sheet_count):
-    os.remove(f"temp{i}")
+# for i in range(sheet_count):
+#     os.remove(f"temp{i}")
 # Arelle functionality requires downloading and installing Arelle
 # These commands are intended to validate and display the processed xbrl file in the Javascript viewer
 # os.system('"C:\\Program Files\\Arelle\\arellecmdline" --file=D:\\xlsx2ixbrl\\ca_clayton_2022.html --plugins EdgarRenderer')
