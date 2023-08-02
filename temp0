@@ -1,0 +1,408 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <table  style="border-collapse: collapse" border="0" cellspacing="0" cellpadding="0"><colgroup>
+<col  style="width: 426.24px">
+<col  style="width: 399.36px">
+<col  style="width: 179.52px">
+<col  style="width: 179.52px">
+<col  style="width: 179.52px">
+</colgroup>
+<tr>
+<td id="Statement of Net Position!A1" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!B1" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 12.0px;font-weight: bold;height: 15.75pt">City of Clayton</td>
+<td id="Statement of Net Position!C1" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!D1" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!E1" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A2" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!B2" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 12.0px;font-weight: bold;height: 15.75pt">Government-Wide</td>
+<td id="Statement of Net Position!C2" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!D2" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!E2" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A3" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!B3" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 12.0px;font-weight: bold;height: 15.75pt">Statement of Net Position</td>
+<td id="Statement of Net Position!C3" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!D3" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!E3" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A4" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!B4" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 12.0px;font-weight: bold;height: 15.75pt">June 30, 2022</td>
+<td id="Statement of Net Position!C4" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!D4" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!E4" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A5" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 30.0pt">XBRL Element</td>
+<td id="Statement of Net Position!B5" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 30.0pt">&nbsp;</td>
+<td id="Statement of Net Position!C5" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 30.0pt;text-align: right">Governmental Activities</td>
+<td id="Statement of Net Position!D5" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 30.0pt;text-align: right">Business-Type Activites</td>
+<td id="Statement of Net Position!E5" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 30.0pt;text-align: right">Total</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A6" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B6" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">ASSETS</td>
+<td id="Statement of Net Position!C6" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">&nbsp;</td>
+<td id="Statement of Net Position!D6" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">&nbsp;</td>
+<td id="Statement of Net Position!E6" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A7" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B7" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Current Assets:</td>
+<td id="Statement of Net Position!C7" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!D7" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!E7" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A8" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:CashAndInvestmentsInSegregatedAccounts</td>
+<td id="Statement of Net Position!B8" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Cash and investments</td>
+<td id="Statement of Net Position!C8" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">$13,441,679</td>
+<td id="Statement of Net Position!D8" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">$ -</td>
+<td id="Statement of Net Position!E8" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">$13,441,679</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A9" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:AccountsReceivableNetOfAllowance</td>
+<td id="Statement of Net Position!B9" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Accounts receivable (net of allowances)</td>
+<td id="Statement of Net Position!C9" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">1,133,315</td>
+<td id="Statement of Net Position!D9" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E9" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">1,133,315</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A10" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:AccruedInterestReceivable</td>
+<td id="Statement of Net Position!B10" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Interest receivable</td>
+<td id="Statement of Net Position!C10" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">25,257</td>
+<td id="Statement of Net Position!D10" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E10" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">25,257</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A11" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:InternalBalance</td>
+<td id="Statement of Net Position!B11" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Internal balances</td>
+<td id="Statement of Net Position!C11" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">120,893</td>
+<td id="Statement of Net Position!D11" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">-120,893</td>
+<td id="Statement of Net Position!E11" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A12" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:PrepaidExpenses</td>
+<td id="Statement of Net Position!B12" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Prepaid expenses</td>
+<td id="Statement of Net Position!C12" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">52,578</td>
+<td id="Statement of Net Position!D12" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E12" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">52,578</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A13" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:CurrentAssets</td>
+<td id="Statement of Net Position!B13" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Total Current Assets</td>
+<td id="Statement of Net Position!C13" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">14,773,722</td>
+<td id="Statement of Net Position!D13" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">-120,893</td>
+<td id="Statement of Net Position!E13" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">14,652,829</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A14" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B14" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Noncurrent Assets:</td>
+<td id="Statement of Net Position!C14" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!D14" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!E14" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A15" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:OtherNoncurrentAssets</td>
+<td id="Statement of Net Position!B15" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Investment in affordable housing</td>
+<td id="Statement of Net Position!C15" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">3,170,453</td>
+<td id="Statement of Net Position!D15" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E15" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">3,170,453</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A16" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:NotesReceivable</td>
+<td id="Statement of Net Position!B16" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Notes receivable</td>
+<td id="Statement of Net Position!C16" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">3,311,550</td>
+<td id="Statement of Net Position!D16" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E16" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">3,311,550</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A17" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:CapitalAssetsNotBeingDepreciated</td>
+<td id="Statement of Net Position!B17" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Nondepreciable assets</td>
+<td id="Statement of Net Position!C17" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">3,133,754</td>
+<td id="Statement of Net Position!D17" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">167,738</td>
+<td id="Statement of Net Position!E17" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">3,301,492</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A18" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:CapitalAssetsBeingDepreciatedNet</td>
+<td id="Statement of Net Position!B18" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Depreciable assets net</td>
+<td id="Statement of Net Position!C18" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">25,982,451</td>
+<td id="Statement of Net Position!D18" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">841,465</td>
+<td id="Statement of Net Position!E18" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">26,823,916</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A19" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:NoncurrentAssets</td>
+<td id="Statement of Net Position!B19" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Total Noncurrent Assets</td>
+<td id="Statement of Net Position!C19" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">35,598,208</td>
+<td id="Statement of Net Position!D19" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">1,009,203</td>
+<td id="Statement of Net Position!E19" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">36,607,411</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A20" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:Assets</td>
+<td id="Statement of Net Position!B20" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Total Assets</td>
+<td id="Statement of Net Position!C20" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt">50,371,930</td>
+<td id="Statement of Net Position!D20" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt">888,310</td>
+<td id="Statement of Net Position!E20" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt">51,260,240</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A21" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B21" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!C21" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!D21" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!E21" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A22" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B22" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">DEFERRED OUTFLOWS OF RESOURCES</td>
+<td id="Statement of Net Position!C22" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!D22" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!E22" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A23" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:DeferredOutflowsOfResourcesPension</td>
+<td id="Statement of Net Position!B23" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Deferred outflows related to pension</td>
+<td id="Statement of Net Position!C23" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">1,285,641</td>
+<td id="Statement of Net Position!D23" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E23" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">1,285,641</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A24" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:DeferredOutflowsOfResourcesOPEB</td>
+<td id="Statement of Net Position!B24" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Deferred outflows related to OPEB</td>
+<td id="Statement of Net Position!C24" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!D24" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E24" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A25" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:DeferredOutflowsOfResources</td>
+<td id="Statement of Net Position!B25" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Total Deferred Outflows of Resources</td>
+<td id="Statement of Net Position!C25" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt">1,285,641</td>
+<td id="Statement of Net Position!D25" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E25" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt">1,285,641</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A26" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B26" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!C26" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!D26" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">&nbsp;</td>
+<td id="Statement of Net Position!E26" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A27" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B27" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">LIABILITIES</td>
+<td id="Statement of Net Position!C27" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!D27" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!E27" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A28" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B28" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Current Liabilites:</td>
+<td id="Statement of Net Position!C28" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!D28" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!E28" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A29" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:AccountsPayable</td>
+<td id="Statement of Net Position!B29" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Accounts payable</td>
+<td id="Statement of Net Position!C29" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">149,907</td>
+<td id="Statement of Net Position!D29" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">2,671</td>
+<td id="Statement of Net Position!E29" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">152,578</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A30" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:DepositsHeldforOthers</td>
+<td id="Statement of Net Position!B30" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Deposits payable</td>
+<td id="Statement of Net Position!C30" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!D30" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">5,500</td>
+<td id="Statement of Net Position!E30" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">5,500</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A31" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:AccruedWagesPayable</td>
+<td id="Statement of Net Position!B31" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Accrued payroll</td>
+<td id="Statement of Net Position!C31" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">37</td>
+<td id="Statement of Net Position!D31" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E31" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">37</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A32" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:UnearnedRevenue</td>
+<td id="Statement of Net Position!B32" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Unearned revenue</td>
+<td id="Statement of Net Position!C32" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">332,166</td>
+<td id="Statement of Net Position!D32" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E32" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">332,166</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A33" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:CompensatedAbsencesPayableCurrent</td>
+<td id="Statement of Net Position!B33" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Compensated absences payable current</td>
+<td id="Statement of Net Position!C33" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">83,645</td>
+<td id="Statement of Net Position!D33" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E33" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">83,645</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A34" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:OtherCurrentLiabilities</td>
+<td id="Statement of Net Position!B34" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Other liabilities</td>
+<td id="Statement of Net Position!C34" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">74,358</td>
+<td id="Statement of Net Position!D34" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E34" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">74,358</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A35" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:CurrentLiabilities</td>
+<td id="Statement of Net Position!B35" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Total Current Liabilities</td>
+<td id="Statement of Net Position!C35" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">640,113</td>
+<td id="Statement of Net Position!D35" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">8,171</td>
+<td id="Statement of Net Position!E35" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">648,284</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A36" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B36" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Noncurrent Liabilites:</td>
+<td id="Statement of Net Position!C36" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!D36" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!E36" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A37" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:Compensatedabsencespayablenoncurrent</td>
+<td id="Statement of Net Position!B37" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Compensated absences payable non current</td>
+<td id="Statement of Net Position!C37" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">83,645</td>
+<td id="Statement of Net Position!D37" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E37" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">83,645</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A38" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:NetOPEBLiability</td>
+<td id="Statement of Net Position!B38" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Net OPEB liability</td>
+<td id="Statement of Net Position!C38" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">578,315</td>
+<td id="Statement of Net Position!D38" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E38" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">578,315</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A39" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:NetPensionLiability</td>
+<td id="Statement of Net Position!B39" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Net pension liability</td>
+<td id="Statement of Net Position!C39" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">2,759,739</td>
+<td id="Statement of Net Position!D39" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E39" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">2,759,739</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A40" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:LeasesPayable</td>
+<td id="Statement of Net Position!B40" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Lease payable</td>
+<td id="Statement of Net Position!C40" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">244,640</td>
+<td id="Statement of Net Position!D40" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E40" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">244,640</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A41" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:NoncurrentLiabilities</td>
+<td id="Statement of Net Position!B41" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Total Noncurrent Liabilities</td>
+<td id="Statement of Net Position!C41" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">3,666,339</td>
+<td id="Statement of Net Position!D41" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E41" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">3,666,339</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A42" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:Liabilities</td>
+<td id="Statement of Net Position!B42" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Total Liabilities</td>
+<td id="Statement of Net Position!C42" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt">4,306,452</td>
+<td id="Statement of Net Position!D42" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt">8,171</td>
+<td id="Statement of Net Position!E42" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt">4,314,623</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A43" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B43" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!C43" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!D43" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!E43" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A44" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B44" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">DEFERRED INFLOWS OF RESOURCES</td>
+<td id="Statement of Net Position!C44" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!D44" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!E44" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A45" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:DeferredInflowsOfResourcesPension</td>
+<td id="Statement of Net Position!B45" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Deferred inflows related to pension</td>
+<td id="Statement of Net Position!C45" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">2,471,384</td>
+<td id="Statement of Net Position!D45" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E45" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">2,471,384</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A46" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:DeferredInflowsOfResourcesOPEBItems</td>
+<td id="Statement of Net Position!B46" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Deferred inflows related to OPEB</td>
+<td id="Statement of Net Position!C46" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!D46" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E46" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A47" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:DeferredInflowsOfResources</td>
+<td id="Statement of Net Position!B47" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Total Deferred Inflows of Resources</td>
+<td id="Statement of Net Position!C47" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt">2,471,384</td>
+<td id="Statement of Net Position!D47" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E47" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt">2,471,384</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A48" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B48" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!C48" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!D48" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!E48" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A49" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B49" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">NET POSITION</td>
+<td id="Statement of Net Position!C49" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!D49" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!E49" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A50" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:NetInvestmentInCapitalAssets</td>
+<td id="Statement of Net Position!B50" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Net investment in capital assets</td>
+<td id="Statement of Net Position!C50" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">29,116,205</td>
+<td id="Statement of Net Position!D50" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">1,009,203</td>
+<td id="Statement of Net Position!E50" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">30,125,408</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A51" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:RestrictedNetPosition</td>
+<td id="Statement of Net Position!B51" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Restricted for special projects and programs</td>
+<td id="Statement of Net Position!C51" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">9,890,048</td>
+<td id="Statement of Net Position!D51" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt;text-align: right">-</td>
+<td id="Statement of Net Position!E51" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">9,890,048</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A52" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:UnrestrictedNetPosition</td>
+<td id="Statement of Net Position!B52" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Unrestricted</td>
+<td id="Statement of Net Position!C52" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">5,873,482</td>
+<td id="Statement of Net Position!D52" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">-129,064</td>
+<td id="Statement of Net Position!E52" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">5,744,418</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A53" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">acfr:NetPosition</td>
+<td id="Statement of Net Position!B53" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">Total Net Position</td>
+<td id="Statement of Net Position!C53" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt">$44,879,735</td>
+<td id="Statement of Net Position!D53" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt">$880,139</td>
+<td id="Statement of Net Position!E53" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top-style: solid;border-top-width: 1px;font-size: 11.0px;height: 15.0pt">$45,759,874</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A54" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!B54" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!C54" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!D54" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+<td id="Statement of Net Position!E54" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">&nbsp;</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A55" style="background-color: #FFFF00;border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.0pt">&nbsp;</td>
+<td colspan="4" id="Statement of Net Position!B55" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 11.0px;height: 15.0pt">The accompanying notes are an integral part of the financial statements</td>
+</tr>
+<tr>
+<td id="Statement of Net Position!A56" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!B56" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!C56" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 12.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!D56" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+<td id="Statement of Net Position!E56" style="border-bottom: none;border-collapse: collapse;border-left: none;border-right: none;border-top: none;font-size: 10.0px;height: 15.75pt">&nbsp;</td>
+</tr>
+</table>
+    </body>
+    </html>
+    
