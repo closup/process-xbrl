@@ -49,11 +49,13 @@ def process_cell(td, sheet_name, name, context):
         row = id[(len(sheet_name)+2):]
         
         cell_id = col + row
-        content = f'{dollar}{minus}<ix:nonFraction contextRef="{context}" name="{name}" unitRef="USD" id="{cell_id}" decimals="0" format="{format}"{sign}{value}>' + \
+        id = sheet_name.replace(" ","_") + "_" + cell_id
+        content = f'{dollar}{minus}<ix:nonFraction contextRef="{context}" name="{name}" unitRef="USD" id="{id}" decimals="0" format="{format}"{sign}{value}>' + \
             outstring + '</ix:nonFraction>'
         return content
     except Exception as e:
         return None
+
 
 '''''''''''''''''''''''''''''''''
     Main code here
@@ -226,8 +228,9 @@ with open(output_file, 'w') as f:
     f.write(html_out)
     print(f"Successfully converted to {output_file}")
 # Remove temp file
-# for i in range(sheet_count):
-#     os.remove(f"temp{i}")
+for i in range(sheet_count):
+    os.remove(f"temp{i}")
+os.remove("temp")
 # Arelle functionality requires downloading and installing Arelle
 # These commands are intended to validate and display the processed xbrl file in the Javascript viewer
 # os.system('"C:\\Program Files\\Arelle\\arellecmdline" --file=D:\\xlsx2ixbrl\\ca_clayton_2022.html --plugins EdgarRenderer')
