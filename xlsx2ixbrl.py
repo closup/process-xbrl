@@ -156,7 +156,9 @@ for i in range(sheet_count):
             a = 6
         # Add text-align to all cells
         if is_valid_cell(td):
-            td['style'] = td['style'] + ';text-align:right'
+            td['style'] = td['style'] + ';text-align:right; font-size:12.5px'
+        else:
+            td['style'] = td['style'] + ';font-size:14px'
         # Calculate Column
         col = id[len(sheet_name) + 1]
         row = int(id[(len(sheet_name) + 2):])
@@ -178,6 +180,9 @@ for i in range(sheet_count):
             try:
                 ht = header_titles[col].strip().lower()
                 context_name = context_name_map[statement][ht]
+                #Fund balances at the bottom of the Statement of Revenues, Expenditures, and Changes in Fund Balances Need to Point to Instant Contexts Not Duration Contexts
+                if name=="acfr:FundBalance" and context_name and context_name[0] == 'D':
+                    context_name = "I" + context_name[1:]
             except:
                 context_name = 'I20220630'
 
@@ -223,6 +228,22 @@ html_out = html_out + '</body></html>'
 html_out = html_out.replace("&lt;", "<")
 html_out = html_out.replace("&gt;", ">")
 html_out = html_out.replace(f"{sheet_name}!", f"{sheet_name}_")
+
+#Replace some context tags to get proper cases
+html_out = html_out.replace("xbrli:startdate", "xbrli:startDate")
+html_out = html_out.replace("xbrli:enddate", "xbrli:endDate")
+
+#This needs a better implementation; just using a kludge for now
+#Fund balances at the bottom of the Statement of Revenues, Expenditures, and Changes in Fund Balances Need to Point to Instant Contexts Not Duration Contexts
+# html_out = html_out.replace('contextRef="D20220630_GeneralFundMember" name="acfr:FundBalance"','contextRef="I20220630_GeneralFundMember" name="acfr:FundBalance"')
+# html_out = html_out.replace('contextRef="D20220630_FundIdentifierDomain_Landscape" name="acfr:FundBalance"','contextRef="I20220630_FundIdentifierDomain_Landscape" name="acfr:FundBalance"')
+# html_out = html_out.replace('contextRef="D20220630_FundIdentifierDomain_Housing" name="acfr:FundBalance"','contextRef="I20220630_FundIdentifierDomain_Housing" name="acfr:FundBalance"')
+# html_out = html_out.replace('contextRef="D20220630_FundIdentifierDomain_ARPA" name="acfr:FundBalance"','contextRef="I20220630_FundIdentifierDomain_ARPA" name="acfr:FundBalance"')
+# html_out = html_out.replace('contextRef="D20220630_FundIdentifierDomain_Capital" name="acfr:FundBalance"','contextRef="I20220630_FundIdentifierDomain_Capital" name="acfr:FundBalance"')
+# html_out = html_out.replace('contextRef="D20220630_FundIdentifierDomain_Other" name="acfr:FundBalance"','contextRef="I20220630_FundIdentifierDomain_Other" name="acfr:FundBalance"')
+# html_out = html_out.replace('contextRef="D20220630_GovernmentalFundsMember" name="acfr:FundBalance"','contextRef="I20220630_GovernmentalFundsMember" name="acfr:FundBalance"')
+
+
 
 with open(output_file, 'w') as f:
     f.write(html_out)

@@ -50,14 +50,3 @@ valid_chars = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', "-", ".","$"}
 global elements_path
 elements_path = "elements.csv"
 
-# ix context
-global ix_context
-ix_context = {
-    'B': 'I20220630_GeneralFund',
-    'C': 'I20220630_District',
-    'D': 'I20220630_HousingAgency',
-    'E': 'I20220630_RescuePlanAct',
-    'F': 'I20220630_Program',
-    'G': 'I20220630_Funds',
-    'H': 'I20220630'
-}
