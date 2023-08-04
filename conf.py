@@ -52,5 +52,5 @@ elements_path = "elements.csv"
 
 # need to convert D to I, context names
 global d_to_i_contexts
-d_to_i_contexts = ["acfr:FundBalance", "acfr:CashAndCashEquivalentsPerCashFlows",
-                   "acfr:NetPositionAtBeginningOfPeriodAfterAdjustments", "acfr:NetPosition"]
+d_to_i_contexts = ["acfr:FundBalance", "acfr:NetPositionAtBeginningOfPeriodAfterAdjustments", "acfr:NetPosition"]
+##  "acfr:CashAndCashEquivalentsPerCashFlows",

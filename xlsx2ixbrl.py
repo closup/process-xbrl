@@ -23,13 +23,17 @@ def process_cell(td, sheet_name, name, context):
     try:
         outstring = td.string
         outstring_int = td.string
+        # process $
         if td.string[0] == "$":
             dollar = "$"
             outstring = td.string[1:]
             outstring_int = td.string[1:]
         else:
             dollar = ""
+        # 
         if outstring[0] == "-":
+            if len(outstring) > 1 and outstring[1] == '$':
+                outstring_int = outstring_int[1:]
             minus = "-"
             sign = ' sign="-"'
             outstring = outstring_int[1:]
@@ -135,6 +139,7 @@ while True:
 # Process sheets
 html_in = ""
 ix_header_content = ""
+ix_header_names = []
 for i in range(sheet_count):
     with open(f"temp{i}", 'r') as f:
         html = f.read()
@@ -213,7 +218,10 @@ for i in range(sheet_count):
     for header,ref in header_titles.items():
         if header and  ref and statement_scope:
             try:
-                ix_header_content += "\n" + context_ref_map[statement_scope][ref]
+                ix_name = context_name_map[statement_scope][ref]
+                if not ix_name in ix_header_names: # avoid duplicate context names
+                    ix_header_content += "\n" + context_ref_map[statement_scope][ref]
+                    ix_header_names.append(ix_name)
             except:
                 print("Invalid ix header for ", sheet_name, statement_scope, ref)
 
@@ -247,7 +255,8 @@ html_out = html_out.replace("xbrli:enddate", "xbrli:endDate")
 # html_out = html_out.replace('contextRef="D20220630_FundIdentifierDomain_Capital" name="acfr:FundBalance"','contextRef="I20220630_FundIdentifierDomain_Capital" name="acfr:FundBalance"')
 # html_out = html_out.replace('contextRef="D20220630_FundIdentifierDomain_Other" name="acfr:FundBalance"','contextRef="I20220630_FundIdentifierDomain_Other" name="acfr:FundBalance"')
 # html_out = html_out.replace('contextRef="D20220630_GovernmentalFundsMember" name="acfr:FundBalance"','contextRef="I20220630_GovernmentalFundsMember" name="acfr:FundBalance"')
-
+# html_out = html_out.replace('I20220630_FundIdentifierDomain_EndeavorHall_CF','D20220630_FundIdentifierDomain_EndeavorHall')
+# html_out = html_out.replace('I20220630_FundIdentifierDomain_InternalService_CF','D20220630_FundIdentifierDomain_InternalService')
 
 
 with open(output_file, 'w') as f:
