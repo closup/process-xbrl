@@ -98,23 +98,26 @@ for tr in soup.find_all('tr'):
         continue
 
     tds = tr.findAll('td')
-    if len(tds) == 4:
-        statement = tds[0].string.strip().lower()
-        header = tds[1].string.strip().lower()
-        name = tds[2].string.strip()
-        ref = pprint.pformat(tds[3].contents)
+    if len(tds) == 5:
+        scope = tds[0].string.strip().lower()
+        statement = tds[1].string.strip().lower()
+        header = tds[2].string.strip().lower()
+        name = tds[3].string.strip()
+        ref = pprint.pformat(tds[4].contents)
         ref_index = ref.find("<xbrli:context")
         if ref_index == -1: #critical error : invalid xbrli content
             continue
         ref = ref[ref_index:-1]
+        # calculate index
+        index = f"{scope}@{statement}"
         # Add to context name map
-        if not statement in context_name_map:
-            context_name_map[statement] = {}
-        context_name_map[statement][header] = name
+        if not index in context_name_map:
+            context_name_map[index] = {}
+        context_name_map[index][header] = name
         # Add to context ref map
-        if not statement in context_ref_map:
-            context_ref_map[statement] = {}
-        context_ref_map[statement][header] = ref
+        if not index in context_ref_map:
+            context_ref_map[index] = {}
+        context_ref_map[index][header] = ref
 
 # Read Sheets
 sheet_count = 0
@@ -144,7 +147,7 @@ for i in range(sheet_count):
     sheet_name = None
 
     name = None
-    statement = None
+    statement_scope = None
     header_row = None # row of header of the table
     header_titles = {} # dict of header titles "col" -> "title"
     for td in soup.find_all('td'):
@@ -163,9 +166,10 @@ for i in range(sheet_count):
         col = id[len(sheet_name) + 1]
         row = int(id[(len(sheet_name) + 2):])
         # Calculate Statement
+        if col + str(row) == "B2":
+            statement_scope = td.string.strip().lower()
         if col + str(row)  == "B3":
-            statement = td.string.strip().lower()
-
+            statement_scope = statement_scope + "@" + td.string.strip().lower()
         # Calculate header titles
         if row == header_row:
             header_titles[col] = td.string.strip().lower()
@@ -179,12 +183,13 @@ for i in range(sheet_count):
         elif col > 'B' and name and is_valid_cell(td):
             try:
                 ht = header_titles[col].strip().lower()
-                context_name = context_name_map[statement][ht]
+                context_name = context_name_map[statement_scope][ht]
                 #Fund balances at the bottom of the Statement of Revenues, Expenditures, and Changes in Fund Balances Need to Point to Instant Contexts Not Duration Contexts
-                if name=="acfr:FundBalance" and context_name and context_name[0] == 'D':
+                if name in conf.d_to_i_contexts and context_name and context_name[0] == 'D':
                     context_name = "I" + context_name[1:]
             except:
                 context_name = 'I20220630'
+                print(f"Invalid scope for {id}, {statement_scope}, {ht}")
 
             content = process_cell(td, sheet_name, name, context_name)
             if content:
@@ -206,11 +211,11 @@ for i in range(sheet_count):
             td['id'] = new_id
     # calculate ix_header_content
     for header,ref in header_titles.items():
-        if header and  ref and statement:
+        if header and  ref and statement_scope:
             try:
-                ix_header_content += "\n" + context_ref_map[statement][ref]
+                ix_header_content += "\n" + context_ref_map[statement_scope][ref]
             except:
-                print("No ix header for", statement, ref)
+                print("Invalid ix header for ", sheet_name, statement_scope, ref)
 
     html_in += soup.prettify("utf-8").decode("utf-8")
 # Calculate ix_header

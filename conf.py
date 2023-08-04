@@ -50,3 +50,7 @@ valid_chars = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', "-", ".","$"}
 global elements_path
 elements_path = "elements.csv"
 
+# need to convert D to I, context names
+global d_to_i_contexts
+d_to_i_contexts = ["acfr:FundBalance", "acfr:CashAndCashEquivalentsPerCashFlows",
+                   "acfr:NetPositionAtBeginningOfPeriodAfterAdjustments", "acfr:NetPosition"]
