@@ -34,7 +34,9 @@ def process_cell(td, sheet_name, name, context):
         if outstring[0] == "-":
             if len(outstring) > 1 and outstring[1] == '$':
                 outstring_int = outstring_int[1:]
-            minus = "-"
+                minus = "-$"
+            else:
+                minus = "-"
             sign = ' sign="-"'
             outstring = outstring_int[1:]
         else:
