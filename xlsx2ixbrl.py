@@ -6,6 +6,8 @@ import html
 import os
 import conf
 import argparse
+import re
+
 '''''''''''''''''''''''''''''''''
     Utility functions here
 '''''''''''''''''''''''''''''''''
@@ -116,14 +118,19 @@ for tr in soup.find_all('tr'):
         ref = ref[ref_index:-1]
         # calculate index
         index = f"{scope}@{statement}"
-        # Add to context name map
-        if not index in context_name_map:
-            context_name_map[index] = {}
-        context_name_map[index][header] = name
-        # Add to context ref map
-        if not index in context_ref_map:
-            context_ref_map[index] = {}
-        context_ref_map[index][header] = ref
+        if statement != "statement of activities": # General type context sheet
+            # Add to context name map
+            if not index in context_name_map:
+                context_name_map[index] = {}
+            context_name_map[index][header] = name
+            # Add to context ref map
+            if not index in context_ref_map:
+                context_ref_map[index] = {}
+            context_ref_map[index][header] = ref
+        else: # Special type context sheet
+            if not index in context_ref_map:
+                context_ref_map[index] = {}
+            context_ref_map[index][name] = ref
 
 # Read Sheets
 sheet_count = 0
@@ -142,6 +149,7 @@ while True:
 html_in = ""
 ix_header_content = ""
 ix_header_names = []
+special_sheet = False # special sheet eg Statement of Activities
 for i in range(sheet_count):
     with open(f"temp{i}", 'r') as f:
         html = f.read()
@@ -153,15 +161,20 @@ for i in range(sheet_count):
     soup = BeautifulSoup(html_trunc, 'html.parser')
     sheet_name = None
 
-    name = None
+    name = None # name property of context, eg:acfr:Reve...
     statement_scope = None
     header_row = None # row of header of the table
+    header_cols = [] # columns of headers 
     header_titles = {} # dict of header titles "col" -> "title"
+    context_name = None # context name: for special sheets
+    special_name_map = {} # "column" ->"context name" map
     for td in soup.find_all('td'):
         id = td['id']
         # Get sheet name
         if sheet_name is None:
             sheet_name = td['id'].split("!")[0]
+            if sheet_name == "Statement of Activities":
+                special_sheet = True
         # Add text-align to all cells
         if is_valid_cell(td):
             td['style'] = td['style'] + ';text-align:right; font-size:12.5px'
@@ -179,33 +192,52 @@ for i in range(sheet_count):
         if row == header_row:
             header_titles[col] = td.string.strip().lower()
 
-        # Process column A
-        if col == 'A':
-            name = td.string.strip()
-            if name == "XBRL Element":
+        # Calculate header row
+        content = td.string.strip()
+        if content == "XBRL Element":
+            if col == 'A':
                 header_row = row
-        # Process other columns
-        elif col > 'B' and name and is_valid_cell(td):
-            try:
-                ht = header_titles[col].strip().lower()
-                context_name = context_name_map[statement_scope][ht]
-                #Fund balances at the bottom of the Statement of Revenues, Expenditures, and Changes in Fund Balances Need to Point to Instant Contexts Not Duration Contexts
-                if name in conf.d_to_i_contexts and context_name and context_name[0] == 'D':
-                    context_name = "I" + context_name[1:]
-            except:
-                context_name = 'I20220630'
-                print(f"Invalid scope for {id}, {statement_scope}, {ht}")
+            header_cols.append(col)
 
-            content = process_cell(td, sheet_name, name, context_name)
-            if content:
-                td.string = content
+        # Calculate name
+        if header_row and row > header_row: # real data
+            if col in header_cols: # header column
+                name = content
+
+        if special_sheet: # Process special sheet
+            # Get content name
+            if re.match("[DI][0-9]{8}[A-Za-z_]*", content):#context name
+                special_name_map[col] = content
+            if name and is_valid_cell(td) and col in special_name_map:
+                if not header_row:
+                    print("No XBRL Element header")
+                    exit(0)
+                content = process_cell(td, sheet_name, name, special_name_map[col])
+                if content:
+                    td.string =content
+        else: # Process general type sheet
+            # Process data cells
+            if col > 'B' and name and is_valid_cell(td):
+                try:
+                    ht = header_titles[col].strip().lower()
+                    context_name = context_name_map[statement_scope][ht]
+                    #Fund balances at the bottom of the Statement of Revenues, Expenditures, and Changes in Fund Balances Need to Point to Instant Contexts Not Duration Contexts
+                    if name in conf.d_to_i_contexts and context_name and context_name[0] == 'D':
+                        context_name = "I" + context_name[1:]
+                except:
+                    context_name = 'I20220630'
+                    print(f"Invalid scope for {id}, {statement_scope}, {ht}")
+
+                content = process_cell(td, sheet_name, name, context_name)
+                if content:
+                    td.string = content
     
     # Remove column A
     for td in soup.find_all('td'):
         id = td['id']
         # Calculate Column
         col = id[len(sheet_name) + 1]
-        if col == 'A':
+        if col in header_cols:
             td.decompose()
 
     # Replace sheet name if contains space
@@ -214,16 +246,25 @@ for i in range(sheet_count):
             id = td['id']
             new_id = id.replace(" ", "").replace("!", "_")
             td['id'] = new_id
-    # calculate ix_header_content
-    for header,ref in header_titles.items():
-        if header and  ref and statement_scope:
-            try:
-                ix_name = context_name_map[statement_scope][ref]
-                if not ix_name in ix_header_names: # avoid duplicate context names
-                    ix_header_content += "\n" + context_ref_map[statement_scope][ref]
-                    ix_header_names.append(ix_name)
-            except:
-                print("Invalid ix header for ", sheet_name, statement_scope, ref)
+    # for special sheets
+    if special_sheet:
+        if not statement_scope in context_ref_map:
+            print(f"Invalid statement scope {statement_scope} on sheet {sheet_name} ", statement_scope)
+        for key, value in context_ref_map[statement_scope].items():
+            if not key in ix_header_names:
+                ix_header_content += "\n" + value
+                ix_header_names.append(key)
+    else: # for general sheets
+         # calculate ix_header_content
+        for header,ref in header_titles.items():
+            if header and  ref and statement_scope:
+                try:
+                    ix_name = context_name_map[statement_scope][ref]
+                    if not ix_name in ix_header_names: # avoid duplicate context names
+                        ix_header_content += "\n" + context_ref_map[statement_scope][ref]
+                        ix_header_names.append(ix_name)
+                except:
+                    print(f"Invalid ix header for {statement_scope} on sheet {sheet_name}")
 
     html_in += soup.prettify("utf-8").decode("utf-8")
 # Calculate ix_header
