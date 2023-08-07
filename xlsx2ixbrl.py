@@ -162,8 +162,6 @@ for i in range(sheet_count):
         # Get sheet name
         if sheet_name is None:
             sheet_name = td['id'].split("!")[0]
-        if "F9" in id:
-            a = 6
         # Add text-align to all cells
         if is_valid_cell(td):
             td['style'] = td['style'] + ';text-align:right; font-size:12.5px'
