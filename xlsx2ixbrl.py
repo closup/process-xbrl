@@ -20,6 +20,9 @@ def is_valid_cell(s):
 def process_cell(td, sheet_name, name, context):
     id = td['id']
     col = id[len(sheet_name) + 1]
+    # process context
+    if name in conf.d_to_i_contexts and context and context[0] == 'D':
+        context = "I" + context[1:]
     # calc context
     # context = conf.ix_context[col] if col in conf.ix_context else "I20220630"
     try:
@@ -149,7 +152,6 @@ while True:
 html_in = ""
 ix_header_content = ""
 ix_header_names = []
-special_sheet = False # special sheet eg Statement of Activities
 for i in range(sheet_count):
     with open(f"temp{i}", 'r') as f:
         html = f.read()
@@ -168,6 +170,8 @@ for i in range(sheet_count):
     header_titles = {} # dict of header titles "col" -> "title"
     context_name = None # context name: for special sheets
     special_name_map = {} # "column" ->"context name" map
+    special_sheet = False # special sheet eg Statement of Activities
+
     for td in soup.find_all('td'):
         id = td['id']
         # Get sheet name
@@ -221,9 +225,6 @@ for i in range(sheet_count):
                 try:
                     ht = header_titles[col].strip().lower()
                     context_name = context_name_map[statement_scope][ht]
-                    #Fund balances at the bottom of the Statement of Revenues, Expenditures, and Changes in Fund Balances Need to Point to Instant Contexts Not Duration Contexts
-                    if name in conf.d_to_i_contexts and context_name and context_name[0] == 'D':
-                        context_name = "I" + context_name[1:]
                 except:
                     context_name = 'I20220630'
                     print(f"Invalid scope for {id}, {statement_scope}, {ht}")
@@ -298,7 +299,6 @@ html_out = html_out.replace("xbrli:enddate", "xbrli:endDate")
 # html_out = html_out.replace('contextRef="D20220630_GovernmentalFundsMember" name="acfr:FundBalance"','contextRef="I20220630_GovernmentalFundsMember" name="acfr:FundBalance"')
 # html_out = html_out.replace('I20220630_FundIdentifierDomain_EndeavorHall_CF','D20220630_FundIdentifierDomain_EndeavorHall')
 # html_out = html_out.replace('I20220630_FundIdentifierDomain_InternalService_CF','D20220630_FundIdentifierDomain_InternalService')
-
 
 with open(output_file, 'w') as f:
     f.write(html_out)
