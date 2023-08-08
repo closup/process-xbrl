@@ -171,7 +171,7 @@ for i in range(sheet_count):
     context_name = None # context name: for special sheets
     special_name_map = {} # "column" ->"context name" map
     special_sheet = False # special sheet eg Statement of Activities
-
+    special_rows = [] # green rows
     for td in soup.find_all('td'):
         id = td['id']
         # Get sheet name
@@ -212,6 +212,8 @@ for i in range(sheet_count):
             # Get content name
             if re.match("[DI][0-9]{8}[A-Za-z_]*", content):#context name
                 special_name_map[col] = content
+                if not row in special_rows: # Remember green rowws
+                    special_rows.append(row)
             if name and is_valid_cell(td) and col in special_name_map:
                 if not header_row:
                     print("No XBRL Element header")
@@ -238,9 +240,15 @@ for i in range(sheet_count):
         id = td['id']
         # Calculate Column
         col = id[len(sheet_name) + 1]
-        if col in header_cols:
+        row = int(id[(len(sheet_name) + 2):])
+        if col in header_cols: # Remove header
             td.decompose()
-
+        if special_sheet and row in special_rows:
+            td.decompose()
+    # Remove empty rows
+    for tr in soup.find_all('tr'):
+        if len(tr.find_all('td')) == 0:
+            tr.decompose()
     # Replace sheet name if contains space
     if " " in sheet_name:
         for td in soup.find_all('td'):
