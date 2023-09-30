@@ -54,3 +54,5 @@ elements_path = "elements.csv"
 global d_to_i_contexts
 d_to_i_contexts = ["acfr:FundBalance", "acfr:NetPositionAtBeginningOfPeriodAfterAdjustments", "acfr:NetPosition"]
 ##  "acfr:CashAndCashEquivalentsPerCashFlows",
+
+PLACE_SCHEME = "https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt"

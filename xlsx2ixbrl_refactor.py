@@ -136,18 +136,24 @@ def clean_sheet(input_file):
         id_cols += ["row"]
         n_rows_orig = len(sheet_data) # num of rows before reshaping
         sheet_data = pd.melt(sheet_data, id_vars = id_cols, value_vars = val_cols, var_name = "header")
-        # look up contexts in context map
-        sheet_data["context"] = sheet_data["header"].map(context_name_map[index])
+
         # determine cells and resultant ids
         cols = [ALPHABET[i] for i in list(extra_left_cols + (sheet_data.index // n_rows_orig))]
         cells = [c + str(r) for c,r in zip(cols, sheet_data["row"])]
         sheet_data["id"] = [f'{sheet_name.replace(" ","")}_{cell}' for cell in cells]
+
+         # Delete
+        # # look up contexts in context map
+        # sheet_data["context"] = sheet_data["header"].map(context_name_map[index])
+        
+        ix_list = process_cells(sheet_data, index)
+
     return sheet_data
 
 def d_to_i(name, context):
     """
     Replace D contexts with I contexts
-    ? Unclear why we do this
+    This function should be overwritten with a lookup table
     """
     if name in conf.d_to_i_contexts and context[0] == 'D':
         return "I" + context[1:]
@@ -156,78 +162,55 @@ def d_to_i(name, context):
 def format_value(value):
     """ Make a nice looking numerica entry w/ commas etc"""
     # remove any non-numbers
-    value = re.match("([/$-/ ]*)([0123456789na]*)", str(value)).group(2)
+    value = re.match("([/$/ ]*)([0123456789na]*)", str(value)).group(2)
     if value == "":
         value = 0
-    if value == "nan":
-        return ""
     # allow for decimals
     if int(value) == float(value): 
-        value = int(value)
-    else: 
-        value = float(value)
-    # add commas
-    return '{:,}'.format(int(value))
+        return int(value)
+    return float(value)
 
-def process_cell(sheet_data):
+class IX:
+    """ object for an individual cell (ix) """
+    def __init__(self, name, id, value, index, header):
+        """ initialization function for the class """
+        self.name = name # xbrl element (row name), ex. acfr:FundBalance
+        self.id = id # id for the tab and cell, ex. StatementofNetPosition_D5
+        if value == "nan": 
+            self.value = "" # keep blank values blank (not zeros)
+        else:
+            self.value = format_value(value)
+        #self.value = '{:,}'.format(abs(value)) # use for printing only
+        self.context = context_name_map[index][header] # associated context, ex. I20220630_GovernmentalActivities
+        self.sign = '' # set sign to nothing unless value is negative
+        if value == 0:
+            self.format = 'ixt:fixed-zero' 
+        else:
+            self.format = 'ixt:num-dot-decimal' # default value format
+            if self.value < 0:
+                self.sign = 'sign = "-"'
+
+class Context:
+    """ define xbrl context object """
+    def __init__(self, id, date, place_id, dimension_member):
+        self.id = id
+        self.date = str(date).replace("-", "")
+        self.time_type = "I" # replace with lookup table
+        self.place_id = place_id # replace with a lookup function from Census
+        # TODO figure out how to determine these programatically
+        self.dimension_member = dimension_member # ie. acfr:GovernmentalActivitiesMember
+        self.axis = "acfr:TypeOfGovernmentUnitAxis"
+
+def process_cells(sheet_data, index):
     """
+    Create an IX object for each cell
     """
-    # translate D to I contexts 
-    # ? Clarify reason
-    sheet_data['context'] = sheet_data.apply(lambda x: d_to_i(x.xbrl_element, x.context), axis=1)
-    # identify negative values and strip sign
-    sheet_data["sign"] = sheet_data.apply(lambda x: re.match("^(-*)(\$*)(.*)", str(x.value)).group(1), axis = 1)
-    sheet_data['sign'].replace({'-': 'sign = "-"'}, inplace=True)
-    # format values
-    sheet_data['value'] = sheet_data['value'].map(format_value)
-    # define ixbrl format ('ixt:fixed-zero' or 'ixt:num-dot-decimal')
-    print(sheet_data['value'])
+    global IX_LIST
+    IX_LIST = []
 
-    # define dollar, minus, format, value
-    # trim unnecessary characters at the start of the value
-    # format xml
-
-    # try:
-    #     outstring = td.string
-    #     outstring_int = td.string
-    #     # process $
-    #     if td.string[0] == "$":
-    #         dollar = "$"
-    #         outstring = td.string[1:]
-    #         outstring_int = td.string[1:]
-    #     else:
-    #         dollar = ""
-    #     # 
-    #     if outstring[0] == "-":
-    #         if len(outstring) > 1 and outstring[1] == '$':
-    #             outstring_int = outstring_int[1:]
-    #             minus = "-$"
-    #         else:
-    #             minus = "-"
-    #         sign = ' sign="-"'
-    #         outstring = outstring_int[1:]
-    #     else:
-    #         minus = ""
-    #         sign = ""
-    #     if td.string == "-" or td.string == "$ -":
-    #         minus = ""
-    #         sign = ""
-    #         value = ''
-    #         # value = ' value="0"'  -- Arelle throwing error when I use this
-    #         format = 'ixt:fixed-zero'
-    #         outstring = "-"
-    #     else:
-    #         format = 'ixt:num-dot-decimal'
-    #         value = ""
-    #     row = id[(len(sheet_name)+2):]
-        
-    #     cell_id = col + row
-    #     id = sheet_name.replace(" ","_") + "_" + cell_id
-    #     content = f'{dollar}{minus}<ix:nonFraction contextRef="{context}" name="{name}" unitRef="USD" id="{id}" decimals="0" format="{format}"{sign}{value}>' + \
-    #         outstring + '</ix:nonFraction>'
-    #     return content
-    # except Exception as e:
-    #     return None
+    for index, row in sheet_data.iterrows():
+        ix = IX(row["xbrl_element"], row["id"], row["value"], index, row["header"])
+        IX_LIST.append(ix)
 
     
 

@@ -1,0 +1,15 @@
+
+<!-- Need to figure out headers here -->
+
+<table>
+    {% for ix in IX_LIST %}
+        {% if row_start %}
+        </tr>
+        <tr>
+        {% endif %}
+            <td id="{{ix.id}}" style="border-collapse:collapse; height:15.0pt; text-align:right; font-size:10px">
+            </td>
+            $<ix:nonFraction contextRef="{{ix.context}}" name="{{ix.name}}" unitRef="USD" id="{{ix.id}}" decimals="0" format="{{ix.format}}" {{ix.sign}}>{{"{:,}".format(abs(ix.value))}}</ix:nonFraction>
+    {% endfor %}
+</table>
+
