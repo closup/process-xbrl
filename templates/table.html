@@ -1,15 +1,38 @@
 
-<!-- Need to figure out headers here -->
+<!-- Need to figure out extra <td></td> at start and end -->
 
 <table>
-    {% for ix in IX_LIST %}
-        {% if row_start %}
-        </tr>
-        <tr>
-        {% endif %}
-            <td id="{{ix.id}}" style="border-collapse:collapse; height:15.0pt; text-align:right; font-size:10px">
-            </td>
-            $<ix:nonFraction contextRef="{{ix.context}}" name="{{ix.name}}" unitRef="USD" id="{{ix.id}}" decimals="0" format="{{ix.format}}" {{ix.sign}}>{{"{:,}".format(abs(ix.value))}}</ix:nonFraction>
+    <colgroup>
+     <col style="width: 400px"/>
+     <col style="width: 150px"/>
+     <col style="width: 150px"/>
+     <col style="width: 150px"/>
+     <col style="width: 150px"/>
+    </colgroup>
+    <!-- Headers (hardcoded) -->
+    <tr>
+        <th></th>
+        <th style="text-align:right">Governmental Activities</th>
+        <th style="text-align:right">Business-Type Activities</th>
+        <th style="text-align:right">Total</th>
+    {% for ix in ix_list %} 
+    {% if ix.row_start %}
+    </tr>
+    {% if ix.value == "" %} 
+    <tr style="border-top: 1px solid black;">
+    {% else %} 
+    <tr>
+    {% endif %}
+        <td id="header_{{ ix.header }}" style="height:15.0pt; text-align:left; font-size:14px">  
+            {{ ix.name }}
+        </td> 
+    {% endif %}
+        <td id="{{ ix.id }}" style="height:15.0pt; text-align:right; font-size:11px">
+            <ix:nonFraction contextRef="{{ ix.context }}" name="{{ ix.name }}" unitRef="USD" id="{{ ix.id }}" decimals="0" format="{{ ix.format }}" {{ ix.sign }}>
+                {{ ix.show_value() }}
+            </ix:nonFraction>
+        </td>
     {% endfor %}
+    </tr>
 </table>
 

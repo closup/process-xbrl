@@ -4,6 +4,25 @@
     <head>
         <title>Audited Financial Report: Inline XBRL</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <style>
+            /* Style for the table */
+            table {
+                border-collapse: collapse; /* Merge borders into a single line */
+                width: 100%;
+            }
+    
+            /* Style for the last row (horizontal line at the bottom) */
+            tr:last-child {
+                border-bottom: 1px solid black; /* Remove the bottom border for the last row */
+            }
+    
+            /* Style for table headers */
+            th {
+                border-bottom: 1px solid black; /* Add borders to table cells (optional) */
+                padding: 8px; /* Add padding for cell content (optional) */
+            }
+        </style>
     </head>
 
     <body>
@@ -13,7 +32,7 @@
                     <link:schemaRef xlink:href="https://taxonomies.xbrl.us/grip/2022/grip-all_2022.xsd" xlink:type="simple"></link:schemaRef>
                 </ix:references>
             <ix:resources>
-                {% include contexts.html %} 
+                <!--contexts go here-->
                 <xbrli:unit id="USD">
                     <xbrli:measure>iso4217:USD</xbrli:measure>
                 </xbrli:unit>
@@ -21,7 +40,7 @@
           </ix:header>
         </div>
 
-        {% include table.html %}
+        {% include 'templates/table.html' %}
 
     </body>
 </html>
