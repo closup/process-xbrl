@@ -15,7 +15,7 @@
         <th style="text-align:right">Governmental Activities</th>
         <th style="text-align:right">Business-Type Activities</th>
         <th style="text-align:right">Total</th>
-    {% for ix in ix_list %} 
+    {% for ix in sheet.data %} 
     {% if ix.row_start %}
     </tr>
     {% if ix.value == "" %} 
@@ -23,12 +23,12 @@
     {% else %} 
     <tr>
     {% endif %}
-        <td id="header_{{ ix.header }}" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_{{ ix.header }}">  
             {{ ix.name }}
         </td> 
     {% endif %}
-        <td id="{{ ix.id }}" style="height:15.0pt; text-align:right; font-size:11px">
-            <ix:nonFraction contextRef="{{ ix.context }}" name="{{ ix.name }}" unitRef="USD" id="{{ ix.id }}" decimals="0" format="{{ ix.format }}" {{ ix.sign }}>
+        <td id="{{ ix.id }}">
+            <ix:nonFraction contextRef="{{ ix.context_id }}" name="{{ ix.name }}" unitRef="USD" id="{{ ix.id }}" decimals="0" format="{{ ix.format }}" {{ ix.sign }}>
                 {{ ix.show_value() }}
             </ix:nonFraction>
         </td>

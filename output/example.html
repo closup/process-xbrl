@@ -4,46 +4,118 @@
     <head>
         <title>Audited Financial Report: Inline XBRL</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <style>
+/* Style for the table */
+table {
+    border-collapse: collapse; /* Merge borders into a single line */
+    width: 100%;
+}
 
-        <style>
-            /* Style for the table */
-            table {
-                border-collapse: collapse; /* Merge borders into a single line */
-                width: 100%;
-            }
-    
-            /* Style for the last row (horizontal line at the bottom) */
-            tr:last-child {
-                border-bottom: 1px solid black; /* Remove the bottom border for the last row */
-            }
-    
-            /* Style for table headers */
-            th {
-                border-bottom: 1px solid black; /* Add borders to table cells (optional) */
-                padding: 8px; /* Add padding for cell content (optional) */
-            }
-        </style>
+/* Style for the last row (horizontal line at the bottom) */
+tr:last-child {
+    border-bottom: 1px solid black; /* Remove the bottom border for the last row */
+}
+
+/* Style for table headers */
+th {
+    border-bottom: 1px solid black; 
+}
+
+/* Style for table cells */
+td {
+    height: 15.0pt; 
+    text-align: right; 
+    font-size: 14px
+}
+
+/* Style for row names */
+td:first-child {
+    text-align: left; 
+}
+
+/* Hide elements with the class iso4217-value */
+.iso4217-value {
+    display: none;
+}
+
+    </style>
+   
     </head>
 
     <body>
-        <div>
+        <div style="display:none">
             <ix:header>
                 <ix:references>
                     <link:schemaRef xlink:href="https://taxonomies.xbrl.us/grip/2022/grip-all_2022.xsd" xlink:type="simple"></link:schemaRef>
                 </ix:references>
             <ix:resources>
-                <!--contexts go here-->
+                <!--Start of contexts-->
+                
+                
+<xbrli:context id="I20220630_BusinessTypeActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+       
+        <xbrli:segment>
+            <!-- Column name -->
+            <xbrldi:explicitmember dimension=acfr:TypeOfGovernmentUnitAxis>acfr:BusinessTypeActiviesMember</xbrldi:explicitmember>
+        </xbrli:segment>   
+        
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>june_30,_2022</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="I20220630_GovernmentalActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+       
+        <xbrli:segment>
+            <!-- Column name -->
+            <xbrldi:explicitmember dimension=acfr:TypeOfGovernmentUnitAxis> acfr:GovernmentalActivitiesMember</xbrldi:explicitmember>
+        </xbrli:segment>   
+        
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>june_30,_2022</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="I20220630">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+       
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>june_30,_2022</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+                
                 <xbrli:unit id="USD">
                     <xbrli:measure>iso4217:USD</xbrli:measure>
                 </xbrli:unit>
             </ix:resources>
           </ix:header>
         </div>
-
+        
+        <div>
+            <!-- Header for the sheet from the Excel doc -->
+            <b><br>City Of Clayton<br>Government Wide<br>Statement Of Net Position<br>June 30, 2022</b>
+        </div>
+        <!-- Sheet cell data -->
         
 <!-- Need to figure out extra <td></td> at start and end -->
 
-<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+<table>
     <colgroup>
      <col style="width: 400px"/>
      <col style="width: 150px"/>
@@ -63,25 +135,25 @@
      
     <tr style="border-top: 1px solid black;">
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             ASSETS
         </td> 
     
-        <td id="StatementofNetPosition_C6" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C6">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="ASSETS" unitRef="USD" id="StatementofNetPosition_C6" decimals="0" format="ixt:num-dot-decimal" >
                 
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D6" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_D6">
             <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="ASSETS" unitRef="USD" id="StatementofNetPosition_D6" decimals="0" format="ixt:num-dot-decimal" >
                 
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E6" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E6">
             <ix:nonFraction contextRef="I20220630" name="ASSETS" unitRef="USD" id="StatementofNetPosition_E6" decimals="0" format="ixt:num-dot-decimal" >
                 
             </ix:nonFraction>
@@ -92,25 +164,25 @@
      
     <tr style="border-top: 1px solid black;">
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Current Assets:
         </td> 
     
-        <td id="StatementofNetPosition_C7" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C7">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Current Assets:" unitRef="USD" id="StatementofNetPosition_C7" decimals="0" format="ixt:num-dot-decimal" >
                 
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D7" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_D7">
             <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Current Assets:" unitRef="USD" id="StatementofNetPosition_D7" decimals="0" format="ixt:num-dot-decimal" >
                 
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E7" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E7">
             <ix:nonFraction contextRef="I20220630" name="Current Assets:" unitRef="USD" id="StatementofNetPosition_E7" decimals="0" format="ixt:num-dot-decimal" >
                 
             </ix:nonFraction>
@@ -121,25 +193,25 @@
      
     <tr>
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Cash and investments
         </td> 
     
-        <td id="StatementofNetPosition_C8" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C8">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Cash and investments" unitRef="USD" id="StatementofNetPosition_C8" decimals="0" format="ixt:num-dot-decimal" >
                 $ 13,441,679
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D8" style="height:15.0pt; text-align:right; font-size:11px">
-            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Cash and investments" unitRef="USD" id="StatementofNetPosition_D8" decimals="0" format="ixt:num-dot-decimal" >
+        <td id="StatementofNetPosition_D8">
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Cash and investments" unitRef="USD" id="StatementofNetPosition_D8" decimals="0" format="ixt:fixed-zero" >
                 $ -
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E8" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E8">
             <ix:nonFraction contextRef="I20220630" name="Cash and investments" unitRef="USD" id="StatementofNetPosition_E8" decimals="0" format="ixt:num-dot-decimal" >
                 $ 13,441,679
             </ix:nonFraction>
@@ -150,25 +222,25 @@
      
     <tr>
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Accounts receivable (net of allowances)
         </td> 
     
-        <td id="StatementofNetPosition_C9" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C9">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Accounts receivable (net of allowances)" unitRef="USD" id="StatementofNetPosition_C9" decimals="0" format="ixt:num-dot-decimal" >
                 1,133,315
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D9" style="height:15.0pt; text-align:right; font-size:11px">
-            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Accounts receivable (net of allowances)" unitRef="USD" id="StatementofNetPosition_D9" decimals="0" format="ixt:num-dot-decimal" >
+        <td id="StatementofNetPosition_D9">
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Accounts receivable (net of allowances)" unitRef="USD" id="StatementofNetPosition_D9" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E9" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E9">
             <ix:nonFraction contextRef="I20220630" name="Accounts receivable (net of allowances)" unitRef="USD" id="StatementofNetPosition_E9" decimals="0" format="ixt:num-dot-decimal" >
                 1,133,315
             </ix:nonFraction>
@@ -179,25 +251,25 @@
      
     <tr>
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Interest receivable
         </td> 
     
-        <td id="StatementofNetPosition_C10" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C10">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Interest receivable" unitRef="USD" id="StatementofNetPosition_C10" decimals="0" format="ixt:num-dot-decimal" >
                 25,257
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D10" style="height:15.0pt; text-align:right; font-size:11px">
-            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Interest receivable" unitRef="USD" id="StatementofNetPosition_D10" decimals="0" format="ixt:num-dot-decimal" >
+        <td id="StatementofNetPosition_D10">
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Interest receivable" unitRef="USD" id="StatementofNetPosition_D10" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E10" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E10">
             <ix:nonFraction contextRef="I20220630" name="Interest receivable" unitRef="USD" id="StatementofNetPosition_E10" decimals="0" format="ixt:num-dot-decimal" >
                 25,257
             </ix:nonFraction>
@@ -208,26 +280,26 @@
      
     <tr>
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Internal balances
         </td> 
     
-        <td id="StatementofNetPosition_C11" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C11">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Internal balances" unitRef="USD" id="StatementofNetPosition_C11" decimals="0" format="ixt:num-dot-decimal" >
                 120,893
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D11" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_D11">
             <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Internal balances" unitRef="USD" id="StatementofNetPosition_D11" decimals="0" format="ixt:num-dot-decimal" sign = "-">
                 -120,893
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E11" style="height:15.0pt; text-align:right; font-size:11px">
-            <ix:nonFraction contextRef="I20220630" name="Internal balances" unitRef="USD" id="StatementofNetPosition_E11" decimals="0" format="ixt:num-dot-decimal" >
+        <td id="StatementofNetPosition_E11">
+            <ix:nonFraction contextRef="I20220630" name="Internal balances" unitRef="USD" id="StatementofNetPosition_E11" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
         </td>
@@ -237,25 +309,25 @@
      
     <tr>
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Prepaid expenses
         </td> 
     
-        <td id="StatementofNetPosition_C12" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C12">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Prepaid expenses" unitRef="USD" id="StatementofNetPosition_C12" decimals="0" format="ixt:num-dot-decimal" >
                 52,578
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D12" style="height:15.0pt; text-align:right; font-size:11px">
-            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Prepaid expenses" unitRef="USD" id="StatementofNetPosition_D12" decimals="0" format="ixt:num-dot-decimal" >
+        <td id="StatementofNetPosition_D12">
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Prepaid expenses" unitRef="USD" id="StatementofNetPosition_D12" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E12" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E12">
             <ix:nonFraction contextRef="I20220630" name="Prepaid expenses" unitRef="USD" id="StatementofNetPosition_E12" decimals="0" format="ixt:num-dot-decimal" >
                 52,578
             </ix:nonFraction>
@@ -266,25 +338,25 @@
      
     <tr>
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Total Current Assets
         </td> 
     
-        <td id="StatementofNetPosition_C13" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C13">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Total Current Assets" unitRef="USD" id="StatementofNetPosition_C13" decimals="0" format="ixt:num-dot-decimal" >
                 14,773,722
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D13" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_D13">
             <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Total Current Assets" unitRef="USD" id="StatementofNetPosition_D13" decimals="0" format="ixt:num-dot-decimal" sign = "-">
                 -120,893
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E13" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E13">
             <ix:nonFraction contextRef="I20220630" name="Total Current Assets" unitRef="USD" id="StatementofNetPosition_E13" decimals="0" format="ixt:num-dot-decimal" >
                 14,652,829
             </ix:nonFraction>
@@ -295,25 +367,25 @@
      
     <tr style="border-top: 1px solid black;">
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Noncurrent Assets:
         </td> 
     
-        <td id="StatementofNetPosition_C14" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C14">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Noncurrent Assets:" unitRef="USD" id="StatementofNetPosition_C14" decimals="0" format="ixt:num-dot-decimal" >
                 
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D14" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_D14">
             <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Noncurrent Assets:" unitRef="USD" id="StatementofNetPosition_D14" decimals="0" format="ixt:num-dot-decimal" >
                 
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E14" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E14">
             <ix:nonFraction contextRef="I20220630" name="Noncurrent Assets:" unitRef="USD" id="StatementofNetPosition_E14" decimals="0" format="ixt:num-dot-decimal" >
                 
             </ix:nonFraction>
@@ -324,25 +396,25 @@
      
     <tr>
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Investment in affordable housing
         </td> 
     
-        <td id="StatementofNetPosition_C15" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C15">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Investment in affordable housing" unitRef="USD" id="StatementofNetPosition_C15" decimals="0" format="ixt:num-dot-decimal" >
                 3,170,453
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D15" style="height:15.0pt; text-align:right; font-size:11px">
-            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Investment in affordable housing" unitRef="USD" id="StatementofNetPosition_D15" decimals="0" format="ixt:num-dot-decimal" >
+        <td id="StatementofNetPosition_D15">
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Investment in affordable housing" unitRef="USD" id="StatementofNetPosition_D15" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E15" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E15">
             <ix:nonFraction contextRef="I20220630" name="Investment in affordable housing" unitRef="USD" id="StatementofNetPosition_E15" decimals="0" format="ixt:num-dot-decimal" >
                 3,170,453
             </ix:nonFraction>
@@ -353,25 +425,25 @@
      
     <tr>
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Notes receivable
         </td> 
     
-        <td id="StatementofNetPosition_C16" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C16">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Notes receivable" unitRef="USD" id="StatementofNetPosition_C16" decimals="0" format="ixt:num-dot-decimal" >
                 3,311,550
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D16" style="height:15.0pt; text-align:right; font-size:11px">
-            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Notes receivable" unitRef="USD" id="StatementofNetPosition_D16" decimals="0" format="ixt:num-dot-decimal" >
+        <td id="StatementofNetPosition_D16">
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Notes receivable" unitRef="USD" id="StatementofNetPosition_D16" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E16" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E16">
             <ix:nonFraction contextRef="I20220630" name="Notes receivable" unitRef="USD" id="StatementofNetPosition_E16" decimals="0" format="ixt:num-dot-decimal" >
                 3,311,550
             </ix:nonFraction>
@@ -382,25 +454,25 @@
      
     <tr>
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Nondepreciable assets
         </td> 
     
-        <td id="StatementofNetPosition_C17" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C17">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Nondepreciable assets" unitRef="USD" id="StatementofNetPosition_C17" decimals="0" format="ixt:num-dot-decimal" >
                 3,133,754
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D17" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_D17">
             <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Nondepreciable assets" unitRef="USD" id="StatementofNetPosition_D17" decimals="0" format="ixt:num-dot-decimal" >
                 167,738
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E17" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E17">
             <ix:nonFraction contextRef="I20220630" name="Nondepreciable assets" unitRef="USD" id="StatementofNetPosition_E17" decimals="0" format="ixt:num-dot-decimal" >
                 3,301,492
             </ix:nonFraction>
@@ -411,25 +483,25 @@
      
     <tr>
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Depreciable assets net
         </td> 
     
-        <td id="StatementofNetPosition_C18" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C18">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Depreciable assets net" unitRef="USD" id="StatementofNetPosition_C18" decimals="0" format="ixt:num-dot-decimal" >
                 25,982,451
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D18" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_D18">
             <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Depreciable assets net" unitRef="USD" id="StatementofNetPosition_D18" decimals="0" format="ixt:num-dot-decimal" >
                 841,465
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E18" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E18">
             <ix:nonFraction contextRef="I20220630" name="Depreciable assets net" unitRef="USD" id="StatementofNetPosition_E18" decimals="0" format="ixt:num-dot-decimal" >
                 26,823,916
             </ix:nonFraction>
@@ -440,25 +512,25 @@
      
     <tr>
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Total Noncurrent Assets
         </td> 
     
-        <td id="StatementofNetPosition_C19" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C19">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Total Noncurrent Assets" unitRef="USD" id="StatementofNetPosition_C19" decimals="0" format="ixt:num-dot-decimal" >
                 35,598,208
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D19" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_D19">
             <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Total Noncurrent Assets" unitRef="USD" id="StatementofNetPosition_D19" decimals="0" format="ixt:num-dot-decimal" >
                 1,009,203
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E19" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E19">
             <ix:nonFraction contextRef="I20220630" name="Total Noncurrent Assets" unitRef="USD" id="StatementofNetPosition_E19" decimals="0" format="ixt:num-dot-decimal" >
                 36,607,411
             </ix:nonFraction>
@@ -469,25 +541,25 @@
      
     <tr>
     
-        <td id="header_" style="height:15.0pt; text-align:left; font-size:14px">  
+        <td id="header_">  
             Total Assets
         </td> 
     
-        <td id="StatementofNetPosition_C20" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_C20">
             <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="Total Assets" unitRef="USD" id="StatementofNetPosition_C20" decimals="0" format="ixt:num-dot-decimal" >
                 50,371,930
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_D20" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_D20">
             <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="Total Assets" unitRef="USD" id="StatementofNetPosition_D20" decimals="0" format="ixt:num-dot-decimal" >
                 888,310
             </ix:nonFraction>
         </td>
      
     
-        <td id="StatementofNetPosition_E20" style="height:15.0pt; text-align:right; font-size:11px">
+        <td id="StatementofNetPosition_E20">
             <ix:nonFraction contextRef="I20220630" name="Total Assets" unitRef="USD" id="StatementofNetPosition_E20" decimals="0" format="ixt:num-dot-decimal" >
                 51,260,240
             </ix:nonFraction>
@@ -496,6 +568,7 @@
     </tr>
 </table>
 
+        
 
     </body>
 </html>

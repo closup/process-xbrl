@@ -4,43 +4,70 @@
     <head>
         <title>Audited Financial Report: Inline XBRL</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <style>
+/* Style for the table */
+table {
+    border-collapse: collapse; /* Merge borders into a single line */
+    width: 100%;
+}
 
-        <style>
-            /* Style for the table */
-            table {
-                border-collapse: collapse; /* Merge borders into a single line */
-                width: 100%;
-            }
-    
-            /* Style for the last row (horizontal line at the bottom) */
-            tr:last-child {
-                border-bottom: 1px solid black; /* Remove the bottom border for the last row */
-            }
-    
-            /* Style for table headers */
-            th {
-                border-bottom: 1px solid black; /* Add borders to table cells (optional) */
-                padding: 8px; /* Add padding for cell content (optional) */
-            }
-        </style>
+/* Style for the last row (horizontal line at the bottom) */
+tr:last-child {
+    border-bottom: 1px solid black; /* Remove the bottom border for the last row */
+}
+
+/* Style for table headers */
+th {
+    border-bottom: 1px solid black; 
+}
+
+/* Style for table cells */
+td {
+    height: 15.0pt; 
+    text-align: right; 
+    font-size: 14px
+}
+
+/* Style for row names */
+td:first-child {
+    text-align: left; 
+}
+
+/* Hide elements with the class iso4217-value */
+.iso4217-value {
+    display: none;
+}
+
+    </style>
+   
     </head>
 
     <body>
-        <div>
+        <div style="display:none">
             <ix:header>
                 <ix:references>
                     <link:schemaRef xlink:href="https://taxonomies.xbrl.us/grip/2022/grip-all_2022.xsd" xlink:type="simple"></link:schemaRef>
                 </ix:references>
             <ix:resources>
-                <!--contexts go here-->
+                <!--Start of contexts-->
+                {% for sheet in sheet_list %}
+                {% include 'templates/contexts.html' %}
+                {% endfor %}
                 <xbrli:unit id="USD">
                     <xbrli:measure>iso4217:USD</xbrli:measure>
                 </xbrli:unit>
             </ix:resources>
           </ix:header>
         </div>
-
+        {% for sheet in sheet_list %}
+        <div>
+            <!-- Header for the sheet from the Excel doc -->
+            <b>{{ sheet.header() }}</b>
+        </div>
+        <!-- Sheet cell data -->
         {% include 'templates/table.html' %}
+        {% endfor %}
 
     </body>
 </html>

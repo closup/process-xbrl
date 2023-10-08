@@ -1,17 +1,23 @@
 """
 A script to convert an arbitrary Excel budget into XBRL format.
 
-Last updated: September 2023, K. Wheelan
+Last updated: October 2023, K. Wheelan
 
 TODO:
+NEXT ISSUE:
 - replace contexts sheet with a dictionary w just relevant info (or sheet)
-- figure out contexts objects
 - replace contexts maps? -- replace with elements.xlsx?
+
+CODE QUALITY:
 - split functions into modules
 - add all docstrings
 - fix overflowing lines
-- add header to html docs
-- get base html to work
+
+IMMEDIATE:
+- Create separate css document --> not working right
+- Sheet object to supercede ix_list and Header; containing header and all ixs, and column names,
+also n_header_lines, etc
+also a set of contexts
 """
 
 # =============================================================
@@ -26,6 +32,7 @@ from typing import * # to specify funtion inputs and outputs
 
 from utils.IX import IX
 from utils.Context import Context
+from utils.Sheet import Sheet
 from utils.constants import * #all global variables
 from utils.helper_functions import clean
 
@@ -79,87 +86,22 @@ def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
         else:
             context_name_map[index][header] = name
     return(context_name_map)
-            
-def process_header(sheet : pd.core.frame.DataFrame) -> Tuple[int, str]:
-        """
-        Function to extract excel header data and clean sheet
-        """
-        # read header data
-        n_header_lines = sheet[sheet.columns[-1]].first_valid_index()
-        #### HARDCODING ####
-        scope = clean(sheet["City of Clayton"][0])
-        statement = clean(sheet["City of Clayton"][1])
-        return n_header_lines, f"{scope}@{statement}"
 
-def clean_sheet(input_file : str) -> Tuple[pd.core.frame.DataFrame, str]:
-    """
-    Function to read budget excel sheet and match contexts
 
-    Input:
-    - input_file (str) : where to look for the excel financial statement
-
-    Output
-    - sheet_data (pandas df) : Cleaned excel data
-    - index (str) : scope@statment (ex. TODO )
-    """   
-    input_xl = pd.ExcelFile(input_file)
-    for sheet_name in input_xl.sheet_names:
-        # read in one sheet of the excel doc
-        sheet_data = pd.read_excel(input_xl, sheet_name=sheet_name)        
-        
-        # read header data, remove header, and reassign column names
-        n_header_lines, scope_statement = process_header(sheet_data)
-        sheet_data.columns = sheet_data.iloc[n_header_lines].apply(clean)
-        sheet_data = sheet_data.drop(list(range(n_header_lines + 1)))
-        
-        # add an index for the original row number (# dropped rows + row # - 1 header row)
-        sheet_data["row"] = list(n_header_lines + sheet_data.index - 1)
-       
-        # reshape long for ease
-        extra_left_cols = 2  # HARDCODING # 1 for xbrl element + 1 for row labels
-        id_cols = list(sheet_data.columns[:extra_left_cols])
-        val_cols = list(sheet_data.columns[extra_left_cols:])
-        id_cols += ["row"]
-        n_rows_orig = len(sheet_data) # num of rows before reshaping
-        sheet_data = pd.melt(sheet_data, id_vars = id_cols, value_vars = val_cols, var_name = "header")
-        
-        # determine cells and resultant ids
-        cols = [ALPHABET[i] for i in list(extra_left_cols + (sheet_data.index // n_rows_orig))]
-        sheet_data['col'] = cols
-        cells = [c + str(r) for c,r in zip(cols, sheet_data["row"])]
-        sheet_data["id"] = [f'{sheet_name.replace(" ","")}_{cell}' for cell in cells]
-        # set up to create header in the html table -- True if first row
-        sheet_data["row_start"] = [(r == min(sheet_data["row"])) for r in sheet_data["row"]]
-    return sheet_data, scope_statement
-
-def process_cells(input_file : str) -> List[IX]:
-    """
-    Create an IX object for each cell
-    """
-    ix_list = []
-    df, scope_statement = clean_sheet(input_file)
-    # sort the sheet by row, then column for easy html parsing
-    df = df.sort_values(by=['row', 'col'])
-    for i, row in df.iterrows():
-        ix = IX(row["nan"], row["xbrl_element"], row["id"], row["value"], 
-                scope_statement, row["header"], context_name_map)
-        ix_list.append(ix)
-    return(ix_list)
-
-def process_contexts(ix_list : List[IX]) -> Set[Context]:
-    """
-    Create a set of Context objects; one for each used context
-    in the list of cell data with IXBRL tags
-    """
-    return({})
-
-def write_final_html(ix_list : List[IX], output_file : str):
+def write_html(input_xl : str,
+               output_file : str,
+               context_name_map : Dict[str, Dict[str, str]]):
     """ Docstring """
-    # Create a Jinja2 environment
+    # iterate through sheets, saving Sheet() objects
+    input_xl = pd.ExcelFile(input_file)
+    sheet_list = [Sheet(input_file, sheet_name, context_name_map) for sheet_name in input_xl.sheet_names]
+    
+    # Create a Jinja2 environment for html formating
     env = Environment(loader=FileSystemLoader('.'))
+
     # Load the template and render with vars
     template = env.get_template('templates/base.html')
-    rendered_ixbrl = template.render(ix_list = ix_list)
+    rendered_ixbrl = template.render(sheet_list = sheet_list)
 
     # Save the rendered template to output file
     with open(output_file, 'w') as write_location:
@@ -173,11 +115,4 @@ def write_final_html(ix_list : List[IX], output_file : str):
 if __name__ == "__main__":
     input_file, output_file = parse_commandline_args()
     context_name_map = parse_contexts(contexts_path)
-    ix_list = process_cells(input_file)
-    write_final_html(ix_list, output_file)
-
-
-# input_file = "example.xlsx"
-# parse_contexts(CONTEXTS_FILE)
-# print(context_name_map)
-# read_sheet(input_file)
+    write_html(input_file, output_file, context_name_map)

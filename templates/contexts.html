@@ -1,12 +1,13 @@
-{% for context in CONTEXTS %}
-    
+{% for context in sheet.contexts %}
 <xbrli:context id="{{context.id}}">
     <xbrli:entity>
-        <xbrli:identifier scheme="{{PLACE_SCHEME}}">{{context.place_id}}</xbrli:identifier>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">{{context.place_id}}</xbrli:identifier>
+       {% if context.dimension_member != None %}
         <xbrli:segment>
             <!-- Column name -->
             <xbrldi:explicitmember dimension={{context.axis}}>{{context.dimension_member}}</xbrldi:explicitmember>
         </xbrli:segment>   
+        {% endif %}
     </xbrli:entity>
     <xbrli:period>
         {% if context.time_type == "I" %}
@@ -17,5 +18,4 @@
         {% endif %} 
     </xbrli:period>
 </xbrli:context>
-
 {% endfor %}

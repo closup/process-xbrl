@@ -1,0 +1,33 @@
+body {
+    color: #000951;
+    background-color: red;
+    /* #000951; */
+  }
+
+/* Style for the table */
+table {
+    border-collapse: collapse; /* Merge borders into a single line */
+    width: 100%;
+}
+
+/* Style for the last row (horizontal line at the bottom) */
+tr:last-child {
+    border-bottom: 1px solid black; /* Remove the bottom border for the last row */
+}
+
+/* Style for table headers */
+th {
+    border-bottom: 1px solid black; 
+}
+
+/* Style for table cells */
+td {
+    height: 15.0pt; 
+    text-align: right; 
+    font-size: 14px
+}
+
+/* Style for row names */
+td:first-child {
+    text-align: left; 
+}
