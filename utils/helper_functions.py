@@ -19,7 +19,7 @@ def format_value(value):
     return float(value)
 
 def clean(text):
-    """makes lowercase and removes excess whitespace"""
+    """remove excess whitespace"""
     try:
         text = str(text)
     except: 
@@ -30,12 +30,3 @@ def print_nicely(txt):
     words = txt.replace("_", "-").split('-')  
     capitalized_words = [word.capitalize() for word in words] 
     return " ".join(capitalized_words) 
-
-# def d_to_i(name, context):
-#     """
-#     Replace D contexts with I contexts
-#     This function should be overwritten with a lookup table
-#     """
-#     if name in conf.d_to_i_contexts and context[0] == 'D':
-#         return "I" + context[1:]
-#     return context

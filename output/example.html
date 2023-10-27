@@ -56,12 +56,11 @@ td:first-child {
 <xbrli:context id="I20220630_BusinessTypeActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-       
         <xbrli:segment>
-            <!-- Column name -->
-            <xbrldi:explicitmember dimension=acfr:TypeOfGovernmentUnitAxis>acfr:BusinessTypeActiviesMember</xbrldi:explicitmember>
+            
+            <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:BusinessTypeActivitiesMember</xbrldi:explicitmember>
+            
         </xbrli:segment>   
-        
     </xbrli:entity>
     <xbrli:period>
         
@@ -73,12 +72,11 @@ td:first-child {
 <xbrli:context id="I20220630_GovernmentalActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-       
         <xbrli:segment>
-            <!-- Column name -->
-            <xbrldi:explicitmember dimension=acfr:TypeOfGovernmentUnitAxis> acfr:GovernmentalActivitiesMember</xbrldi:explicitmember>
+            
+            <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:GovernmentalActivitiesMember</xbrldi:explicitmember>
+            
         </xbrli:segment>   
-        
     </xbrli:entity>
     <xbrli:period>
         
@@ -90,7 +88,11 @@ td:first-child {
 <xbrli:context id="I20220630">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-       
+        <xbrli:segment>
+            
+            <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:TotalMember</xbrldi:explicitmember>
+            
+        </xbrli:segment>   
     </xbrli:entity>
     <xbrli:period>
         
@@ -126,9 +128,13 @@ td:first-child {
     <!-- Headers (hardcoded) -->
     <tr>
         <th></th>
+        
+        <th style="text-align:right">Business Type Activities</th>
+        
         <th style="text-align:right">Governmental Activities</th>
-        <th style="text-align:right">Business-Type Activities</th>
+        
         <th style="text-align:right">Total</th>
+        
      
     
     </tr>

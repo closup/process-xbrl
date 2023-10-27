@@ -2,12 +2,17 @@
 <xbrli:context id="{{context.id}}">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">{{context.place_id}}</xbrli:identifier>
-       {% if context.dimension_member != None %}
         <xbrli:segment>
-            <!-- Column name -->
-            <xbrldi:explicitmember dimension={{context.axis}}>{{context.dimension_member}}</xbrldi:explicitmember>
+            {% if context.memberType == "explicit" %}
+            <xbrldi:explicitmember dimension="{{context.axis}}">{{context.dimension_member}}</xbrldi:explicitmember>
+            {% elif context.memberType == "typed" %}
+            <xbrldi:typedMember dimension="{{context.axis}}">
+                <acfr:FundIdentifierDomain>
+                    {{ context.dimension_member }}
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            {% endif %}
         </xbrli:segment>   
-        {% endif %}
     </xbrli:entity>
     <xbrli:period>
         {% if context.time_type == "I" %}

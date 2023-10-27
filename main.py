@@ -12,6 +12,7 @@ CODE QUALITY:
 - split functions into modules
 - add all docstrings
 - fix overflowing lines
+- fix headers in html
 
 IMMEDIATE:
 - Create separate css document --> not working right
@@ -30,7 +31,7 @@ import sys # file paths
 from jinja2 import Environment, FileSystemLoader # html formating
 from typing import * # to specify funtion inputs and outputs
 
-from utils.IX import IX
+from utils.Cell import Cell
 from utils.Context import Context
 from utils.Sheet import Sheet
 from utils.constants import * #all global variables

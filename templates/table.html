@@ -2,34 +2,24 @@
 <!-- Need to figure out extra <td></td> at start and end -->
 
 <table>
-    <colgroup>
-     <col style="width: 400px"/>
-     <col style="width: 150px"/>
-     <col style="width: 150px"/>
-     <col style="width: 150px"/>
-     <col style="width: 150px"/>
-    </colgroup>
+
     <!-- Headers (hardcoded) -->
     <tr>
         <th></th>
-        <th style="text-align:right">Governmental Activities</th>
-        <th style="text-align:right">Business-Type Activities</th>
-        <th style="text-align:right">Total</th>
-    {% for ix in sheet.data %} 
-    {% if ix.row_start %}
+        {% for col in sheet.col_names %}
+        <th>{{ col }}</th>
+        {% endfor %}
+    {% for cell in sheet.data %} 
+    {% if cell.row_start %}
     </tr>
-    {% if ix.value == "" %} 
-    <tr style="border-top: 1px solid black;">
-    {% else %} 
-    <tr>
-    {% endif %}
-        <td id="header_{{ ix.header }}">  
-            {{ ix.name }}
+    <tr class="{{ cell.tr_class() }}">
+        <td id="header_{{ cell.header }}">  
+            {{ cell.name }}
         </td> 
     {% endif %}
-        <td id="{{ ix.id }}">
-            <ix:nonFraction contextRef="{{ ix.context_id }}" name="{{ ix.name }}" unitRef="USD" id="{{ ix.id }}" decimals="0" format="{{ ix.format }}" {{ ix.sign }}>
-                {{ ix.show_value() }}
+        <td id="{{ cell.id }}" class="{{ cell.td_class() }}">
+            <ix:nonFraction contextRef="{{ cell.context_id }}" name="{{ cell.name }}" unitRef="USD" id="{{ cell.id }}" decimals="0" format="{{ cell.format }}" {{ cell.sign }}>
+                {{ cell.show_value() }}
             </ix:nonFraction>
         </td>
     {% endfor %}

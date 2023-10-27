@@ -1,5 +1,5 @@
 from utils.Context import Context
-from utils.IX import IX
+from utils.Cell import Cell
 from utils.helper_functions import *
 import pandas as pd
 from utils.constants import *
@@ -31,13 +31,25 @@ class Sheet:
         # clean data in spreadsheet
         self.reshape_data(sheet_name)
 
+        # column names for the sheet
+        # TODO
+        self.col_names = [print_nicely(col) for col in self.df["header"] if col not in ]
+
         # Process all the cells w/ data; stored as a list of IX objects
         context_map = context_name_map[self.get_index()]
-        self.data = [IX(row, context_map) for _, row in self.df.iterrows()]
+        self.data = [Cell(row, context_map) for _, row in self.df.iterrows()]
+        # find and mark the first row of numeric data
+        i = 0
+        while self.data[i].value == "": 
+            i += 1
+        row = self.data[i].row
+        while self.data[i].row == row:
+            self.data[i].set_first_row()
+            i += 1
 
         # Process the associated contexts
         context_names = set(ix.col_name for ix in self.data)
-        self.contexts = {Context(context_map, self.date, col) for col in context_names}
+        self.contexts = {Context(context_map, self.statement, self.date, col) for col in context_names}
     
     def reshape_data(self, sheet_name : str) -> None:
         """
@@ -61,8 +73,6 @@ class Sheet:
         cells = [f'{c}{r}' for c, r in zip(self.df['col'], self.df["row"])]
         self.df["id"] = [f'{sheet_name.replace(" ", "")}_{cell}' for cell in cells]
         self.df = self.df.sort_values(by=['row', 'col'])
-
-        print(self.df)
 
     def get_index(self) -> str:
         """ generate the index used for the contexts map dictionary """
