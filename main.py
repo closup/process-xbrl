@@ -41,7 +41,7 @@ from utils.helper_functions import clean
 # Function definitions
 # =============================================================
 
-def parse_commandline_args() -> Tuple[str, str]:
+def parse_commandline_args() -> Tuple[str, str, str]:
     """
     Parses command line arguments using argparser package to
     read in input and output file names.
@@ -54,6 +54,7 @@ def parse_commandline_args() -> Tuple[str, str]:
     parser = argparse.ArgumentParser()
     parser.add_argument('--i', type=str, metavar="input_file(xlsx)", required=True, help="Input xlsx file name")
     parser.add_argument('--o', type=str, metavar="output_file(html)", help="Output html file name")
+    parser.add_argument('--f', type=str, metavar="html_formating", help="HTML formating option('color','gray', or 'None')")
     # parses commandline text and saves in the args object
     args = parser.parse_args()
     if args.i:
@@ -63,7 +64,11 @@ def parse_commandline_args() -> Tuple[str, str]:
         output_file = args.o
     else:
         output_file = input_file.split(".")[0] + ".html"
-    return(input_file, output_file)
+    if args.f:
+        format = args.f 
+    else:
+        format = None
+    return(input_file, output_file, format)
 
 def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
     """
@@ -91,7 +96,8 @@ def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
 
 def write_html(input_xl : str,
                output_file : str,
-               context_name_map : Dict[str, Dict[str, str]]):
+               context_name_map : Dict[str, Dict[str, str]],
+               format : str):
     """ Docstring """
     # iterate through sheets, saving Sheet() objects
     input_xl = pd.ExcelFile(input_file)
@@ -102,7 +108,7 @@ def write_html(input_xl : str,
 
     # Load the template and render with vars
     template = env.get_template('templates/base.html')
-    rendered_ixbrl = template.render(sheet_list = sheet_list)
+    rendered_ixbrl = template.render(sheet_list = sheet_list, format = format)
 
     # Save the rendered template to output file
     with open(output_file, 'w') as write_location:
@@ -114,6 +120,6 @@ def write_html(input_xl : str,
 # =============================================================
 
 if __name__ == "__main__":
-    input_file, output_file = parse_commandline_args()
+    input_file, output_file, format = parse_commandline_args()
     context_name_map = parse_contexts(contexts_path)
-    write_html(input_file, output_file, context_name_map)
+    write_html(input_file, output_file, context_name_map, format)
