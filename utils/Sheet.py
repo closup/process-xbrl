@@ -4,6 +4,7 @@ from utils.helper_functions import *
 import pandas as pd
 from utils.constants import *
 from typing import * # to specify funtion inputs and outputs
+from datetime import datetime # for date parsing
 
 
 class Sheet:
@@ -18,12 +19,13 @@ class Sheet:
         # read in sheet
         self.df = pd.read_excel(excel_file, sheet_name=sheet_name, header=None)
         
-        #### HARDCODING columns here ####
+        #### HARDCODING header info here ####
         self.extra_left_cols = 2
         self.city = clean(self.df.iloc[0,1])
         self.scope = clean(self.df.iloc[1,1])
         self.statement = clean(self.df.iloc[2,1])
         self.date = clean(self.df.iloc[3,1])
+        self.parse_date()
 
         # num. of lines to trim from header
         self.n_header_lines = self.df[self.df.columns[-1]].first_valid_index()
@@ -32,8 +34,8 @@ class Sheet:
         self.reshape_data(sheet_name)
 
         # column names for the sheet
-        # TODO
-        self.col_names = [print_nicely(col) for col in self.df["header"] if col not in ]
+        col_names = [col for col in self.df["header"]]
+        self.col_names = [print_nicely(col) for i, col in enumerate(col_names) if col not in col_names[:i]]
 
         # Process all the cells w/ data; stored as a list of IX objects
         context_map = context_name_map[self.get_index()]
@@ -84,3 +86,12 @@ class Sheet:
         for slot in ["city", "scope", "statement", "date"]:
             ret = ret + "<br>" + print_nicely(getattr(self, slot))
         return ret
+    
+    def parse_date(self):
+        """ Use data in spreadsheet to define period or instance + parse date """
+        if "for_the_year_ended_" in self.date:
+            self.time_type = "D"
+            self.date = str.replace(self.date, "for_the_year_ended_", "")
+        # convert date format
+        self.date = datetime.strptime(self.date, "%B_%d,_%Y")
+        self.date = self.date.strftime("%B %d, %Y")

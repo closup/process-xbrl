@@ -1,4 +1,6 @@
 from utils.helper_functions import *
+from datetime import datetime # for date parsing
+
 
 # look up period or instance by statement
 period_dict = {"statement_of_net_position" : "I",
@@ -27,7 +29,7 @@ class Context:
 
     def __init__(self, context_name_map, statement, date, col_name):
         self.id = context_name_map[col_name]
-        self.date = date.replace("-", "")
+        self.date = datetime.strptime(date, "%B %d, %Y").strftime("%Y-%m-%d")
         self.time_type = period_dict[statement] # replace with lookup table
         self.place_id = "0613882" # replace with a lookup function from Census
         if(col_name in explicit_axis_members):
