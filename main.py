@@ -81,7 +81,10 @@ def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
     except:
         sys.exit("No context file!")
     # create the index as its own column
-    contexts['index'] = contexts['Scope'] + "@" + contexts['Statement']
+    # contexts['index'] = contexts['Scope'] + "@" + contexts['Statement']
+    # editing scope here
+    # TODO: understand if this is correct
+    contexts['index'] = contexts['Statement']
     # create contexts reference dictionaries
     context_name_map = {}
     for row in range(len(contexts)):
@@ -91,6 +94,7 @@ def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
             context_name_map[index] = {header : name}
         else:
             context_name_map[index][header] = name
+    print(context_name_map)
     return(context_name_map)
 
 
@@ -113,7 +117,6 @@ def write_html(input_xl : str,
     # Save the rendered template to output file
     with open(output_file, 'w') as write_location:
         write_location.write(rendered_ixbrl)
-    print(f"Html file written to {output_file}")
 
 # =============================================================
 # Run file

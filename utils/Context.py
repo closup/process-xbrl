@@ -12,6 +12,7 @@ period_dict = {"statement_of_net_position" : "I",
 # Explicit members of axes plus their axis name
 explicit_axis_members = {"governmental_activities" : "TypeOfGovernmentUnit",
                          "business-type_activities" : "TypeOfGovernmentUnit",
+                         "component-units" : "TypeOfGovernmentUnit", 
                          "general_fund" : "GovernmentalFunds",
                          "total" : "GovernmentalFunds"}
 
@@ -37,6 +38,8 @@ class Context:
         if(col_name in explicit_axis_members):
             self.axis = f"acfr:{explicit_axis_members[col_name]}Axis"
             self.memberType = "explicit"
+            if col_name == "component_units":
+                self.dimension_member = f'acfr:{"ComponentUnitDiscretelyPresented"}Member'
             self.dimension_member = f'acfr:{print_nicely(col_name).replace(" ", "")}Member'
         else:
             self.axis = "afcr:FundIdentifierAxis"

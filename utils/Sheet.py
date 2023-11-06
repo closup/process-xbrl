@@ -78,7 +78,8 @@ class Sheet:
 
     def get_index(self) -> str:
         """ generate the index used for the contexts map dictionary """
-        return f"{self.scope}@{self.statement}"
+        # return f"{self.scope}@{self.statement}"
+        return self.statement
 
     def header(self) -> str:
         """Generate header text for the HTML rendering"""
