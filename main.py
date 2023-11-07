@@ -1,24 +1,15 @@
 """
 A script to convert an arbitrary Excel budget into XBRL format.
 
-Last updated: October 2023, K. Wheelan
+Last updated: November 2023, K. Wheelan
 
 TODO:
 NEXT ISSUE:
-- replace contexts sheet with a dictionary w just relevant info (or sheet)
 - replace contexts maps? -- replace with elements.xlsx?
 
 CODE QUALITY:
-- split functions into modules
 - add all docstrings
-- fix overflowing lines
-- fix headers in html
 
-IMMEDIATE:
-- Create separate css document --> not working right
-- Sheet object to supercede ix_list and Header; containing header and all ixs, and column names,
-also n_header_lines, etc
-also a set of contexts
 """
 
 # =============================================================
@@ -94,7 +85,6 @@ def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
             context_name_map[index] = {header : name}
         else:
             context_name_map[index][header] = name
-    print(context_name_map)
     return(context_name_map)
 
 
@@ -102,7 +92,7 @@ def write_html(input_xl : str,
                output_file : str,
                context_name_map : Dict[str, Dict[str, str]],
                format : str):
-    """ Docstring """
+    """ Create inline xbrl document and save as an html file at {output_file} location """
     # iterate through sheets, saving Sheet() objects
     input_xl = pd.ExcelFile(input_file)
     sheet_list = [Sheet(input_file, sheet_name, context_name_map) for sheet_name in input_xl.sheet_names]

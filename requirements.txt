@@ -1,22 +1,49 @@
-Babel==2.12.1
-beautifulsoup4 @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_fa78jvo_0n/croot/beautifulsoup4-split_1681493044306/work
-blinker==1.6.2
-Bottleneck @ file:///Users/cbousseau/work/recipes/ci_py311/bottleneck_1677925122241/work
-click==8.1.7
-et-xmlfile==1.1.0
-Flask==3.0.0
-itsdangerous==2.1.2
-Jinja2==3.1.2
-MarkupSafe==2.1.3
-numexpr @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_76yyu1p9jk/croot/numexpr_1683221830860/work
-numpy @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_a19y8c22jc/croot/numpy_and_numpy_base_1691091616945/work
-openpyxl==3.1.2
-packaging==23.1
-pandas @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_b9nb2vqtpu/croot/pandas_1692289331806/work
-python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
-pytz @ file:///Users/cbousseau/work/recipes/ci_py311/pytz_1677920497588/work
-six @ file:///tmp/build/80754af9/six_1644875935023/work
-soupsieve @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_cfrx9hmp3g/croot/soupsieve_1680518480034/work
-tzdata @ file:///croot/python-tzdata_1690578112552/work
-Werkzeug==3.0.0
-xlsx2html==0.4.4
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: osx-arm64
+babel=2.12.1=pypi_0
+beautifulsoup4=4.12.2=py311hca03da5_0
+blas=1.0=openblas
+blinker=1.6.2=pypi_0
+bottleneck=1.3.5=py311ha0d4635_0
+bs4=4.12.2=py38hd3eb1b0_0
+bzip2=1.0.8=h620ffc9_4
+ca-certificates=2023.08.22=hca03da5_0
+click=8.1.7=pypi_0
+et-xmlfile=1.1.0=pypi_0
+flask=3.0.0=pypi_0
+itsdangerous=2.1.2=pypi_0
+jinja2=3.1.2=pypi_0
+libcxx=14.0.6=h848a8c0_0
+libffi=3.4.4=hca03da5_0
+libgfortran=5.0.0=11_3_0_hca03da5_28
+libgfortran5=11.3.0=h009349e_28
+libopenblas=0.3.21=h269037a_0
+llvm-openmp=14.0.6=hc6e5704_0
+markupsafe=2.1.3=pypi_0
+ncurses=6.4=h313beb8_0
+numexpr=2.8.4=py311h6dc990b_1
+numpy=1.25.2=py311he598dae_0
+numpy-base=1.25.2=py311hfbfe69c_0
+openpyxl=3.1.2=pypi_0
+openssl=3.0.10=h1a28f6b_2
+packaging=23.1=pypi_0
+pandas=2.0.3=py311h7aedaa7_0
+pip=23.2.1=py311hca03da5_0
+python=3.11.4=hb885b13_0
+python-dateutil=2.8.2=pyhd3eb1b0_0
+python-tzdata=2023.3=pyhd3eb1b0_0
+pytz=2022.7=py311hca03da5_0
+readline=8.2=h1a28f6b_0
+setuptools=68.0.0=py311hca03da5_0
+six=1.16.0=pyhd3eb1b0_1
+soupsieve=2.4=py311hca03da5_0
+sqlite=3.41.2=h80987f9_0
+tk=8.6.12=hb8d0fd4_0
+typing=3.7.4.3=pypi_0
+tzdata=2023c=h04d1e81_0
+werkzeug=3.0.0=pypi_0
+wheel=0.38.4=py311hca03da5_0
+xlsx2html=0.4.4=pypi_0
+xz=5.4.2=h80987f9_0
+zlib=1.2.13=h5a0b063_0
