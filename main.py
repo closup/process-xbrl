@@ -22,9 +22,10 @@ import sys # file paths
 from jinja2 import Environment, FileSystemLoader # html formating
 from typing import * # to specify funtion inputs and outputs
 
-from utils.Cell import Cell
-from utils.Context import Context
+# from utils.Cell import Cell
+# from utils.Context import Context
 from utils.Sheet import Sheet
+from utils.Acfr import Acfr
 from utils.constants import * #all global variables
 from utils.helper_functions import clean
 
@@ -72,10 +73,7 @@ def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
     except:
         sys.exit("No context file!")
     # create the index as its own column
-    # contexts['index'] = contexts['Scope'] + "@" + contexts['Statement']
-    # editing scope here
-    # TODO: understand if this is correct
-    contexts['index'] = contexts['Statement']
+    contexts['index'] = contexts['Scope'] + "@" + contexts['Statement']
     # create contexts reference dictionaries
     context_name_map = {}
     for row in range(len(contexts)):
@@ -95,18 +93,20 @@ def write_html(input_xl : str,
     """ Create inline xbrl document and save as an html file at {output_file} location """
     # iterate through sheets, saving Sheet() objects
     input_xl = pd.ExcelFile(input_file)
-    sheet_list = [Sheet(input_file, sheet_name, context_name_map) for sheet_name in input_xl.sheet_names]
+    acfr = Acfr([Sheet(input_file, sheet_name, context_name_map) for sheet_name in input_xl.sheet_names])
     
     # Create a Jinja2 environment for html formating
     env = Environment(loader=FileSystemLoader('.'))
 
     # Load the template and render with vars
     template = env.get_template('templates/base.html')
-    rendered_ixbrl = template.render(sheet_list = sheet_list, format = format)
+    rendered_ixbrl = template.render(acfr = acfr, format = format)
 
     # Save the rendered template to output file
     with open(output_file, 'w') as write_location:
         write_location.write(rendered_ixbrl)
+
+    print("File written")
 
 # =============================================================
 # Run file
@@ -115,4 +115,5 @@ def write_html(input_xl : str,
 if __name__ == "__main__":
     input_file, output_file, format = parse_commandline_args()
     context_name_map = parse_contexts(contexts_path)
+    #print(context_name_map)
     write_html(input_file, output_file, context_name_map, format)

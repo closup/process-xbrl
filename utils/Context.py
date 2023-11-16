@@ -42,13 +42,13 @@ class Context:
                 self.dimension_member = f'acfr:{"ComponentUnitDiscretelyPresented"}Member'
             self.dimension_member = f'acfr:{print_nicely(col_name).replace(" ", "")}Member'
         else:
-            self.axis = "afcr:FundIdentifierAxis"
+            self.axis = "acfr:FundIdentifierAxis"
             self.memberType = "typed"
             self.dimension_member = print_nicely(col_name)
         
     def __eq__(self, other):
         """ Equality check """
-        return(hash(self) == hash(other))
+        return(self.id == other.id)
 
     def __hash__(self):
         return hash(self.id)
@@ -56,4 +56,7 @@ class Context:
     def view_date(self, date):
         """ format date as needed """
         return date.strftime("%Y-%m-%d")
+    
+    def __repr__(self):
+        return self.id
     

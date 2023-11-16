@@ -13,14 +13,16 @@
     {% if cell.row_start %}
     </tr>
     <tr class="{{ cell.tr_class() }}">
-        <td id="header_{{ cell.header }}">  
+        <td id="header_{{ cell.id }}">  
             {{ cell.name }}
         </td> 
     {% endif %}
         <td id="{{ cell.id }}" class="{{ cell.td_class() }}">
+            {% if cell.show_value != "" %}
             <ix:nonFraction contextRef="{{ cell.context_id }}" name="{{ cell.name }}" unitRef="USD" id="{{ cell.id }}" decimals="0" format="{{ cell.format }}" {{ cell.sign }}>
                 {{ cell.show_value() }}
             </ix:nonFraction>
+            {% endif %}
         </td>
     {% endfor %}
     </tr>

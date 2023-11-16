@@ -51,7 +51,7 @@ class Sheet:
 
         # Process the associated contexts
         context_names = set(ix.col_name for ix in self.data)
-        self.contexts = {Context(context_map, self.statement, self.date, col) for col in context_names}
+        self.contexts = [Context(context_map, self.statement, self.date, col) for col in context_names]
     
     def reshape_data(self, sheet_name : str) -> None:
         """
@@ -78,14 +78,15 @@ class Sheet:
 
     def get_index(self) -> str:
         """ generate the index used for the contexts map dictionary """
-        # return f"{self.scope}@{self.statement}"
-        return self.statement
-
+        return f"{self.scope}@{self.statement}"
+        
     def header(self) -> str:
         """Generate header text for the HTML rendering"""
         ret = ""
         for slot in ["city", "scope", "statement", "date"]:
-            ret = ret + "<br>" + print_nicely(getattr(self, slot))
+            if ret != "":
+                ret += "<br />\n"
+            ret = ret + "<b>" + print_nicely(getattr(self, slot)) + "</b>"
         return ret
     
     def parse_date(self):
