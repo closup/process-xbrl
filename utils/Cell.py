@@ -10,7 +10,7 @@ class Cell:
         self.name = row["nan"] # original row name from the spreadsheet
         if str(self.name) == "nan":
             self.name = ""
-        self.xbrl_name = row["xbrl_element"] # xbrl element (row name), ex. acfr:FundBalance
+        self.xbrl_name = str(row["xbrl_element"]).strip() # xbrl element (row name), ex. acfr:FundBalance
         self.id = row["id"] # id for the tab and cell, ex. StatementofNetPosition_D5
         self.value = utils.helper_functions.format_value(row["value"])
         self.col_name = row["header"]
@@ -39,10 +39,15 @@ class Cell:
         """
         if self.value == "":
             return ""
-        ret = '{:,}'.format(self.value)
+        ret = '{:,}'.format(abs(self.value))
         if ret == "0":
             ret = "-"
-        # Add $ if first row
+        return ret
+    
+    def prefix(self):
+        ret = ""
+        if self.value < 0:
+            ret = "-" + ret
         if self.first_row:
             ret = "$ " + ret
         return ret
@@ -65,3 +70,6 @@ class Cell:
         if "total" in self.name.lower():
             return "data_total"
         return self.tr_class()
+    
+    def __repr__(self):
+        return self.show_value()

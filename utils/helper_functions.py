@@ -30,7 +30,3 @@ def print_nicely(txt):
     words = txt.replace("_", "-").split('-')  
     capitalized_words = [word.capitalize() for word in words] 
     return " ".join(capitalized_words) 
-
-def view_date(date):
-    """ format date as needed """
-    return date.strftime("%Y-%m-%d")
