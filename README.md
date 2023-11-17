@@ -2,7 +2,7 @@
 
 ## Purpose
 
-An open-source tool to conver Excel into XBRL
+An open-source tool to convert Excel into XBRL
 
 ## To Run
 
