@@ -113,16 +113,28 @@ def write_html(input_xl : str,
 
     print("File written")
 
+def load_dependencies():
+    """ clone arelle and ixbrl viewer """
+    # Define the directories where the repositories should be
+    arelle_dir = "dependencies/arelle"
+    ixbrl_viewer_dir = "dependencies/ixbrl-viewer"
+
+    # Check if the directories exist
+    if not os.path.exists(arelle_dir):
+        subprocess.run(["git", "clone", "https://github.com/Arelle/Arelle.git", arelle_dir], check=True)
+    if not os.path.exists(ixbrl_viewer_dir):
+        subprocess.run(["git", "clone", "https://github.com/Workiva/ixbrl-viewer.git", ixbrl_viewer_dir], check=True)  
+
 def open_html(output_file : str,
               viewer_file_name : str = "ixbrl-viewer.html"):
     """ Use commandline Arelle and ixbrl viewer plug in to open in browser """
-
     viewer_filepath = os.path.join(os.path.dirname(output_file), viewer_file_name)
     viewer_filepath = os.path.realpath(viewer_filepath)
 
+    load_dependencies()
     # command to run Arelle commandline process
-    script = "/Users/katrinawheelan/Desktop/Code/CLOSUP/Apps/Arelle/arelleCmdLine.py"
-    plugins = "/Users/katrinawheelan/Desktop/Code/CLOSUP/Apps/ixbrl-viewer/iXBRLViewerPlugin"
+    script = "dependencies/arelle/arelleCmdLine.py"
+    plugins = "dependencies/ixbrl-viewer/iXBRLViewerPlugin"
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
     file_path = "../process-xbrl/output/Clayton.html"
     conda_path = "~/miniconda3/etc/profile.d/conda.sh"
