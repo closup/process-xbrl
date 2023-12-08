@@ -6,7 +6,7 @@ VENV_DIR=./xbrl_venv
 PY_SCRIPT=main.py
 
 # Parameters for the python script
-INPUT_FILE="input_files/acfrs/Clayton_acfr_simple.xlsx"
+INPUT_FILE="input_files/acfrs/Clayton_acfr_custom.xlsx"
 OUTPUT_FILE="output/Clayton.html"
 CONTEXTS_FILE="input_files/contexts.xlsx"
 FORMAT="gray"

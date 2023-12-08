@@ -105,7 +105,7 @@ def write_html(input_xl : str,
     """ Create inline xbrl document and save as an html file at {output_file} location """
     # iterate through sheets, saving Sheet() objects
     input_xl = pd.ExcelFile(input_file)
-    acfr = Acfr([Sheet(input_file, sheet_name, context_name_map) for sheet_name in input_xl.sheet_names])
+    acfr = Acfr([Sheet(input_file, sheet_name, context_name_map) for sheet_name in input_xl.sheet_names if sheet_name != "Label Dropdowns"])
     
     # Create a Jinja2 environment for html formating
     env = Environment(loader=FileSystemLoader('.'))
