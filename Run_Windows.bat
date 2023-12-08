@@ -1,5 +1,7 @@
 @echo off
 
+:: A file to download dependencies and run the python script on a Windows OS
+
 :: Specify the python version, the virtual environment directory and your python script's file
 set PYTHON_VERSION=python
 set VENV_DIR=.\xbrl_venv
