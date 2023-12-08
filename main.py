@@ -19,6 +19,7 @@ CODE QUALITY:
 import subprocess
 import sys
 import os
+import platform # to check OS
 
 import argparse # commandline parsing
 import pandas as pd # data manipulation
@@ -120,10 +121,14 @@ def load_dependencies():
     ixbrl_viewer_dir = "dependencies/ixbrl-viewer"
 
     # Check if the directories exist
+    arelle_version = "2.17.5"
+    ixbrl_viewer_version = "1.4.9"
     if not os.path.exists(arelle_dir):
         subprocess.run(["git", "clone", "https://github.com/Arelle/Arelle.git", arelle_dir], check=True)
+        subprocess.run(["git", "checkout", arelle_version], cwd=arelle_dir, check=True)
     if not os.path.exists(ixbrl_viewer_dir):
         subprocess.run(["git", "clone", "https://github.com/Workiva/ixbrl-viewer.git", ixbrl_viewer_dir], check=True)  
+        subprocess.run(["git", "checkout", arelle_version], cwd=ixbrl_viewer_version, check=True)
 
 def open_html(output_file : str,
               viewer_file_name : str = "ixbrl-viewer.html"):
@@ -137,20 +142,27 @@ def open_html(output_file : str,
     load_dependencies()
     # command to run Arelle commandline process
     # TODO -- adjust to match existing venv
+    # TODO -- fix hardcoded filepaths
     script = "dependencies/arelle/arelleCmdLine.py"
-    plugins = "dependencies/ixbrl-viewer/iXBRLViewerPlugin"
+    # replace with some root fn
+    plugins = "/Users/katrinawheelan/Desktop/Code/CLOSUP/process_xbrl/process-xbrl/dependencies/ixbrl-viewer/iXBRLViewerPlugin"
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
     file_path = "../process-xbrl/output/Clayton.html"
-    conda_path = "~/miniconda3/etc/profile.d/conda.sh"
-    env_name = "arelle"
 
-    bash_command = f"""
-    source {conda_path} && conda activate {env_name} && python3 {script} --plugins={plugins} -f {file_path}  --save-viewer {viewer_filepath} --viewer-url {viewer_url}
-    """
+    is_windows = platform.system() == 'Windows'
 
-    command = ["/bin/bash", "-c", bash_command]
+    if is_windows:
+        viewer_filepath = viewer_filepath.replace('/', '\\')  # switching between windows and unix style path
+        bash_command = f"""
+        python {script} --plugins={plugins} -f {file_path} --save-viewer {viewer_filepath} --viewer-url {viewer_url}
+        """
+        subprocess.run(["cmd.exe", "/c", bash_command], shell=True)
+    else:
+        bash_command = f"""
+        python3 {script} --plugins={plugins} -f {file_path} --save-viewer {viewer_filepath} --viewer-url {viewer_url}
+        """
+        subprocess.run(["/bin/bash", "-c", bash_command])
 
-    subprocess.run(command)
     webbrowser.open('file://' + viewer_filepath)
 
 

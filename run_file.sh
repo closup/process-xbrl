@@ -29,7 +29,7 @@ pip install -r reqs.txt
 python $PY_SCRIPT --i $INPUT_FILE --o $OUTPUT_FILE --f $FORMAT --c $CONTEXTS_FILE
 
 # render xbrl
-ARRELLE=dependencies/arelle/arelleCmdLine.py
-IXBRL_VIEWER=dependencies/ixbrl-viewer/iXBRLViewerPlugin
-VIEWER=https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js
-$PYTHON_VERSION $ARRELLE --plugins=$IXBRL_VIEWER -f $OUTPUT_FILE
+# ARRELLE=/Users/katrinawheelan/Desktop/Code/CLOSUP/process_xbrl/process-xbrl/dependencies/arelle/arelleCmdLine.py
+# IXBRL_VIEWER=/Users/katrinawheelan/Desktop/Code/CLOSUP/process_xbrl/process-xbrl/dependencies/ixbrl-viewer/iXBRLViewerPlugin
+# VIEWER=https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js
+# $PYTHON_VERSION $ARRELLE --plugins=$IXBRL_VIEWER -f $OUTPUT_FILE
