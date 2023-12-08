@@ -1,0 +1,19 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: osx-arm64
+
+# python==3.11.7
+flask==3.0.0
+jinja2==3.1.2
+openpyxl==3.1.2
+pandas==2.0.3
+pip==23.2.1
+python-dateutil==2.8.2
+setuptools==68.0.0
+
+#Arelle requirements
+lxml
+regex
+isodate
+pyparsing
+certifi

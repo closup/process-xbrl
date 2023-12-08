@@ -16,16 +16,17 @@ CODE QUALITY:
 # Dependencies
 # =============================================================
 
+import subprocess
+import sys
+import os
+
 import argparse # commandline parsing
 import pandas as pd # data manipulation
-import sys # file paths
 from jinja2 import Environment, FileSystemLoader # html formating
 from typing import * # to specify funtion inputs and outputs
 
-# for opening in ixbrl viewer
-import os
+# for opening in ixbrl viewers
 import webbrowser
-import subprocess
 
 # from utils.Cell import Cell
 # from utils.Context import Context
@@ -38,7 +39,7 @@ from utils.helper_functions import clean
 # Function definitions
 # =============================================================
 
-def parse_commandline_args() -> Tuple[str, str, str]:
+def parse_commandline_args() -> Tuple[str, str, str, str]:
     """
     Parses command line arguments using argparser package to
     read in input and output file names.
@@ -52,20 +53,18 @@ def parse_commandline_args() -> Tuple[str, str, str]:
     parser.add_argument('--i', type=str, metavar="input_file(xlsx)", required=True, help="Input xlsx file name")
     parser.add_argument('--o', type=str, metavar="output_file(html)", help="Output html file name")
     parser.add_argument('--f', type=str, metavar="html_formating", help="HTML formating option('color','gray', or 'None')")
+    parser.add_argument('--c', type=str, metavar="contexts file", help="file path to contexts file")
     # parses commandline text and saves in the args object
     args = parser.parse_args()
-    if args.i:
-        input_file = args.i
+    input_file = args.i
     # if output file is not specified, save as .html version of the input file
     if args.o:
         output_file = args.o
     else:
         output_file = input_file.split(".")[0] + ".html"
-    if args.f:
-        format = args.f 
-    else:
-        format = None
-    return(input_file, output_file, format)
+    format = args.f 
+    contexts_path = args.c
+    return(input_file, output_file, format, contexts_path)
 
 def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
     """
@@ -73,6 +72,7 @@ def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
     dictionaries for later
     """   
     # open contexts excel sheet
+    pd.read_excel(contexts_file)
     try:
         contexts = pd.read_excel(contexts_file)
     except:
@@ -127,12 +127,16 @@ def load_dependencies():
 
 def open_html(output_file : str,
               viewer_file_name : str = "ixbrl-viewer.html"):
+    
+    ### move this to bash file and convert to PC
+
     """ Use commandline Arelle and ixbrl viewer plug in to open in browser """
     viewer_filepath = os.path.join(os.path.dirname(output_file), viewer_file_name)
     viewer_filepath = os.path.realpath(viewer_filepath)
 
     load_dependencies()
     # command to run Arelle commandline process
+    # TODO -- adjust to match existing venv
     script = "dependencies/arelle/arelleCmdLine.py"
     plugins = "dependencies/ixbrl-viewer/iXBRLViewerPlugin"
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
@@ -141,7 +145,7 @@ def open_html(output_file : str,
     env_name = "arelle"
 
     bash_command = f"""
-    source {conda_path} && conda activate {env_name} && python3 {script} --plugins={plugins} -f {file_path} --save-viewer {viewer_filepath} --viewer-url {viewer_url}
+    source {conda_path} && conda activate {env_name} && python3 {script} --plugins={plugins} -f {file_path}  --save-viewer {viewer_filepath} --viewer-url {viewer_url}
     """
 
     command = ["/bin/bash", "-c", bash_command]
@@ -155,7 +159,7 @@ def open_html(output_file : str,
 # =============================================================
 
 if __name__ == "__main__":
-    input_file, output_file, format = parse_commandline_args()
+    input_file, output_file, format, contexts_path = parse_commandline_args()
     context_name_map = parse_contexts(contexts_path)
     #print(context_name_map)
     write_html(input_file, output_file, context_name_map, format)
