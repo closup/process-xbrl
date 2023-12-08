@@ -6,3 +6,6 @@ __pycache__/
 
 # Ignore Visual Studio Code settings
 .vscode/
+
+# Ignore venv files
+xbrl_venv/
