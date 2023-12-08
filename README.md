@@ -1,6 +1,6 @@
-# Read Me
 
 Last updated: December 8, 2023
+Katrina Wheelan
 
 ## Purpose
 
