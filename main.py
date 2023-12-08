@@ -1,15 +1,15 @@
 """
 A script to convert an arbitrary Excel budget into XBRL format.
 
-Last updated: November 2023, K. Wheelan
+Last updated: December 2023, K. Wheelan
 
 TODO:
 NEXT ISSUE:
 - replace contexts maps? -- replace with elements.xlsx?
+separate a setup file
 
 CODE QUALITY:
 - add all docstrings
-
 """
 
 # =============================================================
@@ -35,6 +35,12 @@ from utils.Sheet import Sheet
 from utils.Acfr import Acfr
 from utils.constants import * #all global variables
 from utils.helper_functions import clean
+
+# =============================================================
+# Constants
+# =============================================================
+
+ROOT = os.getcwd()
 
 # =============================================================
 # Function definitions
@@ -128,7 +134,7 @@ def load_dependencies():
         subprocess.run(["git", "checkout", arelle_version], cwd=arelle_dir, check=True)
     if not os.path.exists(ixbrl_viewer_dir):
         subprocess.run(["git", "clone", "https://github.com/Workiva/ixbrl-viewer.git", ixbrl_viewer_dir], check=True)  
-        subprocess.run(["git", "checkout", arelle_version], cwd=ixbrl_viewer_version, check=True)
+        subprocess.run(["git", "checkout", ixbrl_viewer_version], cwd=ixbrl_viewer_dir, check=True)
 
 def open_html(output_file : str,
               viewer_file_name : str = "ixbrl-viewer.html"):
@@ -140,27 +146,23 @@ def open_html(output_file : str,
     viewer_filepath = os.path.realpath(viewer_filepath)
 
     load_dependencies()
+
     # command to run Arelle commandline process
-    # TODO -- adjust to match existing venv
-    # TODO -- fix hardcoded filepaths
-    script = "dependencies/arelle/arelleCmdLine.py"
-    # replace with some root fn
-    plugins = "/Users/katrinawheelan/Desktop/Code/CLOSUP/process_xbrl/process-xbrl/dependencies/ixbrl-viewer/iXBRLViewerPlugin"
+    script = os.path.join("dependencies", "arelle", "arelleCmdLine.py")
+    plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
-    file_path = "../process-xbrl/output/Clayton.html"
+    file_path = os.path.join("output", "Clayton.html")
+
+    bash_command = f"""
+        python3 {script} --plugins={plugins} -f {file_path} --save-viewer {viewer_filepath} --viewer-url {viewer_url}
+        """
 
     is_windows = platform.system() == 'Windows'
 
     if is_windows:
         viewer_filepath = viewer_filepath.replace('/', '\\')  # switching between windows and unix style path
-        bash_command = f"""
-        python {script} --plugins={plugins} -f {file_path} --save-viewer {viewer_filepath} --viewer-url {viewer_url}
-        """
         subprocess.run(["cmd.exe", "/c", bash_command], shell=True)
     else:
-        bash_command = f"""
-        python3 {script} --plugins={plugins} -f {file_path} --save-viewer {viewer_filepath} --viewer-url {viewer_url}
-        """
         subprocess.run(["/bin/bash", "-c", bash_command])
 
     webbrowser.open('file://' + viewer_filepath)
@@ -173,6 +175,5 @@ def open_html(output_file : str,
 if __name__ == "__main__":
     input_file, output_file, format, contexts_path = parse_commandline_args()
     context_name_map = parse_contexts(contexts_path)
-    #print(context_name_map)
     write_html(input_file, output_file, context_name_map, format)
     open_html(output_file)

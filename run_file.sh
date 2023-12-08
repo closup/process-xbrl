@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# TODO:
-# Add the conversion bit (debug the broken plugin, make need to make the file?)
-# add the bit to open the file
-# convert to Windows language
-
 # Specify the python version, the virtual environment directory and your python script's file
 PYTHON_VERSION=python3
 VENV_DIR=./xbrl_venv
@@ -27,9 +22,3 @@ pip install -r reqs.txt
 
 # Run your python script
 python $PY_SCRIPT --i $INPUT_FILE --o $OUTPUT_FILE --f $FORMAT --c $CONTEXTS_FILE
-
-# render xbrl
-# ARRELLE=/Users/katrinawheelan/Desktop/Code/CLOSUP/process_xbrl/process-xbrl/dependencies/arelle/arelleCmdLine.py
-# IXBRL_VIEWER=/Users/katrinawheelan/Desktop/Code/CLOSUP/process_xbrl/process-xbrl/dependencies/ixbrl-viewer/iXBRLViewerPlugin
-# VIEWER=https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js
-# $PYTHON_VERSION $ARRELLE --plugins=$IXBRL_VIEWER -f $OUTPUT_FILE
