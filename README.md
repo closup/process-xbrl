@@ -25,7 +25,8 @@ An open-source tool to convert Excel into XBRL
 If running Windows:
  - open `Run_Windows.cmd`
  - adjust any of the parameters set in this file
- - run the script by either double clicking the `Run_Windows.bat` file in your file explorer or by typing `Run_Windows.bat` into your Windows command prompt and hitting enter
+ - run the script by either double clicking the `Run_Windows.cmd` file in your file explorer or by typing `Run_Windows.cmd` into your Windows command prompt and hitting enter
+ - If using Anaconda, run in Anaconda Prompt, not Anaconda Powershell
 
  If running OSX or Linux:
  - open `Run_OSX_Linux.sh`
