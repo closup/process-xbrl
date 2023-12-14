@@ -137,7 +137,7 @@ def load_dependencies():
         subprocess.run(["git", "checkout", ixbrl_viewer_version], cwd=ixbrl_viewer_dir, check=True)
 
 def open_html(output_file : str,
-              viewer_file_name : str = "ixbrl-viewer.html"):
+              viewer_file_name : str = "ixbrl-viewer_windows.html"):
     
     ### move this to bash file and convert to PC
 
@@ -154,17 +154,19 @@ def open_html(output_file : str,
     file_path = os.path.join("output", "Clayton.html")
 
     bash_command = f"""
-        python3 {script} --plugins={plugins} -f {file_path} --save-viewer {viewer_filepath} --viewer-url {viewer_url}
+        python {script} --plugins={plugins} -f {file_path} --save-viewer {viewer_filepath} --viewer-url {viewer_url}
         """
-
+    print(platform.system())
     is_windows = platform.system() == 'Windows'
 
     if is_windows:
-        viewer_filepath = viewer_filepath.replace('/', '\\')  # switching between windows and unix style path
+        #viewer_filepath = viewer_filepath.replace('/', '\\')  # switching between windows and unix style path
         subprocess.run(["cmd.exe", "/c", bash_command], shell=True)
+        print(bash_command)
     else:
         subprocess.run(["/bin/bash", "-c", bash_command])
 
+    print(viewer_filepath)
     webbrowser.open('file://' + viewer_filepath)
 
 
@@ -176,4 +178,4 @@ if __name__ == "__main__":
     input_file, output_file, format, contexts_path = parse_commandline_args()
     context_name_map = parse_contexts(contexts_path)
     write_html(input_file, output_file, context_name_map, format)
-    open_html(output_file)
+    #open_html(output_file)
