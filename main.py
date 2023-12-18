@@ -36,11 +36,25 @@ from utils.Acfr import Acfr
 from utils.constants import * #all global variables
 from utils.helper_functions import clean
 
+# flask dependencies
+from flask import Flask, request, render_template
+from werkzeug.utils import secure_filename
+import gettext, shlex
+
 # =============================================================
 # Constants
 # =============================================================
 
 ROOT = os.getcwd()
+UPLOAD_FOLDER = 'input_files/webapp_uploads' # set to your own path
+ALLOWED_EXTENSIONS = {'csv', 'xlsx', 'xls', 'tsv'}
+
+# =============================================================
+# Flask setup
+# =============================================================
+
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # =============================================================
 # Function definitions
@@ -98,7 +112,7 @@ def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
     return(context_name_map)
 
 
-def write_html(input_xl : str,
+def write_html(input_file : str,
                output_file : str,
                context_name_map : Dict[str, Dict[str, str]],
                format : str):
@@ -136,46 +150,74 @@ def load_dependencies():
         subprocess.run(["git", "clone", "https://github.com/Workiva/ixbrl-viewer.git", ixbrl_viewer_dir], check=True)  
         subprocess.run(["git", "checkout", ixbrl_viewer_version], cwd=ixbrl_viewer_dir, check=True)
 
-def open_html(output_file : str,
-              viewer_file_name : str = "ixbrl-viewer_windows.html"):
+
+def create_viewer_html(output_file : str,
+              viewer_filepath : str = "templates/ixbrl-viewer.html"):
     
-    ### move this to bash file and convert to PC
-
-    """ Use commandline Arelle and ixbrl viewer plug in to open in browser """
-    viewer_filepath = os.path.join(os.path.dirname(output_file), viewer_file_name)
-    viewer_filepath = os.path.realpath(viewer_filepath)
-
     load_dependencies()
+    viewer_filepath = os.path.join(ROOT, viewer_filepath)
 
-    # command to run Arelle commandline process
-    script = os.path.join("dependencies", "arelle", "arelleCmdLine.py")
+    # Make arelle imports possible
+    base_dir = os.path.abspath(os.path.dirname(__file__))
+    # Add the base directory to the sys.path
+    sys.path.append(base_dir)
+    # Also add the arelle.arelle directory inside dependencies 
+    arelle_dir = os.path.join(base_dir, "dependencies/arelle")
+    sys.path.append(arelle_dir)
+
+    from dependencies.arelle.arelle import CntlrCmdLine
+    from dependencies.arelle.arelle.Locale import setApplicationLocale
+
+    # command to run Arelle process
     plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
     file_path = os.path.join("output", "Clayton.html")
+    args = f"--plugins={plugins} -f {file_path} --save-viewer {viewer_filepath} --viewer-url {viewer_url}"
+    
+    args = shlex.split(args)
+    setApplicationLocale()
+    gettext.install("arelle")
+    CntlrCmdLine.parseAndRun(args)
+    return(viewer_filepath)
 
-    bash_command = f"""
-        python {script} --plugins={plugins} -f {file_path} --save-viewer {viewer_filepath} --viewer-url {viewer_url}
-        """
-    print(platform.system())
-    is_windows = platform.system() == 'Windows'
+# =============================================================
+# Flask
+# =============================================================
 
-    if is_windows:
-        #viewer_filepath = viewer_filepath.replace('/', '\\')  # switching between windows and unix style path
-        subprocess.run(["cmd.exe", "/c", bash_command], shell=True)
-        print(bash_command)
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS  
+
+@app.route("/")
+def index():
+    return render_template('upload.html')
+
+@app.route('/upload', methods=['POST'])
+def upload_file(output_file = "output/Clayton.html", format = "gray"):
+    if 'file' not in request.files:
+        return "No file"
+    
+    file = request.files['file']
+
+    if file.filename == '':
+        return 'No selected file'
+        
+    if file and allowed_file(file.filename):
+        write_html(file, output_file, context_name_map, format)
+        viewer_file_name = "viewer.html"
+        create_viewer_html(output_file, viewer_file_name)
+        return render_template(viewer_file_name)
     else:
-        subprocess.run(["/bin/bash", "-c", bash_command])
-
-    print(viewer_filepath)
-    webbrowser.open('file://' + viewer_filepath)
-
+        return 'Invalid file type'
 
 # =============================================================
 # Run file
 # =============================================================
 
 if __name__ == "__main__":
-    input_file, output_file, format, contexts_path = parse_commandline_args()
+    #input_file, output_file, format, contexts_path = parse_commandline_args()
+    contexts_path = "input_files/contexts.xlsx"
     context_name_map = parse_contexts(contexts_path)
-    write_html(input_file, output_file, context_name_map, format)
-    #open_html(output_file)
+    #create_viewer_html("output/Clayton.html")
+    app.run(debug=True)
+    #write_html(input_file, output_file, context_name_map, format)
+    
