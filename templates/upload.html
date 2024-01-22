@@ -1,10 +1,89 @@
 <!DOCTYPE html>
 <html>
-    <body>
-    <h2> Upload a file </h2>
+<head>
+<style>
+    div.segment {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        border-bottom: 1px solid #000;
+    }
+    div.segment:nth-child(4n-3) {
+    background-color: palegreen;
+    }
+
+    div.segment:nth-child(4n-2) {
+        background-color: palegoldenrod;
+    }
+
+    div.segment:nth-child(4n-1) {
+    background-color: #d8b6ba;
+}
+
+div.segment:nth-child(4n) {
+    background-color: #ADD8E6; /* LightBlue */
+}
+
+    div.segment h2 {
+        margin-right: 50px;
+    }
+    .inactive {
+        background-color: lightgray !important;
+        color: gray
+    }
+    .inactive a, .inactive button{
+        color: gray;
+        pointer-events: none;
+
+    }
+</style>
+</head>
+<body>
+
+<div class="segment">
+    <h2>1</h2>   
+    
+    <div>
+    <h3>Download ACFR Excel template</h3>
+    <a href="{{ url_for('static', filename='input_files/acfrs/example_template.xlsx') }}" download="ACFR_template.xlsx">
+        <button>Download</button>
+    </a>
+    </div>
+</div>
+
+<div class="segment">
+    <h2>2</h2>
+    <div>
+        <h3>Upload complete ACFR</h3>
         <form action="/upload" method="POST" enctype="multipart/form-data">
             <input type="file" name="file">
             <input type="submit">
         </form>
-    </body>
+    </div>
+        
+</div>
+
+<div class="segment {{ active }}">
+    <h2>3</h2>
+    <div>
+        <h3>Download XBRL</h3>
+        <a href="{{ url_for('static', filename='output/output.html') }}" download="converted_xbrl.html">
+            <button>Click to download XBRL</button>
+        </a>
+    </div>
+</div>
+
+<div class="segment {{ active }}">
+    <h2>4</h2>
+    <div>
+        <h3>View XBRL</h3>
+        <a href="/viewer">
+            <button>Click to view in XBRL viewer</button>
+        </a>
+    </div>
+</div>
+
+
+</body>
 </html>
+    

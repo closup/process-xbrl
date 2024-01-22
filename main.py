@@ -46,7 +46,7 @@ import gettext, shlex
 # =============================================================
 
 ROOT = os.getcwd()
-UPLOAD_FOLDER = 'input_files/webapp_uploads' # set to your own path
+UPLOAD_FOLDER = 'static/input_files/webapp_uploads' # set to your own path
 ALLOWED_EXTENSIONS = {'csv', 'xlsx', 'xls', 'tsv'}
 
 # =============================================================
@@ -152,7 +152,12 @@ def load_dependencies():
 
 
 def create_viewer_html(output_file : str,
-              viewer_filepath : str = "templates/ixbrl-viewer.html"):
+                       viewer_filepath : str = "ixbrl-viewer.html"):
+
+    # This is very slow
+    # TODO Speed up
+    # Maybe it's downloading the dependencies each time?
+    # TODO add a javascript progress wheel
     
     load_dependencies()
     viewer_filepath = os.path.join(ROOT, viewer_filepath)
@@ -171,13 +176,14 @@ def create_viewer_html(output_file : str,
     # command to run Arelle process
     plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
-    file_path = os.path.join("output", "Clayton.html")
-    args = f"--plugins={plugins} -f {file_path} --save-viewer {viewer_filepath} --viewer-url {viewer_url}"
+    viewer_filepath = os.path.join("templates", viewer_filepath)
+    args = f"--plugins={plugins} -f {output_file} --save-viewer {viewer_filepath} --viewer-url {viewer_url}"
     
     args = shlex.split(args)
     setApplicationLocale()
     gettext.install("arelle")
     CntlrCmdLine.parseAndRun(args)
+    print("created html")
     return(viewer_filepath)
 
 # =============================================================
@@ -188,11 +194,16 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS  
 
 @app.route("/")
-def index():
-    return render_template('upload.html')
+def index(active = "inactive"):
+    return render_template('upload.html', active = active)
+
+@app.route('/viewer')
+def view(viewer_file_name = "ixbrl-viewer.html"):
+    return render_template(viewer_file_name)
+
 
 @app.route('/upload', methods=['POST'])
-def upload_file(output_file = "output/Clayton.html", format = "gray"):
+def upload_file(output_file = "static/output/output.html", format = "gray"):
     if 'file' not in request.files:
         return "No file"
     
@@ -205,7 +216,8 @@ def upload_file(output_file = "output/Clayton.html", format = "gray"):
         write_html(file, output_file, context_name_map, format)
         viewer_file_name = "viewer.html"
         create_viewer_html(output_file, viewer_file_name)
-        return render_template(viewer_file_name)
+        return index(active = "")
+        #return render_template(viewer_file_name)
     else:
         return 'Invalid file type'
 
@@ -214,10 +226,7 @@ def upload_file(output_file = "output/Clayton.html", format = "gray"):
 # =============================================================
 
 if __name__ == "__main__":
-    #input_file, output_file, format, contexts_path = parse_commandline_args()
-    contexts_path = "input_files/contexts.xlsx"
+    contexts_path = "static/input_files/contexts.xlsx"
     context_name_map = parse_contexts(contexts_path)
-    #create_viewer_html("output/Clayton.html")
     app.run(debug=True)
-    #write_html(input_file, output_file, context_name_map, format)
     

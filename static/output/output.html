@@ -1,0 +1,1617 @@
+<?xml version="1.0" ?>
+<html xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:ixt="http://www.xbrl.org/inlineXBRL/transformation/2022-02-16" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:iso4217="http://www.xbrl.org/2003/iso4217" xmlns:ix="http://www.xbrl.org/2013/inlineXBRL" xmlns:acfr="http://taxonomies.xbrl.us/grip/2022/acfr" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xbrli="http://www.xbrl.org/2003/instance" xml:lang="en-US">    
+    <head>
+        <title>Audited Financial Report: Inline XBRL</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+
+    div, table {
+        margin: 10px;
+    }
+
+    /* Style for the table */
+    table {
+        border-collapse: collapse; /* Merge borders into a single line */
+        width: 98%;
+    }
+
+    /* Style for the last row (horizontal line at the bottom) */
+    tr:last-child {
+        border-bottom: 1px solid black; /* Remove the bottom border for the last row */
+    }
+
+    /* Style for table headers */
+    th {
+        border-bottom: 1px solid black; 
+        text-align:right
+    }
+
+    /* Style for table cells */
+    td {
+        height: 15.0pt; 
+        text-align: right; 
+        font-size: 14px;
+        margin: 10px;
+    }
+
+    /* Style for row names */
+    td:first-child {
+        text-align: left; 
+    }
+
+    /* total column width */
+    th:last-child, td:last-child {
+        min-width: 120px;
+        width: auto; /* Allow the width to adjust based on content */
+    }
+
+    .section_header, .subsection_header {
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black;
+    }
+
+    /* Style for row headers */
+    .section_header {    
+        font-weight: bold;
+    }
+
+    .total {
+        font-weight: bold;
+    }
+
+    .empty_row {
+        background-color: none;
+        border-top: 1px solid black; 
+    }
+
+    .data_total {
+        border-top: 1px solid black; 
+    }
+
+    /* Optional colors */
+    
+
+    /* Optional grayscale */
+    
+    .section_header {    
+        background-color: #AAAAAA;
+    }
+
+    .subsection_header {
+        background-color: #CCCCCC
+    }
+
+    .row, .total, .data_total {
+        background-color: #EEEEEE;
+    }
+
+    
+   
+    /* Hide elements with the class iso4217-value */
+    .iso4217-value {
+        display: none;
+    }
+</style>
+    </head>
+
+    <body>
+        <div style="display:none">
+            <ix:header>
+                <ix:references>
+                    <link:schemaRef xlink:href="http://taxonomies.xbrl.us/grip/2022/grip-all_2022.xsd" xlink:type="simple"></link:schemaRef>
+                </ix:references>
+            <ix:resources>
+                <!--Start of contexts-->
+                
+<xbrli:context id="I20220630_GovernmentalActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:GovernmentalActivitiesMember</xbrldi:explicitmember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="I20220630">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:TotalMember</xbrldi:explicitmember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="I20220630_BusinessTypeActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:BusinessTypeActivitiesMember</xbrldi:explicitmember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+                <xbrli:unit id="USD">
+                    <xbrli:measure>iso4217:USD</xbrli:measure>
+                </xbrli:unit>
+            </ix:resources>
+          </ix:header>
+        </div>
+        
+        <div>
+            <!-- Header for the sheet from the Excel doc -->
+            <b>City Of Clayton</b><br />
+<b>Government Wide</b><br />
+<b>Statement Of Net Position</b><br />
+<b>June 30, 2022</b>
+        </div>
+        <!-- Sheet cell data -->
+        
+<table>
+
+    <!-- Headers (hardcoded) -->
+    <tr>
+        <th></th>
+        
+        <th>Governmental Activities</th>
+        
+        <th>Business Type Activities</th>
+        
+        <th>Total</th>
+        
+     
+    
+    </tr>
+    <tr class="section_header">
+        <td id="header_StatementofNetPosition_C6">  
+            ASSETS
+        </td> 
+    
+    <td id="StatementofNetPosition_C6" class="section_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D6" class="section_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E6" class="section_header">
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="subsection_header">
+        <td id="header_StatementofNetPosition_C7">  
+            Current Assets:
+        </td> 
+    
+    <td id="StatementofNetPosition_C7" class="subsection_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D7" class="subsection_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E7" class="subsection_header">
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C8">  
+            Cash And Cash Equivalents And Investments
+        </td> 
+    
+    <td id="StatementofNetPosition_C8" class="row">
+            
+            $ <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:CashAndCashEquivalentsAndInvestments" unitRef="USD" id="StatementofNetPosition_C8" decimals="0" format="ixt:num-dot-decimal" >
+                13,441,679
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D8" class="row">
+            
+            $ <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:CashAndCashEquivalentsAndInvestments" unitRef="USD" id="StatementofNetPosition_D8" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E8" class="row">
+            
+            $ <ix:nonFraction contextRef="I20220630" name="acfr:CashAndCashEquivalentsAndInvestments" unitRef="USD" id="StatementofNetPosition_E8" decimals="0" format="ixt:num-dot-decimal" >
+                13,441,679
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C9">  
+            Accounts Receivable Net Of Allowance
+        </td> 
+    
+    <td id="StatementofNetPosition_C9" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:AccountsReceivableNetOfAllowance" unitRef="USD" id="StatementofNetPosition_C9" decimals="0" format="ixt:num-dot-decimal" >
+                1,133,315
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D9" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:AccountsReceivableNetOfAllowance" unitRef="USD" id="StatementofNetPosition_D9" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E9" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:AccountsReceivableNetOfAllowance" unitRef="USD" id="StatementofNetPosition_E9" decimals="0" format="ixt:num-dot-decimal" >
+                1,133,315
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C10">  
+            Accrued Interest Receivable
+        </td> 
+    
+    <td id="StatementofNetPosition_C10" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:AccruedInterestReceivable" unitRef="USD" id="StatementofNetPosition_C10" decimals="0" format="ixt:num-dot-decimal" >
+                25,257
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D10" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:AccruedInterestReceivable" unitRef="USD" id="StatementofNetPosition_D10" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E10" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:AccruedInterestReceivable" unitRef="USD" id="StatementofNetPosition_E10" decimals="0" format="ixt:num-dot-decimal" >
+                25,257
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C11">  
+            Internal Balance
+        </td> 
+    
+    <td id="StatementofNetPosition_C11" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:InternalBalance" unitRef="USD" id="StatementofNetPosition_C11" decimals="0" format="ixt:num-dot-decimal" >
+                120,893
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D11" class="row">
+            
+            -<ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:InternalBalance" unitRef="USD" id="StatementofNetPosition_D11" decimals="0" format="ixt:num-dot-decimal" sign = "-">
+                120,893
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E11" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:InternalBalance" unitRef="USD" id="StatementofNetPosition_E11" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C12">  
+            Prepaid Expenses
+        </td> 
+    
+    <td id="StatementofNetPosition_C12" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:PrepaidExpenses" unitRef="USD" id="StatementofNetPosition_C12" decimals="0" format="ixt:num-dot-decimal" >
+                52,578
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D12" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:PrepaidExpenses" unitRef="USD" id="StatementofNetPosition_D12" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E12" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:PrepaidExpenses" unitRef="USD" id="StatementofNetPosition_E12" decimals="0" format="ixt:num-dot-decimal" >
+                52,578
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="total">
+        <td id="header_StatementofNetPosition_C13">  
+            Total Current Assets
+        </td> 
+    
+    <td id="StatementofNetPosition_C13" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:CurrentAssets" unitRef="USD" id="StatementofNetPosition_C13" decimals="0" format="ixt:num-dot-decimal" >
+                14,773,722
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D13" class="data_total">
+            
+            -<ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:CurrentAssets" unitRef="USD" id="StatementofNetPosition_D13" decimals="0" format="ixt:num-dot-decimal" sign = "-">
+                120,893
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E13" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:CurrentAssets" unitRef="USD" id="StatementofNetPosition_E13" decimals="0" format="ixt:num-dot-decimal" >
+                14,652,829
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="subsection_header">
+        <td id="header_StatementofNetPosition_C14">  
+            Noncurrent Assets:
+        </td> 
+    
+    <td id="StatementofNetPosition_C14" class="subsection_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D14" class="subsection_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E14" class="subsection_header">
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C15">  
+            Other Noncurrent Assets
+        </td> 
+    
+    <td id="StatementofNetPosition_C15" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:OtherNoncurrentAssets" unitRef="USD" id="StatementofNetPosition_C15" decimals="0" format="ixt:num-dot-decimal" >
+                3,170,453
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D15" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:OtherNoncurrentAssets" unitRef="USD" id="StatementofNetPosition_D15" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E15" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:OtherNoncurrentAssets" unitRef="USD" id="StatementofNetPosition_E15" decimals="0" format="ixt:num-dot-decimal" >
+                3,170,453
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C16">  
+            Notes And Loans Receivable Noncurrent
+        </td> 
+    
+    <td id="StatementofNetPosition_C16" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:NotesAndLoansReceivableNoncurrent" unitRef="USD" id="StatementofNetPosition_C16" decimals="0" format="ixt:num-dot-decimal" >
+                3,311,550
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D16" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:NotesAndLoansReceivableNoncurrent" unitRef="USD" id="StatementofNetPosition_D16" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E16" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:NotesAndLoansReceivableNoncurrent" unitRef="USD" id="StatementofNetPosition_E16" decimals="0" format="ixt:num-dot-decimal" >
+                3,311,550
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C17">  
+            Capital Assets Not Being Depreciated
+        </td> 
+    
+    <td id="StatementofNetPosition_C17" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:CapitalAssetsNotBeingDepreciated" unitRef="USD" id="StatementofNetPosition_C17" decimals="0" format="ixt:num-dot-decimal" >
+                3,133,754
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D17" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:CapitalAssetsNotBeingDepreciated" unitRef="USD" id="StatementofNetPosition_D17" decimals="0" format="ixt:num-dot-decimal" >
+                167,738
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E17" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:CapitalAssetsNotBeingDepreciated" unitRef="USD" id="StatementofNetPosition_E17" decimals="0" format="ixt:num-dot-decimal" >
+                3,301,492
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C18">  
+            Capital Assets Being Depreciated Net
+        </td> 
+    
+    <td id="StatementofNetPosition_C18" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:CapitalAssetsBeingDepreciatedNet" unitRef="USD" id="StatementofNetPosition_C18" decimals="0" format="ixt:num-dot-decimal" >
+                25,982,451
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D18" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:CapitalAssetsBeingDepreciatedNet" unitRef="USD" id="StatementofNetPosition_D18" decimals="0" format="ixt:num-dot-decimal" >
+                841,465
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E18" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:CapitalAssetsBeingDepreciatedNet" unitRef="USD" id="StatementofNetPosition_E18" decimals="0" format="ixt:num-dot-decimal" >
+                26,823,916
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="total">
+        <td id="header_StatementofNetPosition_C19">  
+            Total Noncurrent Assets
+        </td> 
+    
+    <td id="StatementofNetPosition_C19" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:NoncurrentAssets" unitRef="USD" id="StatementofNetPosition_C19" decimals="0" format="ixt:num-dot-decimal" >
+                35,598,208
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D19" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:NoncurrentAssets" unitRef="USD" id="StatementofNetPosition_D19" decimals="0" format="ixt:num-dot-decimal" >
+                1,009,203
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E19" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:NoncurrentAssets" unitRef="USD" id="StatementofNetPosition_E19" decimals="0" format="ixt:num-dot-decimal" >
+                36,607,411
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="total">
+        <td id="header_StatementofNetPosition_C20">  
+            Total Assets
+        </td> 
+    
+    <td id="StatementofNetPosition_C20" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:Assets" unitRef="USD" id="StatementofNetPosition_C20" decimals="0" format="ixt:num-dot-decimal" >
+                50,371,930
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D20" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:Assets" unitRef="USD" id="StatementofNetPosition_D20" decimals="0" format="ixt:num-dot-decimal" >
+                888,310
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E20" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:Assets" unitRef="USD" id="StatementofNetPosition_E20" decimals="0" format="ixt:num-dot-decimal" >
+                51,260,240
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="empty_row">
+        <td id="header_StatementofNetPosition_C21">  
+            
+        </td> 
+    
+    <td id="StatementofNetPosition_C21" class="empty_row">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D21" class="empty_row">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E21" class="empty_row">
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="section_header">
+        <td id="header_StatementofNetPosition_C22">  
+            DEFERRED OUTFLOWS OF RESOURCES
+        </td> 
+    
+    <td id="StatementofNetPosition_C22" class="section_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D22" class="section_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E22" class="section_header">
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C23">  
+            Deferred Outflows Of Resources Pension
+        </td> 
+    
+    <td id="StatementofNetPosition_C23" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:DeferredOutflowsOfResourcesPension" unitRef="USD" id="StatementofNetPosition_C23" decimals="0" format="ixt:num-dot-decimal" >
+                1,285,641
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D23" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:DeferredOutflowsOfResourcesPension" unitRef="USD" id="StatementofNetPosition_D23" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E23" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:DeferredOutflowsOfResourcesPension" unitRef="USD" id="StatementofNetPosition_E23" decimals="0" format="ixt:num-dot-decimal" >
+                1,285,641
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C24">  
+            Deferred Outflows Of Resources OPEB
+        </td> 
+    
+    <td id="StatementofNetPosition_C24" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:DeferredOutflowsOfResourcesOPEB" unitRef="USD" id="StatementofNetPosition_C24" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D24" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:DeferredOutflowsOfResourcesOPEB" unitRef="USD" id="StatementofNetPosition_D24" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E24" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:DeferredOutflowsOfResourcesOPEB" unitRef="USD" id="StatementofNetPosition_E24" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="total">
+        <td id="header_StatementofNetPosition_C25">  
+            Total Deferred Outflows of Resources
+        </td> 
+    
+    <td id="StatementofNetPosition_C25" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:DeferredOutflowsOfResources" unitRef="USD" id="StatementofNetPosition_C25" decimals="0" format="ixt:num-dot-decimal" >
+                1,285,641
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D25" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:DeferredOutflowsOfResources" unitRef="USD" id="StatementofNetPosition_D25" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E25" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:DeferredOutflowsOfResources" unitRef="USD" id="StatementofNetPosition_E25" decimals="0" format="ixt:num-dot-decimal" >
+                1,285,641
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="empty_row">
+        <td id="header_StatementofNetPosition_C26">  
+            
+        </td> 
+    
+    <td id="StatementofNetPosition_C26" class="empty_row">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D26" class="empty_row">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E26" class="empty_row">
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="section_header">
+        <td id="header_StatementofNetPosition_C27">  
+            LIABILITIES
+        </td> 
+    
+    <td id="StatementofNetPosition_C27" class="section_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D27" class="section_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E27" class="section_header">
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="subsection_header">
+        <td id="header_StatementofNetPosition_C28">  
+            Current Liabilites:
+        </td> 
+    
+    <td id="StatementofNetPosition_C28" class="subsection_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D28" class="subsection_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E28" class="subsection_header">
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C29">  
+            Accounts Payable
+        </td> 
+    
+    <td id="StatementofNetPosition_C29" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:AccountsPayable" unitRef="USD" id="StatementofNetPosition_C29" decimals="0" format="ixt:num-dot-decimal" >
+                149,907
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D29" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:AccountsPayable" unitRef="USD" id="StatementofNetPosition_D29" decimals="0" format="ixt:num-dot-decimal" >
+                2,671
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E29" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:AccountsPayable" unitRef="USD" id="StatementofNetPosition_E29" decimals="0" format="ixt:num-dot-decimal" >
+                152,578
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C30">  
+            Deposits Heldfor Others
+        </td> 
+    
+    <td id="StatementofNetPosition_C30" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:DepositsHeldforOthers" unitRef="USD" id="StatementofNetPosition_C30" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D30" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:DepositsHeldforOthers" unitRef="USD" id="StatementofNetPosition_D30" decimals="0" format="ixt:num-dot-decimal" >
+                5,500
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E30" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:DepositsHeldforOthers" unitRef="USD" id="StatementofNetPosition_E30" decimals="0" format="ixt:num-dot-decimal" >
+                5,500
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C31">  
+            Accrued Wages Payable
+        </td> 
+    
+    <td id="StatementofNetPosition_C31" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:AccruedWagesPayable" unitRef="USD" id="StatementofNetPosition_C31" decimals="0" format="ixt:num-dot-decimal" >
+                37
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D31" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:AccruedWagesPayable" unitRef="USD" id="StatementofNetPosition_D31" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E31" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:AccruedWagesPayable" unitRef="USD" id="StatementofNetPosition_E31" decimals="0" format="ixt:num-dot-decimal" >
+                37
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C32">  
+            Unearned Revenue
+        </td> 
+    
+    <td id="StatementofNetPosition_C32" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:UnearnedRevenue" unitRef="USD" id="StatementofNetPosition_C32" decimals="0" format="ixt:num-dot-decimal" >
+                332,166
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D32" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:UnearnedRevenue" unitRef="USD" id="StatementofNetPosition_D32" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E32" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:UnearnedRevenue" unitRef="USD" id="StatementofNetPosition_E32" decimals="0" format="ixt:num-dot-decimal" >
+                332,166
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C33">  
+            Compensated Absences Payable Current
+        </td> 
+    
+    <td id="StatementofNetPosition_C33" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:CompensatedAbsencesPayableCurrent" unitRef="USD" id="StatementofNetPosition_C33" decimals="0" format="ixt:num-dot-decimal" >
+                83,645
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D33" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:CompensatedAbsencesPayableCurrent" unitRef="USD" id="StatementofNetPosition_D33" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E33" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:CompensatedAbsencesPayableCurrent" unitRef="USD" id="StatementofNetPosition_E33" decimals="0" format="ixt:num-dot-decimal" >
+                83,645
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C34">  
+            Other Current Liabilities
+        </td> 
+    
+    <td id="StatementofNetPosition_C34" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:OtherCurrentLiabilities" unitRef="USD" id="StatementofNetPosition_C34" decimals="0" format="ixt:num-dot-decimal" >
+                74,358
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D34" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:OtherCurrentLiabilities" unitRef="USD" id="StatementofNetPosition_D34" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E34" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:OtherCurrentLiabilities" unitRef="USD" id="StatementofNetPosition_E34" decimals="0" format="ixt:num-dot-decimal" >
+                74,358
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="total">
+        <td id="header_StatementofNetPosition_C35">  
+            Total Current Liabilities
+        </td> 
+    
+    <td id="StatementofNetPosition_C35" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:CurrentLiabilities" unitRef="USD" id="StatementofNetPosition_C35" decimals="0" format="ixt:num-dot-decimal" >
+                640,113
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D35" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:CurrentLiabilities" unitRef="USD" id="StatementofNetPosition_D35" decimals="0" format="ixt:num-dot-decimal" >
+                8,171
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E35" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:CurrentLiabilities" unitRef="USD" id="StatementofNetPosition_E35" decimals="0" format="ixt:num-dot-decimal" >
+                648,284
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="subsection_header">
+        <td id="header_StatementofNetPosition_C36">  
+            Noncurrent Liabilites:
+        </td> 
+    
+    <td id="StatementofNetPosition_C36" class="subsection_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D36" class="subsection_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E36" class="subsection_header">
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C37">  
+            Compensated Absences Payable Non Current
+        </td> 
+    
+    <td id="StatementofNetPosition_C37" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:CompensatedAbsencesPayableNonCurrent" unitRef="USD" id="StatementofNetPosition_C37" decimals="0" format="ixt:num-dot-decimal" >
+                83,645
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D37" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:CompensatedAbsencesPayableNonCurrent" unitRef="USD" id="StatementofNetPosition_D37" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E37" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:CompensatedAbsencesPayableNonCurrent" unitRef="USD" id="StatementofNetPosition_E37" decimals="0" format="ixt:num-dot-decimal" >
+                83,645
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C38">  
+            Net OPEB Liability
+        </td> 
+    
+    <td id="StatementofNetPosition_C38" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:NetOPEBLiability" unitRef="USD" id="StatementofNetPosition_C38" decimals="0" format="ixt:num-dot-decimal" >
+                578,315
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D38" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:NetOPEBLiability" unitRef="USD" id="StatementofNetPosition_D38" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E38" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:NetOPEBLiability" unitRef="USD" id="StatementofNetPosition_E38" decimals="0" format="ixt:num-dot-decimal" >
+                578,315
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C39">  
+            Net Pension Liability
+        </td> 
+    
+    <td id="StatementofNetPosition_C39" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:NetPensionLiability" unitRef="USD" id="StatementofNetPosition_C39" decimals="0" format="ixt:num-dot-decimal" >
+                2,759,739
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D39" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:NetPensionLiability" unitRef="USD" id="StatementofNetPosition_D39" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E39" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:NetPensionLiability" unitRef="USD" id="StatementofNetPosition_E39" decimals="0" format="ixt:num-dot-decimal" >
+                2,759,739
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C40">  
+            Leases Payable Due In More Than One Year
+        </td> 
+    
+    <td id="StatementofNetPosition_C40" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:LeasesPayableDueInMoreThanOneYear" unitRef="USD" id="StatementofNetPosition_C40" decimals="0" format="ixt:num-dot-decimal" >
+                244,640
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D40" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:LeasesPayableDueInMoreThanOneYear" unitRef="USD" id="StatementofNetPosition_D40" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E40" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:LeasesPayableDueInMoreThanOneYear" unitRef="USD" id="StatementofNetPosition_E40" decimals="0" format="ixt:num-dot-decimal" >
+                244,640
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="total">
+        <td id="header_StatementofNetPosition_C41">  
+            Total Noncurrent Liabilities
+        </td> 
+    
+    <td id="StatementofNetPosition_C41" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:NoncurrentLiabilities" unitRef="USD" id="StatementofNetPosition_C41" decimals="0" format="ixt:num-dot-decimal" >
+                3,666,339
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D41" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:NoncurrentLiabilities" unitRef="USD" id="StatementofNetPosition_D41" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E41" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:NoncurrentLiabilities" unitRef="USD" id="StatementofNetPosition_E41" decimals="0" format="ixt:num-dot-decimal" >
+                3,666,339
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="total">
+        <td id="header_StatementofNetPosition_C42">  
+            Total Liabilities
+        </td> 
+    
+    <td id="StatementofNetPosition_C42" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:Liabilities" unitRef="USD" id="StatementofNetPosition_C42" decimals="0" format="ixt:num-dot-decimal" >
+                4,306,452
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D42" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:Liabilities" unitRef="USD" id="StatementofNetPosition_D42" decimals="0" format="ixt:num-dot-decimal" >
+                8,171
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E42" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:Liabilities" unitRef="USD" id="StatementofNetPosition_E42" decimals="0" format="ixt:num-dot-decimal" >
+                4,314,623
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="empty_row">
+        <td id="header_StatementofNetPosition_C43">  
+            
+        </td> 
+    
+    <td id="StatementofNetPosition_C43" class="empty_row">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D43" class="empty_row">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E43" class="empty_row">
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="section_header">
+        <td id="header_StatementofNetPosition_C44">  
+            DEFERRED INFLOWS OF RESOURCES
+        </td> 
+    
+    <td id="StatementofNetPosition_C44" class="section_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D44" class="section_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E44" class="section_header">
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C45">  
+            Deferred Inflows Of Resources Pension
+        </td> 
+    
+    <td id="StatementofNetPosition_C45" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:DeferredInflowsOfResourcesPension" unitRef="USD" id="StatementofNetPosition_C45" decimals="0" format="ixt:num-dot-decimal" >
+                2,471,384
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D45" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:DeferredInflowsOfResourcesPension" unitRef="USD" id="StatementofNetPosition_D45" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E45" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:DeferredInflowsOfResourcesPension" unitRef="USD" id="StatementofNetPosition_E45" decimals="0" format="ixt:num-dot-decimal" >
+                2,471,384
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C46">  
+            Deferred Inflows Of Resources OPEB
+        </td> 
+    
+    <td id="StatementofNetPosition_C46" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:DeferredInflowsOfResourcesOPEB" unitRef="USD" id="StatementofNetPosition_C46" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D46" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:DeferredInflowsOfResourcesOPEB" unitRef="USD" id="StatementofNetPosition_D46" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E46" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:DeferredInflowsOfResourcesOPEB" unitRef="USD" id="StatementofNetPosition_E46" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="total">
+        <td id="header_StatementofNetPosition_C47">  
+            Total Deferred Inflows of Resources
+        </td> 
+    
+    <td id="StatementofNetPosition_C47" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:DeferredInflowsOfResources" unitRef="USD" id="StatementofNetPosition_C47" decimals="0" format="ixt:num-dot-decimal" >
+                2,471,384
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D47" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:DeferredInflowsOfResources" unitRef="USD" id="StatementofNetPosition_D47" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E47" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:DeferredInflowsOfResources" unitRef="USD" id="StatementofNetPosition_E47" decimals="0" format="ixt:num-dot-decimal" >
+                2,471,384
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="empty_row">
+        <td id="header_StatementofNetPosition_C48">  
+            
+        </td> 
+    
+    <td id="StatementofNetPosition_C48" class="empty_row">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D48" class="empty_row">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E48" class="empty_row">
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="section_header">
+        <td id="header_StatementofNetPosition_C49">  
+            NET POSITION
+        </td> 
+    
+    <td id="StatementofNetPosition_C49" class="section_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D49" class="section_header">
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E49" class="section_header">
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C50">  
+            Net Investment In Capital Assets
+        </td> 
+    
+    <td id="StatementofNetPosition_C50" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:NetInvestmentInCapitalAssets" unitRef="USD" id="StatementofNetPosition_C50" decimals="0" format="ixt:num-dot-decimal" >
+                29,116,205
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D50" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:NetInvestmentInCapitalAssets" unitRef="USD" id="StatementofNetPosition_D50" decimals="0" format="ixt:num-dot-decimal" >
+                1,009,203
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E50" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:NetInvestmentInCapitalAssets" unitRef="USD" id="StatementofNetPosition_E50" decimals="0" format="ixt:num-dot-decimal" >
+                30,125,408
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C51">  
+            Restricted Net Position For Capital Projects
+        </td> 
+    
+    <td id="StatementofNetPosition_C51" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:RestrictedNetPositionForCapitalProjects" unitRef="USD" id="StatementofNetPosition_C51" decimals="0" format="ixt:num-dot-decimal" >
+                9,890,048
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D51" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:RestrictedNetPositionForCapitalProjects" unitRef="USD" id="StatementofNetPosition_D51" decimals="0" format="ixt:fixed-zero" >
+                -
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E51" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:RestrictedNetPositionForCapitalProjects" unitRef="USD" id="StatementofNetPosition_E51" decimals="0" format="ixt:num-dot-decimal" >
+                9,890,048
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_StatementofNetPosition_C52">  
+            Unrestricted Net Position
+        </td> 
+    
+    <td id="StatementofNetPosition_C52" class="row">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:UnrestrictedNetPosition" unitRef="USD" id="StatementofNetPosition_C52" decimals="0" format="ixt:num-dot-decimal" >
+                5,873,482
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D52" class="row">
+            
+            -<ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:UnrestrictedNetPosition" unitRef="USD" id="StatementofNetPosition_D52" decimals="0" format="ixt:num-dot-decimal" sign = "-">
+                129,064
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E52" class="row">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:UnrestrictedNetPosition" unitRef="USD" id="StatementofNetPosition_E52" decimals="0" format="ixt:num-dot-decimal" >
+                5,744,418
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="total">
+        <td id="header_StatementofNetPosition_C53">  
+            Total Net Position
+        </td> 
+    
+    <td id="StatementofNetPosition_C53" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_GovernmentalActivities" name="acfr:NetPosition" unitRef="USD" id="StatementofNetPosition_C53" decimals="0" format="ixt:num-dot-decimal" >
+                44,879,735
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_D53" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:NetPosition" unitRef="USD" id="StatementofNetPosition_D53" decimals="0" format="ixt:num-dot-decimal" >
+                880,139
+            </ix:nonFraction>
+            
+        </td>
+     
+    
+    <td id="StatementofNetPosition_E53" class="data_total">
+            
+            <ix:nonFraction contextRef="I20220630" name="acfr:NetPosition" unitRef="USD" id="StatementofNetPosition_E53" decimals="0" format="ixt:num-dot-decimal" >
+                45,759,874
+            </ix:nonFraction>
+            
+        </td>
+    
+    </tr>
+</table>
+
+        
+
+    </body>
+</html>
