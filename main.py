@@ -55,6 +55,7 @@ ALLOWED_EXTENSIONS = {'csv', 'xlsx', 'xls', 'tsv'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.static_folder = 'static'
 
 # =============================================================
 # Function definitions
@@ -213,11 +214,11 @@ def upload_file(output_file = "static/output/output.html", format = "gray"):
         return 'No selected file'
         
     if file and allowed_file(file.filename):
+        render_template("processing.html")
         write_html(file, output_file, context_name_map, format)
         viewer_file_name = "viewer.html"
         create_viewer_html(output_file, viewer_file_name)
         return index(active = "")
-        #return render_template(viewer_file_name)
     else:
         return 'Invalid file type'
 
@@ -228,5 +229,5 @@ def upload_file(output_file = "static/output/output.html", format = "gray"):
 if __name__ == "__main__":
     contexts_path = "static/input_files/contexts.xlsx"
     context_name_map = parse_contexts(contexts_path)
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
     
