@@ -8,8 +8,4 @@ function updateButton(value) {
 
 function startProcessing() {
   document.getElementById('loader').style.display = 'block';
-
-  setTimeout(function(){ 
-      document.getElementById('loader').style.display = 'none'; 
-  }, 3000);
 }
