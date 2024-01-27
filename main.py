@@ -121,19 +121,13 @@ def write_html(input_file : str,
     # iterate through sheets, saving Sheet() objects
     input_xl = pd.ExcelFile(input_file)
     acfr = Acfr([Sheet(input_file, sheet_name, context_name_map) for sheet_name in input_xl.sheet_names if sheet_name != "Label Dropdowns"])
-    
-    # Create a Jinja2 environment for html formating
-    env = Environment(loader=FileSystemLoader('.'))
 
     # Load the template and render with vars
-    template = env.get_template('templates/base.html')
-    rendered_ixbrl = template.render(acfr = acfr, format = format)
+    rendered_ixbrl = render_template('xbrl/base.html', acfr = acfr, format = format)
 
     # Save the rendered template to output file
     with open(output_file, 'w') as write_location:
         write_location.write(rendered_ixbrl)
-
-    print("File written")
 
 def load_dependencies():
     """ clone arelle and ixbrl viewer """
@@ -153,13 +147,14 @@ def load_dependencies():
 
 
 def create_viewer_html(output_file : str,
-                       viewer_filepath : str = "ixbrl-viewer.html"):
+                       viewer_filepath : str = "templates/site/viewer.html"):
 
     # This is very slow
     # TODO Speed up
     # Maybe it's downloading the dependencies each time?
     # TODO add a javascript progress wheel
     
+    # TODO: this will not work on Heroku -- will need to include sub-modules in git repo
     load_dependencies()
     viewer_filepath = os.path.join(ROOT, viewer_filepath)
 
@@ -177,15 +172,12 @@ def create_viewer_html(output_file : str,
     # command to run Arelle process
     plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
-    viewer_filepath = os.path.join("templates", viewer_filepath)
     args = f"--plugins={plugins} -f {output_file} --save-viewer {viewer_filepath} --viewer-url {viewer_url}"
     
     args = shlex.split(args)
     setApplicationLocale()
     gettext.install("arelle")
     CntlrCmdLine.parseAndRun(args)
-    print("created html")
-    return(viewer_filepath)
 
 # =============================================================
 # Flask
@@ -194,12 +186,17 @@ def create_viewer_html(output_file : str,
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS  
 
-@app.route("/")
-def index(active = "inactive"):
-    return render_template('upload.html', active = active)
+# @app.route("/")
+# def index(active = "inactive"):
+#     return render_template('upload.html', active = active)
+
+@app.route('/')
+def home():
+    return render_template('site/home.html', loading=True)
+
 
 @app.route('/viewer')
-def view(viewer_file_name = "ixbrl-viewer.html"):
+def view(viewer_file_name = "site/viewer.html"):
     return render_template(viewer_file_name)
 
 
@@ -214,13 +211,16 @@ def upload_file(output_file = "static/output/output.html", format = "gray"):
         return 'No selected file'
         
     if file and allowed_file(file.filename):
-        render_template("processing.html")
         write_html(file, output_file, context_name_map, format)
-        viewer_file_name = "viewer.html"
+        viewer_file_name = "templates/site/viewer.html"
         create_viewer_html(output_file, viewer_file_name)
-        return index(active = "")
+        return render_template("site/upload.html")
     else:
         return 'Invalid file type'
+
+@app.route('/processing')
+def load():
+    return render_template("site/processing.html")
 
 # =============================================================
 # Run file
@@ -229,5 +229,5 @@ def upload_file(output_file = "static/output/output.html", format = "gray"):
 if __name__ == "__main__":
     contexts_path = "static/input_files/contexts.xlsx"
     context_name_map = parse_contexts(contexts_path)
-    app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
     

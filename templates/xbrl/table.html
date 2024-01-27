@@ -17,7 +17,7 @@
     {% endif %}
     <td id="{{ cell.id }}" class="{{ cell.td_class() }}">
             {% if cell.show_value() != "" %}
-            {{ cell.prefix() }}<ix:nonFraction contextRef="{{ cell.context_id }}" name="{{ cell.xbrl_name }}" unitRef="USD" id="{{ cell.id }}" decimals="0" format="{{ cell.format }}" {{ cell.sign }}>
+            {{ cell.prefix() }}<ix:nonFraction contextRef="{{ cell.context_id }}" name="{{ cell.xbrl_name }}" unitRef="USD" id="{{ cell.id }}" decimals="0" format="{{ cell.format }}" {% if cell.sign == 'negative' %} sign="-" {% endif %}>
                 {{ cell.show_value() }}
             </ix:nonFraction>
             {% endif %}

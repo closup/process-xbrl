@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>XBRL Converter</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--Split out these scripts-->
+    <script src="{{url_for('static', filename='js/spinner.js')}}"></script>
+
+</head>
+<body>
+    <header class="text-center">
+        <h1>XBRL Conversion Tool</h1>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">1). Download our Excel ACFR template</div>
+                    <div class="card-body text-center">
+                        {% block panel1_content %}
+                        <a href="{{ url_for('static', filename='input_files/acfrs/example_template.xlsx') }}" download="ACFR_template.xlsx">
+                            <button type="button" class="btn btn-michigan btn-lg">Download Excel template</button>
+                        </a>
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">2). Upload your completed ACFR in Excel and convert to XBRL</div>
+                    <div class="card-body">
+                        {% block panel2_content %}
+                        <form action="/upload" method="POST" enctype="multipart/form-data">
+                            <label class="btn btn-michigan btn-lg">
+                                <input type="file" name="file" id="upload" onchange="updateButton(this.value)">
+                                <span>Choose File</span>
+                            </label>
+                            <div class="file-container">
+                                <span id="selectedFileName"></span>
+                            </div>
+                            <input type="submit" id="convert-button" class="btn btn-michigan btn-lg" value="" onclick="startProcessing()">
+                        </form>
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <div id="loader" class="loader" style="display: none;" class="text-center"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,24 +1,15 @@
-.loader {
-    border: 16px solid #f3f3f3; 
-    border-top: 16px solid #3498db; 
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-    display: none;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  const processing = document.querySelector("#processing");
-  
-  function toggleAnimation() {
-    if (processing.style.display !== "block") {
-      processing.style.display = "block";
-    } else {
-      processing.style.display = "none";
+function updateButton(value) {
+    var fileName = value.split('\\').pop();
+    if (fileName) {
+        document.getElementById('convert-button').style.display = 'block';
+        document.getElementById('convert-button').value = 'Convert ' + fileName;
     }
-  }
+}
+
+function startProcessing() {
+  document.getElementById('loader').style.display = 'block';
+
+  setTimeout(function(){ 
+      document.getElementById('loader').style.display = 'none'; 
+  }, 3000);
+}

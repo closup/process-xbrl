@@ -3,98 +3,101 @@
     <head>
         <title>Audited Financial Report: Inline XBRL</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-    <style type="text/css">
+        <style type="text/css">
 
-    div, table {
-        margin: 10px;
-    }
+/* Style for the table */
+table {
+    border-collapse: collapse; /* Merge borders into a single line */
+    width: 98%;
+}
 
-    /* Style for the table */
-    table {
-        border-collapse: collapse; /* Merge borders into a single line */
-        width: 98%;
-    }
+/* Style for the last row (horizontal line at the bottom) */
+tr:last-child {
+    border-bottom: 1px solid black; /* Remove the bottom border for the last row */
+}
 
-    /* Style for the last row (horizontal line at the bottom) */
-    tr:last-child {
-        border-bottom: 1px solid black; /* Remove the bottom border for the last row */
-    }
+/* Style for table headers */
+th {
+    border-bottom: 1px solid black; 
+    text-align:right
+}
 
-    /* Style for table headers */
-    th {
-        border-bottom: 1px solid black; 
-        text-align:right
-    }
+/* Style for table cells */
+td {
+    height: 15.0pt; 
+    text-align: right; 
+    font-size: 14px;
+    margin: 10px;
+}
 
-    /* Style for table cells */
-    td {
-        height: 15.0pt; 
-        text-align: right; 
-        font-size: 14px;
-        margin: 10px;
-    }
+/* Style for row names */
+td:first-child {
+    text-align: left; 
+}
 
-    /* Style for row names */
-    td:first-child {
-        text-align: left; 
-    }
+/* total column width */
+th:last-child, td:last-child {
+    min-width: 120px;
+    width: auto; /* Allow the width to adjust based on content */
+}
 
-    /* total column width */
-    th:last-child, td:last-child {
-        min-width: 120px;
-        width: auto; /* Allow the width to adjust based on content */
-    }
+.section_header, .subsection_header {
+    border-top: 1px solid black; 
+    border-bottom: 1px solid black;
+}
 
-    .section_header, .subsection_header {
-        border-top: 1px solid black; 
-        border-bottom: 1px solid black;
-    }
+/* Style for row headers */
+.section_header {    
+    font-weight: bold;
+}
 
-    /* Style for row headers */
-    .section_header {    
-        font-weight: bold;
-    }
+.total {
+    font-weight: bold;
+}
 
-    .total {
-        font-weight: bold;
-    }
+.empty_row {
+    background-color: none;
+    border-top: 1px solid black; 
+}
 
-    .empty_row {
-        background-color: none;
-        border-top: 1px solid black; 
-    }
+.data_total {
+    border-top: 1px solid black; 
+}
 
-    .data_total {
-        border-top: 1px solid black; 
-    }
+/* Optional colors */
+.color .section_header {    
+    background-color: #85C1E9;
+}
 
-    /* Optional colors */
-    
+.color .subsection_header {
+    background-color: #AED6F1
+}
 
-    /* Optional grayscale */
-    
-    .section_header {    
-        background-color: #AAAAAA;
-    }
+.color .row, .total, .data_total {
+    background-color: #D6EAF8;
+}
 
-    .subsection_header {
-        background-color: #CCCCCC
-    }
+/* Optional grayscale */
+.gray .section_header {    
+    background-color: #AAAAAA;
+}
 
-    .row, .total, .data_total {
-        background-color: #EEEEEE;
-    }
+.gray .subsection_header {
+    background-color: #CCCCCC
+}
 
-    
-   
-    /* Hide elements with the class iso4217-value */
-    .iso4217-value {
-        display: none;
-    }
+.gray .row, .total, .data_total {
+    background-color: #EEEEEE;
+}
+
+/* Hide elements with the class iso4217-value */
+.iso4217-value {
+    display: none;
+}
 </style>
     </head>
 
-    <body>
+    <body class="gray">
         <div style="display:none">
             <ix:header>
                 <ix:references>
@@ -103,31 +106,14 @@
             <ix:resources>
                 <!--Start of contexts-->
                 
-<xbrli:context id="D20220630_GeneralFundMember">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:GeneralFundMember</xbrldi:explicitmember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="I20220630_FundIdentifierDomain_Landscape">
+<xbrli:context id="I20220630_FundIdentifierDomain_Capital">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
             <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
                 <acfr:FundIdentifierDomain>
-                    Landscape Maintenance District
+                    Capital Improvement Program
                 </acfr:FundIdentifierDomain>
             </xbrldi:typedMember>
             
@@ -136,104 +122,6 @@
     <xbrli:period>
         
         <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="I20220630_FundIdentifierDomain_Other">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    Other Governmental Funds
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="I20220630_FundIdentifierDomain_Housing">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    Successor Housing Agency
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_FundIdentifierDomain_Landscape">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    Landscape Maintenance District
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="I20220630_GovernmentalActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:GovernmentalActivitiesMember</xbrldi:explicitmember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_FundIdentifierDomain_InternalService">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    Governmental Activities   Internal Service Funds
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
          
     </xbrli:period>
 </xbrli:context>
@@ -250,65 +138,6 @@
     <xbrli:period>
         
         <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_FundIdentifierDomain_Housing">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    Successor Housing Agency
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_FundIdentifierDomain_Other">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    Other Governmental Funds
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_GovernmentalFundsMember">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:TotalMember</xbrldi:explicitmember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
          
     </xbrli:period>
 </xbrli:context>
@@ -334,14 +163,14 @@
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="I20220630_FundIdentifierDomain_Capital">
+<xbrli:context id="I20220630_FundIdentifierDomain_Other">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
             <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
                 <acfr:FundIdentifierDomain>
-                    Capital Improvement Program
+                    Other Governmental Funds
                 </acfr:FundIdentifierDomain>
             </xbrldi:typedMember>
             
@@ -350,124 +179,6 @@
     <xbrli:period>
         
         <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="I20220630_FundIdentifierDomain_ARPA">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    American Rescue Plan Act
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_FundIdentifierDomain_EndeavorHall">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    Business Type Activities   Endeavor Hall
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="I20220630_FundIdentifierDomain_InternalService">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    Governmental Activities   Internal Service Funds
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="I20220630_GeneralFundMember">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:GeneralFundMember</xbrldi:explicitmember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="I20220630_FundIdentifierDomain_EndeavorHall">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    Business Type Activities   Endeavor Hall
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_FundIdentifierDomain_ARPA">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    American Rescue Plan Act
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
          
     </xbrli:period>
 </xbrli:context>
@@ -504,6 +215,298 @@
     </xbrli:period>
 </xbrli:context>
 
+<xbrli:context id="I20220630_FundIdentifierDomain_InternalService">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    Governmental Activities   Internal Service Funds
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_FundIdentifierDomain_Other">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    Other Governmental Funds
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="I20220630_GovernmentalActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:GovernmentalActivitiesMember</xbrldi:explicitmember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="I20220630_FundIdentifierDomain_ARPA">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    American Rescue Plan Act
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_GovernmentalFundsMember">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:TotalMember</xbrldi:explicitmember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="I20220630_FundIdentifierDomain_Housing">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    Successor Housing Agency
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="I20220630_FundIdentifierDomain_EndeavorHall">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    Business Type Activities   Endeavor Hall
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_FundIdentifierDomain_EndeavorHall">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    Business Type Activities   Endeavor Hall
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_FundIdentifierDomain_Housing">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    Successor Housing Agency
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_GeneralFundMember">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:GeneralFundMember</xbrldi:explicitmember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_FundIdentifierDomain_InternalService">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    Governmental Activities   Internal Service Funds
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_FundIdentifierDomain_Landscape">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    Landscape Maintenance District
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="I20220630_FundIdentifierDomain_Landscape">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    Landscape Maintenance District
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_FundIdentifierDomain_ARPA">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    American Rescue Plan Act
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="I20220630_GeneralFundMember">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:GeneralFundMember</xbrldi:explicitmember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
                 <xbrli:unit id="USD">
                     <xbrli:measure>iso4217:USD</xbrli:measure>
                 </xbrli:unit>
@@ -513,11 +516,16 @@
         
         <div>
             <!-- Header for the sheet from the Excel doc -->
-            <b>City Of Clayton</b><br/>
-<b>Government Wide</b><br/>
-<b>Statement Of Net Position</b><br/>
-<b>June 30, 2022</b>
-        </div>
+            
+                <b>City Of Clayton</b><br>
+            
+                <b>Government Wide</b><br>
+            
+                <b>Statement Of Net Position</b><br>
+            
+                <b>June 30, 2022</b><br>
+            
+        </br>
         <!-- Sheet cell data -->
         
 <table>
@@ -2009,11 +2017,16 @@
         
         <div>
             <!-- Header for the sheet from the Excel doc -->
-            <b>City Of Clayton</b><br/>
-<b>Governmental Funds</b><br/>
-<b>Statement Of Revenues, Expenditures And Changes In Fund Balance</b><br/>
-<b>June 30, 2022</b>
-        </div>
+            
+                <b>City Of Clayton</b><br>
+            
+                <b>Governmental Funds</b><br>
+            
+                <b>Statement Of Revenues, Expenditures And Changes In Fund Balance</b><br>
+            
+                <b>June 30, 2022</b><br>
+            
+        </br>
         <!-- Sheet cell data -->
         
 <table>
@@ -4425,11 +4438,16 @@
         
         <div>
             <!-- Header for the sheet from the Excel doc -->
-            <b>City Of Clayton</b><br/>
-<b>Governmental Funds</b><br/>
-<b>Balance Sheet</b><br/>
-<b>June 30, 2022</b>
-        </div>
+            
+                <b>City Of Clayton</b><br>
+            
+                <b>Governmental Funds</b><br>
+            
+                <b>Balance Sheet</b><br>
+            
+                <b>June 30, 2022</b><br>
+            
+        </br>
         <!-- Sheet cell data -->
         
 <table>
@@ -6506,11 +6524,16 @@
         
         <div>
             <!-- Header for the sheet from the Excel doc -->
-            <b>City Of Clayton</b><br/>
-<b>Proprietary Funds</b><br/>
-<b>Statement Of Net Position</b><br/>
-<b>June 30, 2022</b>
-        </div>
+            
+                <b>City Of Clayton</b><br>
+            
+                <b>Proprietary Funds</b><br>
+            
+                <b>Statement Of Net Position</b><br>
+            
+                <b>June 30, 2022</b><br>
+            
+        </br>
         <!-- Sheet cell data -->
         
 <table>
@@ -6946,11 +6969,16 @@
         
         <div>
             <!-- Header for the sheet from the Excel doc -->
-            <b>City Of Clayton</b><br/>
-<b>Proprietary Funds</b><br/>
-<b>Statement Of Revenues, Expenses And Changes In Net Position</b><br/>
-<b>June 30, 2022</b>
-        </div>
+            
+                <b>City Of Clayton</b><br>
+            
+                <b>Proprietary Funds</b><br>
+            
+                <b>Statement Of Revenues, Expenses And Changes In Net Position</b><br>
+            
+                <b>June 30, 2022</b><br>
+            
+        </br>
         <!-- Sheet cell data -->
         
 <table>
@@ -7450,11 +7478,16 @@
         
         <div>
             <!-- Header for the sheet from the Excel doc -->
-            <b>City Of Clayton</b><br/>
-<b>Proprietary Funds</b><br/>
-<b>Statement Of Cash Flows</b><br/>
-<b>June 30, 2022</b>
-        </div>
+            
+                <b>City Of Clayton</b><br>
+            
+                <b>Proprietary Funds</b><br>
+            
+                <b>Statement Of Cash Flows</b><br>
+            
+                <b>June 30, 2022</b><br>
+            
+        </br>
         <!-- Sheet cell data -->
         
 <table>
@@ -8137,7 +8170,8 @@
 
         
 
-    <!--BEGIN IXBRL VIEWER EXTENSIONS--><script src="https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js" type="text/javascript"></script><script type="application/x.ixbrl-viewer+json">{
+    </br>
+</br></br></div></br></br></br></div></br></br></br></div></br></br></br></div></br></br></br></div></br></br></br></div><!--BEGIN IXBRL VIEWER EXTENSIONS--><script src="https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js" type="text/javascript"></script><script type="application/x.ixbrl-viewer+json">{
  "sourceReports": [
   {
    "targetReports": [
@@ -124752,7 +124786,7 @@
       }
      },
      "localDocs": {
-      "Clayton.html": [
+      "output.html": [
        "inline"
       ]
      }
@@ -124962,5 +124996,4 @@
   "ns180": "https://taxonomies.xbrl.us/grip/acfr/roles/NetPositionAlternative",
   "ns181": "https://taxonomies.xbrl.us/grip/acfr/roles/PFNetPositionActivitiesAlt1"
  }
-}</script><!--END IXBRL VIEWER EXTENSIONS--></body>
-</html>
+}</script><!--END IXBRL VIEWER EXTENSIONS--></body></html>

@@ -21,7 +21,7 @@ class Cell:
         else:
             self.format = 'ixt:num-dot-decimal' # default value format
             if not (type(self.value) is str) and self.value < 0:
-                self.sign = 'sign = "-"'
+                self.sign = "negative"
         # HARDCODING header_cols for now
         n_left_cols = 2
         self.col = self.id[self.id.find('_') + 1]

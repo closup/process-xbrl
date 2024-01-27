@@ -82,12 +82,14 @@ class Sheet:
         
     def header(self) -> str:
         """Generate header text for the HTML rendering"""
-        ret = ""
-        for slot in ["city", "scope", "statement", "date"]:
-            if ret != "":
-                ret += "<br />\n"
-            ret = ret + "<b>" + print_nicely(getattr(self, slot)) + "</b>"
-        return ret
+        return [print_nicely(getattr(self, slot)) for slot in ["city", "scope", "statement", "date"] if slot != ""]
+
+        # ret = ""
+        # for slot in ["city", "scope", "statement", "date"]:
+        #     if ret != "":
+        #         ret += "<br />\n"
+        #     ret = ret + "<b>" + print_nicely(getattr(self, slot)) + "</b>"
+        # return ret
     
     def parse_date(self):
         """ Use data in spreadsheet to define period or instance + parse date """

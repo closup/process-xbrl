@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<div class="segment {{ active }}">
+    <div>
+        <h3>Download XBRL</h3>
+        <a href="{{ url_for('static', filename='output/output.html') }}" download="converted_xbrl.html">
+            <button>Click to download XBRL</button>
+        </a>
+    </div>
+</div>
+
+<div class="segment {{ active }}">
+    <div>
+        <h3>View XBRL</h3>
+        <a href="/viewer">
+            <button>Click to view in XBRL viewer</button>
+        </a>
+    </div>
+</div>
+
+
+</body>
+</html>
+    

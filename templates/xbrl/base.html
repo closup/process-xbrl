@@ -3,10 +3,10 @@
     <head>
         <title>Audited Financial Report: Inline XBRL</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    {% include 'templates/style.html' %}
+        {% include 'xbrl/xbrl_style.html' %}
     </head>
 
-    <body>
+    <body class ="{{ format }}">
         <div style="display:none">
             <ix:header>
                 <ix:references>
@@ -14,7 +14,7 @@
                 </ix:references>
             <ix:resources>
                 <!--Start of contexts-->
-                {% include 'templates/contexts.html' %}
+                {% include 'xbrl/contexts.html' %}
                 <xbrli:unit id="USD">
                     <xbrli:measure>iso4217:USD</xbrli:measure>
                 </xbrli:unit>
@@ -24,10 +24,12 @@
         {% for sheet in acfr.sheets %}
         <div>
             <!-- Header for the sheet from the Excel doc -->
-            {{ sheet.header() }}
+            {% for line in sheet.header() %}
+                <b>{{ line }}</b><br>
+            {% endfor %}
         </div>
         <!-- Sheet cell data -->
-        {% include 'templates/table.html' %}
+        {% include 'xbrl/table.html' %}
         {% endfor %}
 
     </body>
