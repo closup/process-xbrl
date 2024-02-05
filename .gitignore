@@ -13,4 +13,4 @@ __pycache__/
 xbrl_venv/
 
 # ingore dependencies
-dependencies/
+# dependencies/
