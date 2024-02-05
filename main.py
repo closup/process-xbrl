@@ -155,7 +155,7 @@ def create_viewer_html(output_file : str,
     # TODO add a javascript progress wheel
     
     # TODO: this will not work on Heroku -- will need to include sub-modules in git repo
-    load_dependencies()
+    # load_dependencies()
     viewer_filepath = os.path.join(ROOT, viewer_filepath)
 
     # Make arelle imports possible
