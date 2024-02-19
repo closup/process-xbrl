@@ -11,6 +11,3 @@ __pycache__/
 
 # Ignore venv files
 xbrl_venv/
-
-# ingore dependencies
-# dependencies/
