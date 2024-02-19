@@ -19,15 +19,11 @@ CODE QUALITY:
 import subprocess
 import sys
 import os
-import platform # to check OS
 
 import argparse # commandline parsing
 import pandas as pd # data manipulation
 from jinja2 import Environment, FileSystemLoader # html formating
 from typing import * # to specify funtion inputs and outputs
-
-# for opening in ixbrl viewers
-import webbrowser
 
 # from utils.Cell import Cell
 # from utils.Context import Context
@@ -40,6 +36,8 @@ from utils.helper_functions import clean
 from flask import Flask, request, render_template
 from werkzeug.utils import secure_filename
 import gettext, shlex
+
+from bs4 import BeautifulSoup
 
 # =============================================================
 # Constants
@@ -132,7 +130,7 @@ def write_html(input_file : str,
 def load_dependencies():
     """ clone arelle and ixbrl viewer """
     # Define the directories where the repositories should be
-    arelle_dir = "dependencies/arelle"
+    arelle_dir = "dependencies/Arelle"
     ixbrl_viewer_dir = "dependencies/ixbrl-viewer"
 
     # Check if the directories exist
@@ -166,8 +164,8 @@ def create_viewer_html(output_file : str,
     arelle_dir = os.path.join(base_dir, "dependencies/arelle")
     sys.path.append(arelle_dir)
 
-    from dependencies.arelle.arelle import CntlrCmdLine
-    from dependencies.arelle.arelle.Locale import setApplicationLocale
+    from dependencies.Arelle.arelle import CntlrCmdLine
+    from dependencies.Arelle.arelle.Locale import setApplicationLocale
 
     # command to run Arelle process
     plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
@@ -178,6 +176,25 @@ def create_viewer_html(output_file : str,
     setApplicationLocale()
     gettext.install("arelle")
     CntlrCmdLine.parseAndRun(args)
+
+    # Read in the generated HTML
+    with open(viewer_filepath, 'r') as file:
+        html_content = file.read()
+
+    # Parse the HTML with BeautifulSoup
+    soup = BeautifulSoup(html_content, 'html.parser')
+
+    # Find the script tag we wish to modify
+    script_tag = soup.find('script', {'src': 'ixbrlviewer.js'})
+    if script_tag:
+        # Update the src attribute
+        script_tag['src'] = '{{ url_for(\'static\', filename=\'js/ixbrlviewer.js\') }}'
+
+    # Write the modified HTML back out
+    with open(viewer_filepath, 'w') as file:
+        file.write(str(soup))
+
+    os.rename('templates/site/ixbrlviewer.js', 'static/js/ixbrlviewer.js')
 
 # =============================================================
 # Flask

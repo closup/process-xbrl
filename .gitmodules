@@ -1,0 +1,6 @@
+[submodule "dependencies/Arelle"]
+	path = dependencies/Arelle
+	url = https://github.com/Arelle/Arelle.git
+[submodule "dependencies/ixbrl-viewer"]
+	path = dependencies/ixbrl-viewer
+	url = https://github.com/Arelle/ixbrl-viewer
