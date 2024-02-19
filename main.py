@@ -156,12 +156,12 @@ def create_viewer_html(output_file : str,
     base_dir = os.path.abspath(os.path.dirname(__file__))
     # Add the base directory to the sys.path
     sys.path.append(base_dir)
-    # Also add the arelle.arelle directory inside dependencies 
-    arelle_dir = os.path.join(base_dir, "dependencies/Arelle")
+    # Also add the Arelle.arelle directory inside dependencies 
+    arelle_dir = os.path.join(base_dir, "dependencies", "Arelle")
     sys.path.append(arelle_dir)
 
-    from dependencies.Arelle.arelle import CntlrCmdLine
-    from dependencies.Arelle.arelle.Locale import setApplicationLocale
+    from arelle import CntlrCmdLine
+    from arelle.Locale import setApplicationLocale
 
     # command to run Arelle process
     plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
