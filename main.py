@@ -127,33 +127,29 @@ def write_html(input_file : str,
     with open(output_file, 'w') as write_location:
         write_location.write(rendered_ixbrl)
 
-def load_dependencies():
-    """ clone arelle and ixbrl viewer """
-    # Define the directories where the repositories should be
-    arelle_dir = "dependencies/Arelle"
-    ixbrl_viewer_dir = "dependencies/ixbrl-viewer"
+# def load_dependencies():
+#     """ clone arelle and ixbrl viewer """
+#     # Define the directories where the repositories should be
+#     arelle_dir = "dependencies/Arelle"
+#     ixbrl_viewer_dir = "dependencies/ixbrl-viewer"
 
-    # Check if the directories exist
-    arelle_version = "2.17.5"
-    ixbrl_viewer_version = "1.4.9"
-    if not os.path.exists(arelle_dir):
-        subprocess.run(["git", "clone", "https://github.com/Arelle/Arelle.git", arelle_dir], check=True)
-        subprocess.run(["git", "checkout", arelle_version], cwd=arelle_dir, check=True)
-    if not os.path.exists(ixbrl_viewer_dir):
-        subprocess.run(["git", "clone", "https://github.com/Workiva/ixbrl-viewer.git", ixbrl_viewer_dir], check=True)  
-        subprocess.run(["git", "checkout", ixbrl_viewer_version], cwd=ixbrl_viewer_dir, check=True)
+#     # Check if the directories exist
+#     arelle_version = "2.17.5"
+#     ixbrl_viewer_version = "1.4.9"
+#     if not os.path.exists(arelle_dir):
+#         subprocess.run(["git", "clone", "https://github.com/Arelle/Arelle.git", arelle_dir], check=True)
+#         subprocess.run(["git", "checkout", arelle_version], cwd=arelle_dir, check=True)
+#     if not os.path.exists(ixbrl_viewer_dir):
+#         subprocess.run(["git", "clone", "https://github.com/Workiva/ixbrl-viewer.git", ixbrl_viewer_dir], check=True)  
+#         subprocess.run(["git", "checkout", ixbrl_viewer_version], cwd=ixbrl_viewer_dir, check=True)
 
 
 def create_viewer_html(output_file : str,
                        viewer_filepath : str = "templates/site/viewer.html"):
-
-    # This is very slow
-    # TODO Speed up
-    # Maybe it's downloading the dependencies each time?
-    # TODO add a javascript progress wheel
-    
-    # TODO: this will not work on Heroku -- will need to include sub-modules in git repo
-    # load_dependencies()
+    """
+    Runs Arelle adn ixbrl-viewer submodules to create a viewer html and 
+    accompanying javascript file.
+    """
     viewer_filepath = os.path.join(ROOT, viewer_filepath)
 
     # Make arelle imports possible
@@ -196,16 +192,12 @@ def create_viewer_html(output_file : str,
 
     os.rename('templates/site/ixbrlviewer.js', 'static/js/ixbrlviewer.js')
 
-# =============================================================
-# Flask
-# =============================================================
-
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS  
 
-# @app.route("/")
-# def index(active = "inactive"):
-#     return render_template('upload.html', active = active)
+# =============================================================
+# Flask
+# =============================================================
 
 @app.route('/')
 def home():
@@ -247,4 +239,3 @@ if __name__ == "__main__":
     contexts_path = "static/input_files/contexts.xlsx"
     context_name_map = parse_contexts(contexts_path)
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
-    
