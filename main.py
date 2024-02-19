@@ -157,7 +157,7 @@ def create_viewer_html(output_file : str,
     # Add the base directory to the sys.path
     sys.path.append(base_dir)
     # Also add the arelle.arelle directory inside dependencies 
-    arelle_dir = os.path.join(base_dir, "dependencies/arelle")
+    arelle_dir = os.path.join(base_dir, "dependencies/Arelle")
     sys.path.append(arelle_dir)
 
     from dependencies.Arelle.arelle import CntlrCmdLine
