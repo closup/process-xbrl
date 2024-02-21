@@ -1,15 +1,7 @@
 """
 A script to convert an arbitrary Excel budget into XBRL format.
 
-Last updated: December 2023, K. Wheelan
-
-TODO:
-NEXT ISSUE:
-- replace contexts maps? -- replace with elements.xlsx?
-separate a setup file
-
-CODE QUALITY:
-- add all docstrings
+Last updated: Feb 2024, K. Wheelan
 """
 
 # =============================================================
