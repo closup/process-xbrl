@@ -104,22 +104,22 @@ th:last-child, td:last-child {
 </ix:references>
 <ix:resources>
 <!--Start of contexts-->
-<xbrli:context id="I20220630_GovernmentalActivities">
+<xbrli:context id="I20220630">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:GovernmentalActivitiesMember</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:TotalMember</xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
 <xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="I20220630">
+<xbrli:context id="I20220630_GovernmentalActivities">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:TotalMember</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:GovernmentalActivitiesMember</xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -215,14 +215,14 @@ th:last-child, td:last-child {
 </td>
 <td class="row" id="StatementofNetPosition_D11">
             
-            $ <ix:nonfraction contextref="I20220630_BusinessTypeActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofNetPosition_D11" name="acfr:AccountsReceivableNetOfAllowance" unitref="USD">
-                23
+            $ <ix:nonfraction contextref="I20220630_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofNetPosition_D11" name="acfr:AccountsReceivableNetOfAllowance" unitref="USD">
+                -
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofNetPosition_E11">
             
             $ <ix:nonfraction contextref="I20220630" decimals="0" format="ixt:num-dot-decimal" id="StatementofNetPosition_E11" name="acfr:AccountsReceivableNetOfAllowance" unitref="USD">
-                1,133,338
+                1,133,315
             </ix:nonfraction>
 </td>
 </tr>
@@ -308,13 +308,13 @@ th:last-child, td:last-child {
 <td class="data_total" id="StatementofNetPosition_D15">
             
             $ -<ix:nonfraction contextref="I20220630_BusinessTypeActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofNetPosition_D15" name="acfr:CurrentAssets" sign="-" unitref="USD">
-                120,870
+                120,893
             </ix:nonfraction>
 </td>
 <td class="data_total" id="StatementofNetPosition_E15">
             
             $ <ix:nonfraction contextref="I20220630" decimals="0" format="ixt:num-dot-decimal" id="StatementofNetPosition_E15" name="acfr:CurrentAssets" unitref="USD">
-                14,652,852
+                14,652,829
             </ix:nonfraction>
 </td>
 </tr>
@@ -449,12 +449,12 @@ th:last-child, td:last-child {
 </td>
 <td class="data_total" id="StatementofNetPosition_D22">
 <ix:nonfraction contextref="I20220630_BusinessTypeActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofNetPosition_D22" name="acfr:Assets" unitref="USD">
-                888,333
+                888,310
             </ix:nonfraction>
 </td>
 <td class="data_total" id="StatementofNetPosition_E22">
 <ix:nonfraction contextref="I20220630" decimals="0" format="ixt:num-dot-decimal" id="StatementofNetPosition_E22" name="acfr:Assets" unitref="USD">
-                51,260,263
+                51,260,240
             </ix:nonfraction>
 </td>
 </tr>
@@ -57964,8 +57964,8 @@ th:last-child, td:last-child {
         "e": "e:0613882",
         "p": "2022-07-01"
        },
-       "v": "23",
-       "f": "ixt:num-dot-decimal"
+       "v": "0",
+       "f": "ixt:fixed-zero"
       },
       "StatementofNetPosition_E11": {
        "a": {
@@ -57973,7 +57973,7 @@ th:last-child, td:last-child {
         "e": "e:0613882",
         "p": "2022-07-01"
        },
-       "v": "1133338",
+       "v": "1133315",
        "f": "ixt:num-dot-decimal"
       },
       "StatementofNetPosition_C12": {
@@ -58072,7 +58072,7 @@ th:last-child, td:last-child {
         "e": "e:0613882",
         "p": "2022-07-01"
        },
-       "v": "-120870",
+       "v": "-120893",
        "f": "ixt:num-dot-decimal"
       },
       "StatementofNetPosition_E15": {
@@ -58081,7 +58081,7 @@ th:last-child, td:last-child {
         "e": "e:0613882",
         "p": "2022-07-01"
        },
-       "v": "14652852",
+       "v": "14652829",
        "f": "ixt:num-dot-decimal"
       },
       "StatementofNetPosition_C17": {
@@ -58234,7 +58234,7 @@ th:last-child, td:last-child {
         "e": "e:0613882",
         "p": "2022-07-01"
        },
-       "v": "888333",
+       "v": "888310",
        "f": "ixt:num-dot-decimal"
       },
       "StatementofNetPosition_E22": {
@@ -58243,7 +58243,7 @@ th:last-child, td:last-child {
         "e": "e:0613882",
         "p": "2022-07-01"
        },
-       "v": "51260263",
+       "v": "51260240",
        "f": "ixt:num-dot-decimal"
       },
       "StatementofNetPosition_C25": {

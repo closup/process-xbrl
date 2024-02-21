@@ -106,12 +106,12 @@ th:last-child, td:last-child {
             <ix:resources>
                 <!--Start of contexts-->
                 
-<xbrli:context id="I20220630_GovernmentalActivities">
+<xbrli:context id="I20220630">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:GovernmentalActivitiesMember</xbrldi:explicitmember>
+            <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:TotalMember</xbrldi:explicitmember>
             
         </xbrli:segment>   
     </xbrli:entity>
@@ -122,12 +122,12 @@ th:last-child, td:last-child {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="I20220630">
+<xbrli:context id="I20220630_GovernmentalActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:TotalMember</xbrldi:explicitmember>
+            <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:GovernmentalActivitiesMember</xbrldi:explicitmember>
             
         </xbrli:segment>   
     </xbrli:entity>
@@ -281,8 +281,8 @@ th:last-child, td:last-child {
     
     <td id="StatementofNetPosition_D11" class="row">
             
-            $ <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:AccountsReceivableNetOfAllowance" unitRef="USD" id="StatementofNetPosition_D11" decimals="0" format="ixt:num-dot-decimal" >
-                23
+            $ <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:AccountsReceivableNetOfAllowance" unitRef="USD" id="StatementofNetPosition_D11" decimals="0" format="ixt:fixed-zero" >
+                -
             </ix:nonFraction>
             
         </td>
@@ -291,7 +291,7 @@ th:last-child, td:last-child {
     <td id="StatementofNetPosition_E11" class="row">
             
             $ <ix:nonFraction contextRef="I20220630" name="acfr:AccountsReceivableNetOfAllowance" unitRef="USD" id="StatementofNetPosition_E11" decimals="0" format="ixt:num-dot-decimal" >
-                1,133,338
+                1,133,315
             </ix:nonFraction>
             
         </td>
@@ -414,7 +414,7 @@ th:last-child, td:last-child {
     <td id="StatementofNetPosition_D15" class="data_total">
             
             $ -<ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:CurrentAssets" unitRef="USD" id="StatementofNetPosition_D15" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
-                120,870
+                120,893
             </ix:nonFraction>
             
         </td>
@@ -423,7 +423,7 @@ th:last-child, td:last-child {
     <td id="StatementofNetPosition_E15" class="data_total">
             
             $ <ix:nonFraction contextRef="I20220630" name="acfr:CurrentAssets" unitRef="USD" id="StatementofNetPosition_E15" decimals="0" format="ixt:num-dot-decimal" >
-                14,652,852
+                14,652,829
             </ix:nonFraction>
             
         </td>
@@ -633,7 +633,7 @@ th:last-child, td:last-child {
     <td id="StatementofNetPosition_D22" class="data_total">
             
             <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:Assets" unitRef="USD" id="StatementofNetPosition_D22" decimals="0" format="ixt:num-dot-decimal" >
-                888,333
+                888,310
             </ix:nonFraction>
             
         </td>
@@ -642,7 +642,7 @@ th:last-child, td:last-child {
     <td id="StatementofNetPosition_E22" class="data_total">
             
             <ix:nonFraction contextRef="I20220630" name="acfr:Assets" unitRef="USD" id="StatementofNetPosition_E22" decimals="0" format="ixt:num-dot-decimal" >
-                51,260,263
+                51,260,240
             </ix:nonFraction>
             
         </td>
