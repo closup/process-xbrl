@@ -110,7 +110,7 @@ def write_html(input_file : str,
     """ Create inline xbrl document and save as an html file at {output_file} location """
     # iterate through sheets, saving Sheet() objects
     input_xl = pd.ExcelFile(input_file)
-    acfr = Acfr([Sheet(input_file, sheet_name, context_name_map) for sheet_name in input_xl.sheet_names if sheet_name != "Label Dropdowns"])
+    acfr = Acfr([Sheet(input_file, sheet_name, context_name_map) for sheet_name in input_xl.sheet_names if not(sheet_name in ["Label Dropdowns", "Master Info"])])
 
     # Load the template and render with vars
     rendered_ixbrl = render_template('xbrl/base.html', acfr = acfr, format = format)
@@ -232,4 +232,5 @@ def load():
 if __name__ == "__main__":
     contexts_path = "static/input_files/contexts.xlsx"
     context_name_map = parse_contexts(contexts_path)
+    print(context_name_map)
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))

@@ -115,22 +115,22 @@ th:last-child, td:last-child {
 <xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="I20220630_BusinessTypeActivities">
+<xbrli:context id="I20220630">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:BusinessTypeActivitiesMember</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:TotalMember</xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
 <xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="I20220630">
+<xbrli:context id="I20220630_BusinessTypeActivities">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:TotalMember</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:BusinessTypeActivitiesMember</xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -214,10 +214,6 @@ th:last-child, td:last-child {
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofNetPosition_D11">
-            
-            $ <ix:nonfraction contextref="I20220630_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofNetPosition_D11" name="acfr:AccountsReceivableNetOfAllowance" unitref="USD">
-                -
-            </ix:nonfraction>
 </td>
 <td class="row" id="StatementofNetPosition_E11">
             
@@ -57957,15 +57953,6 @@ th:last-child, td:last-child {
        },
        "v": "1133315",
        "f": "ixt:num-dot-decimal"
-      },
-      "StatementofNetPosition_D11": {
-       "a": {
-        "c": "acfr:AccountsReceivableNetOfAllowance",
-        "e": "e:0613882",
-        "p": "2022-07-01"
-       },
-       "v": "0",
-       "f": "ixt:fixed-zero"
       },
       "StatementofNetPosition_E11": {
        "a": {

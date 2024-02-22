@@ -97,5 +97,13 @@ class Sheet:
             self.time_type = "D"
             self.date = str.replace(self.date, "for_the_year_ended_", "")
         # convert date format
-        self.date = datetime.strptime(self.date, "%B_%d,_%Y")
+        try:
+        # First try parsing with the numerical year-month-day format (default if "date" in Excel)
+            self.date = datetime.strptime(self.date, "%Y-%m-%d_%H:%M:%S")
+        except ValueError:
+            try:
+                # If the above format fails, try the month-name_day,_year format.
+                self.date = datetime.strptime(self.date, '%B_%d,_%Y')
+            except ValueError:
+                pass
         self.date = self.date.strftime("%B %d, %Y")

@@ -122,12 +122,12 @@ th:last-child, td:last-child {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="I20220630_BusinessTypeActivities">
+<xbrli:context id="I20220630">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:BusinessTypeActivitiesMember</xbrldi:explicitmember>
+            <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:TotalMember</xbrldi:explicitmember>
             
         </xbrli:segment>   
     </xbrli:entity>
@@ -138,12 +138,12 @@ th:last-child, td:last-child {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="I20220630">
+<xbrli:context id="I20220630_BusinessTypeActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:TotalMember</xbrldi:explicitmember>
+            <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:BusinessTypeActivitiesMember</xbrldi:explicitmember>
             
         </xbrli:segment>   
     </xbrli:entity>
@@ -280,10 +280,6 @@ th:last-child, td:last-child {
      
     
     <td id="StatementofNetPosition_D11" class="row">
-            
-            $ <ix:nonFraction contextRef="I20220630_BusinessTypeActivities" name="acfr:AccountsReceivableNetOfAllowance" unitRef="USD" id="StatementofNetPosition_D11" decimals="0" format="ixt:fixed-zero" >
-                -
-            </ix:nonFraction>
             
         </td>
      
