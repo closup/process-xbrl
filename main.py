@@ -151,6 +151,8 @@ def create_viewer_html(output_file : str,
     # Also add the Arelle.arelle directory inside dependencies 
     arelle_dir = os.path.join(base_dir, "dependencies", "Arelle")
     sys.path.append(arelle_dir)
+    print(base_dir)
+    print(arelle_dir)
 
     from arelle import CntlrCmdLine
     from arelle.Locale import setApplicationLocale
