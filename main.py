@@ -31,6 +31,14 @@ import gettext, shlex
 
 from bs4 import BeautifulSoup
 
+
+import mammoth
+
+from docx import Document
+
+from docx.opc.constants import RELATIONSHIP_TYPE as RT
+from lxml import etree
+
 # =============================================================
 # Constants
 # =============================================================
@@ -151,14 +159,14 @@ def create_viewer_html(output_file : str,
     # Also add the Arelle.arelle directory inside dependencies 
     arelle_dir = os.path.join(base_dir, "dependencies", "Arelle")
     sys.path.append(arelle_dir)
-    print(base_dir)
-    print(arelle_dir)
-
-    from arelle import CntlrCmdLine
+    
+    from arelle import CntlrCmdLine 
     from arelle.Locale import setApplicationLocale
-
     # command to run Arelle process
     plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
+    
+    viewer_filepath=viewer_filepath.replace("\\",'/') # added this for solve some errors in file directory  
+    plugins=plugins.replace("\\",'/') # added this for solve some errors in file directory  
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
     args = f"--plugins={plugins} -f {output_file} --save-viewer {viewer_filepath} --viewer-url {viewer_url}"
     
@@ -184,10 +192,49 @@ def create_viewer_html(output_file : str,
     with open(viewer_filepath, 'w') as file:
         file.write(str(soup))
 
-    os.rename('templates/site/ixbrlviewer.js', 'static/js/ixbrlviewer.js')
+    # os.rename('templates/site/ixbrlviewer.js', 'static/js/ixbrlviewer.js')
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS  
+
+
+# added the function for get the word conntent 
+def extract_text_and_images_from_docx(file_path):
+    with open(file_path, "rb") as docx_file:
+        result = mammoth.convert_to_html(docx_file)
+        html = result.value  # Extracted HTML content
+        images = result.messages  # Extracted images, if any
+
+        doc = Document(file_path) # Trying to get the commented text from the document
+        nsmap = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+        comments = []
+
+        # get the comments from the document  
+        for rel in doc.part.rels.values():
+            if "comments" in rel.target_ref:
+                comment_part = rel.target_part
+                xml_content = comment_part.blob
+                root = etree.fromstring(xml_content)
+                for comment in root.findall(".//w:comment", namespaces=nsmap):
+                    comment_id = comment.attrib.get('{http://schemas.openxmlformats.org/wordprocessingml/2006/main}id')
+                    comment_text = ""
+                    for p in comment.findall(".//w:p", namespaces=nsmap):
+                        for r in p.findall(".//w:r", namespaces=nsmap):
+                            text = "".join([t.text for t in r.findall(".//w:t", namespaces=nsmap) if t.text])
+                            comment_text += text.strip()
+                    comments.append((comment_id, comment_text.strip()))
+                    # html = html.replace(comment_text.strip(), f'<span class="comment" data-comment-id="{comment_id}">{comment_text.strip()}</span>')
+        #TODO : need to tag those comments
+        # for rel_id in doc.part.rels.keys():
+        #     rel = doc.part.rels[rel_id]
+        #     if rel.reltype == RT.COMMENTS:
+        #         comment_part = rel.target_part
+        #         print(comment_part.comments)
+                # for comment in comment_part.comments:
+                #     comments.append(comment.text.strip())
+        
+        # print(html)
+        return html, images
 
 # =============================================================
 # Flask
@@ -200,16 +247,24 @@ def home():
 
 @app.route('/viewer')
 def view(viewer_file_name = "site/viewer.html"):
-    return render_template(viewer_file_name)
+    #extracted the contents from word
+    cover_page, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Cover Page and Introductory Section.docx')
+    auditors_letter, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Independent Auditors Letter and Management Discussion & Analysis.docx')
+    notes, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Notes.docx')
+    supplementary_info, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Required Supplementary Information.docx')
+    statistical_section, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Statistical Section.docx')
+
+    return render_template(viewer_file_name, cover_page=cover_page, auditors_letter=auditors_letter, notes=notes, supplementary_info=supplementary_info, statistical_section=statistical_section )
 
 
 @app.route('/upload', methods=['POST'])
 def upload_file(output_file = "static/output/output.html", format = "gray"):
+
     if 'file' not in request.files:
         return "No file"
     
     file = request.files['file']
-
+    
     if file.filename == '':
         return 'No selected file'
         
@@ -217,6 +272,7 @@ def upload_file(output_file = "static/output/output.html", format = "gray"):
         write_html(file, output_file, context_name_map, format)
         viewer_file_name = "templates/site/viewer.html"
         create_viewer_html(output_file, viewer_file_name)
+
         return render_template("site/upload.html")
     else:
         return 'Invalid file type'
