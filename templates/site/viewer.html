@@ -143,6 +143,20 @@ th:last-child, td:last-child {
 </ix:resources>
 </ix:header>
 </div>
+<ix:nonnumeric>
+<br/>
+<h1 align="center"> COVER PAGE </h1> 
+    {{ cover_page | safe }}
+
+</ix:nonnumeric>
+<ix:nonnumeric>
+<br/>
+<h1 align="center"> AUDITOR'S REPORT </h1> 
+    {{ auditors_letter | safe }}
+    <br/>
+<h1 align="center"> EXCEL PORTION </h1>
+<br/>
+</ix:nonnumeric>
 <div>
 <!-- Header for the sheet from the Excel doc -->
 <b>City Of Clayton</b><br/>
@@ -1026,7 +1040,24 @@ th:last-child, td:last-child {
 </td>
 </tr>
 </table>
-</div><!--BEGIN IXBRL VIEWER EXTENSIONS--><script src="{{ url_for('static', filename='js/ixbrlviewer.js') }}" type="text/javascript"></script><script type="application/x.ixbrl-viewer+json">{
+</div>
+<ix:nonnumeric>
+<br/>
+<h1 align="center"> NOTES </h1> 
+    {{ notes | safe }}
+</ix:nonnumeric>
+<ix:nonnumeric>
+<br/>
+<h1 align="center"> SUPPLEMENTARY INFORMATION </h1> 
+    {{ supplementary_info | safe }}
+</ix:nonnumeric>
+<ix:nonnumeric>
+<br/>
+<h1 align="center"> STATISTICAL SECTION </h1> 
+    {{ statistical_section | safe }}
+    <br/>
+</ix:nonnumeric>
+<!--BEGIN IXBRL VIEWER EXTENSIONS--><script src="{{ url_for('static', filename='js/ixbrlviewer.js') }}" type="text/javascript"></script><script type="application/x.ixbrl-viewer+json">{
  "sourceReports": [
   {
    "targetReports": [
