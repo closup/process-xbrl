@@ -19,8 +19,22 @@
                     <xbrli:measure>iso4217:USD</xbrli:measure>
                 </xbrli:unit>
             </ix:resources>
-          </ix:header>
+          </ix:header> 
         </div>
+        <ix:nonnumeric>
+            <br/>
+            <h1 align="center"> COVER PAGE </h1> 
+                {{ cover_page | safe }}
+            
+            </ix:nonnumeric>
+            <ix:nonnumeric>
+            <br/>
+            <h1 align="center"> AUDITOR'S REPORT </h1> 
+                {{ auditors_letter | safe }}
+                <br/>
+            <h1 align="center"> EXCEL PORTION </h1>
+            <br/>
+            </ix:nonnumeric> 
         {% for sheet in acfr.sheets %}
         <div>
             <!-- Header for the sheet from the Excel doc -->
@@ -31,6 +45,23 @@
         <!-- Sheet cell data -->
         {% include 'xbrl/table.html' %}
         {% endfor %}
+        <ix:nonnumeric>
+        <br/>
+        <h1 align="center"> NOTES </h1> 
+            {{ notes | safe }}
+        </ix:nonnumeric>
+        <ix:nonnumeric>
+        <br/>
+        <h1 align="center"> SUPPLEMENTARY INFORMATION </h1> 
+            {{ supplementary_info | safe }}
+        </ix:nonnumeric>
+        <ix:nonnumeric>
+        <br/>
+        <h1 align="center"> STATISTICAL SECTION </h1> 
+            {{ statistical_section | safe }}
+            <br/>
+        </ix:nonnumeric>
 
     </body>
+
 </html>
