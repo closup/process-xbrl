@@ -11,7 +11,6 @@ Last updated: Feb 2024, K. Wheelan
 import subprocess
 import sys
 import os
-
 import argparse # commandline parsing
 import pandas as pd # data manipulation
 from jinja2 import Environment, FileSystemLoader # html formating
@@ -23,6 +22,7 @@ from utils.Sheet import Sheet
 from utils.Acfr import Acfr
 from utils.constants import * #all global variables
 from utils.helper_functions import clean
+from utils.word_comments import ExtractComments
 
 # flask dependencies
 from flask import Flask, request, render_template
@@ -31,13 +31,7 @@ import gettext, shlex
 
 from bs4 import BeautifulSoup
 
-
 import mammoth
-
-from docx import Document
-
-from docx.opc.constants import RELATIONSHIP_TYPE as RT
-from lxml import etree
 
 # =============================================================
 # Constants
@@ -91,6 +85,7 @@ def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
     Function to parse contexts to create contexts reference
     dictionaries for later
     """   
+    print(contexts_file)
     # open contexts excel sheet
     pd.read_excel(contexts_file)
     try:
@@ -119,12 +114,18 @@ def write_html(input_file : str,
     # iterate through sheets, saving Sheet() objects
     input_xl = pd.ExcelFile(input_file)
     acfr = Acfr([Sheet(input_file, sheet_name, context_name_map) for sheet_name in input_xl.sheet_names if sheet_name != "Label Dropdowns"])
+    #extracted the contents from word
+    cover_page, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Cover Page and Introductory Section.docx')
+    auditors_letter, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Independent Auditors Letter and Management Discussion & Analysis.docx')
+    notes, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Notes.docx')
+    supplementary_info, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Required Supplementary Information.docx')
+    statistical_section, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Statistical Section.docx')
 
     # Load the template and render with vars
-    rendered_ixbrl = render_template('xbrl/base.html', acfr = acfr, format = format)
+    rendered_ixbrl = render_template('xbrl/base.html', acfr = acfr, format = format, cover_page=cover_page, auditors_letter=auditors_letter, notes=notes, supplementary_info=supplementary_info, statistical_section=statistical_section)
 
     # Save the rendered template to output file
-    with open(output_file, 'w') as write_location:
+    with open(output_file, 'w', encoding="utf8") as write_location:
         write_location.write(rendered_ixbrl)
 
 # def load_dependencies():
@@ -176,7 +177,7 @@ def create_viewer_html(output_file : str,
     CntlrCmdLine.parseAndRun(args)
 
     # Read in the generated HTML
-    with open(viewer_filepath, 'r') as file:
+    with open(viewer_filepath, 'r', encoding="utf8") as file:
         html_content = file.read()
 
     # Parse the HTML with BeautifulSoup
@@ -189,7 +190,7 @@ def create_viewer_html(output_file : str,
         script_tag['src'] = '{{ url_for(\'static\', filename=\'js/ixbrlviewer.js\') }}'
 
     # Write the modified HTML back out
-    with open(viewer_filepath, 'w') as file:
+    with open(viewer_filepath, 'w', encoding="utf8") as file:
         file.write(str(soup))
 
     # os.rename('templates/site/ixbrlviewer.js', 'static/js/ixbrlviewer.js')
@@ -200,40 +201,43 @@ def allowed_file(filename):
 
 # added the function for get the word conntent 
 def extract_text_and_images_from_docx(file_path):
+
     with open(file_path, "rb") as docx_file:
         result = mammoth.convert_to_html(docx_file)
         html = result.value  # Extracted HTML content
-        images = result.messages  # Extracted images, if any
+        images = result.messages  # Extracted images, if any    
 
-        doc = Document(file_path) # Trying to get the commented text from the document
-        nsmap = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
-        comments = []
+        # doc = Document(file_path) # Trying to get the commented text from the document
+        # nsmap = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+        # comments = []
 
-        # get the comments from the document  
-        for rel in doc.part.rels.values():
-            if "comments" in rel.target_ref:
-                comment_part = rel.target_part
-                xml_content = comment_part.blob
-                root = etree.fromstring(xml_content)
-                for comment in root.findall(".//w:comment", namespaces=nsmap):
-                    comment_id = comment.attrib.get('{http://schemas.openxmlformats.org/wordprocessingml/2006/main}id')
-                    comment_text = ""
-                    for p in comment.findall(".//w:p", namespaces=nsmap):
-                        for r in p.findall(".//w:r", namespaces=nsmap):
-                            text = "".join([t.text for t in r.findall(".//w:t", namespaces=nsmap) if t.text])
-                            comment_text += text.strip()
-                    comments.append((comment_id, comment_text.strip()))
-                    # html = html.replace(comment_text.strip(), f'<span class="comment" data-comment-id="{comment_id}">{comment_text.strip()}</span>')
-        #TODO : need to tag those comments
-        # for rel_id in doc.part.rels.keys():
-        #     rel = doc.part.rels[rel_id]
-        #     if rel.reltype == RT.COMMENTS:
+        # for rel in doc.part.rels.values():
+        #     if "comments" in rel.target_ref:
         #         comment_part = rel.target_part
-        #         print(comment_part.comments)
-                # for comment in comment_part.comments:
-                #     comments.append(comment.text.strip())
+        #         xml_content = comment_part.blob
+        #         root = etree.fromstring(xml_content)
+                
+        #         for comment in root.findall(".//w:comment", namespaces=nsmap):
+        #             comment_id = comment.attrib.get('{http://schemas.openxmlformats.org/wordprocessingml/2006/main}id')
+
+        #             comment_text = ""
+        #             for p in comment.findall(".//w:p", namespaces=nsmap):
+        #                 for r in p.findall(".//w:r", namespaces=nsmap):
+                            
+        #                     text = "".join([t.text for t in r.findall(".//w:t", namespaces=nsmap) if t.text])
+        #                     comment_text += text.strip()
+                    
+        #             comments.append((comment_id, comment_text.strip()))
+        # print(comments)
         
-        # print(html)
+        comment_details = ExtractComments.get_comments_and_text(file_path)
+        #TODO : need to tag those comments
+        if comment_details:
+            comment_text=comment_details['Comment']
+            selected_text = comment_details['SelectedText']
+            for i in range (0,len(comment_text)):
+                print(selected_text[i].strip(), comment_text[i])
+                # html = html.replace(selected_text[i].strip(), f'<span class="comment" ">{comment_text[i].strip()}</span>')
         return html, images
 
 # =============================================================
@@ -244,22 +248,13 @@ def extract_text_and_images_from_docx(file_path):
 def home():
     return render_template('site/home.html', loading=True)
 
-
 @app.route('/viewer')
 def view(viewer_file_name = "site/viewer.html"):
-    #extracted the contents from word
-    cover_page, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Cover Page and Introductory Section.docx')
-    auditors_letter, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Independent Auditors Letter and Management Discussion & Analysis.docx')
-    notes, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Notes.docx')
-    supplementary_info, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Required Supplementary Information.docx')
-    statistical_section, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Statistical Section.docx')
-
-    return render_template(viewer_file_name, cover_page=cover_page, auditors_letter=auditors_letter, notes=notes, supplementary_info=supplementary_info, statistical_section=statistical_section )
+    return render_template(viewer_file_name )
 
 
 @app.route('/upload', methods=['POST'])
 def upload_file(output_file = "static/output/output.html", format = "gray"):
-
     if 'file' not in request.files:
         return "No file"
     
@@ -267,7 +262,6 @@ def upload_file(output_file = "static/output/output.html", format = "gray"):
     
     if file.filename == '':
         return 'No selected file'
-        
     if file and allowed_file(file.filename):
         write_html(file, output_file, context_name_map, format)
         viewer_file_name = "templates/site/viewer.html"
