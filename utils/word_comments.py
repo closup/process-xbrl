@@ -1,8 +1,9 @@
 from lxml import etree
 import zipfile
+import re
 
 class ExtractComments:
-    def get_comments_and_text(docxFileName):
+    def get_comments_and_text(docxFileName,html):
         try:
             ooXMLns = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
             docxZip = zipfile.ZipFile(docxFileName)
@@ -14,7 +15,7 @@ class ExtractComments:
             mainXML = docxZip.read('word/document.xml')
             et_main = etree.XML(mainXML)
             paragraphs = et_main.xpath('//w:p', namespaces=ooXMLns)
-            comment_details = {"Comment":[],"SelectedText":[]}
+            comment_details = {"Comment":[],"SelectedText":[], "Location": []}
             # Extract selected text for each comment
             for c in comments:
                 # Attributes:
@@ -25,12 +26,20 @@ class ExtractComments:
                 for p in paragraphs:
                     if p.xpath('.//w:commentRangeStart/@w:id', namespaces=ooXMLns) == [comment_id]:
                         selected_text = p.xpath('string(.)', namespaces=ooXMLns)
+                        # Find the location of selected text in the HTML
+                        match = re.search(re.escape(selected_text), html)
+                        if match:
+                            start_index = match.start()
+                            end_index = match.end()
+                            comment_details['Location'].append((start_index, end_index))
                         break        
                 comment_details['Comment'].append(comment_text)
                 comment_details['SelectedText'].append(selected_text.strip())
+
         except:
-            print('There is no comments in this page')
+            # print('There is no comments in this page')
             return None
+        
         return comment_details
 
 ## NOTE : Able to get the comment using lxml,zip file
@@ -49,8 +58,6 @@ class ExtractComments:
 #     # string value of the comment:
 #     print(c.xpath('string(.)',namespaces=ooXMLns))
 # get_comments('static/input_files/word_documents/CA Clayton 2022 Cover Page and Introductory Section.docx')
-
-
 
 ## NOTE getting only the comments not the reference text
 # doc = Document(file_path) # Trying to get the commented text from the document
