@@ -110,7 +110,7 @@ def write_html(input_file : str,
                output_file : str,
                context_name_map : Dict[str, Dict[str, str]],
                format : str):
-    """ Create inline xbrl document and save as an html file at {output_file} location """
+    """ Create inline xbrl document and save as an htm`l file at {output_file} location """
     # iterate through sheets, saving Sheet() objects
     input_xl = pd.ExcelFile(input_file)
     acfr = Acfr([Sheet(input_file, sheet_name, context_name_map) for sheet_name in input_xl.sheet_names if sheet_name != "Label Dropdowns"])
@@ -207,37 +207,23 @@ def extract_text_and_images_from_docx(file_path):
         html = result.value  # Extracted HTML content
         images = result.messages  # Extracted images, if any    
 
-        # doc = Document(file_path) # Trying to get the commented text from the document
-        # nsmap = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
-        # comments = []
-
-        # for rel in doc.part.rels.values():
-        #     if "comments" in rel.target_ref:
-        #         comment_part = rel.target_part
-        #         xml_content = comment_part.blob
-        #         root = etree.fromstring(xml_content)
-                
-        #         for comment in root.findall(".//w:comment", namespaces=nsmap):
-        #             comment_id = comment.attrib.get('{http://schemas.openxmlformats.org/wordprocessingml/2006/main}id')
-
-        #             comment_text = ""
-        #             for p in comment.findall(".//w:p", namespaces=nsmap):
-        #                 for r in p.findall(".//w:r", namespaces=nsmap):
-                            
-        #                     text = "".join([t.text for t in r.findall(".//w:t", namespaces=nsmap) if t.text])
-        #                     comment_text += text.strip()
-                    
-        #             comments.append((comment_id, comment_text.strip()))
-        # print(comments)
-        
-        comment_details = ExtractComments.get_comments_and_text(file_path)
+        comment_details = ExtractComments.get_comments_and_text(file_path,html)
         #TODO : need to tag those comments
         if comment_details:
             comment_text=comment_details['Comment']
+            comment_range = comment_details['Location']
             selected_text = comment_details['SelectedText']
-            for i in range (0,len(comment_text)):
-                print(selected_text[i].strip(), comment_text[i])
-                # html = html.replace(selected_text[i].strip(), f'<span class="comment" ">{comment_text[i].strip()}</span>')
+            updated_html = html
+            offset = 0
+            cmnt_count =0
+            for start, end in comment_range:
+                start_tag = f'<ix:nonfraction contextref="cmnt"  id="{comment_text[cmnt_count]}" name="{comment_text[cmnt_count]}">'
+                end_tag = "</ix:nonfraction>"
+                updated_html = updated_html[:start + offset] + start_tag + updated_html[start + offset:end + offset] + end_tag + updated_html[end + offset:]
+                offset += len(start_tag) + len(end_tag)
+                cmnt_count+=1
+        
+            return updated_html, images
         return html, images
 
 # =============================================================
@@ -251,7 +237,6 @@ def home():
 @app.route('/viewer')
 def view(viewer_file_name = "site/viewer.html"):
     return render_template(viewer_file_name )
-
 
 @app.route('/upload', methods=['POST'])
 def upload_file(output_file = "static/output/output.html", format = "gray"):
