@@ -85,9 +85,8 @@ def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
     Function to parse contexts to create contexts reference
     dictionaries for later
     """   
-    print(contexts_file)
     # open contexts excel sheet
-    pd.read_excel(contexts_file)
+    # pd.read_excel(contexts_file)
     try:
         contexts = pd.read_excel(contexts_file)
     except:
@@ -168,6 +167,7 @@ def create_viewer_html(output_file : str,
     
     viewer_filepath=viewer_filepath.replace("\\",'/') # added this for solve some errors in file directory  
     plugins=plugins.replace("\\",'/') # added this for solve some errors in file directory  
+    # print(viewer_filepath,plugins)
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
     args = f"--plugins={plugins} -f {output_file} --save-viewer {viewer_filepath} --viewer-url {viewer_url}"
     
@@ -203,26 +203,14 @@ def allowed_file(filename):
 def extract_text_and_images_from_docx(file_path):
 
     with open(file_path, "rb") as docx_file:
+
         result = mammoth.convert_to_html(docx_file)
         html = result.value  # Extracted HTML content
         images = result.messages  # Extracted images, if any    
-
-        comment_details = ExtractComments.get_comments_and_text(file_path,html)
-        #TODO : need to tag those comments
-        if comment_details:
-            comment_text=comment_details['Comment']
-            comment_range = comment_details['Location']
-            selected_text = comment_details['SelectedText']
-            updated_html = html
-            offset = 0
-            cmnt_count =0
-            for start, end in comment_range:
-                start_tag = f'<ix:nonfraction contextref="cmnt"  id="{comment_text[cmnt_count]}" name="{comment_text[cmnt_count]}">'
-                end_tag = "</ix:nonfraction>"
-                updated_html = updated_html[:start + offset] + start_tag + updated_html[start + offset:end + offset] + end_tag + updated_html[end + offset:]
-                offset += len(start_tag) + len(end_tag)
-                cmnt_count+=1
         
+        #TODO : need to tag those comments
+        updated_html = ExtractComments.get_comments_and_text(file_path,html)
+        if updated_html:
             return updated_html, images
         return html, images
 
