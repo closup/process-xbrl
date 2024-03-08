@@ -6,7 +6,6 @@ from bs4 import BeautifulSoup
 class ExtractComments:
         
     def get_comments_and_text(docxFileName, html):
-        if docxFileName == 'static/input_files/word_documents/CA Clayton 2022 Cover Page and Introductory Section.docx':
             try:
                 ooXMLns = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
 
