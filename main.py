@@ -25,7 +25,7 @@ from utils.helper_functions import clean
 from utils.word_comments import ExtractComments
 
 # flask dependencies
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, session
 from werkzeug.utils import secure_filename
 import gettext, shlex
 
@@ -108,17 +108,18 @@ def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
 def write_html(input_file : str,
                output_file : str,
                context_name_map : Dict[str, Dict[str, str]],
-               format : str):
+               format : str,
+               wordfiles: Dict[str, Dict[str, str]]):
     """ Create inline xbrl document and save as an htm`l file at {output_file} location """
     # iterate through sheets, saving Sheet() objects
     input_xl = pd.ExcelFile(input_file)
     acfr = Acfr([Sheet(input_file, sheet_name, context_name_map) for sheet_name in input_xl.sheet_names if sheet_name != "Label Dropdowns"])
     #extracted the contents from word
-    cover_page, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Cover Page and Introductory Section.docx')
-    auditors_letter, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Independent Auditors Letter and Management Discussion & Analysis.docx')
-    notes, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Notes.docx')
-    supplementary_info, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Required Supplementary Information.docx')
-    statistical_section, _ = extract_text_and_images_from_docx('static/input_files/word_documents/CA Clayton 2022 Statistical Section.docx')
+    cover_page, _ = extract_text_and_images_from_docx(wordfiles['cover'])
+    auditors_letter, _ = extract_text_and_images_from_docx(wordfiles['auditor'])
+    notes, _ = extract_text_and_images_from_docx(wordfiles['notes'])
+    supplementary_info, _ = extract_text_and_images_from_docx(wordfiles['info'])
+    statistical_section, _ = extract_text_and_images_from_docx(wordfiles['statistic'])
 
     # Load the template and render with vars
     rendered_ixbrl = render_template('xbrl/base.html', acfr = acfr, format = format, cover_page=cover_page, auditors_letter=auditors_letter, notes=notes, supplementary_info=supplementary_info, statistical_section=statistical_section)
@@ -202,22 +203,22 @@ def allowed_file(filename):
 # added the function for get the word conntent 
 def extract_text_and_images_from_docx(file_path):
 
-    with open(file_path, "rb") as docx_file:
+    # with open(file_path, "rb") as docx_file:
 
-        result = mammoth.convert_to_html(docx_file)
-        html = result.value  # Extracted HTML content
-        images = result.messages  # Extracted images, if any    
-        
-        #TODO : need to tag those comments
-        updated_html = ExtractComments.get_comments_and_text(file_path,html)
-        if updated_html:
-            return updated_html, images
-        return html, images
+    result = mammoth.convert_to_html(file_path)
+    html = result.value  # Extracted HTML content
+    images = result.messages  # Extracted images, if any    
+    
+    #TODO : need to tag those comments
+    updated_html = ExtractComments.get_comments_and_text(file_path,html)
+    if updated_html:
+        return updated_html, images
+    return html, images
 
 # =============================================================
 # Flask
 # =============================================================
-
+import json
 @app.route('/')
 def home():
     return render_template('site/home.html', loading=True)
@@ -231,12 +232,21 @@ def upload_file(output_file = "static/output/output.html", format = "gray"):
     if 'file' not in request.files:
         return "No file"
     
+    wordfiles={}
+    # Example: Print the file names
+    wordfiles['cover']= request.files['coverfile']
+    wordfiles['auditor']= request.files['auditorfile']
+    wordfiles['notes']= request.files['notesfile']
+    wordfiles['info']= request.files['infofile']
+    wordfiles['statistic']= request.files['statisticalfile']
+
     file = request.files['file']
     
     if file.filename == '':
         return 'No selected file'
+    
     if file and allowed_file(file.filename):
-        write_html(file, output_file, context_name_map, format)
+        write_html(file, output_file, context_name_map, format,wordfiles)
         viewer_file_name = "templates/site/viewer.html"
         create_viewer_html(output_file, viewer_file_name)
 
