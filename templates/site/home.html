@@ -1,3 +1,4 @@
+
 {% extends "site/base_page.html" %}
 {% block head %}
     {{ super() }}
@@ -14,22 +15,45 @@
         </div>
 {% endblock %}
 {% block card2 %}
+
     <div class="card-header">2). Upload your completed ACFR in Excel and convert to XBRL</div>
     <div class="card-body">
-        <form action="/upload" method="POST" enctype="multipart/form-data">
+        <form action="/upload" method="POST" enctype="multipart/form-data" id="uploadForm">
             <label class="btn btn-michigan btn-lg">
                 <input type="file" name="file" id="upload" onchange="updateButton(this.value)">
                 <span>Choose File</span>
             </label>
-            <div class="file-container">
-                <span id="selectedFileName"></span>
-            </div>
+            <label class="btn btn-michigan btn-lg">
+                <input type="file" name="coverfile" id="coverfile" onchange="updateDocsButton(this.files,coverfile)">
+                <span>Choose Cover File</span>
+            </label>
+            <label class="btn btn-michigan btn-lg">
+                <input type="file" name="auditorfile" id="auditorfile" onchange="updateDocsButton(this.files,auditorfile)">
+                <span>Choose Auditor's File</span>
+            </label>
+            <label class="btn btn-michigan btn-lg">
+                <input type="file" name="notesfile" id="notesfile" onchange="updateDocsButton(this.files,notesfile)">
+                <span>Choose Note File</span>
+            </label>
+            <label class="btn btn-michigan btn-lg">
+                <input type="file" name="infofile" id="infofile" onchange="updateDocsButton(this.files,infofile)">
+                <span>Choose Info File</span>
+            </label>
+            <label class="btn btn-michigan btn-lg">
+                <input type="file" name="statisticalfile" id="statisticalfile" onchange="updateDocsButton(this.files,statisticalfile)">
+                <span>Choose Statistical File</span>
+            </label>
+            
             <input type="submit" id="convert-button" class="btn btn-michigan btn-lg" value="" onclick="startProcessing()">
         </form>
     </div>
+    
+    
+    
 {% endblock %}
 {% block loader %}
 <div class="text-center">
     <div id="loader" class="loader" style="display: none;" class="text-center"></div>
 </div>
 {% endblock %}
+
