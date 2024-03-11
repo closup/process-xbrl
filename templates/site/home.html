@@ -1,10 +1,18 @@
 
 {% extends "site/base_page.html" %}
+
 {% block head %}
     {{ super() }}
     <!--Split out these scripts-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="{{url_for('static', filename='js/spinner.js')}}"></script>
+    <style>
+        .card-body2 {
+            width: 10%; 
+            /* margin: auto; Center the card horizontally */
+        }
+    </style>
+    
 {% endblock %}
 {% block card1 %}
         <div class="card-header">1). Download our Excel ACFR template</div>
@@ -17,33 +25,40 @@
 {% block card2 %}
 
     <div class="card-header">2). Upload your completed ACFR in Excel and convert to XBRL</div>
-    <div class="card-body">
+    <div class="card-body2">
         <form action="/upload" method="POST" enctype="multipart/form-data" id="uploadForm">
+            <br>
             <label class="btn btn-michigan btn-lg">
                 <input type="file" name="file" id="upload" onchange="updateButton(this.value)">
                 <span>Choose File</span>
             </label>
+            <br>
+            <br>
             <label class="btn btn-michigan btn-lg">
                 <input type="file" name="coverfile" id="coverfile" onchange="updateDocsButton(this.files,coverfile)">
-                <span>Choose Cover File</span>
+                <span>- Cover File</span>
             </label>
+            <br>
             <label class="btn btn-michigan btn-lg">
                 <input type="file" name="auditorfile" id="auditorfile" onchange="updateDocsButton(this.files,auditorfile)">
-                <span>Choose Auditor's File</span>
+                <span>- Auditor's File</span>
             </label>
+            <br>
             <label class="btn btn-michigan btn-lg">
                 <input type="file" name="notesfile" id="notesfile" onchange="updateDocsButton(this.files,notesfile)">
-                <span>Choose Note File</span>
+                <span>- Notes File</span>
             </label>
+            <br>
             <label class="btn btn-michigan btn-lg">
                 <input type="file" name="infofile" id="infofile" onchange="updateDocsButton(this.files,infofile)">
-                <span>Choose Info File</span>
+                <span>- Info File</span>
             </label>
+            <br>
             <label class="btn btn-michigan btn-lg">
                 <input type="file" name="statisticalfile" id="statisticalfile" onchange="updateDocsButton(this.files,statisticalfile)">
-                <span>Choose Statistical File</span>
+                <span>- Statistical File</span>
             </label>
-            
+            <br>
             <input type="submit" id="convert-button" class="btn btn-michigan btn-lg" value="" onclick="startProcessing()">
         </form>
     </div>
