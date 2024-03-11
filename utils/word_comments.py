@@ -16,17 +16,11 @@ class ExtractComments:
 
                 mainXML = docxZip.read('word/document.xml')
                 et_main = etree.XML(mainXML)
-                
-                
-                # paragraphs = et_main.xpath('//w:p[normalize-space(.) and not(starts-with(normalize-space(.), "-")) and ((string-length(.) < 15 or number(.) != number(.) ))]', namespaces=ooXMLns)
-
-                paragraphs = et_main.xpath('//w:p[normalize-space(.) and not(starts-with(normalize-space(.), "-")) and (((string-length(.) < 14 and translate(., "1234567890", "") = "") or (string-length(.) < 12 and string-length(normalize-space(translate(., "1234567890-", ""))) !=0) ) or number(.) != number(.) )]', namespaces=ooXMLns)
-                
-                # or string-length(normalize-space(translate(., "1234567890-", ""))) != 0
-
+               
+                paragraphs = et_main.xpath('//w:p[normalize-space(.) and not(.="00") and (string-length(.) = 1 or not(starts-with(normalize-space(.), "-")) ) and (string-length(.) <5 or( translate(., "1234567890", "") != "" and string-length(normalize-space(translate(., "1234567890-", ""))) != 0 )) ]', namespaces=ooXMLns)
                 soup = BeautifulSoup(html,"html.parser")
                 for p_tag in soup.find_all('p'):
-                    if p_tag.text =='' and not p_tag.img : #
+                    if p_tag.text =='' : #
                         p_tag.extract()
                 cnt=0
                 # Display HTML tags 
