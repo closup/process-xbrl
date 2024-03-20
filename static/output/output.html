@@ -1,5 +1,16 @@
 <?xml version="1.0" ?>
-<html xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:ixt="http://www.xbrl.org/inlineXBRL/transformation/2022-02-16" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:iso4217="http://www.xbrl.org/2003/iso4217" xmlns:ix="http://www.xbrl.org/2013/inlineXBRL" xmlns:acfr="http://taxonomies.xbrl.us/grip/2022/acfr" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xbrli="http://www.xbrl.org/2003/instance" xml:lang="en-US">    
+<html 
+    xmlns:xbrldi="http://xbrl.org/2006/xbrldi" 
+    xmlns:ixt="http://www.xbrl.org/inlineXBRL/transformation/2022-02-16" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    xmlns:iso4217="http://www.xbrl.org/2003/iso4217" 
+    xmlns:ix="http://www.xbrl.org/2013/inlineXBRL" 
+    xmlns:acfr="https://taxonomies.xbrl.us/grip/2022/acfr" 
+    xmlns:link="http://www.xbrl.org/2003/linkbase" 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xbrli="http://www.xbrl.org/2003/instance" 
+    xml:lang="en-US">    
     <head>
         <title>Audited Financial Report: Inline XBRL</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -101,33 +112,17 @@ th:last-child, td:last-child {
         <div style="display:none">
             <ix:header>
                 <ix:references>
-                    <link:schemaRef xlink:href="http://taxonomies.xbrl.us/grip/2022/grip-all_2022.xsd" xlink:type="simple"></link:schemaRef>
+                    <link:schemaRef xlink:href="https://taxonomies.xbrl.us/grip/2022/grip-all_2022.xsd" xlink:type="simple"></link:schemaRef>
                 </ix:references>
             <ix:resources>
                 <!--Start of contexts-->
                 
-<xbrli:context id="I20220630_GovernmentalActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:GovernmentalActivitiesMember</xbrldi:explicitmember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
 <xbrli:context id="I20220630">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">acfr:TotalMember</xbrldi:explicitmember>
+            <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:TotalPrimaryGovernmentMember</xbrldi:explicitmember>
             
         </xbrli:segment>   
     </xbrli:entity>
@@ -154,23 +149,40 @@ th:last-child, td:last-child {
     </xbrli:period>
 </xbrli:context>
 
+<xbrli:context id="I20220630_GovernmentalActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">acfr:GovernmentalActivitiesMember</xbrldi:explicitmember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
                 <xbrli:unit id="USD">
                     <xbrli:measure>iso4217:USD</xbrli:measure>
                 </xbrli:unit>
             </ix:resources>
-          </ix:header>
+        </ix:header>
         </div>
+        <!-- Visible content starts here -->
         
         <div>
             <!-- Header for the sheet from the Excel doc -->
             
-                <b>City Of Clayton</b><br>
+                <b>City Of Clayton</b><br />
             
-                <b>Government Wide</b><br>
+                <b>Government Wide</b><br />
             
-                <b>Statement Of Net Position</b><br>
+                <b>Statement Of Net Position</b><br />
             
-                <b>June 30, 2022</b><br>
+                <b>June 30, 2022</b><br />
             
         </div>
         <!-- Sheet cell data -->
@@ -185,7 +197,7 @@ th:last-child, td:last-child {
         
         <th>Business Type Activities</th>
         
-        <th>Total</th>
+        <th>Total Primary Government</th>
         
      
     

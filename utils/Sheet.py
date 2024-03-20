@@ -39,7 +39,7 @@ class Sheet:
 
         # Process all the cells w/ data; stored as a list of IX objects
         context_map = context_name_map[self.get_index()]
-        self.data = [Cell(row, context_map) for _, row in self.df.iterrows()]
+        self.data = [Cell(row, context_map) for _, row in self.df.iterrows() if row["xbrl_element"] != "Choose from drop-down -->"]
         # find and mark the first row of numeric data
         i = 0
         while self.data[i].value == "": 

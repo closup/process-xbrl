@@ -14,17 +14,26 @@
         </div>
 {% endblock %}
 {% block card2 %}
-    <div class="card-header">2). Upload your completed ACFR in Excel and convert to XBRL</div>
+    <div class="card-header">2). Upload exactly one Excel file and 0-5 Word docs</div>
     <div class="card-body">
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-            <label class="btn btn-michigan btn-lg">
-                <input type="file" name="file" id="upload" onchange="updateButton(this.value)">
-                <span>Choose File</span>
+        <form action="/upload" method="POST" enctype="multipart/form-data" id="uploadForm" onsubmit="startProcessing(event)">
+            
+            <!-- Hidden file input -->
+            <input type="file" name="files[]" id="upload" multiple onchange="updateButton()">
+            
+            <!-- Custom button that triggers the file input -->
+            <label for="upload" class="btn btn-michigan btn-lg" id="fileInputLabel">
+                <span id="fileInputButtonText">Choose File(s)</span>
             </label>
-            <div class="file-container">
-                <span id="selectedFileName"></span>
-            </div>
-            <input type="submit" id="convert-button" class="btn btn-michigan btn-lg" value="" onclick="startProcessing()">
+            
+            <!-- Instructional text to guide the user (initially hidden) -->
+            <p id="dragInstruction" style="display: none;">Drag the files into the correct order</p>
+            
+            <!-- Clickable and draggable file list will appear here -->
+            <ol id="fileList" class="sortable-list"></ol>
+            
+            <!-- The submit button will be hidden initially and shown after files are selected -->
+            <input type="submit" id="convert-button" class="btn btn-michigan btn-lg" onclick="startProcessing()" style="display: none;">
         </form>
     </div>
 {% endblock %}
