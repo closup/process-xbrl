@@ -41,6 +41,17 @@ function getDragAfterElement(container, y) {
   }, { offset: Number.NEGATIVE_INFINITY }).element;
 }
 
+function updateSubmitButtonState() {
+  var input = document.getElementById('upload');
+  var convertButton = document.getElementById('convert-button');
+  if(input.files.length > 0) { // Check if any files were selected
+      convertButton.style.display = 'block'; // Show the convert button
+      convertButton.value = 'Combine and convert ' + input.files.length + ' file(s)'; // Display the number of files
+  } else {
+      convertButton.style.display = 'none'; // Hide the convert button if no files are selected
+  }
+}
+
 function updateButton() {
   var input = document.getElementById('upload');
   var fileList = document.getElementById('fileList');

@@ -1,7 +1,6 @@
-
 from utils.helper_functions import *
 from datetime import datetime, timedelta # for date parsing
-from constants import *
+from utils.constants import *
 
 
 class Context:
@@ -9,30 +8,27 @@ class Context:
     __slots__ = ["id", "date", "time_type", "place_id", "memberType",
                  "dimension_member", "axis", "period_start"]
 
-    def __init__(self, context_name_map, statement, date, col_name):
+    def __init__(self, time_type, date, col_name):
         """
         Build out context for each entity: government-type activities, business-type, etc 
         """
-        self.date = datetime.strptime(date, "%B %d, %Y")
-        self.time_type = period_dict[statement] # instance or duration
+        self.date = date
+        self.time_type = time_type
         self.period_start = None
         # if duration, set the start of the period as the first day of the FY
         if self.time_type == "D":
             self.period_start = self.date - timedelta(days=364)
         self.place_id = "0613882" # TODO: replace with a lookup function from Census
-        
-        # id is the context name
-        # TODO: replace this by replacing "print_nicely" with one of the dictionaries + removing references to contexts
-        # self.id = context_name_map[col_name]
-        self.id = self.time_type + self.date.strftime('%Y%m%d') + "_" + print_nicely(col_name)
 
-        if(col_name in axis_dict[""]):
+        # this id will match context_ref for cells in this context
+        self.id = self.time_type + self.date.strftime('%Y%m%d') + "_" + get_col_no_spaces(col_name)
+
+        if(col_name in axis_dict):
             self.memberType = "explicit"
             self.axis, self.dimension_member = axis_dict[col_name]
         else:
-            self.axis = "acfr:FundIdentifierAxis"
-            self.memberType = "typed"
-            self.dimension_member = print_nicely(col_name)
+            self.axis, self.memberType = "acfr:FundIdentifierAxis", "typed"
+            self.dimension_member = get_col_no_spaces(col_name)
         
     def __eq__(self, other):
         """ Equality check """

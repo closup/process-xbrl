@@ -1,20 +1,21 @@
 
-import utils.helper_functions
+from utils.helper_functions import *
 from utils.constants import *
 
 class Cell:
-    """ object for an individual cell (ix) """
+    """ Class for an individual cell (ix) """
 
-    def __init__(self, row, context_map):
+    def __init__(self, row, time_id):
         """ initialization function for the class """
         self.name = row["nan"] # original row name from the spreadsheet
         if str(self.name) == "nan":
             self.name = ""
         self.xbrl_name = str(row["xbrl_element"]).strip() # xbrl element (row name), ex. acfr:FundBalance
         self.id = row["id"] # id for the tab and cell, ex. StatementofNetPosition_D5
-        self.value = utils.helper_functions.format_value(row["value"])
+        self.value = format_value(row["value"]) # dollar value in cell
         self.col_name = row["header"]
-        self.context_id = context_map[self.col_name]
+        # context_ref definition
+        self.context_id = time_id + "_" + get_col_no_spaces(self.col_name)
         self.sign = '' # set sign to nothing unless value is negative
         if self.value == 0:
             self.format = 'ixt:fixed-zero' 
@@ -22,7 +23,7 @@ class Cell:
             self.format = 'ixt:num-dot-decimal' # default value format
             if not (type(self.value) is str) and self.value < 0:
                 self.sign = "negative"
-        # HARDCODING header_cols for now
+        # hard coded to expect 2 non-taggable columns to the left (based on template)
         n_left_cols = 2
         self.col = self.id[self.id.find('_') + 1]
         self.row = self.id[self.id.find('_') + 2]
@@ -45,6 +46,9 @@ class Cell:
         return ret
     
     def prefix(self):
+        """
+        Add dollar sign and/or negative sign as relevant
+        """
         ret = ""
         if self.value < 0:
             ret = "-" + ret
@@ -54,7 +58,7 @@ class Cell:
     
     def tr_class(self):
         """
-        Define type to determine formatting
+        Define row type to determine formatting
         """
         if self.name == "":
             return "empty_row"
@@ -67,6 +71,7 @@ class Cell:
         return "row" 
     
     def td_class(self):
+        """ Return CSS class for individual table cell """
         if "total" in self.name.lower():
             return "data_total"
         return self.tr_class()
