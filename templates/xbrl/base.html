@@ -15,52 +15,40 @@
             <ix:resources>
                 <!--Start of contexts-->
                 {% include 'xbrl/contexts.html' %}
+                
+                {% include 'xbrl/word_contexts.html' %}
+                
                 <xbrli:unit id="USD">
                     <xbrli:measure>iso4217:USD</xbrli:measure>
                 </xbrli:unit>
             </ix:resources>
           </ix:header> 
         </div>
-       
         {% for sheet in acfr.sheets %}
-        <div>
-            <br/>
-            <h1 align="center"> COVER PAGE </h1> 
-            {{ cover_page | safe }}
+        <h1 class="center"> COVER PAGE </h1> 
+        {{ cover_page | safe }}
 
-            <br/>
-            <h1 align="center"> AUDITOR'S REPORT </h1> 
-            {{ auditors_letter | safe }}
+        <h1 class="center"> AUDITOR'S REPORT </h1> 
+        {{ auditors_letter | safe }}
 
-            <br/>
-            <h1 align="center"> EXCEL PORTION </h1>
-            <br/>
-            <!-- Header for the sheet from the Excel doc -->
-            {% for line in sheet.header() %}
-                <b>{{ line }}</b><br>
-            {% endfor %}
-
+        <h1 class="center"> EXCEL PORTION </h1>
+        <!-- Header for the sheet from the Excel doc -->
+        {% for line in sheet.header() %}
+            <p><b>{{ line }}</b><br></br></p>
+        {% endfor %}
            
-
-        </div>
         <!-- Sheet cell data -->
         {% include 'xbrl/table.html' %}
         {% endfor %}
         
-        <div>
-            <br/>
-            <h1 align="center"> NOTES </h1> 
-            {{ notes | safe }}
+        <h1 class="center"> NOTES </h1> 
+        {{ notes | safe }}
 
-            <br/>
-            <h1 align="center"> SUPPLEMENTARY INFORMATION </h1> 
-            {{ supplementary_info | safe }}
+        <h1 class="center"> SUPPLEMENTARY INFORMATION </h1> 
+        {{ supplementary_info | safe }}
 
-            <br/>
-            <h1 align="center"> STATISTICAL SECTION </h1> 
-            {{ statistical_section | safe }}
-            <br/>
-        </div>
+        <h1 class="center"> STATISTICAL SECTION </h1> 
+        {{ statistical_section | safe }}
 
     </body>
 
