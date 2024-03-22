@@ -5,10 +5,8 @@ from utils.constants import *
 
 class Context:
     """ define xbrl context object """
-    __slots__ = ["id", "date", "time_type", "place_id", "memberType",
-                 "dimension_member", "axis", "period_start"]
 
-    def __init__(self, time_type, date, col_name):
+    def __init__(self, time_type : str, date : datetime, col_name : str):
         """
         Build out context for each entity: government-type activities, business-type, etc 
         """

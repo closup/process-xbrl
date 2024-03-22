@@ -33,7 +33,7 @@
         </ix:header>
         </div>
         <!-- Visible content starts here -->
-        {% for sheet in acfr.sheets %}
+        {% for sheet in acfr.sheets() %}
         <div>
             <!-- Header for the sheet from the Excel doc -->
             {% for line in sheet.header() %}

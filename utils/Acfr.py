@@ -10,3 +10,7 @@ class Acfr:
         # create a list of all unique contexts across every sheet
         nested_contexts = [sheet.contexts for sheet in self.sheets]
         self.contexts = set(context for context_list in nested_contexts for context in context_list)
+
+    @property
+    def sheets(self):
+        return self.sheets

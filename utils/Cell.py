@@ -3,35 +3,51 @@ from utils.helper_functions import *
 from utils.constants import *
 
 class Cell:
-    """ Class for an individual cell (ix) """
+    """ Class for an individual tagged cell (ix) """
 
-    def __init__(self, row, time_id):
+    def __init__(self, id : str, value, xbrl_tag : str, row_name : str, col_name : str, time_id : str, n_left_cols : int = 2):
         """ initialization function for the class """
-        self.name = row["nan"] # original row name from the spreadsheet
-        if str(self.name) == "nan":
-            self.name = ""
-        self.xbrl_name = str(row["xbrl_element"]).strip() # xbrl element (row name), ex. acfr:FundBalance
-        self.id = row["id"] # id for the tab and cell, ex. StatementofNetPosition_D5
-        self.value = format_value(row["value"]) # dollar value in cell
-        self.col_name = row["header"]
-        # context_ref definition
-        self.context_id = time_id + "_" + get_col_no_spaces(self.col_name)
-        self.sign = '' # set sign to nothing unless value is negative
-        if self.value == 0:
-            self.format = 'ixt:fixed-zero' 
-        else:
-            self.format = 'ixt:num-dot-decimal' # default value format
-            if not (type(self.value) is str) and self.value < 0:
-                self.sign = "negative"
-        # hard coded to expect 2 non-taggable columns to the left (based on template)
-        n_left_cols = 2
-        self.col = self.id[self.id.find('_') + 1]
-        self.row = self.id[self.id.find('_') + 2]
-        self.row_start = self.col == ALPHABET[n_left_cols]
-        self.first_row = False
+        self.id = id # id for the tab and cell, ex. StatementofNetPosition_D5
+        self.xbrl_tag = xbrl_tag
+        self.row_name, self.col_name = row_name, col_name
+        self.context_ref = time_id + "_" + get_col_no_spaces(col_name)
+        self.value = value
 
-    def set_first_row(self):
-        self.first_row = True
+    def sign(self):
+        """ get sign of value (ie. negative or positive) """
+        if not (type(self.value) is str) and self.value < 0:
+            return "negative"
+        return ""
+    
+    def format(self):
+        """ ixbrl format for the dollar value in the cell"""
+        if self.value == 0:
+            return 'ixt:fixed-zero' 
+        return 'ixt:num-dot-decimal'
+        
+    @property
+    def id(self):
+        return self.id
+    
+    @property
+    def row_name(self):
+        return self.row_name
+    
+    @property
+    def format(self):
+        return self.format
+    
+    @property
+    def xbrl_tag(self):
+        return self.xbrl_tag
+    
+    @property
+    def context_ref(self):
+        return self.context_ref
+    
+    def in_first_col(self):
+        """ is the cell in the first column? """
+        return self.id[self.id.find('_') + 1] == ALPHABET[self.n_left_cols]
 
     def show_value(self):
         """
