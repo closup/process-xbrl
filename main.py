@@ -32,6 +32,7 @@ import gettext, shlex
 from bs4 import BeautifulSoup
 
 import mammoth
+import string
 
 # =============================================================
 # Constants
@@ -86,7 +87,6 @@ def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
     dictionaries for later
     """   
     # open contexts excel sheet
-    # pd.read_excel(contexts_file)
     try:
         contexts = pd.read_excel(contexts_file)
     except:
@@ -114,6 +114,7 @@ def write_html(input_file : str,
     # iterate through sheets, saving Sheet() objects
     input_xl = pd.ExcelFile(input_file)
     acfr = Acfr([Sheet(input_file, sheet_name, context_name_map) for sheet_name in input_xl.sheet_names if sheet_name != "Label Dropdowns"])
+
     #extracted the contents from word
     cover_page, _ = extract_text_and_images_from_docx(wordfiles['cover'])
     auditors_letter, _ = extract_text_and_images_from_docx(wordfiles['auditor'])
@@ -122,7 +123,7 @@ def write_html(input_file : str,
     statistical_section, _ = extract_text_and_images_from_docx(wordfiles['statistic'])
 
     # Load the template and render with vars
-    rendered_ixbrl = render_template('xbrl/base.html', acfr = acfr, format = format, cover_page=cover_page, auditors_letter=auditors_letter, notes=notes, supplementary_info=supplementary_info, statistical_section=statistical_section)
+    rendered_ixbrl = render_template('xbrl/base.html', acfr = acfr, format = format,cover_page=cover_page, auditors_letter=auditors_letter,  notes=notes, supplementary_info=supplementary_info, statistical_section=statistical_section) 
 
     # Save the rendered template to output file
     with open(output_file, 'w', encoding="utf8") as write_location:
@@ -203,17 +204,50 @@ def allowed_file(filename):
 # added the function for get the word conntent 
 def extract_text_and_images_from_docx(file_path):
 
-    # with open(file_path, "rb") as docx_file:
-
     result = mammoth.convert_to_html(file_path)
     html = result.value  # Extracted HTML content
     images = result.messages  # Extracted images, if any    
+    updated_html =''
+    soup = BeautifulSoup(html,"html.parser")
+    p_html =[]
+    # Remove img tags    
+    for a in soup.find_all(['a','img']):
+        a.decompose()
+
+    for p_tag in soup.find_all('p'):
+        validated =True
+        
+        if p_tag.text !='':
+            for char in p_tag.text:
+                if char in string.ascii_letters:
+                    validated = False 
+                    break
+
+            if validated:        
+                p_html.append(p_tag)
+        
+    result = ExtractComments.get_comments_and_text(file_path,html)
+    if result:
+        for  i in range (0,len(result['comments'])):
+            comment, selected_text, p_count =result['comments'][i],result['selected_text'][i],result['count'][i]
+            context_id = result['context_id'][i]
+            # print('selected text :',selected_text)
+            # print('comment :',comment)
+            
+#             p_html[p_count].replace_with(f'''\n\n<ix:nonFraction contextRef="I20220630" name="acfr:NetPosition" unitRef="USD" id="p{i}" decimals="0" format="ixt:num-dot-decimal" >
+#     {selected_text}
+# </ix:nonFraction>\n\n''')
+            p_html[p_count].replace_with(f'''\n\n<ix:nonFraction contextRef="{context_id}" name="{comment}" unitRef="USD" id="p{i}" decimals="0" format="ixt:num-dot-decimal" >
+    {selected_text}
+</ix:nonFraction>\n\n''')
+            
+            updated_html = str(soup)
+            updated_html = updated_html.replace('&gt;', '>')
+            updated_html = updated_html.replace('&lt;', '<')           
+        return updated_html,images
     
-    #TODO : need to tag those comments
-    updated_html = ExtractComments.get_comments_and_text(file_path,html)
-    if updated_html:
-        return updated_html, images
-    return html, images
+    updated_html = str(soup)
+    return updated_html, images
 
 # =============================================================
 # Flask
