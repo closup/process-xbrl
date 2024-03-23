@@ -189,8 +189,8 @@ def upload_file(output_file = "static/output/output.html", format = "gray"):
     if len(excel_files) != 1:
         return jsonify({'error': 'Please upload exactly one Excel file'})
     write_html(excel_files[0], output_file, format)
-    #viewer_file_name = "templates/site/viewer.html"
-    #create_viewer_html(output_file, viewer_file_name)
+    viewer_file_name = "templates/site/viewer.html"
+    create_viewer_html(output_file, viewer_file_name)
     return jsonify({'message': 'Files successfully uploaded'})
 
 @app.route('/upload/complete', methods=['GET'])
@@ -203,5 +203,4 @@ def successful_upload():
 
 if __name__ == "__main__":
     contexts_path = "static/input_files/contexts.xlsx"
-    #context_name_map = parse_contexts(contexts_path)
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))

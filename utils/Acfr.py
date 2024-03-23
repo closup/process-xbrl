@@ -6,11 +6,10 @@ class Acfr:
     """
 
     def __init__(self, sheets):
-        self.sheets = sheets
+        self._sheets = sheets
         # create a list of all unique contexts across every sheet
-        nested_contexts = [sheet.contexts for sheet in self.sheets]
+        nested_contexts = [sheet.contexts() for sheet in self._sheets]
         self.contexts = set(context for context_list in nested_contexts for context in context_list)
 
-    @property
     def sheets(self):
-        return self.sheets
+        return self._sheets
