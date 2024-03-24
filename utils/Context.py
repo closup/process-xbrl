@@ -15,8 +15,8 @@ class Context:
         self._time_type = time_type
         self.place_id = self.get_place_id()
         self.col_name = col_name
-        self.id = self.create_id()
         self._dims = dims
+        self.id = self.create_id()
     
     def dims(self) -> List[Dimension]:
         return self._dims
@@ -30,12 +30,16 @@ class Context:
     
     def period_start(self) -> datetime:
         """ start of the fiscal year """
-        return self._date - timedelta(days=364)
+        start = self._date - timedelta(days=364)
+        return start.strftime("%Y-%m-%d")
     
     def create_id(self) -> str:
-        # TODO: update this to be unique to each dimension
-        """ create id which will match context_ref for cells in this context """
-        return self._time_type + self._date.strftime('%Y%m%d') + "_" + get_col_no_spaces(self.col_name)
+        """ create id which will match context_ref for cells in this context 
+        this should be a unique combo of time type, date, and all dimensions"""
+        ret = ""
+        for dim in self.dims():
+            ret = ret + "_" + dim._member_name
+        return self._time_type + self._date.strftime('%Y%m%d') + ret
     
     def get_place_id(self) -> str:
         # TODO: replace with a lookup function from Census

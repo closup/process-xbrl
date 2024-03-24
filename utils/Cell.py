@@ -47,7 +47,7 @@ class Cell:
         return self._row_name
     
     def col_name(self) -> str:
-        return self.context.col_name
+        return self._context.col_name
 
     def xbrl_tag(self):
         return self._xbrl_tag

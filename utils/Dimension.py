@@ -16,7 +16,7 @@ class Dimension():
         return self._axis
     
     def member_name(self):
-        return self._member_name
+        return f"acfr:{self._member_name}Member"
     
     def member_type(self):
         return self._member_type

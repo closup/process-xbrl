@@ -1,7 +1,7 @@
 """
 A script to convert an arbitrary Excel budget into XBRL format.
 
-Last updated: Feb 2024, K. Wheelan
+Last updated: March 2024, K. Wheelan
 """
 
 # =============================================================
@@ -11,14 +11,9 @@ Last updated: Feb 2024, K. Wheelan
 import sys
 import os
 from typing import * # to specify funtion inputs and outputs
-
-# from utils.Cell import Cell
-# from utils.Context import Context
 from utils.Acfr import Acfr
 from utils.constants import * #all global variables
-from utils.helper_functions import clean
-
-from werkzeug.utils import secure_filename
+from utils.helper_functions import *
 
 # flask dependencies
 from flask import Flask, request, render_template, jsonify, redirect, url_for, json
@@ -97,18 +92,6 @@ def create_viewer_html(output_file : str,
 
     os.rename('templates/site/ixbrlviewer.js', 'static/js/ixbrlviewer.js')
 
-def check_ext(filename : str, file_extensions : List[str]) -> bool:
-    """ Check file extension against a list of allowable extensions """
-    return '.' in filename and filename.rsplit('.', 1)[1] in file_extensions 
-
-def allowed_file(filename : str) -> bool:
-    """ Check file extension against all allowed extensions """
-    return check_ext(filename, ALLOWED_EXTENSIONS)
-
-def is_spreadsheet(filename : str) -> bool:
-    """ Check file extension against allowed extensions for spreadsheets """
-    return check_ext(filename, SPREADSHEET_EXTENSIONS)
-
 # =============================================================
 # Flask
 # =============================================================
@@ -146,7 +129,7 @@ def upload_file(output_file = "static/output/output.html", format = "gray"):
         return jsonify({'error': 'Please upload exactly one Excel file'})
     write_html(excel_files[0], output_file, format)
     viewer_file_name = "templates/site/viewer.html"
-    #create_viewer_html(output_file, viewer_file_name)
+    create_viewer_html(output_file, viewer_file_name)
     return jsonify({'message': 'Files successfully uploaded'})
 
 @app.route('/upload/complete', methods=['GET'])

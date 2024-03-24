@@ -22,6 +22,7 @@ class StatementofActivities(Sheet):
         context = Context(self.time_type, self.date, col_name, dims)
         # add new context to sheet's list
         self._contexts.append(context) 
+        return context
 
     def process_cells(self):
         """Create a list of Cell objects to represent Excel data"""
@@ -62,7 +63,7 @@ class StatementofActivities(Sheet):
                     section = clean(cell.row_name())
                     # if the current section is a dimension, record it (ex. Governmental Activities)
                     if section in axis_dict: #and col_name not in DIMENSIONS["TypeOfGovernmentUnit"]:
-                        if dims[-1].axis() == "TypeOfGovernmentUnit":
+                        if dims[-1].axis() == "acfr:TypeOfGovernmentUnitAxis":
                             dims.pop()
                         dims.append(Dimension(section))
                         # create new context with additional dimension

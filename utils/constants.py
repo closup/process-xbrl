@@ -45,10 +45,10 @@ DIMENSIONS = {"TypeOfGovernmentUnit" : ["governmental_activities",
                                        "major_funds_excluding_general_funds_member" : "MajorFundsExcludingGeneralFundsMember"}
 
 # Dimension axis and member name by column name in Excel template
-axis_dict = {"governmental_activities"  : ("acfr:TypeOfGovernmentUnitAxis", "acfr:GovernmentalActivitiesMember"),
-             "business-type_activities" : ("acfr:TypeOfGovernmentUnitAxis", "acfr:BusinessTypeActivitiesMember"),
-             "total_primary_government" : ("acfr:TypeOfGovernmentUnitAxis", "acfr:PrimaryGovernmentActivitiesMember"),
-             "component_units"          : ("acfr:TypeOfGovernmentUnitAxis", "acfr:ComponentUnitDiscretelyPresentedMember"),
-             "charges_for_services"     : ("acfr:TypeOfProgramRevenuesAxis", "acfr:ProgramRevenuesFromChargesForServicesMember"),
-             "operating_grants_and_contributions" : ("acfr:TypeOfProgramRevenuesAxis", "acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember"),
-             "capital_grants_and_contributions"   : ("acfr:TypeOfProgramRevenuesAxis", "acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember")}
+axis_dict = {"governmental_activities"  : ("acfr:TypeOfGovernmentUnitAxis", "GovernmentalActivities"),
+             "business-type_activities" : ("acfr:TypeOfGovernmentUnitAxis", "BusinessTypeActivities"),
+             "total_primary_government" : ("acfr:TypeOfGovernmentUnitAxis", "PrimaryGovernmentActivities"),
+             "component_units"          : ("acfr:TypeOfGovernmentUnitAxis", "ComponentUnitDiscretelyPresented"),
+             "charges_for_services"     : ("acfr:TypeOfProgramRevenuesAxis", "ProgramRevenuesFromChargesForServicesMember"),
+             "operating_grants_and_contributions" : ("acfr:TypeOfProgramRevenuesAxis", "ProgramRevenuesFromOperatingGrantsAndContributions"),
+             "capital_grants_and_contributions"   : ("acfr:TypeOfProgramRevenuesAxis", "ProgramRevenuesFromCapitalGrantsAndContributions")}

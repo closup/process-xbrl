@@ -4,6 +4,7 @@ Helper functions for utils/ and main.py
 
 # dependencies
 import re
+from utils.constants import *
 
 def format_value(value):
     """ Make a nice looking numerical entry w/ commas etc"""
@@ -35,3 +36,15 @@ def print_nicely(txt):
 def get_col_no_spaces(text):
     """ Capitalize each word but remove spaces """
     return print_nicely(text).replace(" ", "")
+
+def check_ext(filename : str, file_extensions : List[str]) -> bool:
+    """ Check file extension against a list of allowable extensions """
+    return '.' in filename and filename.rsplit('.', 1)[1] in file_extensions 
+
+def allowed_file(filename : str) -> bool:
+    """ Check file extension against all allowed extensions """
+    return check_ext(filename, ALLOWED_EXTENSIONS)
+
+def is_spreadsheet(filename : str) -> bool:
+    """ Check file extension against allowed extensions for spreadsheets """
+    return check_ext(filename, SPREADSHEET_EXTENSIONS)

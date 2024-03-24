@@ -44,7 +44,8 @@ class Sheet:
         return clean(self._df.iloc[2, 1])
     
     def raw_date(self) -> str:
-        return clean(self._df.iloc[3, 1])
+        print(clean(str(self._df.iloc[3, 1])))
+        return clean(str(self._df.iloc[3, 1]))
     
     def contexts(self) -> List[Context]:
         return self._contexts
