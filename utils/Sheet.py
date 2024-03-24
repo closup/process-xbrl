@@ -27,9 +27,6 @@ class Sheet:
         # Process
         self.reshape_data()
         self._col_names = self.get_col_names()
-        self._data = self.process_cells() 
-        self.mark_first_numeric_row()
-        self._contexts = self.process_contexts() 
 
     def data(self) -> List[Cell]:
         return self._data
@@ -81,29 +78,16 @@ class Sheet:
                 # If the above format fails, try the month-name_day,_year format.
                 date = datetime.strptime(date, '%B_%d,_%Y')
             except ValueError:
-                pass
+                try: 
+                    date = datetime.strptime(date, "%Y-%m-%d_%H%M%S")
+                except ValueError:
+                    pass
         return date
 
     def get_col_names(self) -> List[str]:
         """ Get unique column names in the sheet """
         col_names = [col for col in self._df["header"]]
         return [print_nicely(col) for i, col in enumerate(col_names) if col not in col_names[:i]]
-
-    def process_cells(self) -> List[Cell]:
-        """ Create a list of Cell objects to represent all """
-        data = []
-        for _, row in self._df.iterrows():
-            if row["xbrl_element"] != "Choose from drop-down -->":
-                date_id = self.time_type + self.date.strftime('%Y%m%d')
-                xbrl_tag = str(row["xbrl_element"]).strip()
-                cell = Cell(id = row["id"], 
-                            xbrl_tag = xbrl_tag, 
-                            row_name = str(row["nan"]), 
-                            col_name = str(row["header"]),
-                            value = format_value(row["value"]),
-                            date_id = str(date_id))
-                data.append(cell)
-        return data
 
     def mark_first_numeric_row(self) -> None:
         """ Finds the first row of taggable data """
@@ -115,12 +99,7 @@ class Sheet:
         while self._data[i].row_name() == row_name:
             self._data[i].set_first_row()
             i += 1
-
-    def process_contexts(self) -> List[Context]:
-        """ Grabs all unique contexts in """
-        context_names = set(ix.col_name() for ix in self._data)
-        return [Context(self.time_type, self.date, col) for col in context_names]
-    
+ 
     def reshape_data(self) -> None:
         """
         Process Excel sheet data to extract values and cell locations
@@ -144,6 +123,5 @@ class Sheet:
         self._df['col'] = [ALPHABET[i] for i in (self.extra_left_cols + (self._df.index // n_rows_orig))]
         cells = [f'{c}{r}' for c, r in zip(self._df['col'], self._df["row"])]
         self._df["id"] = [f'{self.sheet_name.replace(" ", "")}_{cell}' for cell in cells]
-        self._df = self._df.sort_values(by=['row', 'col'])
-        
+        self._df = self._df.sort_values(by=['row', 'col'])  
 

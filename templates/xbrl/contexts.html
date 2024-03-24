@@ -2,24 +2,26 @@
 <xbrli:context id="{{context.id}}">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">{{context.place_id}}</xbrli:identifier>
+        {% for dim in context.dims() %}
         <xbrli:segment>
-            {% if context.memberType == "explicit" %}
-            <xbrldi:explicitmember dimension="{{context.axis}}">{{context.dimension_member}}</xbrldi:explicitmember>
-            {% elif context.memberType == "typed" %}
-            <xbrldi:typedMember dimension="{{context.axis}}">
+            {% if dim.member_type() == "explicit" %}
+            <xbrldi:explicitmember dimension="{{dim.axis()}}">{{dim.member_name()}}</xbrldi:explicitmember>
+            {% elif dim.member_type() == "typed" %}
+            <xbrldi:typedMember dimension="{{dim.axis()}}">
                 <acfr:FundIdentifierDomain>
-                    {{ context.dimension_member }}
+                    {{ dim.member_name() }}
                 </acfr:FundIdentifierDomain>
             </xbrldi:typedMember>
             {% endif %}
         </xbrli:segment>   
+        {% endfor %}
     </xbrli:entity>
     <xbrli:period>
-        {% if context.time_type == "I" %}
-        <xbrli:instant>{{context.view_date(context.date)}}</xbrli:instant>
+        {% if context.time_type() == "I" %}
+        <xbrli:instant>{{context.date()}}</xbrli:instant>
         {% else %} 
-        <xbrli:startDate>{{context.view_date(context.period_start)}}</xbrli:startDate>
-        <xbrli:endDate>{{context.view_date(context.date)}}</xbrli:endDate>
+        <xbrli:startDate>{{context.period_start()}}</xbrli:startDate>
+        <xbrli:endDate>{{context.date()}}</xbrli:endDate>
         {% endif %} 
     </xbrli:period>
 </xbrli:context>

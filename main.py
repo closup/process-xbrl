@@ -10,12 +10,10 @@ Last updated: Feb 2024, K. Wheelan
 
 import sys
 import os
-import pandas as pd # data manipulation
 from typing import * # to specify funtion inputs and outputs
 
 # from utils.Cell import Cell
 # from utils.Context import Context
-from utils.Sheet import Sheet
 from utils.Acfr import Acfr
 from utils.constants import * #all global variables
 from utils.helper_functions import clean
@@ -39,15 +37,6 @@ from arelle import CntlrCmdLine
 from arelle.Locale import setApplicationLocale
 
 # =============================================================
-# Constants
-# =============================================================
-
-ROOT = os.getcwd()
-UPLOAD_FOLDER = 'static/input_files/webapp_uploads' # set to your own path
-SPREADSHEET_EXTENSIONS = ['xlsx', 'xls']
-ALLOWED_EXTENSIONS = SPREADSHEET_EXTENSIONS + ['docx', 'doc']
-
-# =============================================================
 # Flask setup
 # =============================================================
 
@@ -59,47 +48,14 @@ app.static_folder = 'static'
 # Function definitions
 # =============================================================
 
-# def parse_contexts(contexts_file : str) -> Dict[str, Dict[str, str]]:
-#     """
-#     Function to parse contexts to create contexts reference
-#     dictionaries for later
-#     """   
-#     # open contexts excel sheet
-#     pd.read_excel(contexts_file)
-#     try:
-#         contexts = pd.read_excel(contexts_file)
-#     except:
-#         sys.exit("No context file!")
-#     # create the index as its own column
-#     contexts['index'] = contexts['Scope'] + "@" + contexts['Statement']
-#     # create contexts reference dictionaries
-#     context_name_map = {}
-#     for row in range(len(contexts)):
-#         name = contexts["Context_Name"][row].strip()
-#         _, _, header, _, _, index = contexts.iloc[row].apply(clean)
-#         if not context_name_map.get(index):
-#             context_name_map[index] = {header : name}
-#         else:
-#             context_name_map[index][header] = name
-#     return(context_name_map)
-
-
 def write_html(input_file : str,
                output_file : str,
                format : str):
     """ Create inline xbrl document and save as an html file at {output_file} location """
-    # iterate through sheets, saving Sheet() objects
-    input_xl = pd.ExcelFile(input_file)
-    # create a list of all the readable Excel sheets
-    sheets = []
-    for sheet_name in input_xl.sheet_names:
-        if not(sheet_name in ["Label Dropdowns", "Master Info"]):
-            sheets.append(Sheet(input_file, sheet_name)) 
-    acfr = Acfr(sheets)
-
+    # process sheets in the excel document
+    acfr = Acfr(input_file)
     # Load the template and render with vars
     rendered_ixbrl = render_template('xbrl/base.html', acfr = acfr, format = format)
-
     # Save the rendered template to output file
     with open(output_file, 'w') as write_location:
         write_location.write(rendered_ixbrl)
@@ -190,7 +146,7 @@ def upload_file(output_file = "static/output/output.html", format = "gray"):
         return jsonify({'error': 'Please upload exactly one Excel file'})
     write_html(excel_files[0], output_file, format)
     viewer_file_name = "templates/site/viewer.html"
-    create_viewer_html(output_file, viewer_file_name)
+    #create_viewer_html(output_file, viewer_file_name)
     return jsonify({'message': 'Files successfully uploaded'})
 
 @app.route('/upload/complete', methods=['GET'])
@@ -202,5 +158,4 @@ def successful_upload():
 # =============================================================
 
 if __name__ == "__main__":
-    contexts_path = "static/input_files/contexts.xlsx"
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))

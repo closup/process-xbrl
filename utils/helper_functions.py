@@ -24,7 +24,7 @@ def clean(text):
         text = str(text)
     except: 
         return text
-    return text.lower().strip().replace(" ", "_")
+    return text.lower().strip().replace(" ", "_").replace(":","")
 
 def print_nicely(txt):
     """ Apply snake case and add spaces (renders sheet titles for HTML) """

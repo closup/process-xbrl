@@ -1,17 +1,19 @@
 
 from utils.helper_functions import *
 from utils.constants import *
+from utils.Context import Context
+from typing import *
 
 class Cell:
     """ Class for an individual tagged cell (ix) """
 
-    def __init__(self, id : str, value, xbrl_tag : str, row_name : str, col_name : str, date_id : str, n_left_cols : int = 2):
+    def __init__(self, id : str, value, xbrl_tag : str, row_name : str, col_name : str, context : Context, n_left_cols : int = 2):
         """ initialization function for the class """
         self._id = id # id for the tab and cell, ex. StatementofNetPosition_D5
         self._xbrl_tag = xbrl_tag
-        self._row_name, self._col_name = row_name, col_name
-        self._context_ref = date_id + "_" + get_col_no_spaces(col_name)
-        self._value = value
+        self._row_name = row_name
+        self._context = context
+        self._value = format_value(value)
         self._n_left_cols = n_left_cols
         self._first_row = False
 
@@ -27,20 +29,34 @@ class Cell:
             return 'ixt:fixed-zero' 
         return 'ixt:num-dot-decimal'
         
+    @property
     def id(self):
         return self._id
+    
+    def col(self):
+        """ original excel column (ex. D) """
+        return self._id[self._id.find('_') + 1]
+    
+    def row(self):
+        """ original excel row number """
+        return int(self._id[self._id.find('_') + 2:])
 
     def row_name(self) -> str:
+        if self._row_name == "nan":
+            return ""
         return self._row_name
     
     def col_name(self) -> str:
-        return self._col_name
+        return self.context.col_name
 
     def xbrl_tag(self):
         return self._xbrl_tag
 
     def context_ref(self):
-        return self._context_ref
+        # TODO: fix
+        if self._context is None:
+            return "ERROR"
+        return self._context.id
     
     def in_first_col(self):
         """ is the cell in the first column? """
@@ -79,7 +95,7 @@ class Cell:
         """
         Define row type to determine formatting
         """
-        if self._row_name == "":
+        if self._row_name in ["", "nan"]:
             return "empty_row"
         if self._row_name.isupper():
             return "section_header"
@@ -97,3 +113,16 @@ class Cell:
     
     def __repr__(self):
         return self.show_value()
+    
+    def index(self):
+        """ ex. 5B for a cell originall in B5 in Excel """
+        return self.row() + self.col()
+
+    def __lt__(self, other):
+        """ less than if earlier in original Excel """
+        if self.row() == other.row():
+            return self.col() < other.col()
+        return self.row() < other.row()
+    
+    def __eq__(self, other):
+        return self.index() == other.index()
