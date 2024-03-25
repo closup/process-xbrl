@@ -210,8 +210,8 @@ def extract_text_and_images_from_docx(file_path):
     updated_html =''
     soup = BeautifulSoup(html,"html.parser")
     p_html =[]
-    # Remove img tags    
-    for a in soup.find_all(['a','img']):
+    # Remove a tags    
+    for a in soup.find_all(['a']):
         a.decompose()
 
     for p_tag in soup.find_all('p'):
@@ -227,17 +227,11 @@ def extract_text_and_images_from_docx(file_path):
                 p_html.append(p_tag)
         
     result = ExtractComments.get_comments_and_text(file_path,html)
-    if result:
+    if result: 
         for  i in range (0,len(result['comments'])):
             comment, selected_text, p_count =result['comments'][i],result['selected_text'][i],result['count'][i]
             context_id = result['context_id'][i]
-            # print('selected text :',selected_text)
-            # print('comment :',comment)
-            
-#             p_html[p_count].replace_with(f'''\n\n<ix:nonFraction contextRef="I20220630" name="acfr:NetPosition" unitRef="USD" id="p{i}" decimals="0" format="ixt:num-dot-decimal" >
-#     {selected_text}
-# </ix:nonFraction>\n\n''')
-            p_html[p_count].replace_with(f'''\n\n<ix:nonFraction contextRef="{context_id}" name="{comment}" unitRef="USD" id="p{i}" decimals="0" format="ixt:num-dot-decimal" >
+            p_html[p_count].replace_with(f'''\n\n<ix:nonFraction contextRef="{context_id}" name="acfr:{comment}" unitRef="pure" id="p{i}" decimals="0" format="ixt:num-dot-decimal" >
     {selected_text}
 </ix:nonFraction>\n\n''')
             
