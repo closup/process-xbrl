@@ -200,11 +200,8 @@ def create_viewer_html(output_file : str,
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS  
 
-
 # added the function for get the word conntent 
 def extract_text_and_images_from_docx(file_path):
-    
-    from utils.constants import p_id
 
     result = mammoth.convert_to_html(file_path)
     html = result.value  # Extracted HTML content
@@ -232,10 +229,10 @@ def extract_text_and_images_from_docx(file_path):
         for  i in range (0,len(result['comments'])):
             comment, selected_text, p_count =result['comments'][i],result['selected_text'][i],result['count'][i]
             context_id = result['context_id'][i]
-            p_html[p_count].replace_with(f'''\n\n<ix:nonFraction contextRef="{context_id}" name="acfr:{comment}" unitRef="pure" id="p{p_id}" decimals="0" format="ixt:num-dot-decimal" >
+            p_html[p_count].replace_with(f'''\n\n<ix:nonFraction contextRef="{context_id}" name="acfr:{comment}" unitRef="pure" id="p{ExtractComments.p_id}" decimals="0" format="ixt:num-dot-decimal" >
     {selected_text}
 </ix:nonFraction>\n\n''')
-            p_id +=1
+            ExtractComments.p_id +=1
             
             
         updated_html = str(soup)
@@ -294,6 +291,7 @@ def load():
 # =============================================================
 
 if __name__ == "__main__":
+    p_id = 0
     contexts_path = "static/input_files/contexts.xlsx"
     context_name_map = parse_contexts(contexts_path)
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
