@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import string
 
 class ExtractComments:
-    p_id =0
+    p_id = 0
     def get_comments_and_text(docxFileName, html):
         try:
             ooXMLns = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
@@ -28,6 +28,7 @@ class ExtractComments:
                             translate(., "{string.digits}", "") != "" and 
                             string-length(normalize-space(translate(., "{string.digits}-", ""))) != 0
                         )
+                        and not(contains(normalize-space(.), "%"))
                     )
                 ]
             ''', namespaces=ooXMLns)
@@ -40,15 +41,6 @@ class ExtractComments:
             result = {'context_id':[],'comments':[],'selected_text':[],'count':[]}
             soup = BeautifulSoup(html,"html.parser")
 
-            for p_tag in soup.find_all('p'):
-                if p_tag.text =='' : 
-                    p_tag.extract()
-                else:
-                    for char in p_tag.text:
-                        if char in string.ascii_letters:
-                            p_tag.extract()
-                            break
-            cnt=0
             for c in comments:
                 # Attributes:
                 comment_text = c.xpath('string(.)', namespaces=ooXMLns)
@@ -56,13 +48,7 @@ class ExtractComments:
                 comment_id = c.xpath('@w:id', namespaces=ooXMLns)[0]
                 count=0
                 for p, p_html in zip(cleaned_paragraphs, soup.find_all('p')): 
-                    # if cnt >=0 and cnt<4:
-                    #     print(p.xpath('string(.)', namespaces=ooXMLns).strip(),'cnt = ',cnt,p_html)
-
-                    if p.xpath('string(.)', namespaces=ooXMLns).strip()!=p_html.text:
-                        cnt+=1
             
-                    count+=1                
                     if p.xpath('.//w:commentRangeStart/@w:id', namespaces=ooXMLns) == [comment_id]:
                         selected_text = p.xpath('string(.)', namespaces=ooXMLns).strip()
                         if ',' in comment_text :
@@ -73,10 +59,11 @@ class ExtractComments:
                         result['selected_text'].append(selected_text)
                         result['count'].append(count)
                         
+                    count+=1                
 
-        except Exception as e:
             print('There are no comments in this document.')
+        except Exception as e:
             return None
-        print(' Comment Extracted.')
+        print(' Comment Extracted.',len(soup.find_all('p')) )
         return result
 
