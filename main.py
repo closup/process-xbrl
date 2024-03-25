@@ -216,14 +216,20 @@ def extract_text_and_images_from_docx(file_path):
     for p_tag in soup.find_all('p'):
         validated =True
         
-        if p_tag.text !='':
+        if p_tag.text.strip() !='' :
             for char in p_tag.text:
                 if char in string.ascii_letters:
                     validated = False 
                     break
+                
+                elif (len(p_tag.text)>5 and ('-' in p_tag.text or '%' in p_tag.text)):
+                    validated = False 
+                    break
+
 
             if validated:        
                 p_html.append(p_tag)
+    
     result = ExtractComments.get_comments_and_text(file_path,html)
     if result: 
         for  i in range (0,len(result['comments'])):
@@ -233,7 +239,6 @@ def extract_text_and_images_from_docx(file_path):
     {selected_text}
 </ix:nonFraction>\n\n''')
             ExtractComments.p_id +=1
-            
             
         updated_html = str(soup)
         updated_html = updated_html.replace('&gt;', '>')
