@@ -17,3 +17,6 @@ elements_path = "elements.csv"
 
 global ALPHABET
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+global p_id
+p_id = 0
