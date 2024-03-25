@@ -203,6 +203,8 @@ def allowed_file(filename):
 
 # added the function for get the word conntent 
 def extract_text_and_images_from_docx(file_path):
+    
+    from utils.constants import p_id
 
     result = mammoth.convert_to_html(file_path)
     html = result.value  # Extracted HTML content
@@ -225,19 +227,20 @@ def extract_text_and_images_from_docx(file_path):
 
             if validated:        
                 p_html.append(p_tag)
-        
     result = ExtractComments.get_comments_and_text(file_path,html)
     if result: 
         for  i in range (0,len(result['comments'])):
             comment, selected_text, p_count =result['comments'][i],result['selected_text'][i],result['count'][i]
             context_id = result['context_id'][i]
-            p_html[p_count].replace_with(f'''\n\n<ix:nonFraction contextRef="{context_id}" name="acfr:{comment}" unitRef="pure" id="p{i}" decimals="0" format="ixt:num-dot-decimal" >
+            p_html[p_count].replace_with(f'''\n\n<ix:nonFraction contextRef="{context_id}" name="acfr:{comment}" unitRef="pure" id="p{p_id}" decimals="0" format="ixt:num-dot-decimal" >
     {selected_text}
 </ix:nonFraction>\n\n''')
+            p_id +=1
             
-            updated_html = str(soup)
-            updated_html = updated_html.replace('&gt;', '>')
-            updated_html = updated_html.replace('&lt;', '<')           
+            
+        updated_html = str(soup)
+        updated_html = updated_html.replace('&gt;', '>')
+        updated_html = updated_html.replace('&lt;', '<')           
         return updated_html,images
     
     updated_html = str(soup)
@@ -246,7 +249,7 @@ def extract_text_and_images_from_docx(file_path):
 # =============================================================
 # Flask
 # =============================================================
-import json
+
 @app.route('/')
 def home():
     return render_template('site/home.html', loading=True)
