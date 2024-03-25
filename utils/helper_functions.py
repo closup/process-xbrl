@@ -5,6 +5,7 @@ Helper functions for utils/ and main.py
 # dependencies
 import re
 from utils.constants import *
+from typing import *
 
 def format_value(value):
     """ Make a nice looking numerical entry w/ commas etc"""
