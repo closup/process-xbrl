@@ -2,73 +2,85 @@ import mammoth
 import zipfile
 from lxml import etree
 from bs4 import BeautifulSoup
-import os
+from typing import *
 
 class CommentExtractor:
     """
-    This class extracts comments from a DOCX file and correlates them
-    with the text in a given HTML generated from the DOCX content.
-    """ 
+    A class to extract comments from a Word document and
+    match them to corresponding paragraphs in an HTML representation.
+    """
+    
     NAMESPACES = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
-
+    
     def __init__(self, docx_file_name):
         self.docx_file_name = docx_file_name
-        self.p_id = 0  # Class attribute for paragraph IDs
+    
+    def get_comments_and_text(self, html : str) -> Tuple[str, List[str]]:
+        """
+        Extract comments from a Word document and match them to corresponding paragraphs in HTML.
+        Returns a tuple containing the HTML with comments inserted and a list of extracted comments.
+        """
+        try:
+            # Open the DOCX file as a ZIP and read the comments and document XML.
+            with zipfile.ZipFile(self.docx_file_name) as docx_zip:
+                comments_xml = docx_zip.read('word/comments.xml')
+                document_xml = docx_zip.read('word/document.xml')
+
+            # Parse the XML to extract comments and document paragraphs.
+            comments_tree = etree.XML(comments_xml)
+            comments = comments_tree.xpath('//w:comment', namespaces=self.NAMESPACES)
+            document_tree = etree.XML(document_xml)
+            paragraphs = document_tree.xpath('//w:p', namespaces=self.NAMESPACES)
+
+            # Initialize BeautifulSoup with the provided HTML content.
+            soup = BeautifulSoup(html, "html.parser")
+
+            # Initialize a dictionary to hold extracted comment data.
+            extracted_comments = []
+
+            # Parse each comment and find its associate paragraph in document XML.
+            for comment in comments:
+                comment_data = self.parse_comment(comment)
+                
+                # Match comment to paragraph using comment range tags in the document XML.
+                comment_range_start = comment_data['comment_range_start']
+                matched_paragraph = self.find_matching_paragraph(paragraphs, comment_range_start)
+                if matched_paragraph is not None:
+                    comment_data['selected_text'] = ''.join(matched_paragraph.itertext())
+                    self.insert_comment_into_html(soup, comment_data)
+                extracted_comments.append(comment_data)
+
+            return str(soup), extracted_comments
+        except Exception as e:
+            print(f"An error occurred while extracting comments: {e}")
+            return html, []
         
-    def extract_comments(self):
-        """
-        Extracts all comments from the DOCX file and returns a list of comments data.
-        Each comment data is a dictionary with 'id', 'text', and 'context_id' (if present).
-        """
-        with zipfile.ZipFile(self.docx_file_name) as docx_zip:
-            comments_xml = docx_zip.read('word/comments.xml')
-            et_comments = etree.XML(comments_xml)
-            comments = et_comments.xpath('//w:comment', namespaces=self.NAMESPACES)
+    def parse_comment(self, comment):
+        """Extract attributes and text from a comment element."""
+        comment_id = comment.get(f'{{{self.NAMESPACES["w"]}}}id')
+        comment_text = comment.xpath('string(.)', namespaces=self.NAMESPACES)
+        comment_range_start = comment.xpath('.//w:commentRangeStart', namespaces=self.NAMESPACES)[0]
+        return {'id': comment_id, 'text': comment_text, 'comment_range_start': comment_range_start}
 
-        comments_data = []
-        for c in comments:
-            comment_id = c.get(f"{{{self.NAMESPACES['w']}}}id")
-            comment_text = c.xpath('string(.)', namespaces=self.NAMESPACES)
-            # TODO: readdress to generalize
-            context_id = comment_text.split(',')[1].strip() if ',' in comment_text else None
-            comments_data.append({
-                'id': comment_id,
-                'text': comment_text.split(',')[0].strip() if ',' in comment_text else comment_text.strip(),
-                'context_id': context_id
-            })
-        return comments_data
+    def find_matching_paragraph(self, paragraphs, comment_range_start):
+        """Find the paragraph in the Word document XML that matches the comment range start."""
+        for paragraph in paragraphs:
+            paragraph_comment_starts = paragraph.xpath('.//w:commentRangeStart', namespaces=self.NAMESPACES)
+            if paragraph_comment_starts and paragraph_comment_starts[0] == comment_range_start:
+                return paragraph
+        return None
 
-    def get_html_with_comments(self, html):
+    def insert_comment_into_html(self, soup, comment_data):
         """
-        Injects comments into the HTML at the correct positions and returns the modified HTML.
-        The original HTML is converted into a BeautifulSoup object for parsing and manipulation.
+        Insert the comment into the BeautifulSoup HTML representation.
         """
-        # Parse the extracted HTML with BeautifulSoup.
-        soup = BeautifulSoup(html, "html.parser")
-
-        # Extract each comment, locate its corresponding paragraph and replace it with a marked element.
-        for comment in self.extract_comments():
-            paragraphs = soup.find_all(True, id=comment['id'])
-            for paragraph in paragraphs:
-                self.annotate_paragraph_with_comment(paragraph, comment)
-        
-        return str(soup)
-
-    def annotate_paragraph_with_comment(self, paragraph, comment):
-        """
-        Replaces a paragraph in the HTML with an annotated version that includes the comment.
-        """
-        # TODO: replace hard-coding with an attribute in the class that will
-        # be formatted in jinja templating
-        annotated_paragraph = f'''
-            <ix:nonFraction contextRef="{comment['context_id']}" name="acfr:{comment['text']}"
-            unitRef="pure" id="p{self.p_id}" decimals="0"
-            format="ixt:num-dot-decimal">{paragraph.get_text()}
-            </ix:nonFraction>
-        '''
-        paragraph.replace_with(BeautifulSoup(annotated_paragraph, "html.parser"))
-        self.p_id += 1
-
+        comment_id = comment_data['id']
+        paragraphs = soup.find_all('p', {'id': comment_id})
+        for p in paragraphs:
+            new_tag = soup.new_tag('span', **{'class': 'comment', 'data-comment-id': comment_id})
+            new_tag.string = comment_data['text']
+            p.insert_after(new_tag)
+            
 class WordDoc:
 
     def __init__(self, docx_file_name: str):
