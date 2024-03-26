@@ -11,6 +11,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xmlns:xbrli="http://www.xbrl.org/2003/instance" 
     xml:lang="en-US">    
+
     <head>
         <title>Audited Financial Report: Inline XBRL</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -26,6 +27,9 @@
             <ix:resources>
                 <!--Start of contexts-->
                 {% include 'xbrl/contexts.html' %}
+                
+                {% include 'xbrl/word_contexts.html' %}
+                
                 <xbrli:unit id="USD">
                     <xbrli:measure>iso4217:USD</xbrli:measure>
                 </xbrli:unit>
@@ -33,6 +37,13 @@
         </ix:header>
         </div>
         <!-- Visible content starts here -->
+
+        <h1 class="center"> COVER PAGE </h1> 
+        {{ cover_page | safe }}
+
+        <h1 class="center"> AUDITOR'S REPORT </h1> 
+        {{ auditors_letter | safe }}
+
         {% for sheet in acfr.sheets() %}
         <div>
             <!-- Header for the sheet from the Excel doc -->
@@ -40,12 +51,23 @@
                 <b>{{ line }}</b><br />
             {% endfor %}
         </div>
+
         <!-- Sheet cell data -->
         {% include 'xbrl/table.html' %}
         <br />
         <br />
         <br />
         {% endfor %}
+        
+        <h1 class="center"> NOTES </h1> 
+        {{ notes | safe }}
+
+        <h1 class="center"> SUPPLEMENTARY INFORMATION </h1> 
+        {{ supplementary_info | safe }}
+
+        <h1 class="center"> STATISTICAL SECTION </h1> 
+        {{ statistical_section | safe }}
 
     </body>
+
 </html>

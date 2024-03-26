@@ -14,12 +14,16 @@ from typing import * # to specify funtion inputs and outputs
 from utils.Acfr import Acfr
 from utils.constants import * #all global variables
 from utils.helper_functions import *
+from utils.word_comments import ExtractComments
 
 # flask dependencies
-from flask import Flask, request, render_template, jsonify, redirect, url_for, json
+from flask import Flask, request, render_template, session, jsonify, redirect, url_for, json
 import gettext, shlex
 
 from bs4 import BeautifulSoup
+
+import mammoth
+import string
 
 # Make arelle imports possible
 base_dir = os.path.abspath(os.path.dirname(__file__))
@@ -45,14 +49,25 @@ app.static_folder = 'static'
 
 def write_html(input_file : str,
                output_file : str,
-               format : str):
+               format : str,
+               wordfiles: Dict[str, Dict[str, str]]):
     """ Create inline xbrl document and save as an html file at {output_file} location """
     # process sheets in the excel document
     acfr = Acfr(input_file)
+
+    #extracted the contents from word
+    # TODO: fix this hard coding
+    cover_page, _ = extract_text_and_images_from_docx(wordfiles['cover'])
+    auditors_letter, _ = extract_text_and_images_from_docx(wordfiles['auditor'])
+    notes, _ = extract_text_and_images_from_docx(wordfiles['notes'])
+    supplementary_info, _ = extract_text_and_images_from_docx(wordfiles['info'])
+    statistical_section, _ = extract_text_and_images_from_docx(wordfiles['statistic'])
+
     # Load the template and render with vars
-    rendered_ixbrl = render_template('xbrl/base.html', acfr = acfr, format = format)
+    rendered_ixbrl = render_template('xbrl/base.html', acfr = acfr, format = format,cover_page=cover_page, auditors_letter=auditors_letter,  notes=notes, supplementary_info=supplementary_info, statistical_section=statistical_section) 
+
     # Save the rendered template to output file
-    with open(output_file, 'w') as write_location:
+    with open(output_file, 'w', encoding="utf8") as write_location:
         write_location.write(rendered_ixbrl)
 
 def create_viewer_html(output_file : str,
@@ -65,6 +80,10 @@ def create_viewer_html(output_file : str,
 
     # command to run Arelle process
     plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
+    # TODO: fix this 
+    viewer_filepath=viewer_filepath.replace("\\",'/') # added this for solve some errors in file directory  
+    plugins=plugins.replace("\\",'/') # added this for solve some errors in file directory  
+    # print(viewer_filepath,plugins)
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
     args = f"--plugins={plugins} -f {output_file} --save-viewer {viewer_filepath} --viewer-url {viewer_url}"
     
@@ -74,7 +93,7 @@ def create_viewer_html(output_file : str,
     CntlrCmdLine.parseAndRun(args)
 
     # Read in the generated HTML
-    with open(viewer_filepath, 'r') as file:
+    with open(viewer_filepath, 'r', encoding="utf8") as file:
         html_content = file.read()
 
     # Parse the HTML with BeautifulSoup
@@ -87,10 +106,59 @@ def create_viewer_html(output_file : str,
         script_tag['src'] = '{{ url_for(\'static\', filename=\'js/ixbrlviewer.js\') }}'
 
     # Write the modified HTML back out
-    with open(viewer_filepath, 'w') as file:
+    with open(viewer_filepath, 'w', encoding="utf8") as file:
         file.write(str(soup))
 
-    os.rename('templates/site/ixbrlviewer.js', 'static/js/ixbrlviewer.js')
+    # os.rename('templates/site/ixbrlviewer.js', 'static/js/ixbrlviewer.js')
+
+
+# added the function for get the word conntent 
+def extract_text_and_images_from_docx(file_path):
+
+    result = mammoth.convert_to_html(file_path)
+    html = result.value  # Extracted HTML content
+    images = result.messages  # Extracted images, if any    
+    updated_html =''
+    soup = BeautifulSoup(html,"html.parser")
+    p_html =[]
+    # Remove a tags    
+    for a in soup.find_all(['a']):
+        a.decompose()
+
+    for p_tag in soup.find_all('p'):
+        validated =True
+        
+        if p_tag.text.strip() !='' :
+            for char in p_tag.text:
+                if char in string.ascii_letters:
+                    validated = False 
+                    break
+                
+                elif (len(p_tag.text)>5 and ('-' in p_tag.text or '%' in p_tag.text)):
+                    validated = False 
+                    break
+
+
+            if validated:        
+                p_html.append(p_tag)
+    
+    result = ExtractComments.get_comments_and_text(file_path,html)
+    if result: 
+        for  i in range (0,len(result['comments'])):
+            comment, selected_text, p_count =result['comments'][i],result['selected_text'][i],result['count'][i]
+            context_id = result['context_id'][i]
+            p_html[p_count].replace_with(f'''\n\n<ix:nonFraction contextRef="{context_id}" name="acfr:{comment}" unitRef="pure" id="p{ExtractComments.p_id}" decimals="0" format="ixt:num-dot-decimal" >
+    {selected_text}
+</ix:nonFraction>\n\n''')
+            ExtractComments.p_id +=1
+            
+        updated_html = str(soup)
+        updated_html = updated_html.replace('&gt;', '>')
+        updated_html = updated_html.replace('&lt;', '<')           
+        return updated_html,images
+    
+    updated_html = str(soup)
+    return updated_html, images
 
 # =============================================================
 # Flask
