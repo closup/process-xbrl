@@ -80,10 +80,6 @@ def create_viewer_html(output_file : str,
 
     # command to run Arelle process
     plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
-    # TODO: fix this 
-    viewer_filepath=viewer_filepath.replace("\\",'/') # added this for solve some errors in file directory  
-    plugins=plugins.replace("\\",'/') # added this for solve some errors in file directory  
-    # print(viewer_filepath,plugins)
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
     args = f"--plugins={plugins} -f {output_file} --save-viewer {viewer_filepath} --viewer-url {viewer_url}"
     
@@ -109,56 +105,7 @@ def create_viewer_html(output_file : str,
     with open(viewer_filepath, 'w', encoding="utf8") as file:
         file.write(str(soup))
 
-    # os.rename('templates/site/ixbrlviewer.js', 'static/js/ixbrlviewer.js')
-
-
-# added the function for get the word conntent 
-def extract_text_and_images_from_docx(file_path):
-
-    result = mammoth.convert_to_html(file_path)
-    html = result.value  # Extracted HTML content
-    images = result.messages  # Extracted images, if any    
-    updated_html =''
-    soup = BeautifulSoup(html,"html.parser")
-    p_html =[]
-    # Remove a tags    
-    for a in soup.find_all(['a']):
-        a.decompose()
-
-    for p_tag in soup.find_all('p'):
-        validated =True
-        
-        if p_tag.text.strip() !='' :
-            for char in p_tag.text:
-                if char in string.ascii_letters:
-                    validated = False 
-                    break
-                
-                elif (len(p_tag.text)>5 and ('-' in p_tag.text or '%' in p_tag.text)):
-                    validated = False 
-                    break
-
-
-            if validated:        
-                p_html.append(p_tag)
-    
-    result = ExtractComments.get_comments_and_text(file_path,html)
-    if result: 
-        for  i in range (0,len(result['comments'])):
-            comment, selected_text, p_count =result['comments'][i],result['selected_text'][i],result['count'][i]
-            context_id = result['context_id'][i]
-            p_html[p_count].replace_with(f'''\n\n<ix:nonFraction contextRef="{context_id}" name="acfr:{comment}" unitRef="pure" id="p{ExtractComments.p_id}" decimals="0" format="ixt:num-dot-decimal" >
-    {selected_text}
-</ix:nonFraction>\n\n''')
-            ExtractComments.p_id +=1
-            
-        updated_html = str(soup)
-        updated_html = updated_html.replace('&gt;', '>')
-        updated_html = updated_html.replace('&lt;', '<')           
-        return updated_html,images
-    
-    updated_html = str(soup)
-    return updated_html, images
+    os.rename('templates/site/ixbrlviewer.js', 'static/js/ixbrlviewer.js')
 
 # =============================================================
 # Flask
