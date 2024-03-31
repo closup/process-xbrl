@@ -14,16 +14,12 @@ from typing import * # to specify funtion inputs and outputs
 from utils.Acfr import Acfr
 from utils.constants import * #all global variables
 from utils.helper_functions import *
-from utils.word_comments import ExtractComments
 
 # flask dependencies
 from flask import Flask, request, render_template, session, jsonify, redirect, url_for, json
 import gettext, shlex
 
 from bs4 import BeautifulSoup
-
-import mammoth
-import string
 
 # Make arelle imports possible
 base_dir = os.path.abspath(os.path.dirname(__file__))
@@ -47,25 +43,20 @@ app.static_folder = 'static'
 # Function definitions
 # =============================================================
 
-def write_html(input_file : str,
+def write_html(file_list : List[Any],
                output_file : str,
                format : str,
-               wordfiles: Dict[str, Dict[str, str]]):
-    """ Create inline xbrl document and save as an html file at {output_file} location """
+               #word_filepaths: List[str]
+               ):
+    """ 
+    Create inline xbrl document and save as an html file at {output_file} location 
+    """
     # process sheets in the excel document
-    acfr = Acfr(input_file)
-
-    #extracted the contents from word
-    # TODO: fix this hard coding
-    cover_page, _ = extract_text_and_images_from_docx(wordfiles['cover'])
-    auditors_letter, _ = extract_text_and_images_from_docx(wordfiles['auditor'])
-    notes, _ = extract_text_and_images_from_docx(wordfiles['notes'])
-    supplementary_info, _ = extract_text_and_images_from_docx(wordfiles['info'])
-    statistical_section, _ = extract_text_and_images_from_docx(wordfiles['statistic'])
+    acfr = Acfr(file_list)
 
     # Load the template and render with vars
-    rendered_ixbrl = render_template('xbrl/base.html', acfr = acfr, format = format,cover_page=cover_page, auditors_letter=auditors_letter,  notes=notes, supplementary_info=supplementary_info, statistical_section=statistical_section) 
-
+    rendered_ixbrl = render_template('xbrl/base.html', acfr = acfr, format = format)
+    
     # Save the rendered template to output file
     with open(output_file, 'w', encoding="utf8") as write_location:
         write_location.write(rendered_ixbrl)
@@ -142,7 +133,7 @@ def upload_file(output_file = "static/output/output.html", format = "gray"):
             excel_files += [file]
     if len(excel_files) != 1:
         return jsonify({'error': 'Please upload exactly one Excel file'})
-    write_html(excel_files[0], output_file, format)
+    write_html(file_list, output_file, format)
     viewer_file_name = "templates/site/viewer.html"
     create_viewer_html(output_file, viewer_file_name)
     return jsonify({'message': 'Files successfully uploaded'})

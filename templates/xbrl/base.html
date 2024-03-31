@@ -28,8 +28,6 @@
                 <!--Start of contexts-->
                 {% include 'xbrl/contexts.html' %}
                 
-                {% include 'xbrl/word_contexts.html' %}
-                
                 <xbrli:unit id="USD">
                     <xbrli:measure>iso4217:USD</xbrli:measure>
                 </xbrli:unit>
@@ -37,17 +35,13 @@
         </ix:header>
         </div>
         <!-- Visible content starts here -->
-
-        <h1 class="center"> COVER PAGE </h1> 
-        {{ cover_page | safe }}
-
-        <h1 class="center"> AUDITOR'S REPORT </h1> 
-        {{ auditors_letter | safe }}
-
-        {% for sheet in acfr.sheets() %}
+        {% for page in acfr.pages %}
+            {% if acfr.is_table(page) %}
+            {% set table = page %}
+        
         <div>
             <!-- Header for the sheet from the Excel doc -->
-            {% for line in sheet.header() %}
+            {% for line in table.header() %}
                 <b>{{ line }}</b><br />
             {% endfor %}
         </div>
@@ -57,16 +51,11 @@
         <br />
         <br />
         <br />
+        {% else %}
+        <!-- Include converted Word content -->
+        {{ page.get_html() | safe }}
+        {% endif %}
         {% endfor %}
-        
-        <h1 class="center"> NOTES </h1> 
-        {{ notes | safe }}
-
-        <h1 class="center"> SUPPLEMENTARY INFORMATION </h1> 
-        {{ supplementary_info | safe }}
-
-        <h1 class="center"> STATISTICAL SECTION </h1> 
-        {{ statistical_section | safe }}
 
     </body>
 

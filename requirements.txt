@@ -13,9 +13,11 @@ setuptools==68.0.0
 mammoth == 1.7.0
 bs4
 werkzeug
-
-#Arelle requirements
+io
 lxml
+zipfile
+
+#Additional Arelle requirements
 regex
 isodate
 pyparsing

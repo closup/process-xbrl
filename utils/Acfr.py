@@ -1,8 +1,10 @@
 import pandas as pd
-from utils.Sheet import Sheet
 from utils.NetPosition import NetPosition
 from utils.StatementOfActivities import StatementofActivities
 from typing import *
+from utils.Table import Table
+from utils.helper_functions import *
+from utils.WordDoc import WordDoc
 
 class Acfr:
     """ 
@@ -10,11 +12,25 @@ class Acfr:
     sheets are Excel sheets in the file, contexts are ixbrl contexts
     """
 
-    def __init__(self, input_file : str):
-        self._sheets = self.read_excel(input_file)
+    def __init__(self, file_list : List[Any]):
+        self._pages, self._tables = self.handle_multiple_docs(file_list)
         self.contexts = self.get_contexts()
 
-    def read_excel(self, input_file : str) -> List[Sheet]:
+    def handle_multiple_docs(self, file_list) -> Tuple[List[Any], List[Table]]:
+        """ TODO """
+        pages = []
+        tables = []
+        for file in file_list:
+            if is_spreadsheet(file.filename):
+                tables = self.read_excel(file)
+                pages += tables
+            else:
+                # is word doc
+                pages.append(WordDoc(file))
+
+        return pages, tables
+
+    def read_excel(self, input_file : str) -> List[Table]:
         """ Create a Sheet object for each tab in excel """
         sheets = []
         input_xl = pd.ExcelFile(input_file)
@@ -23,14 +39,22 @@ class Acfr:
                 sheets.append(NetPosition(input_file, sheet_name))
             elif sheet_name == "Statement of Activities":
                 sheets.append(StatementofActivities(input_file, sheet_name))
+            # TODO: add support for other tables here
             # elif not(sheet_name in ["Label Dropdowns", "Master Info", "Statement of activities labels"]):
             #     sheets.append(Sheet(input_file, sheet_name))
         return sheets
     
     def get_contexts(self):
         """ create a list of all unique contexts across every sheet """
-        nested_contexts = [sheet.contexts() for sheet in self._sheets]
+        nested_contexts = [sheet.contexts() for sheet in self._tables]
         return set(context for context_list in nested_contexts for context in context_list)
 
-    def sheets(self):
-        return self._sheets
+    @property
+    def pages(self):
+        return self._pages
+    
+    @staticmethod
+    def is_table(page) -> bool:
+        return isinstance(page, Table)
+
+    

@@ -7,11 +7,11 @@ from typing import * # to specify funtion inputs and outputs
 from datetime import datetime # for date parsing
 
 
-class Sheet:
+class Table:
     """ Object to represent an Excel sheet tab (one table) """
     def __init__(self, excel_file: str, sheet_name: str, extra_left_cols: int = 2):
         """ 
-        Initialize Sheet object 
+        Initialize Table object (a table in the excel sheet)
         Inputs:
             excel_file : file location for file to convert to XBRL 
             sheet_name : name of relevant tab on Excel sheet 
@@ -44,7 +44,6 @@ class Sheet:
         return clean(self._df.iloc[2, 1])
     
     def raw_date(self) -> str:
-        print(clean(str(self._df.iloc[3, 1])))
         return clean(str(self._df.iloc[3, 1]))
     
     def contexts(self) -> List[Context]:
