@@ -50,6 +50,7 @@ class WordDoc:
     def __init__(self, docx_file):
         self.html_content = self.convert_to_html(docx_file)
         self.html_content = self.remove_links()
+        self.html_content = self.remove_empty_tags()
         self.html_content = self.insert_comments(docx_file)        
 
     def convert_to_html(self, docx_file):
@@ -72,6 +73,14 @@ class WordDoc:
         for a in soup.find_all(['a']):
             a.decompose()
         return soup.prettify()
+    
+    def remove_empty_tags(self):
+        """ Recursively find all tags with no content and remove them """
+        soup = self.soup()
+        for tag in soup.find_all():
+            if len(tag.get_text(strip=True)) == 0 and not tag.contents:
+                tag.extract()
+        return str(soup)
     
     def extract_comments(self, docx_file) -> List[Comment]:
         """
