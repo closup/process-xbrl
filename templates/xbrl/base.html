@@ -35,10 +35,18 @@
         </ix:header>
         </div>
         <!-- Visible content starts here -->
+
+        <a href="#tables">Go to financial tables</a>
+        {% set first_table = True %}
         {% for page in acfr.pages %}
             {% if acfr.is_table(page) %}
             {% set table = page %}
         
+        {% if first_table %}
+        <h2 id="tables">Financial Tables</h2>
+        {% endif %}
+        {% set first_table = False %}
+
         <div>
             <!-- Header for the sheet from the Excel doc -->
             {% for line in table.header() %}

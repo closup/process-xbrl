@@ -4,8 +4,6 @@ from lxml import etree
 from bs4 import BeautifulSoup
 from typing import *
 
-# TODO: add paragraph class?
-
 NAMESPACES = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
 
 class Comment:
@@ -41,12 +39,12 @@ class Comment:
     def ix_tag(self):
         # TODO: replace with better implementation jinja formatting? inherit cell class
         #return f"<b> COMMENT: {self.comment_text} </b>"
-        return (f'''\n<ix:nonFraction contextRef="{self.context_id}" name="acfr:{self.comment_text}" unitRef="pure" id="p{self.p_num}" decimals="0" format="ixt:num-dot-decimal" >
+        return (f'''\n<ix:nonFraction contextRef="{self.context_id}" name="acfr:{self.comment_text}" unitRef="pure" id="p{self.p_num}_c{self.comment_id}" decimals="0" format="ixt:num-dot-decimal" >
     {self.selected_text}
 </ix:nonFraction>\n\n''')
 
 class WordDoc:
-
+    """ Class to represent a Word file """
     def __init__(self, docx_file):
         self.html_content = self.convert_to_html(docx_file)
         self.html_content = self.remove_links()
