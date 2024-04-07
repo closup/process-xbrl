@@ -1,11 +1,11 @@
-from utils.Sheet import Sheet
+from utils.Table import Table
 from utils.Cell import Cell
 from utils.Context import Context
 from utils.Dimension import Dimension
 from utils.helper_functions import *
 from typing import *
 
-class NetPosition(Sheet):
+class NetPosition(Table):
     """ extends the Sheet class for statement of net position """
 
     def __init__(self, excel_file: str, sheet_name: str, extra_left_cols: int = 2):

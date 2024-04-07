@@ -16,7 +16,7 @@ from utils.constants import * #all global variables
 from utils.helper_functions import *
 
 # flask dependencies
-from flask import Flask, request, render_template, jsonify, redirect, url_for, json
+from flask import Flask, request, render_template, session, jsonify, redirect, url_for, json
 import gettext, shlex
 
 from bs4 import BeautifulSoup
@@ -43,16 +43,22 @@ app.static_folder = 'static'
 # Function definitions
 # =============================================================
 
-def write_html(input_file : str,
+def write_html(file_list : List[Any],
                output_file : str,
-               format : str):
-    """ Create inline xbrl document and save as an html file at {output_file} location """
+               format : str,
+               #word_filepaths: List[str]
+               ):
+    """ 
+    Create inline xbrl document and save as an html file at {output_file} location 
+    """
     # process sheets in the excel document
-    acfr = Acfr(input_file)
+    acfr = Acfr(file_list)
+
     # Load the template and render with vars
     rendered_ixbrl = render_template('xbrl/base.html', acfr = acfr, format = format)
+    
     # Save the rendered template to output file
-    with open(output_file, 'w') as write_location:
+    with open(output_file, 'w', encoding="utf8") as write_location:
         write_location.write(rendered_ixbrl)
 
 def create_viewer_html(output_file : str,
@@ -74,7 +80,7 @@ def create_viewer_html(output_file : str,
     CntlrCmdLine.parseAndRun(args)
 
     # Read in the generated HTML
-    with open(viewer_filepath, 'r') as file:
+    with open(viewer_filepath, 'r', encoding="utf8") as file:
         html_content = file.read()
 
     # Parse the HTML with BeautifulSoup
@@ -87,7 +93,7 @@ def create_viewer_html(output_file : str,
         script_tag['src'] = '{{ url_for(\'static\', filename=\'js/ixbrlviewer.js\') }}'
 
     # Write the modified HTML back out
-    with open(viewer_filepath, 'w') as file:
+    with open(viewer_filepath, 'w', encoding="utf8") as file:
         file.write(str(soup))
 
     os.rename('templates/site/ixbrlviewer.js', 'static/js/ixbrlviewer.js')
@@ -127,7 +133,7 @@ def upload_file(output_file = "static/output/output.html", format = "gray"):
             excel_files += [file]
     if len(excel_files) != 1:
         return jsonify({'error': 'Please upload exactly one Excel file'})
-    write_html(excel_files[0], output_file, format)
+    write_html(file_list, output_file, format)
     viewer_file_name = "templates/site/viewer.html"
     create_viewer_html(output_file, viewer_file_name)
     return jsonify({'message': 'Files successfully uploaded'})

@@ -33,12 +33,14 @@ header {
     color: #00274c;
     background-color: #ffffff;
     border: 2px solid #00274c;
+    /* width:72%;  */
+    text-align: justify;
 }
 
 .btn-michigan:hover {
     /* Slightly darker Maize for the hover effect */
     background-color: #003e78;
-    color: #ffcb05
+    color: #fcfcfd
 }
 
 .file-container {

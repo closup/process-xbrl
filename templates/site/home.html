@@ -1,14 +1,17 @@
+
 {% extends "site/base_page.html" %}
+
 {% block head %}
     {{ super() }}
     <!--Split out these scripts-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="{{url_for('static', filename='js/spinner.js')}}"></script>
+
 {% endblock %}
 {% block card1 %}
         <div class="card-header">1). Download our Excel ACFR template</div>
         <div class="card-body text-center">
-            <a href="{{ url_for('static', filename='input_files/ACFR_template.xlsx') }}" download="ACFR_template.xlsx">
+            <a href="{{ url_for('static', filename='input_files/example_template.xlsx') }}" download="ACFR_template.xlsx">
                 <button type="button" class="btn btn-michigan btn-lg">Download Excel template</button>
             </a>
         </div>
@@ -36,9 +39,13 @@
             <input type="submit" id="convert-button" class="btn btn-michigan btn-lg" onclick="startProcessing()" style="display: none;">
         </form>
     </div>
+    
+    
+    
 {% endblock %}
 {% block loader %}
 <div class="text-center">
     <div id="loader" class="loader" style="display: none;" class="text-center"></div>
 </div>
 {% endblock %}
+

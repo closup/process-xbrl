@@ -1,4 +1,4 @@
-from utils.Sheet import Sheet
+from utils.Table import Table
 from utils.Cell import Cell
 from utils.Context import Context
 from utils.Dimension import Dimension
@@ -6,7 +6,7 @@ from utils.helper_functions import *
 from typing import *
 from utils.constants import *
 
-class StatementofActivities(Sheet):
+class StatementofActivities(Table):
     """ extends the Sheet class for statement of activities """
 
     def __init__(self, excel_file: str, sheet_name: str, extra_left_cols: int = 2):

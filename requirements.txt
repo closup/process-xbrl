@@ -3,6 +3,7 @@
 # platform: osx-arm64
 
 #python>=3.11.7
+python
 flask==3.0.0
 jinja2==3.1.2
 openpyxl==3.1.2
@@ -10,12 +11,14 @@ pandas==2.0.3
 pip==23.2.1
 python-dateutil==2.8.2
 setuptools==68.0.0
-# add version later
+mammoth == 1.7.0
 bs4
 werkzeug
-
-#Arelle requirements
+io
 lxml
+zipfile
+
+#Additional Arelle requirements
 regex
 isodate
 pyparsing
