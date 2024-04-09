@@ -4,15 +4,11 @@
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">{{context.place_id}}</xbrli:identifier>
         <xbrli:segment>
             {% for dim in context.dims() %}
-            {% if dim.member_type() == "explicit" %}
-            <xbrldi:explicitmember dimension="{{dim.axis()}}">{{dim.member_name()}}</xbrldi:explicitmember>
-            {% elif dim.member_type() == "typed" %}
-            <xbrldi:typedMember dimension="{{dim.axis()}}">
-                <acfr:FundIdentifierDomain>
-                    {{ dim.member_name() }}
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            {% endif %}
+            <xbrldi:{{dim.member_type}}Member dimension="{{dim.axis}}">
+                <{{ dim.domain }}>
+                    {{ dim.member_name }}
+                </{{ dim.domain }}>
+            </xbrldi:{{dim.member_type}}Member>
             {% endfor %}
         </xbrli:segment>   
     </xbrli:entity>

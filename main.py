@@ -16,7 +16,7 @@ from utils.constants import * #all global variables
 from utils.helper_functions import *
 
 # flask dependencies
-from flask import Flask, request, render_template, session, jsonify, redirect, url_for, json
+from flask import Flask, request, render_template, jsonify
 import gettext, shlex
 
 from bs4 import BeautifulSoup

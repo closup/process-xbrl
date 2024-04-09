@@ -45,13 +45,14 @@ DIMENSIONS = {"TypeOfGovernmentUnit" : ["governmental_activities",
                                       # "major_funds_excluding_general_funds_member" : "MajorFundsExcludingGeneralFundsMember"
                                       }
 
-# Dimension axis and member name by column name in Excel template
-axis_dict = {"governmental_activities"  : ("acfr:TypeOfGovernmentUnitAxis", "GovernmentalActivities"),
-             "business-type_activities" : ("acfr:TypeOfGovernmentUnitAxis", "BusinessTypeActivities"),
-             "total_primary_government" : ("acfr:TypeOfGovernmentUnitAxis", "PrimaryGovernmentActivities"),
-             "component_units"          : ("acfr:TypeOfGovernmentUnitAxis", "ComponentUnitDiscretelyPresented"),
-             "charges_for_services"     : ("acfr:TypeOfProgramRevenuesAxis", "ProgramRevenuesFromChargesForServicesMember"),
-             "operating_grants_and_contributions" : ("acfr:TypeOfProgramRevenuesAxis", "ProgramRevenuesFromOperatingGrantsAndContributions"),
-             "capital_grants_and_contributions"   : ("acfr:TypeOfProgramRevenuesAxis", "ProgramRevenuesFromCapitalGrantsAndContributions"),
-             "general_fund"             : ("afcr:GovernmentalFundsAxis", "GeneralFund"),
-             "total_governmental_funds" : ("afcr:GovernmentalFundsAxis", "GovernmentalFunds")}
+# Dimension axis, domain, and member name by column name in Excel template
+axis_dict = {"governmental_activities"  : ("TypeOfGovernmentUnit", "ConsolidatedActivities", "GovernmentalActivities"),
+             "business-type_activities" : ("TypeOfGovernmentUnit", "ConsolidatedActivities", "BusinessTypeActivities"),
+             "total_primary_government" : ("TypeOfGovernmentUnit", "ConsolidatedActivities", "PrimaryGovernmentActivities"),
+             "component_units"          : ("TypeOfGovernmentUnit", "ConsolidatedActivities", "ComponentUnitDiscretelyPresented"),
+             "charges_for_services"     : ("TypeOfProgramRevenues", "TypeOfProgramRevenues", "ProgramRevenuesFromChargesForServicesMember"),
+             "operating_grants_and_contributions" : ("TypeOfProgramRevenues", "TypeOfProgramRevenues", "ProgramRevenuesFromOperatingGrantsAndContributions"),
+             "capital_grants_and_contributions"   : ("TypeOfProgramRevenues", "TypeOfProgramRevenues", "ProgramRevenuesFromCapitalGrantsAndContributions"),
+            # figure out these domains
+             "general_fund"             : ("GovernmentalFunds", None, "GeneralFund"),
+             "total_governmental_funds" : ("GovernmentalFunds", None, "GovernmentalFunds")}

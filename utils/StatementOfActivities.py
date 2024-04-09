@@ -63,7 +63,7 @@ class StatementofActivities(Table):
                     section = clean(cell.row_name())
                     # if the current section is a dimension, record it (ex. Governmental Activities)
                     if section in axis_dict: #and col_name not in DIMENSIONS["TypeOfGovernmentUnit"]:
-                        if dims[-1].axis() == "acfr:TypeOfGovernmentUnitAxis":
+                        if dims[-1].axis == "acfr:TypeOfGovernmentUnitAxis":
                             dims.pop()
                         dims.append(Dimension(section))
                         # create new context with additional dimension
