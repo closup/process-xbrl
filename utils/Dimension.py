@@ -9,6 +9,7 @@ class Dimension():
             self._member_type = "explicit"
             self._axis, self._member_name = axis_dict[col_name]
         else:
+            # typed dimensions (for now, just support for named gov funds)
             self._axis, self._member_type = "acfr:FundIdentifierAxis", "typed"
             self._member_name = get_col_no_spaces(col_name)
 

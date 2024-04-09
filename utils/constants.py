@@ -39,10 +39,11 @@ DIMENSIONS = {"TypeOfGovernmentUnit" : ["governmental_activities",
             "TypeOfProgramRevenues" : ["charges_for_services",
                                            "operating_grants_and_contributions",
                                            "capital_grants_and_contributions"],
-            "GovernmentalFunds"     : {"governmental_funds" : "GovernmentalFundsMember",
-                                       "general_fund" : "GeneralFundMember"},
-                                       "aggregate_nonmajor_fund" : "AggregateNonmajorFundMember",
-                                       "major_funds_excluding_general_funds_member" : "MajorFundsExcludingGeneralFundsMember"}
+            "GovernmentalFunds"     : {"total" : "GovernmentalFundsMember",
+                                       "general_fund" : "GeneralFundMember"} #,
+                                      # "aggregate_nonmajor_fund" : "AggregateNonmajorFundMember",
+                                      # "major_funds_excluding_general_funds_member" : "MajorFundsExcludingGeneralFundsMember"
+                                      }
 
 # Dimension axis and member name by column name in Excel template
 axis_dict = {"governmental_activities"  : ("acfr:TypeOfGovernmentUnitAxis", "GovernmentalActivities"),
@@ -51,4 +52,6 @@ axis_dict = {"governmental_activities"  : ("acfr:TypeOfGovernmentUnitAxis", "Gov
              "component_units"          : ("acfr:TypeOfGovernmentUnitAxis", "ComponentUnitDiscretelyPresented"),
              "charges_for_services"     : ("acfr:TypeOfProgramRevenuesAxis", "ProgramRevenuesFromChargesForServicesMember"),
              "operating_grants_and_contributions" : ("acfr:TypeOfProgramRevenuesAxis", "ProgramRevenuesFromOperatingGrantsAndContributions"),
-             "capital_grants_and_contributions"   : ("acfr:TypeOfProgramRevenuesAxis", "ProgramRevenuesFromCapitalGrantsAndContributions")}
+             "capital_grants_and_contributions"   : ("acfr:TypeOfProgramRevenuesAxis", "ProgramRevenuesFromCapitalGrantsAndContributions"),
+             "general_fund"             : ("afcr:GovernmentalFundsAxis", "GeneralFund"),
+             "total_governmental_funds" : ("afcr:GovernmentalFundsAxis", "GovernmentalFunds")}

@@ -24,7 +24,7 @@ class Table:
         self.date = self.parse_date()
         self._header = self.get_header()
         self.sheet_name = sheet_name
-        # Process
+        # Process underlying sheet
         self.reshape_data()
         self._col_names = self.get_col_names()
 
