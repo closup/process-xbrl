@@ -120,15 +120,15 @@ h1.center {text-align: center;}
             <ix:resources>
                 <!--Start of contexts-->
                 
-<xbrli:context id="D20220630_ComponentUnitDiscretelyPresented">
+<xbrli:context id="D20220630_GovernmentalFunds">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                </acfr:ConsolidatedActivitiesDomain>
+            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
+                <acfr:NoneDomain>
+                    acfr:GovernmentalFundsMember
+                </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
         </xbrli:segment>   
@@ -141,22 +141,16 @@ h1.center {text-align: center;}
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="D20220630_ProgramRevenuesFromChargesForServicesMember_GovernmentalActivities">
+<xbrli:context id="D20220630_LandscapeMaintenanceDistrict">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:TypeOfProgramRevenuesDomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMemberMember
-                </acfr:TypeOfProgramRevenuesDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                </acfr:ConsolidatedActivitiesDomain>
-            </xbrldi:explicitMember>
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    acfr:LandscapeMaintenanceDistrictMember
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
             
         </xbrli:segment>   
     </xbrli:entity>
@@ -164,6 +158,26 @@ h1.center {text-align: center;}
          
         <xbrli:startDate>2021-07-01</xbrli:startDate>
         <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="I20220630_GovernmentalActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:ConsolidatedActivitiesDomain>
+                    acfr:GovernmentalActivitiesMember
+                </acfr:ConsolidatedActivitiesDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
          
     </xbrli:period>
 </xbrli:context>
@@ -181,56 +195,8 @@ h1.center {text-align: center;}
             
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
+                    acfr:GovernmentalActivitiesMember
                 </acfr:ConsolidatedActivitiesDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_ProgramRevenuesFromChargesForServicesMember_BusinessTypeActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:TypeOfProgramRevenuesDomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMemberMember
-                </acfr:TypeOfProgramRevenuesDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                </acfr:ConsolidatedActivitiesDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_GeneralFund">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
-                <acfr:NoneDomain>
-                    acfr:GeneralFundMember
-                </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
         </xbrli:segment>   
@@ -254,12 +220,6 @@ h1.center {text-align: center;}
                 </acfr:TypeOfProgramRevenuesDomain>
             </xbrldi:explicitMember>
             
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                </acfr:ConsolidatedActivitiesDomain>
-            </xbrldi:explicitMember>
-            
         </xbrli:segment>   
     </xbrli:entity>
     <xbrli:period>
@@ -270,96 +230,7 @@ h1.center {text-align: center;}
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="D20220630_PrimaryGovernmentActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                </acfr:ConsolidatedActivitiesDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_GovernmentalFunds">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
-                <acfr:NoneDomain>
-                    acfr:GovernmentalFundsMember
-                </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="I20220630_PrimaryGovernmentActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:PrimaryGovernmentActivitiesMember
-                </acfr:ConsolidatedActivitiesDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_ProgramRevenuesFromChargesForServicesMember">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:TypeOfProgramRevenuesDomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMemberMember
-                </acfr:TypeOfProgramRevenuesDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                </acfr:ConsolidatedActivitiesDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_ProgramRevenuesFromCapitalGrantsAndContributions_BusinessTypeActivities">
+<xbrli:context id="D20220630_ProgramRevenuesFromCapitalGrantsAndContributions_ComponentUnitDiscretelyPresented">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
@@ -386,20 +257,20 @@ h1.center {text-align: center;}
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="D20220630_Expenses_ComponentUnitDiscretelyPresented">
+<xbrli:context id="D20220630_ProgramRevenuesFromChargesForServices_GovernmentalActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:ExpensesMember
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:TypeOfProgramRevenuesDomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                </acfr:TypeOfProgramRevenuesDomain>
+            </xbrldi:explicitMember>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
+                    acfr:GovernmentalActivitiesMember
                 </acfr:ConsolidatedActivitiesDomain>
             </xbrldi:explicitMember>
             
@@ -413,15 +284,36 @@ h1.center {text-align: center;}
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="D20220630_GovernmentalActivities">
+<xbrli:context id="D20220630_SuccessorHousingAgency">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                </acfr:ConsolidatedActivitiesDomain>
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    acfr:SuccessorHousingAgencyMember
+                </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_ProgramRevenuesFromOperatingGrantsAndContributions">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:TypeOfProgramRevenuesDomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                </acfr:TypeOfProgramRevenuesDomain>
             </xbrldi:explicitMember>
             
         </xbrli:segment>   
@@ -434,20 +326,14 @@ h1.center {text-align: center;}
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="D20220630_Expenses">
+<xbrli:context id="D20220630_PrimaryGovernmentActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:ExpensesMember
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
+                    acfr:PrimaryGovernmentActivitiesMember
                 </acfr:ConsolidatedActivitiesDomain>
             </xbrldi:explicitMember>
             
@@ -482,42 +368,15 @@ h1.center {text-align: center;}
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="D20220630_SuccessorHousingAgency">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:SuccessorHousingAgencyMember
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_ProgramRevenuesFromOperatingGrantsAndContributions_ComponentUnitDiscretelyPresented">
+<xbrli:context id="D20220630_ProgramRevenuesFromChargesForServices">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
                 <acfr:TypeOfProgramRevenuesDomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    acfr:ProgramRevenuesFromChargesForServicesMember
                 </acfr:TypeOfProgramRevenuesDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                </acfr:ConsolidatedActivitiesDomain>
             </xbrldi:explicitMember>
             
         </xbrli:segment>   
@@ -530,68 +389,20 @@ h1.center {text-align: center;}
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="D20220630_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
+<xbrli:context id="D20220630_ProgramRevenuesFromCapitalGrantsAndContributions_BusinessTypeActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
                 <acfr:TypeOfProgramRevenuesDomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
                 </acfr:TypeOfProgramRevenuesDomain>
             </xbrldi:explicitMember>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                </acfr:ConsolidatedActivitiesDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_LandscapeMaintenanceDistrict">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:LandscapeMaintenanceDistrictMember
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_Expenses_BusinessTypeActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:ExpensesMember
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
+                    acfr:BusinessTypeActivitiesMember
                 </acfr:ConsolidatedActivitiesDomain>
             </xbrldi:explicitMember>
             
@@ -625,87 +436,6 @@ h1.center {text-align: center;}
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="D20220630_ProgramRevenuesFromCapitalGrantsAndContributions_ComponentUnitDiscretelyPresented">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:TypeOfProgramRevenuesDomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                </acfr:TypeOfProgramRevenuesDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                </acfr:ConsolidatedActivitiesDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_Expenses_GovernmentalActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:ExpensesMember
-                </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                </acfr:ConsolidatedActivitiesDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="D20220630_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:TypeOfProgramRevenuesDomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                </acfr:TypeOfProgramRevenuesDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                </acfr:ConsolidatedActivitiesDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
 <xbrli:context id="D20220630_OtherGovernmentalFunds">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
@@ -727,36 +457,25 @@ h1.center {text-align: center;}
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="I20220630_GovernmentalActivities">
+<xbrli:context id="D20220630">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:ConsolidatedActivitiesDomain>
-                    acfr:GovernmentalActivitiesMember
-                </acfr:ConsolidatedActivitiesDomain>
-            </xbrldi:explicitMember>
             
         </xbrli:segment>   
     </xbrli:entity>
     <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
          
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="D20220630_ProgramRevenuesFromChargesForServicesMember_ComponentUnitDiscretelyPresented">
+<xbrli:context id="D20220630_ComponentUnitDiscretelyPresented">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:TypeOfProgramRevenuesDomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMemberMember
-                </acfr:TypeOfProgramRevenuesDomain>
-            </xbrldi:explicitMember>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:ConsolidatedActivitiesDomain>
@@ -774,10 +493,16 @@ h1.center {text-align: center;}
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="D20220630_BusinessTypeActivities">
+<xbrli:context id="D20220630_ProgramRevenuesFromChargesForServices_ComponentUnitDiscretelyPresented">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:TypeOfProgramRevenuesDomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                </acfr:TypeOfProgramRevenuesDomain>
+            </xbrldi:explicitMember>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:ConsolidatedActivitiesDomain>
@@ -816,7 +541,75 @@ h1.center {text-align: center;}
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="D20220630_ProgramRevenuesFromOperatingGrantsAndContributions">
+<xbrli:context id="D20220630_BusinessTypeActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:ConsolidatedActivitiesDomain>
+                    acfr:BusinessTypeActivitiesMember
+                </acfr:ConsolidatedActivitiesDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:TypeOfProgramRevenuesDomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                </acfr:TypeOfProgramRevenuesDomain>
+            </xbrldi:explicitMember>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:ConsolidatedActivitiesDomain>
+                    acfr:BusinessTypeActivitiesMember
+                </acfr:ConsolidatedActivitiesDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="I20220630_PrimaryGovernmentActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:ConsolidatedActivitiesDomain>
+                    acfr:PrimaryGovernmentActivitiesMember
+                </acfr:ConsolidatedActivitiesDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_ProgramRevenuesFromOperatingGrantsAndContributions_ComponentUnitDiscretelyPresented">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
@@ -830,6 +623,102 @@ h1.center {text-align: center;}
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:ConsolidatedActivitiesDomain>
                     acfr:ComponentUnitDiscretelyPresentedMember
+                </acfr:ConsolidatedActivitiesDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_ProgramRevenuesFromChargesForServices_BusinessTypeActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:TypeOfProgramRevenuesDomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                </acfr:TypeOfProgramRevenuesDomain>
+            </xbrldi:explicitMember>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:ConsolidatedActivitiesDomain>
+                    acfr:BusinessTypeActivitiesMember
+                </acfr:ConsolidatedActivitiesDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:TypeOfProgramRevenuesDomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                </acfr:TypeOfProgramRevenuesDomain>
+            </xbrldi:explicitMember>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:ConsolidatedActivitiesDomain>
+                    acfr:GovernmentalActivitiesMember
+                </acfr:ConsolidatedActivitiesDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_GeneralFund">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
+                <acfr:NoneDomain>
+                    acfr:GeneralFundMember
+                </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="D20220630_GovernmentalActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:ConsolidatedActivitiesDomain>
+                    acfr:GovernmentalActivitiesMember
                 </acfr:ConsolidatedActivitiesDomain>
             </xbrldi:explicitMember>
             
@@ -945,15 +834,14 @@ h1.center {text-align: center;}
         <!-- Visible content starts here -->
 
         <a href="#tables">Go to financial tables</a>
+        <br />
+        <br />
         
         
             
             
         
-        
-        <h2 id="tables">Financial Tables</h2>
-        
-        
+        <span id="tables"></span>
 
         <div>
             <!-- Header for the sheet from the Excel doc -->
@@ -1861,10 +1749,7 @@ h1.center {text-align: center;}
             
             
         
-        
-        <h2 id="tables">Financial Tables</h2>
-        
-        
+        <span id="tables"></span>
 
         <div>
             <!-- Header for the sheet from the Excel doc -->
@@ -1993,7 +1878,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_C9" class="row">
             
-            $ <ix:nonFraction contextRef="D20220630_Expenses_GovernmentalActivities" name="acfr:RevenueForGeneralGovernment" unitRef="USD" id="StatementofActivities_C9" decimals="0" format="ixt:num-dot-decimal" >
+            $ <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:RevenueForGeneralGovernment" unitRef="USD" id="StatementofActivities_C9" decimals="0" format="ixt:num-dot-decimal" >
                 2,629,048
             </ix:nonFraction>
             
@@ -2002,7 +1887,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_D9" class="row">
             
-            $ <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServicesMember_GovernmentalActivities" name="acfr:ExpensesForGeneralGovernmentServices" unitRef="USD" id="StatementofActivities_D9" decimals="0" format="ixt:num-dot-decimal" >
+            $ <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServices_GovernmentalActivities" name="acfr:ExpensesForGeneralGovernmentServices" unitRef="USD" id="StatementofActivities_D9" decimals="0" format="ixt:num-dot-decimal" >
                 437,626
             </ix:nonFraction>
             
@@ -2038,7 +1923,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H9" class="row">
             
-            $ <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenueGeneralGovernmentServices" unitRef="USD" id="StatementofActivities_H9" decimals="0" format="ixt:fixed-zero" >
+            $ <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetExpenseRevenueGeneralGovernmentServices" unitRef="USD" id="StatementofActivities_H9" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -2047,7 +1932,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I9" class="row">
             
-            $ -<ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenueGeneralGovernmentServices" unitRef="USD" id="StatementofActivities_I9" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            $ -<ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:NetExpenseRevenueGeneralGovernmentServices" unitRef="USD" id="StatementofActivities_I9" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 2,615,240
             </ix:nonFraction>
             
@@ -2062,7 +1947,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_C10" class="row">
             
-            <ix:nonFraction contextRef="D20220630_Expenses_GovernmentalActivities" name="acfr:RevenueForPublicSafetyServices" unitRef="USD" id="StatementofActivities_C10" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:RevenueForPublicSafetyServices" unitRef="USD" id="StatementofActivities_C10" decimals="0" format="ixt:num-dot-decimal" >
                 2,736,817
             </ix:nonFraction>
             
@@ -2071,7 +1956,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_D10" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServicesMember_GovernmentalActivities" name="acfr:ExpensesForPublicSafetyServices" unitRef="USD" id="StatementofActivities_D10" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServices_GovernmentalActivities" name="acfr:ExpensesForPublicSafetyServices" unitRef="USD" id="StatementofActivities_D10" decimals="0" format="ixt:num-dot-decimal" >
                 48,292
             </ix:nonFraction>
             
@@ -2107,7 +1992,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H10" class="row">
             
-            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenueForPublicSafetyServices" unitRef="USD" id="StatementofActivities_H10" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetExpenseRevenueForPublicSafetyServices" unitRef="USD" id="StatementofActivities_H10" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -2116,7 +2001,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I10" class="row">
             
-            -<ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenueForPublicSafetyServices" unitRef="USD" id="StatementofActivities_I10" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            -<ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:NetExpenseRevenueForPublicSafetyServices" unitRef="USD" id="StatementofActivities_I10" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 2,339,356
             </ix:nonFraction>
             
@@ -2131,7 +2016,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_C11" class="row">
             
-            <ix:nonFraction contextRef="D20220630_Expenses_GovernmentalActivities" name="acfr:RevenueUsedForPublicWorksServices" unitRef="USD" id="StatementofActivities_C11" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:RevenueUsedForPublicWorksServices" unitRef="USD" id="StatementofActivities_C11" decimals="0" format="ixt:num-dot-decimal" >
                 2,509,096
             </ix:nonFraction>
             
@@ -2140,7 +2025,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_D11" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServicesMember_GovernmentalActivities" name="acfr:ExpensesForPublicWorksServices" unitRef="USD" id="StatementofActivities_D11" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServices_GovernmentalActivities" name="acfr:ExpensesForPublicWorksServices" unitRef="USD" id="StatementofActivities_D11" decimals="0" format="ixt:num-dot-decimal" >
                 331,218
             </ix:nonFraction>
             
@@ -2176,7 +2061,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H11" class="row">
             
-            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenueForPublicWorksServices" unitRef="USD" id="StatementofActivities_H11" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetExpenseRevenueForPublicWorksServices" unitRef="USD" id="StatementofActivities_H11" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -2185,7 +2070,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I11" class="row">
             
-            -<ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenueForPublicWorksServices" unitRef="USD" id="StatementofActivities_I11" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            -<ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:NetExpenseRevenueForPublicWorksServices" unitRef="USD" id="StatementofActivities_I11" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 120,349
             </ix:nonFraction>
             
@@ -2200,7 +2085,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_C12" class="row">
             
-            <ix:nonFraction contextRef="D20220630_Expenses_GovernmentalActivities" name="acfr:RevenueForCommunityAndEconomicDevelopmentServices" unitRef="USD" id="StatementofActivities_C12" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:RevenueForCommunityAndEconomicDevelopmentServices" unitRef="USD" id="StatementofActivities_C12" decimals="0" format="ixt:num-dot-decimal" >
                 356,450
             </ix:nonFraction>
             
@@ -2209,7 +2094,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_D12" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServicesMember_GovernmentalActivities" name="acfr:ExpensesForCommunityAndEconomicDevelopmentServices" unitRef="USD" id="StatementofActivities_D12" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServices_GovernmentalActivities" name="acfr:ExpensesForCommunityAndEconomicDevelopmentServices" unitRef="USD" id="StatementofActivities_D12" decimals="0" format="ixt:num-dot-decimal" >
                 142,299
             </ix:nonFraction>
             
@@ -2245,7 +2130,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H12" class="row">
             
-            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenueCommunityAndEconomicDevelopmentServices" unitRef="USD" id="StatementofActivities_H12" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetExpenseRevenueCommunityAndEconomicDevelopmentServices" unitRef="USD" id="StatementofActivities_H12" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -2254,7 +2139,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I12" class="row">
             
-            -<ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenueCommunityAndEconomicDevelopmentServices" unitRef="USD" id="StatementofActivities_I12" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            -<ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:NetExpenseRevenueCommunityAndEconomicDevelopmentServices" unitRef="USD" id="StatementofActivities_I12" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 280,310
             </ix:nonFraction>
             
@@ -2269,7 +2154,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_C13" class="row">
             
-            <ix:nonFraction contextRef="D20220630_Expenses_GovernmentalActivities" name="acfr:RevenueForParksAndRecreation" unitRef="USD" id="StatementofActivities_C13" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:RevenueForParksAndRecreation" unitRef="USD" id="StatementofActivities_C13" decimals="0" format="ixt:num-dot-decimal" >
                 729,729
             </ix:nonFraction>
             
@@ -2278,7 +2163,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_D13" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServicesMember_GovernmentalActivities" name="acfr:ExpensesForParksAndRecreation" unitRef="USD" id="StatementofActivities_D13" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServices_GovernmentalActivities" name="acfr:ExpensesForParksAndRecreation" unitRef="USD" id="StatementofActivities_D13" decimals="0" format="ixt:num-dot-decimal" >
                 42,903
             </ix:nonFraction>
             
@@ -2314,7 +2199,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H13" class="row">
             
-            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenueForCulturalActivities" unitRef="USD" id="StatementofActivities_H13" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetExpenseRevenueForCulturalActivities" unitRef="USD" id="StatementofActivities_H13" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -2323,7 +2208,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I13" class="row">
             
-            -<ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenueForCulturalActivities" unitRef="USD" id="StatementofActivities_I13" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            -<ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:NetExpenseRevenueForCulturalActivities" unitRef="USD" id="StatementofActivities_I13" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 729,729
             </ix:nonFraction>
             
@@ -2338,7 +2223,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_C14" class="row">
             
-            <ix:nonFraction contextRef="D20220630_Expenses_GovernmentalActivities" name="acfr:RevenueUsedForGeneralGovernmentServicesJudicial" unitRef="USD" id="StatementofActivities_C14" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:RevenueUsedForGeneralGovernmentServicesJudicial" unitRef="USD" id="StatementofActivities_C14" decimals="0" format="ixt:num-dot-decimal" >
                 8,961,140
             </ix:nonFraction>
             
@@ -2347,7 +2232,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_D14" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServicesMember_GovernmentalActivities" name="acfr:ExpensesForGeneralGovernmentServicesJudicial" unitRef="USD" id="StatementofActivities_D14" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServices_GovernmentalActivities" name="acfr:ExpensesForGeneralGovernmentServicesJudicial" unitRef="USD" id="StatementofActivities_D14" decimals="0" format="ixt:num-dot-decimal" >
                 1,002,338
             </ix:nonFraction>
             
@@ -2383,7 +2268,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H14" class="row">
             
-            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenueForJudicial" unitRef="USD" id="StatementofActivities_H14" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetExpenseRevenueForJudicial" unitRef="USD" id="StatementofActivities_H14" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -2392,7 +2277,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I14" class="row">
             
-            -<ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenueForJudicial" unitRef="USD" id="StatementofActivities_I14" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            -<ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:NetExpenseRevenueForJudicial" unitRef="USD" id="StatementofActivities_I14" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 6,084,984
             </ix:nonFraction>
             
@@ -2407,7 +2292,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_C23" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_Expenses_GovernmentalActivities" name="acfr:ProgramRevenues" unitRef="USD" id="StatementofActivities_C23" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:ProgramRevenues" unitRef="USD" id="StatementofActivities_C23" decimals="0" format="ixt:num-dot-decimal" >
                 17,922,280
             </ix:nonFraction>
             
@@ -2416,7 +2301,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_D23" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServicesMember_GovernmentalActivities" name="acfr:Expenses" unitRef="USD" id="StatementofActivities_D23" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServices_GovernmentalActivities" name="acfr:Expenses" unitRef="USD" id="StatementofActivities_D23" decimals="0" format="ixt:num-dot-decimal" >
                 2,004,676
             </ix:nonFraction>
             
@@ -2452,7 +2337,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H23" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_H23" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_H23" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -2461,7 +2346,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I23" class="data_total">
             
-            -<ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_I23" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            -<ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_I23" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 12,169,968
             </ix:nonFraction>
             
@@ -2517,7 +2402,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_C25" class="row">
             
-            <ix:nonFraction contextRef="D20220630_Expenses_BusinessTypeActivities" name="acfr:RevenueUsedForOtherPrograms" unitRef="USD" id="StatementofActivities_C25" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:RevenueUsedForOtherPrograms" unitRef="USD" id="StatementofActivities_C25" decimals="0" format="ixt:num-dot-decimal" >
                 60,694
             </ix:nonFraction>
             
@@ -2526,7 +2411,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_D25" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServicesMember_BusinessTypeActivities" name="acfr:OtherExpenses" unitRef="USD" id="StatementofActivities_D25" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServices_BusinessTypeActivities" name="acfr:OtherExpenses" unitRef="USD" id="StatementofActivities_D25" decimals="0" format="ixt:num-dot-decimal" >
                 16,847
             </ix:nonFraction>
             
@@ -2553,7 +2438,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G25" class="row">
             
-            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:OtherNetExpenseRevenue" unitRef="USD" id="StatementofActivities_G25" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:OtherNetExpenseRevenue" unitRef="USD" id="StatementofActivities_G25" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -2571,7 +2456,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I25" class="row">
             
-            -<ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:OtherNetExpenseRevenue" unitRef="USD" id="StatementofActivities_I25" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            -<ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:OtherNetExpenseRevenue" unitRef="USD" id="StatementofActivities_I25" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 60,694
             </ix:nonFraction>
             
@@ -2586,7 +2471,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_C37" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_Expenses_BusinessTypeActivities" name="acfr:ProgramRevenues" unitRef="USD" id="StatementofActivities_C37" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:ProgramRevenues" unitRef="USD" id="StatementofActivities_C37" decimals="0" format="ixt:num-dot-decimal" >
                 60,694
             </ix:nonFraction>
             
@@ -2595,7 +2480,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_D37" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServicesMember_BusinessTypeActivities" name="acfr:Expenses" unitRef="USD" id="StatementofActivities_D37" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServices_BusinessTypeActivities" name="acfr:Expenses" unitRef="USD" id="StatementofActivities_D37" decimals="0" format="ixt:num-dot-decimal" >
                 16,847
             </ix:nonFraction>
             
@@ -2622,7 +2507,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G37" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_G37" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_G37" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -2640,7 +2525,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I37" class="data_total">
             
-            -<ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_I37" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            -<ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_I37" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 60,694
             </ix:nonFraction>
             
@@ -2655,7 +2540,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_C38" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_Expenses_BusinessTypeActivities" name="acfr:ProgramRevenues" unitRef="USD" id="StatementofActivities_C38" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:ProgramRevenues" unitRef="USD" id="StatementofActivities_C38" decimals="0" format="ixt:num-dot-decimal" >
                 17,982,974
             </ix:nonFraction>
             
@@ -2664,7 +2549,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_D38" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServicesMember_BusinessTypeActivities" name="acfr:Expenses" unitRef="USD" id="StatementofActivities_D38" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServices_BusinessTypeActivities" name="acfr:Expenses" unitRef="USD" id="StatementofActivities_D38" decimals="0" format="ixt:num-dot-decimal" >
                 2,021,523
             </ix:nonFraction>
             
@@ -2691,7 +2576,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G38" class="data_total">
             
-            -<ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_G38" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            -<ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_G38" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 12,169,968
             </ix:nonFraction>
             
@@ -2709,7 +2594,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I38" class="data_total">
             
-            -<ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_I38" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            -<ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_I38" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 12,230,662
             </ix:nonFraction>
             
@@ -2806,7 +2691,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_C50" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_Expenses_ComponentUnitDiscretelyPresented" name="acfr:ProgramRevenues" unitRef="USD" id="StatementofActivities_C50" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:ProgramRevenues" unitRef="USD" id="StatementofActivities_C50" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -2815,7 +2700,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_D50" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServicesMember_ComponentUnitDiscretelyPresented" name="acfr:Expenses" unitRef="USD" id="StatementofActivities_D50" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_ProgramRevenuesFromChargesForServices_ComponentUnitDiscretelyPresented" name="acfr:Expenses" unitRef="USD" id="StatementofActivities_D50" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -2842,7 +2727,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G50" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_G50" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_G50" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -2851,7 +2736,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H50" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_H50" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_H50" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -2860,7 +2745,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I50" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_I50" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:NetExpenseRevenue" unitRef="USD" id="StatementofActivities_I50" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -3018,7 +2903,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G54" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromPropertyTax" unitRef="USD" id="StatementofActivities_G54" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:RevenueFromPropertyTax" unitRef="USD" id="StatementofActivities_G54" decimals="0" format="ixt:num-dot-decimal" >
                 2,846,766
             </ix:nonFraction>
             
@@ -3027,7 +2912,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H54" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromPropertyTax" unitRef="USD" id="StatementofActivities_H54" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:RevenueFromPropertyTax" unitRef="USD" id="StatementofActivities_H54" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -3036,7 +2921,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I54" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromPropertyTax" unitRef="USD" id="StatementofActivities_I54" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:RevenueFromPropertyTax" unitRef="USD" id="StatementofActivities_I54" decimals="0" format="ixt:num-dot-decimal" >
                 2,846,766
             </ix:nonFraction>
             
@@ -3071,7 +2956,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G55" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromSpecialAssessments" unitRef="USD" id="StatementofActivities_G55" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:RevenueFromSpecialAssessments" unitRef="USD" id="StatementofActivities_G55" decimals="0" format="ixt:num-dot-decimal" >
                 1,348,657
             </ix:nonFraction>
             
@@ -3080,7 +2965,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H55" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromSpecialAssessments" unitRef="USD" id="StatementofActivities_H55" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:RevenueFromSpecialAssessments" unitRef="USD" id="StatementofActivities_H55" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -3089,7 +2974,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I55" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromSpecialAssessments" unitRef="USD" id="StatementofActivities_I55" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:RevenueFromSpecialAssessments" unitRef="USD" id="StatementofActivities_I55" decimals="0" format="ixt:num-dot-decimal" >
                 1,348,657
             </ix:nonFraction>
             
@@ -3124,7 +3009,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G56" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromSalesAndUseTax" unitRef="USD" id="StatementofActivities_G56" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:RevenueFromSalesAndUseTax" unitRef="USD" id="StatementofActivities_G56" decimals="0" format="ixt:num-dot-decimal" >
                 563,908
             </ix:nonFraction>
             
@@ -3133,7 +3018,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H56" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromSalesAndUseTax" unitRef="USD" id="StatementofActivities_H56" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:RevenueFromSalesAndUseTax" unitRef="USD" id="StatementofActivities_H56" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -3142,7 +3027,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I56" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromSalesAndUseTax" unitRef="USD" id="StatementofActivities_I56" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:RevenueFromSalesAndUseTax" unitRef="USD" id="StatementofActivities_I56" decimals="0" format="ixt:num-dot-decimal" >
                 563,908
             </ix:nonFraction>
             
@@ -3177,7 +3062,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G57" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromBusinessLicenseTax" unitRef="USD" id="StatementofActivities_G57" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:RevenueFromBusinessLicenseTax" unitRef="USD" id="StatementofActivities_G57" decimals="0" format="ixt:num-dot-decimal" >
                 162,881
             </ix:nonFraction>
             
@@ -3186,7 +3071,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H57" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromBusinessLicenseTax" unitRef="USD" id="StatementofActivities_H57" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:RevenueFromBusinessLicenseTax" unitRef="USD" id="StatementofActivities_H57" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -3195,7 +3080,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I57" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromBusinessLicenseTax" unitRef="USD" id="StatementofActivities_I57" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:RevenueFromBusinessLicenseTax" unitRef="USD" id="StatementofActivities_I57" decimals="0" format="ixt:num-dot-decimal" >
                 162,881
             </ix:nonFraction>
             
@@ -3230,7 +3115,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G58" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromFranchiseIncomeTax" unitRef="USD" id="StatementofActivities_G58" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:RevenueFromFranchiseIncomeTax" unitRef="USD" id="StatementofActivities_G58" decimals="0" format="ixt:num-dot-decimal" >
                 587,740
             </ix:nonFraction>
             
@@ -3239,7 +3124,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H58" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromFranchiseIncomeTax" unitRef="USD" id="StatementofActivities_H58" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:RevenueFromFranchiseIncomeTax" unitRef="USD" id="StatementofActivities_H58" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -3248,7 +3133,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I58" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:RevenueFromFranchiseIncomeTax" unitRef="USD" id="StatementofActivities_I58" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:RevenueFromFranchiseIncomeTax" unitRef="USD" id="StatementofActivities_I58" decimals="0" format="ixt:num-dot-decimal" >
                 587,740
             </ix:nonFraction>
             
@@ -3283,7 +3168,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G59" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:PaymentInLieuOfTaxes" unitRef="USD" id="StatementofActivities_G59" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:PaymentInLieuOfTaxes" unitRef="USD" id="StatementofActivities_G59" decimals="0" format="ixt:num-dot-decimal" >
                 174,443
             </ix:nonFraction>
             
@@ -3292,7 +3177,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H59" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:PaymentInLieuOfTaxes" unitRef="USD" id="StatementofActivities_H59" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:PaymentInLieuOfTaxes" unitRef="USD" id="StatementofActivities_H59" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -3301,7 +3186,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I59" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:PaymentInLieuOfTaxes" unitRef="USD" id="StatementofActivities_I59" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:PaymentInLieuOfTaxes" unitRef="USD" id="StatementofActivities_I59" decimals="0" format="ixt:num-dot-decimal" >
                 174,443
             </ix:nonFraction>
             
@@ -3336,7 +3221,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G60" class="row">
             
-            -<ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:InvestmentIncome" unitRef="USD" id="StatementofActivities_G60" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            -<ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:InvestmentIncome" unitRef="USD" id="StatementofActivities_G60" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 281,502
             </ix:nonFraction>
             
@@ -3345,7 +3230,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H60" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:InvestmentIncome" unitRef="USD" id="StatementofActivities_H60" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:InvestmentIncome" unitRef="USD" id="StatementofActivities_H60" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -3354,7 +3239,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I60" class="row">
             
-            -<ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:InvestmentIncome" unitRef="USD" id="StatementofActivities_I60" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            -<ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:InvestmentIncome" unitRef="USD" id="StatementofActivities_I60" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 281,502
             </ix:nonFraction>
             
@@ -3389,7 +3274,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G61" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:OtherGeneralRevenues" unitRef="USD" id="StatementofActivities_G61" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:OtherGeneralRevenues" unitRef="USD" id="StatementofActivities_G61" decimals="0" format="ixt:num-dot-decimal" >
                 54,512
             </ix:nonFraction>
             
@@ -3398,7 +3283,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H61" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:OtherGeneralRevenues" unitRef="USD" id="StatementofActivities_H61" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:OtherGeneralRevenues" unitRef="USD" id="StatementofActivities_H61" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -3407,7 +3292,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I61" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:OtherGeneralRevenues" unitRef="USD" id="StatementofActivities_I61" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:OtherGeneralRevenues" unitRef="USD" id="StatementofActivities_I61" decimals="0" format="ixt:num-dot-decimal" >
                 54,512
             </ix:nonFraction>
             
@@ -3442,7 +3327,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G62" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:GainLossOnSaleOfCapitalAssets" unitRef="USD" id="StatementofActivities_G62" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:GainLossOnSaleOfCapitalAssets" unitRef="USD" id="StatementofActivities_G62" decimals="0" format="ixt:num-dot-decimal" >
                 6,958
             </ix:nonFraction>
             
@@ -3451,7 +3336,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H62" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:GainLossOnSaleOfCapitalAssets" unitRef="USD" id="StatementofActivities_H62" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:GainLossOnSaleOfCapitalAssets" unitRef="USD" id="StatementofActivities_H62" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -3460,7 +3345,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I62" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:GainLossOnSaleOfCapitalAssets" unitRef="USD" id="StatementofActivities_I62" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:GainLossOnSaleOfCapitalAssets" unitRef="USD" id="StatementofActivities_I62" decimals="0" format="ixt:num-dot-decimal" >
                 6,958
             </ix:nonFraction>
             
@@ -3495,7 +3380,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G63" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_G63" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_G63" decimals="0" format="ixt:num-dot-decimal" >
                 5,464,363
             </ix:nonFraction>
             
@@ -3504,7 +3389,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H63" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_H63" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_H63" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -3513,7 +3398,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I63" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_I63" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_I63" decimals="0" format="ixt:num-dot-decimal" >
                 5,464,363
             </ix:nonFraction>
             
@@ -3589,7 +3474,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G70" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_G70" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_G70" decimals="0" format="ixt:num-dot-decimal" >
                 5,464,363
             </ix:nonFraction>
             
@@ -3598,7 +3483,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H70" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_H70" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_H70" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -3607,7 +3492,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I70" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_I70" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_I70" decimals="0" format="ixt:num-dot-decimal" >
                 5,464,363
             </ix:nonFraction>
             
@@ -3642,7 +3527,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G71" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_G71" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_G71" decimals="0" format="ixt:num-dot-decimal" >
                 5,464,363
             </ix:nonFraction>
             
@@ -3651,7 +3536,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H71" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_H71" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_H71" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -3660,7 +3545,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I71" class="data_total">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_I71" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:GeneralRevenuesNet" unitRef="USD" id="StatementofActivities_I71" decimals="0" format="ixt:num-dot-decimal" >
                 5,464,363
             </ix:nonFraction>
             
@@ -3777,7 +3662,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G74" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:ChangesInNetPosition" unitRef="USD" id="StatementofActivities_G74" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:ChangesInNetPosition" unitRef="USD" id="StatementofActivities_G74" decimals="0" format="ixt:num-dot-decimal" >
                 381,717
             </ix:nonFraction>
             
@@ -3786,7 +3671,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H74" class="row">
             
-            -<ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:ChangesInNetPosition" unitRef="USD" id="StatementofActivities_H74" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
+            -<ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:ChangesInNetPosition" unitRef="USD" id="StatementofActivities_H74" decimals="0" format="ixt:num-dot-decimal"  sign="-" >
                 43,847
             </ix:nonFraction>
             
@@ -3795,7 +3680,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I74" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:ChangesInNetPosition" unitRef="USD" id="StatementofActivities_I74" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:ChangesInNetPosition" unitRef="USD" id="StatementofActivities_I74" decimals="0" format="ixt:num-dot-decimal" >
                 337,870
             </ix:nonFraction>
             
@@ -3830,7 +3715,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G75" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitRef="USD" id="StatementofActivities_G75" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitRef="USD" id="StatementofActivities_G75" decimals="0" format="ixt:num-dot-decimal" >
                 44,498,018
             </ix:nonFraction>
             
@@ -3839,7 +3724,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H75" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitRef="USD" id="StatementofActivities_H75" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitRef="USD" id="StatementofActivities_H75" decimals="0" format="ixt:num-dot-decimal" >
                 923,986
             </ix:nonFraction>
             
@@ -3848,7 +3733,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I75" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitRef="USD" id="StatementofActivities_I75" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitRef="USD" id="StatementofActivities_I75" decimals="0" format="ixt:num-dot-decimal" >
                 45,422,004
             </ix:nonFraction>
             
@@ -3883,7 +3768,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_G76" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:NetPosition" unitRef="USD" id="StatementofActivities_G76" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_GovernmentalActivities" name="acfr:NetPosition" unitRef="USD" id="StatementofActivities_G76" decimals="0" format="ixt:num-dot-decimal" >
                 44,879,735
             </ix:nonFraction>
             
@@ -3892,7 +3777,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_H76" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:NetPosition" unitRef="USD" id="StatementofActivities_H76" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_BusinessTypeActivities" name="acfr:NetPosition" unitRef="USD" id="StatementofActivities_H76" decimals="0" format="ixt:num-dot-decimal" >
                 880,139
             </ix:nonFraction>
             
@@ -3901,7 +3786,7 @@ h1.center {text-align: center;}
     
     <td id="StatementofActivities_I76" class="row">
             
-            <ix:nonFraction contextRef="D20220630_ComponentUnitDiscretelyPresented" name="acfr:NetPosition" unitRef="USD" id="StatementofActivities_I76" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="D20220630_PrimaryGovernmentActivities" name="acfr:NetPosition" unitRef="USD" id="StatementofActivities_I76" decimals="0" format="ixt:num-dot-decimal" >
                 45,759,874
             </ix:nonFraction>
             
@@ -3918,10 +3803,7 @@ h1.center {text-align: center;}
             
             
         
-        
-        <h2 id="tables">Financial Tables</h2>
-        
-        
+        <span id="tables"></span>
 
         <div>
             <!-- Header for the sheet from the Excel doc -->

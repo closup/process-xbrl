@@ -37,15 +37,14 @@
         <!-- Visible content starts here -->
 
         <a href="#tables">Go to financial tables</a>
-        {% set first_table = True %}
+        <br />
+        <br />
+        
         {% for page in acfr.pages %}
             {% if acfr.is_table(page) %}
             {% set table = page %}
         
-        {% if first_table %}
-        <h2 id="tables">Financial Tables</h2>
-        {% endif %}
-        {% set first_table = False %}
+        <span id="tables"></span>
 
         <div>
             <!-- Header for the sheet from the Excel doc -->

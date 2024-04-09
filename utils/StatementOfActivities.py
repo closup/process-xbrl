@@ -26,11 +26,9 @@ class StatementofActivities(Table):
 
     def process_cells(self):
         """Create a list of Cell objects to represent Excel data"""
-        for col_name in self._df['header'].unique():
+        for col_name in self._df['header'].unique():  
 
-            # for each column, create corresponding context
-            dims = [Dimension(col_name)]
-            context = self.add_context(col_name, dims)        
+            print(col_name)
             
             # Grab all cells in the given column
             rows = self._df[self._df['header'] == col_name]
@@ -38,14 +36,31 @@ class StatementofActivities(Table):
             section = ""
             for _, row in rows.iterrows():
 
+                # for each column, create corresponding context
+                if col_name == "expenses":
+                    # avoid assuming that this is a typed dim for FundIdentifierAxis
+                    dims = []
+                else:
+                    dims = [Dimension(col_name)]   
+
+                # if the current section is a dimension, record it unless the column contradicts it
+                if section in axis_dict and col_name not in DIMENSIONS["TypeOfGovernmentUnit"]:
+                    dims.append(Dimension(section))
+
+                # create new context for the column and section
+                context = self.add_context(col_name, dims)   
+
                 # process xbrl tags according to the relevant column groups 
                 # (see color coding on Excel sheet)
                 xbrl_list = str(row["xbrl_element"]).strip().split(',')
                 if len(xbrl_list) == 1 or col_name == "expenses":
+                    # first tag in list from relevant cell in column A in the excel sheet
                     xbrl_tag = xbrl_list[0]
                 elif col_name in DIMENSIONS["TypeOfProgramRevenues"]:
+                    # second tag in list from relevant cell in column A (revenue)
                     xbrl_tag = xbrl_list[1]
                 else:
+                    # third tag in list from relevant cell in column A (net revenue/deficit)
                     xbrl_tag = xbrl_list[2]
                 
                 # create cell data
@@ -61,13 +76,7 @@ class StatementofActivities(Table):
                 # reassign the relevant section name if appropriate
                 if cell.tr_class() in ["section_header", "subsection_header"]:
                     section = clean(cell.row_name())
-                    # if the current section is a dimension, record it (ex. Governmental Activities)
-                    if section in axis_dict: #and col_name not in DIMENSIONS["TypeOfGovernmentUnit"]:
-                        if dims[-1].axis == "acfr:TypeOfGovernmentUnitAxis":
-                            dims.pop()
-                        dims.append(Dimension(section))
-                        # create new context with additional dimension
-                        context = self.add_context(col_name, dims)
+
 
         # put data back in its original order
         self._data.sort()

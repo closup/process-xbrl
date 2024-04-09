@@ -37,20 +37,16 @@ DIMENSIONS = {"TypeOfGovernmentUnit" : ["governmental_activities",
                                         "component_units"],
             "FundIdentifier"        : [], # I think these are all typed, not explicit
             "TypeOfProgramRevenues" : ["charges_for_services",
-                                           "operating_grants_and_contributions",
-                                           "capital_grants_and_contributions"],
-            "GovernmentalFunds"     : {"total" : "GovernmentalFundsMember",
-                                       "general_fund" : "GeneralFundMember"} #,
-                                      # "aggregate_nonmajor_fund" : "AggregateNonmajorFundMember",
-                                      # "major_funds_excluding_general_funds_member" : "MajorFundsExcludingGeneralFundsMember"
-                                      }
+                                       "operating_grants_and_contributions",
+                                       "capital_grants_and_contributions"],
+            "GovernmentalFunds"     : ["total", "general_fund"] }
 
 # Dimension axis, domain, and member name by column name in Excel template
 axis_dict = {"governmental_activities"  : ("TypeOfGovernmentUnit", "ConsolidatedActivities", "GovernmentalActivities"),
              "business-type_activities" : ("TypeOfGovernmentUnit", "ConsolidatedActivities", "BusinessTypeActivities"),
              "total_primary_government" : ("TypeOfGovernmentUnit", "ConsolidatedActivities", "PrimaryGovernmentActivities"),
              "component_units"          : ("TypeOfGovernmentUnit", "ConsolidatedActivities", "ComponentUnitDiscretelyPresented"),
-             "charges_for_services"     : ("TypeOfProgramRevenues", "TypeOfProgramRevenues", "ProgramRevenuesFromChargesForServicesMember"),
+             "charges_for_services"     : ("TypeOfProgramRevenues", "TypeOfProgramRevenues", "ProgramRevenuesFromChargesForServices"),
              "operating_grants_and_contributions" : ("TypeOfProgramRevenues", "TypeOfProgramRevenues", "ProgramRevenuesFromOperatingGrantsAndContributions"),
              "capital_grants_and_contributions"   : ("TypeOfProgramRevenues", "TypeOfProgramRevenues", "ProgramRevenuesFromCapitalGrantsAndContributions"),
             # figure out these domains
