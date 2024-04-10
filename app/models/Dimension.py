@@ -1,5 +1,5 @@
-from utils.helper_functions import *
-from utils.constants import *
+from app.utils.helper_functions import *
+from app.utils.constants import *
 
 class Dimension():
     """ Class to capture the axis, dimension type, and member """

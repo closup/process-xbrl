@@ -1,8 +1,8 @@
-from utils.helper_functions import *
+from app.utils.helper_functions import *
 from datetime import datetime, timedelta # for date parsing
-from utils.constants import *
+from app.utils.constants import *
 from typing import *
-from utils.Dimension import Dimension
+from app.models.Dimension import Dimension
 
 class Context:
     """ define xbrl context object """

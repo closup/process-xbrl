@@ -1,12 +1,12 @@
-from utils.Table import Table
-from utils.Cell import Cell
-from utils.Context import Context
-from utils.Dimension import Dimension
-from utils.helper_functions import *
+from app.models.Table import Table
+from app.models.Cell import Cell
+from app.models.Context import Context
+from app.models.Dimension import Dimension
+from app.utils.helper_functions import *
 from typing import *
 
-class NamedFunds(Table):
-    """ extends the Sheet class for statements with named funds and typed dims """
+class NetPosition(Table):
+    """ extends the Sheet class for statement of net position """
 
     def __init__(self, excel_file: str, sheet_name: str, extra_left_cols: int = 2):
         super().__init__(excel_file, sheet_name, extra_left_cols)

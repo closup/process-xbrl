@@ -4,8 +4,15 @@ Helper functions for utils/ and main.py
 
 # dependencies
 import re
-from utils.constants import *
+from app.utils.constants import *
 from typing import *
+
+def nth_parent_dir(file, n):
+    """ give file path for n directories up"""
+    if n == 1:
+        return os.path.dirname(file)
+    else:
+        return os.path.dirname(nth_parent_dir(file, n-1))
 
 def format_value(value):
     """ Make a nice looking numerical entry w/ commas etc"""
