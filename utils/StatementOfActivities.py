@@ -27,8 +27,6 @@ class StatementofActivities(Table):
     def process_cells(self):
         """Create a list of Cell objects to represent Excel data"""
         for col_name in self._df['header'].unique():  
-
-            print(col_name)
             
             # Grab all cells in the given column
             rows = self._df[self._df['header'] == col_name]

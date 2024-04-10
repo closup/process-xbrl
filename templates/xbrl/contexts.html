@@ -5,9 +5,9 @@
         <xbrli:segment>
             {% for dim in context.dims() %}
             <xbrldi:{{dim.member_type}}Member dimension="{{dim.axis}}">
-                <{{ dim.domain }}>
+                {% if dim.domain %}<{{ dim.domain }}>{% endif %}
                     {{ dim.member_name }}
-                </{{ dim.domain }}>
+                    {% if dim.domain %}</{{ dim.domain }}>{% endif %}
             </xbrldi:{{dim.member_type}}Member>
             {% endfor %}
         </xbrli:segment>   
