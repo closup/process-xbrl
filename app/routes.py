@@ -1,13 +1,36 @@
-@app.route('/')
+"""
+Route definitions and endpoints for the Flask application.
+"""
+
+from typing import * # to specify funtion inputs and outputs
+from app.utils.constants import * #all global variables
+from app.utils.helper_functions import *
+from app.utils.xbrl_processing import *
+
+# flask dependencies
+from flask import Blueprint, request, render_template, jsonify
+
+# =============================================================
+# Set up routes
+# =============================================================
+
+# A blueprint for all routes
+routes_bp = Blueprint('routes_bp', __name__)
+
+@routes_bp.route('/')
 def home():
     return render_template('site/home.html', loading=True)
 
-@app.route('/viewer')
-def view(viewer_file_name = "site/viewer.html"):
-    return render_template(viewer_file_name)
+@routes_bp.route('/viewer')
+def view():
+    return render_template("site/viewer.html")
 
-@app.route('/upload', methods=['POST'])
-def upload_file(output_file = "static/output/output.html", format = "gray"):
+@routes_bp.route('/upload', methods=['POST'])
+def upload_file():
+    # Set default values
+    output_file = "app/static/output/output.html"
+    format = "gray"
+
     # Check for the 'files[]' part in the request
     if 'files[]' not in request.files:
         return jsonify({'error': 'No files submitted'}), 400  # Bad Request
@@ -30,10 +53,10 @@ def upload_file(output_file = "static/output/output.html", format = "gray"):
     if len(excel_files) != 1:
         return jsonify({'error': 'Please upload exactly one Excel file'})
     write_html(file_list, output_file, format)
-    viewer_file_name = "templates/site/viewer.html"
+    viewer_file_name = "app/templates/site/viewer.html"
     create_viewer_html(output_file, viewer_file_name)
     return jsonify({'message': 'Files successfully uploaded'})
 
-@app.route('/upload/complete', methods=['GET'])
+@routes_bp.route('/upload/complete', methods=['GET'])
 def successful_upload():
     return render_template("site/upload.html")

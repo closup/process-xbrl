@@ -1,21 +1,11 @@
 """
-A script to convert an arbitrary Excel budget into XBRL format.
+Initialize the Flask application and run the server.
 
-Last updated: April 2024, K. Wheelan
+K. Wheelan 2024
 """
 
-# =============================================================
-# Flask setup
-# =============================================================
+from app import app
+import os
 
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.static_folder = 'static'
-
-# =============================================================
-# Flask
-# =============================================================
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
-

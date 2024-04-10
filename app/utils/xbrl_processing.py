@@ -83,4 +83,4 @@ def create_viewer_html(output_file : str,
     with open(viewer_filepath, 'w', encoding="utf8") as file:
         file.write(str(soup))
 
-    os.rename('templates/site/ixbrlviewer.js', 'static/js/ixbrlviewer.js')
+    os.rename('app/templates/site/ixbrlviewer.js', 'app/static/js/ixbrlviewer.js')

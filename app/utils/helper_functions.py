@@ -6,6 +6,7 @@ Helper functions for utils/ and main.py
 import re
 from app.utils.constants import *
 from typing import *
+import os
 
 def nth_parent_dir(file, n):
     """ give file path for n directories up"""
