@@ -1,10 +1,6 @@
-from app.models.Table import Table
-from app.models.Cell import Cell
-from app.models.Context import Context
-from app.models.Dimension import Dimension
-from app.utils.helper_functions import *
+from app.models import Table, Cell, Context, Dimension
+from app.utils import *
 from typing import *
-from app.utils.constants import *
 
 class StatementofActivities(Table):
     """ extends the Sheet class for statement of activities """

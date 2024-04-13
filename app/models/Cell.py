@@ -1,6 +1,6 @@
-from app.utils.helper_functions import *
+from app.utils import helper_functions
 from app.utils.constants import *
-from app.models.Context import Context
+from app.models import Context
 from typing import *
 
 class Cell:
@@ -12,7 +12,7 @@ class Cell:
         self._xbrl_tag = xbrl_tag
         self._row_name = row_name
         self._context = context
-        self._value = format_value(value)
+        self._value = helper_functions.format_value(value)
         self._n_left_cols = n_left_cols
         self._first_row = False
 

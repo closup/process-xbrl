@@ -1,10 +1,7 @@
 import pandas as pd
-from app.models.NetPosition import NetPosition
-from app.models.StatementOfActivities import StatementofActivities
+from app.models import NetPosition, StatementofActivities, Table, WordDoc
 from typing import *
-from app.models.Table import Table
 from app.utils.helper_functions import *
-from app.models.WordDoc import WordDoc
 
 class Acfr:
     """ 

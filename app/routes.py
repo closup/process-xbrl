@@ -3,9 +3,10 @@ Route definitions and endpoints for the Flask application.
 """
 
 from typing import * # to specify funtion inputs and outputs
-from app.utils.constants import * #all global variables
-from app.utils.helper_functions import *
-from app.utils.xbrl_processing import *
+# from app.utils.constants import * #all global variables
+# from app.utils.helper_functions import *
+# from app.utils.xbrl_processing import *
+from app.utils import *
 
 # flask dependencies
 from flask import Blueprint, request, render_template, jsonify
@@ -50,9 +51,12 @@ def upload_file():
             filenames.append(file.filename)
         if is_spreadsheet(file.filename):
             excel_files += [file]
+    # confirm that there is exactly one Excel file among the uploads
     if len(excel_files) != 1:
         return jsonify({'error': 'Please upload exactly one Excel file'})
+    # create ixbrl file
     write_html(file_list, output_file, format)
+    # create page for the interactive viewer
     viewer_file_name = "app/templates/site/viewer.html"
     create_viewer_html(output_file, viewer_file_name)
     return jsonify({'message': 'Files successfully uploaded'})
