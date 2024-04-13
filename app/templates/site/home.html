@@ -1,0 +1,51 @@
+
+{% extends "site/base_page.html" %}
+
+{% block head %}
+    {{ super() }}
+    <!--Split out these scripts-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{{url_for('static', filename='js/spinner.js')}}"></script>
+
+{% endblock %}
+{% block card1 %}
+        <div class="card-header">1). Download our Excel ACFR template</div>
+        <div class="card-body text-center">
+            <a href="{{ url_for('static', filename='input_files/example_template.xlsx') }}" download="ACFR_template.xlsx">
+                <button type="button" class="btn btn-michigan btn-lg">Download Excel template</button>
+            </a>
+        </div>
+{% endblock %}
+{% block card2 %}
+    <div class="card-header">2). Upload exactly one Excel file and 0-5 Word docs</div>
+    <div class="card-body">
+        <form action="/upload" method="POST" enctype="multipart/form-data" id="uploadForm" onsubmit="startProcessing(event)">
+            
+            <!-- Hidden file input -->
+            <input type="file" name="files[]" id="upload" multiple onchange="updateButton()">
+            
+            <!-- Custom button that triggers the file input -->
+            <label for="upload" class="btn btn-michigan btn-lg" id="fileInputLabel">
+                <span id="fileInputButtonText">Choose File(s)</span>
+            </label>
+            
+            <!-- Instructional text to guide the user (initially hidden) -->
+            <p id="dragInstruction" style="display: none;">Drag the files into the correct order</p>
+            
+            <!-- Clickable and draggable file list will appear here -->
+            <ol id="fileList" class="sortable-list"></ol>
+            
+            <!-- The submit button will be hidden initially and shown after files are selected -->
+            <input type="submit" id="convert-button" class="btn btn-michigan btn-lg" onclick="startProcessing()" style="display: none;">
+        </form>
+    </div>
+    
+    
+    
+{% endblock %}
+{% block loader %}
+<div class="text-center">
+    <div id="loader" class="loader" style="display: none;" class="text-center"></div>
+</div>
+{% endblock %}
+

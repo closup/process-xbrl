@@ -1,0 +1,28 @@
+
+<table>
+
+    <!-- Headers (hardcoded) -->
+    <tr>
+        <th></th>
+        {% for col in table.col_names() %}
+        <th>{{ col }}</th>
+        {% endfor %}
+    {% for cell in table.data() %} 
+    {% if cell.in_first_col() %}
+    </tr>
+    <tr class="{{ cell.tr_class() }}">
+        <td id="header_{{ cell.id }}">  
+            {{ cell.row_name() }}
+        </td> 
+    {% endif %}
+    <td id="{{ cell.id }}" class="{{ cell.td_class() }}">
+            {% if cell.show_value() != "" %}
+            {{ cell.prefix() }}<ix:nonFraction contextRef="{{ cell.context_ref() }}" name="{{ cell.xbrl_tag() }}" unitRef="USD" id="{{ cell.id }}" decimals="0" format="{{ cell.format() }}" {% if cell.sign() == 'negative' %} sign="-" {% endif %}>
+                {{ cell.show_value() }}
+            </ix:nonFraction>
+            {% endif %}
+        </td>
+    {% endfor %}
+    </tr>
+</table>
+

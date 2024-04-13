@@ -1,0 +1,94 @@
+body {
+    /* Maize */
+    background-color: #365885;
+    color: #00274c;
+}
+
+.card {
+    /* Blue */
+    color: #003e78;
+    background-color: #ffcb09;
+}
+
+.card-header {
+    /* Maize */
+    background-color: #01274b;
+    color: #ffffff;
+}
+
+header {
+    /* Blue */
+    background-color: #00274c;
+    color: #ffcb05;
+    padding: 20px;
+}
+
+.container {
+    /* Space after the header and before the cards */
+    margin-top: 30px;
+}
+
+.btn-michigan {
+    /* Maize */
+    color: #00274c;
+    background-color: #ffffff;
+    border: 2px solid #00274c;
+    /* width:72%;  */
+    text-align: justify;
+}
+
+.btn-michigan:hover {
+    /* Slightly darker Maize for the hover effect */
+    background-color: #003e78;
+    color: #fcfcfd
+}
+
+.file-container {
+    /* Separated filename styling */
+    margin-top: 15px;
+}
+
+#upload {
+    display: none;
+}
+
+#convert-button {
+    display:none;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .draggable {
+    user-select: none;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    background-color: #f8f9fa;
+    cursor: move;
+  }
+  
+  .draggable.dragging {
+    opacity: .5;
+  }
+  
+  .sortable-list {
+    list-style-type: none;
+    padding: 0;
+  }

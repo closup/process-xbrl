@@ -1,0 +1,127 @@
+from app.utils import helper_functions
+from app.utils.constants import *
+from app.models import Context
+from typing import *
+
+class Cell:
+    """ Class for an individual tagged cell (ix) """
+
+    def __init__(self, id : str, value, xbrl_tag : str, row_name : str, col_name : str, context : Context, n_left_cols : int = 2):
+        """ initialization function for the class """
+        self._id = id # id for the tab and cell, ex. StatementofNetPosition_D5
+        self._xbrl_tag = xbrl_tag
+        self._row_name = row_name
+        self._context = context
+        self._value = helper_functions.format_value(value)
+        self._n_left_cols = n_left_cols
+        self._first_row = False
+
+    def sign(self):
+        """ get sign of value (ie. negative or positive) """
+        if not (type(self._value) is str) and self._value < 0:
+            return "negative"
+        return ""
+    
+    def format(self):
+        """ ixbrl format for the dollar value in the cell"""
+        if self._value == 0:
+            return 'ixt:fixed-zero' 
+        return 'ixt:num-dot-decimal'
+        
+    @property
+    def id(self):
+        return self._id
+    
+    def col(self):
+        """ original excel column (ex. D) """
+        return self._id[self._id.find('_') + 1]
+    
+    def row(self):
+        """ original excel row number """
+        return int(self._id[self._id.find('_') + 2:])
+
+    def row_name(self) -> str:
+        if self._row_name == "nan":
+            return ""
+        return self._row_name
+    
+    def col_name(self) -> str:
+        return self._context.col_name
+
+    def xbrl_tag(self):
+        return self._xbrl_tag
+
+    def context_ref(self):
+        # TODO: fix
+        if self._context is None:
+            return "ERROR"
+        return self._context.id
+    
+    def in_first_col(self):
+        """ is the cell in the first column? """
+        return self._id[self._id.find('_') + 1] == ALPHABET[self._n_left_cols]
+
+    def show_value(self):
+        """
+        Format the value as it should appear in the html table
+        (ie. add a $ if the first row; add commas, etc)
+        """
+        if self._value == "" or type(self._value) is str:
+            return self._value
+        ret = '{:,}'.format(abs(self._value))
+        if ret == "0":
+            ret = "-"
+        return ret
+    
+    def first_row(self):
+        return self._first_row
+    
+    def set_first_row(self):
+        self._first_row = True
+    
+    def prefix(self):
+        """
+        Add dollar sign and/or negative sign as relevant
+        """
+        ret = ""
+        if self._value < 0:
+            ret = "-" + ret
+        if self._first_row:
+            ret = "$ " + ret
+        return ret
+    
+    def tr_class(self):
+        """
+        Define row type to determine formatting
+        """
+        if self._row_name in ["", "nan"]:
+            return "empty_row"
+        if self._row_name.isupper():
+            return "section_header"
+        if self._row_name[-1] == ":":
+            return "subsection_header"
+        if "total" in self._row_name.lower():
+            return "total"
+        return "row" 
+    
+    def td_class(self):
+        """ Return CSS class for individual table cell """
+        if "total" in self._row_name.lower():
+            return "data_total"
+        return self.tr_class()
+    
+    def __repr__(self):
+        return self.show_value()
+    
+    def index(self):
+        """ ex. 5B for a cell originall in B5 in Excel """
+        return self.row() + self.col()
+
+    def __lt__(self, other):
+        """ less than if earlier in original Excel """
+        if self.row() == other.row():
+            return self.col() < other.col()
+        return self.row() < other.row()
+    
+    def __eq__(self, other):
+        return self.index() == other.index()

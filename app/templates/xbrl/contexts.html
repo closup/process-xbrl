@@ -1,0 +1,27 @@
+{% for context in acfr.contexts %}
+<xbrli:context id="{{context.id}}">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">{{context.place_id}}</xbrli:identifier>
+        <xbrli:segment>
+            {% for dim in context.dims() %}
+            <xbrldi:{{dim.member_type}}Member dimension="{{dim.axis}}">
+                {% if dim.domain %}<{{ dim.domain }}>{% endif %}
+                    {{ dim.member_name }}
+                    {% if dim.domain %}</{{ dim.domain }}>{% endif %}
+            </xbrldi:{{dim.member_type}}Member>
+            {% endfor %}
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        {% if context.time_type() == "I" %}
+        <xbrli:instant>{{context.date()}}</xbrli:instant>
+        {% else %} 
+        <xbrli:startDate>{{context.period_start()}}</xbrli:startDate>
+        <xbrli:endDate>{{context.date()}}</xbrli:endDate>
+        {% endif %} 
+    </xbrli:period>
+</xbrli:context>
+{% endfor %}
+
+<!-- Word contexts -->
+{% include 'xbrl/word_contexts.html' %}
