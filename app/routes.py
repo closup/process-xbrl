@@ -3,9 +3,6 @@ Route definitions and endpoints for the Flask application.
 """
 
 from typing import * # to specify funtion inputs and outputs
-# from app.utils.constants import * #all global variables
-# from app.utils.helper_functions import *
-# from app.utils.xbrl_processing import *
 from app.utils import *
 
 # flask dependencies
@@ -36,6 +33,8 @@ def upload_file():
     if 'files[]' not in request.files:
         return jsonify({'error': 'No files submitted'}), 400  # Bad Request
     
+    print("Uploading files...")
+
     # Retrieve the list of files from the request
     file_list = request.files.getlist('files[]')
 
@@ -55,8 +54,9 @@ def upload_file():
     if len(excel_files) != 1:
         return jsonify({'error': 'Please upload exactly one Excel file'})
     # create ixbrl file
+    print("Converting Excel to inline XBRL...")
     write_html(file_list, output_file, format)
-    # create page for the interactive viewer
+    # create page for the interactive viewer (prints progress in create_viewer_html fn)
     viewer_file_name = "app/templates/site/viewer.html"
     create_viewer_html(output_file, viewer_file_name)
     return jsonify({'message': 'Files successfully uploaded'})

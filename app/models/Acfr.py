@@ -37,14 +37,17 @@ class Acfr:
             elif sheet_name == "Statement of Activities":
                 sheets.append(StatementofActivities(input_file, sheet_name))
             # TODO: add support for other tables here
-            # elif not(sheet_name in ["Label Dropdowns", "Master Info", "Statement of activities labels"]):
-            #     sheets.append(Sheet(input_file, sheet_name))
         return sheets
     
     def get_contexts(self):
         """ create a list of all unique contexts across every sheet """
-        nested_contexts = [sheet.contexts() for sheet in self._tables]
-        return set(context for context_list in nested_contexts for context in context_list)
+        unique_contexts = set()
+
+        for table in self._tables:
+            for context in table.contexts():
+                if context.dims() is not None:
+                    unique_contexts.add(context)
+        return unique_contexts
 
     @property
     def pages(self):

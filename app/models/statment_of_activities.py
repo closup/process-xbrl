@@ -1,4 +1,4 @@
-from app.models import Table, Cell, Context, Dimension
+from app.models import Cell, Context, Dimension, Table
 from app.utils import *
 from typing import *
 

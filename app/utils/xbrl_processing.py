@@ -10,7 +10,7 @@ import sys
 import os
 import gettext, shlex
 from bs4 import BeautifulSoup
-from app.models.Acfr import Acfr
+from app.models import Acfr
 from typing import *
 from app.utils.constants import * #all global variables
 from app.utils.helper_functions import *
@@ -64,9 +64,11 @@ def create_viewer_html(output_file : str,
     args = shlex.split(args)
     setApplicationLocale()
     gettext.install("arelle")
+    print("Validating XBRL...")
     CntlrCmdLine.parseAndRun(args)
 
     # Read in the generated HTML
+    print("Creating interactive viewer...")
     with open(viewer_filepath, 'r', encoding="utf8") as file:
         html_content = file.read()
 
@@ -80,6 +82,7 @@ def create_viewer_html(output_file : str,
         script_tag['src'] = '{{ url_for(\'static\', filename=\'js/ixbrlviewer.js\') }}'
 
     # Write the modified HTML back out
+    print("Writing files...")
     with open(viewer_filepath, 'w', encoding="utf8") as file:
         file.write(str(soup))
 
