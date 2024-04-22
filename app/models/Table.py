@@ -111,6 +111,8 @@ class Table:
         self._df["row"] = 1 + self.n_header_lines() + len(self.header()) + self._df.index  
         n_rows_orig = len(self._df) # num of rows before reshaping
 
+        print(self._df)
+
         # Reshape using 'melt' to give one row per taggable item
         id_cols = self._df.columns[:self.extra_left_cols].tolist() + ["row"]
         val_cols = self._df.columns[self.extra_left_cols:].tolist()

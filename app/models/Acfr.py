@@ -32,7 +32,7 @@ class Acfr:
         sheets = []
         input_xl = pd.ExcelFile(input_file)
         for sheet_name in input_xl.sheet_names:
-            if sheet_name in ["Statement of Net Position", "GovFund Stmt of Rev Exp and Chg"]:
+            if sheet_name in ["Statement of Net Position", "GovFund Stmt of Rev Exp and Chg", "Prop Funds - Net Position"]:
                 sheets.append(NetPosition(input_file, sheet_name))
             elif sheet_name == "Statement of Activities":
                 sheets.append(StatementofActivities(input_file, sheet_name))
