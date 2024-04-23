@@ -58,7 +58,7 @@ def upload_file():
     write_html(file_list, output_file, format)
     # create page for the interactive viewer (prints progress in create_viewer_html fn)
     viewer_file_name = "app/templates/site/viewer.html"
-    create_viewer_html(output_file, viewer_file_name)
+    #create_viewer_html(output_file, viewer_file_name)
     return jsonify({'message': 'Files successfully uploaded'})
 
 @routes_bp.route('/upload/complete', methods=['GET'])
