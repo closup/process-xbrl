@@ -34,6 +34,9 @@ def upload_file():
     input_folder = os.path.join('app/static', session_id, 'input')
     output_folder = os.path.join('app/static', session_id, 'output')
 
+    # Create session folders if they don't exist
+    os.makedirs(input_folder, exist_ok=True)
+    os.makedirs(output_folder, exist_ok=True)
 
     # Set default values
     output_file = "app/static/output/output.html"
