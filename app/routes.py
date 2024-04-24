@@ -6,7 +6,9 @@ from typing import * # to specify funtion inputs and outputs
 from app.utils import *
 
 # flask dependencies
-from flask import Blueprint, request, render_template, jsonify
+from flask import Blueprint, request, render_template, jsonify, session
+
+import uiud
 
 # =============================================================
 # Set up routes
@@ -25,6 +27,14 @@ def view():
 
 @routes_bp.route('/upload', methods=['POST'])
 def upload_file():
+    # Generate a unique session ID
+    session_id = str(uuid.uuid4())
+    session['session_id'] = session_id
+
+    input_folder = os.path.join('app/static', session_id, 'input')
+    output_folder = os.path.join('app/static', session_id, 'output')
+
+
     # Set default values
     output_file = "app/static/output/output.html"
     format = "gray"

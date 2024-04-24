@@ -17,6 +17,7 @@ werkzeug
 io
 lxml
 zipfile
+uiud
 
 #Additional Arelle requirements
 regex
