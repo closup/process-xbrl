@@ -15,6 +15,7 @@ bs4
 werkzeug
 lxml
 uuid
+python-dotenv
 
 #Additional Arelle requirements
 regex
