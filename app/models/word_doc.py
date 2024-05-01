@@ -1,8 +1,11 @@
 import mammoth
 import zipfile
+import os
+import uuid
 from lxml import etree
 from bs4 import BeautifulSoup
 from typing import *
+from flask import session
 
 NAMESPACES = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
 
@@ -56,6 +59,24 @@ class WordDoc:
         """ 
         Save the image; return a dictionary {"src" : <file location>}
         """
+        # Get the session ID
+        session_id = session.get('session_id')
+        if not session_id:
+            raise ValueError("Session ID not found")
+        
+        print("Image type:", type(image))
+        
+        # Determine the output folder based on the session ID
+        output_folder = os.path.join('app/static/output', session_id)
+
+        # Ensure the output folder exists
+        os.makedirs(output_folder, exist_ok=True)
+        image_filename = str(uuid.uuid4()) + '.png'
+
+        # Save the image to the output folder
+        image_path = os.path.join(output_folder, image_filename)
+        image.save(image_path)
+        
         return {"src" : ""}
 
     def convert_to_html(self, docx_file):
@@ -78,7 +99,7 @@ class WordDoc:
         for a in soup.find_all(['a']):
             a.decompose()
         return soup.prettify()
-    
+     
     def remove_empty_tags(self):
         """ Recursively find all tags with no content and remove them """
         soup = self.soup()
