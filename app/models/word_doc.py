@@ -65,7 +65,15 @@ class WordDoc:
             raise ValueError("Session ID not found")
         
         print("Image type:", type(image))
-        
+        print("Image content", image.content_type)
+
+        image_data = image.readAsBase64String()
+
+        print('Image data', image_data)
+
+        return {"src" : "test"}
+
+        '''
         # Determine the output folder based on the session ID
         output_folder = os.path.join('app/static/output', session_id)
 
@@ -76,8 +84,7 @@ class WordDoc:
         # Save the image to the output folder
         image_path = os.path.join(output_folder, image_filename)
         image.save(image_path)
-        
-        return {"src" : ""}
+        '''
 
     def convert_to_html(self, docx_file):
         """ Use mammoth to extract content and images """
