@@ -2,6 +2,7 @@ import mammoth
 import zipfile
 import os
 import uuid
+import base64
 from lxml import etree
 from bs4 import BeautifulSoup
 from typing import *
@@ -67,11 +68,12 @@ class WordDoc:
         print("Image type:", type(image))
         print("Image content", image.content_type)
 
-        image_data = image.readAsBase64String()
+        with image.open() as image_bytes:
+            encoded_src = base64.b64encode(image_bytes.read()).decode("ascii")
 
-        print('Image data', image_data)
-
-        return {"src" : "test"}
+        return {
+            "src": "data:{0};base64,{1}".format(image.content_type, encoded_src)
+        }
 
         '''
         # Determine the output folder based on the session ID
