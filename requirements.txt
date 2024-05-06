@@ -16,6 +16,7 @@ werkzeug
 lxml
 uuid
 python-dotenv
+pillow
 
 #Additional Arelle requirements
 regex
