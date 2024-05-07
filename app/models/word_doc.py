@@ -95,6 +95,7 @@ class WordDoc:
     def convert_to_html(self, docx_file):
         """ Use mammoth to extract content and images """
         result = mammoth.convert_to_html(docx_file, convert_image = mammoth.images.img_element(self.convert_image))
+        print(result.messages)
         return result.value
     
     def soup(self):
