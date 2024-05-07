@@ -38,7 +38,12 @@ class Context:
         ret = ""
         for dim in self.dims():
             ret = ret + "_" + dim._member_name
-        return self._time_type + self._date.strftime('%Y%m%d') + ret
+        try:
+            return self._time_type + self._date.strftime('%Y%m%d') + ret
+        finally:
+            print(f"Date parse error: {self._date}")
+            return self._time_type + "date_parse_error" + ret
+        
     
     def get_place_id(self) -> str:
         # TODO: replace with a lookup function from Census

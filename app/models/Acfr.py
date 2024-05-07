@@ -38,7 +38,7 @@ class Acfr:
                 sheets.append(StatementofActivities(input_file, sheet_name))
             elif sheet_name in ["GovFund Balance Sheet", "GovFund Stmt of Rev Exp and Chg"]:
                 sheets.append(GovFunds(input_file, sheet_name))
-            elif sheet_name in ["Prop Funds - Net Position"]:
+            elif sheet_name in ["Prop Funds - Net Position", "PropFund Stmt of Rev Exp and Ch", "Prop Fund Cash Flow"]:
                 sheets.append(PropFunds(input_file, sheet_name))
         return sheets
     
