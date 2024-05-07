@@ -14,3 +14,7 @@ venv/
 
 # ignore unsaved Microsoft docs
 ~$*
+
+# ignore files which change every time you run the app
+app/static/output/output.html
+app/templates/site/viewer.html
