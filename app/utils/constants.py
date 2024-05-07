@@ -49,6 +49,9 @@ axis_dict = {"governmental_activities"  : ("TypeOfGovernmentUnit", None, "Govern
              "charges_for_services"     : ("TypeOfProgramRevenues", None, "ProgramRevenuesFromChargesForServices"),
              "operating_grants_and_contributions" : ("TypeOfProgramRevenues", None, "ProgramRevenuesFromOperatingGrantsAndContributions"),
              "capital_grants_and_contributions"   : ("TypeOfProgramRevenues", None, "ProgramRevenuesFromCapitalGrantsAndContributions"),
-            # figure out these domains
+            # gov funds
              "general_fund"             : ("GovernmentalFunds", None, "GeneralFund"),
-             "total_governmental_funds" : ("GovernmentalFunds", None, "GovernmentalFunds")}
+             "total_governmental_funds" : ("GovernmentalFunds", None, "GovernmentalFunds"),
+             # Prop funds
+             "total_enterprise_funds" : ("TypeOfActivitiesProprietaryFunds", "ProprietaryFunds", "BusinessTypeActivitiesEnterpriseFunds"),
+             "internal_service_funds" : ("TypeOfActivitiesProprietaryFunds", "ProprietaryFunds", "InternalServiceFunds")}
