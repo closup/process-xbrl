@@ -17,7 +17,9 @@ werkzeug
 python-dotenv
 # io
 lxml
-# zipfile
+uuid
+python-dotenv
+pillow
 
 #Additional Arelle requirements
 regex
