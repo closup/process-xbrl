@@ -3,7 +3,7 @@ from app.utils.helper_functions import *
 from typing import *
 
 class NetPosition(Table):
-    """ extends the Sheet class for statement of net position """
+    """ extends the Table class for statement of net position """
 
     def __init__(self, excel_file: str, sheet_name: str, extra_left_cols: int = 2):
         super().__init__(excel_file, sheet_name, extra_left_cols)
@@ -12,11 +12,15 @@ class NetPosition(Table):
         self.process_cells()
         self.mark_first_numeric_row()
 
+    @staticmethod
+    def create_dim_list(col_name, fund_type = None):
+        return [Dimension(col_name, fund_type)]
+
     def process_cells(self):
         """Create a list of Cell objects to represent Excel data"""
         for col_name in self._df['header'].unique():
             # for each column, create the relevant dimension and context 
-            dim = [Dimension(col_name)]
+            dim = self.create_dim_list(col_name)
             context = Context(self.time_type, self.date, col_name, dim)
             # add new context to sheet's list
             self._contexts.append(context)

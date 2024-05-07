@@ -22,7 +22,6 @@ base_dir = os.path.abspath(nth_parent_dir(__file__, 3))
 sys.path.append(base_dir)
 # Also add the Arelle.arelle directory inside dependencies 
 arelle_dir = os.path.join(base_dir, "dependencies", "Arelle")
-print(arelle_dir)
 sys.path.append(arelle_dir)
 from arelle import CntlrCmdLine
 from arelle.Locale import setApplicationLocale

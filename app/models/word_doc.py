@@ -49,11 +49,18 @@ class WordDoc:
         self.html_content = self.convert_to_html(docx_file)
         self.html_content = self.remove_links()
         self.html_content = self.remove_empty_tags()
-        self.html_content = self.insert_comments(docx_file)        
+        self.html_content = self.insert_comments(docx_file) 
+
+    @staticmethod
+    def convert_image(image):
+        """ 
+        Save the image; return a dictionary {"src" : <file location>}
+        """
+        return {"src" : ""}
 
     def convert_to_html(self, docx_file):
         """ Use mammoth to extract content and images """
-        result = mammoth.convert_to_html(docx_file)
+        result = mammoth.convert_to_html(docx_file, convert_image = mammoth.images.img_element(self.convert_image))
         return result.value
         # TODO: convert images to files
         #self.images = result.messages 
