@@ -1,3 +1,5 @@
+<script src="download.js"></script>
+
 {% extends "site/base_page.html" %}
 {% block head %}
     {{ super() }}
@@ -9,7 +11,7 @@
         <div class="card-header">Download XBRL as HTML</div>
         <div class="card-body text-center">
             <a href="{{ url_for('static', filename='output/output.html') }}" download="converted_xbrl.html">
-                <button type="button" class="btn btn-michigan btn-lg">Download file</button>
+                <button type="button" class="btn btn-michigan btn-lg" onclick="changeDownloadLocation()">Download file</button>
             </a>
         </div>
 {% endblock %}
