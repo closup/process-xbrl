@@ -1,5 +1,5 @@
 import pandas as pd
-from app.models import NetPosition, StatementofActivities, Table, WordDoc
+from app.models import NetPosition, StatementofActivities, Table, WordDoc, GovFund
 from typing import *
 from app.utils.helper_functions import *
 
@@ -32,11 +32,12 @@ class Acfr:
         sheets = []
         input_xl = pd.ExcelFile(input_file)
         for sheet_name in input_xl.sheet_names:
-            if sheet_name in ["Statement of Net Position", "Prop Funds - Net Position", "GovFund Stmt of Rev Exp and Chg"]:
+            if sheet_name in ["Statement of Net Position"]:
                 sheets.append(NetPosition(input_file, sheet_name))
             elif sheet_name == "Statement of Activities":
                 sheets.append(StatementofActivities(input_file, sheet_name))
-            # TODO: add support for other tables here
+            elif sheet_name in ["GovFund Balance Sheet", "GovFund Stmt of Rev Exp and Chg"]:
+                sheets.append(GovFund(input_file, sheet_name))
         return sheets
     
     def get_contexts(self):
