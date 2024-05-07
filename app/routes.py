@@ -31,15 +31,15 @@ def upload_file():
     session_id = str(uuid.uuid4())
     session['session_id'] = session_id
 
-    input_folder = os.path.join('app/static', session_id, 'input')
-    output_folder = os.path.join('app/static', session_id, 'output')
+    input_folder = os.path.join('app/static/sessions_data/', session_id, 'input')
+    output_folder = os.path.join('app/static/sessions_data/', session_id, 'output')
 
     # Create session folders if they don't exist
     os.makedirs(input_folder, exist_ok=True)
     os.makedirs(output_folder, exist_ok=True)
 
     # Set default values
-    output_file = "app/static/output/output.html"
+    output_file = os.path.join(output_folder, "output.html")
     format = "gray"
 
     # Check for the 'files[]' part in the request
@@ -82,8 +82,6 @@ def upload_file():
 
     return jsonify({'message': 'Files successfully uploaded'})
 
-
-@routes_bp.route('/check_session')
 def check_session():
     if 'session_id' in session:
         session_id = session['session_id']

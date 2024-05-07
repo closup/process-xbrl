@@ -6,7 +6,7 @@ import io
 from lxml import etree
 from bs4 import BeautifulSoup
 from typing import *
-from flask import session
+from flask import session, url_for
 from PIL import Image as PILImage
 
 NAMESPACES = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
@@ -67,7 +67,7 @@ class WordDoc:
             raise ValueError("Session ID not found")
         
         # Output folder based on the session ID
-        output_folder = os.path.join('app/static/output', session_id)
+        output_folder = os.path.join('app/static/sessions_data', session_id, 'input/img')
 
         os.makedirs(output_folder, exist_ok=True)
 
@@ -76,11 +76,11 @@ class WordDoc:
 
         # Save the image to the output folder
         image_path = os.path.join(output_folder, image_filename)
+        web_path = url_for('static', filename=f'sessions_data/{session_id}/input/img/{image_filename}')
 
         with image.open() as image_file:
             # Read the image data
             image_data = image_file.read()
-            print(type(image_data))
             
         # Create a PIL Image object from the image data
         pil_image = PILImage.open(io.BytesIO(image_data))
@@ -89,15 +89,13 @@ class WordDoc:
         pil_image.save(image_path, format='PNG')
 
         # Return the file location (directory) of the saved image
-        return {"src": image_path}
+        return {"src": web_path}
     
 
     def convert_to_html(self, docx_file):
         """ Use mammoth to extract content and images """
         result = mammoth.convert_to_html(docx_file, convert_image = mammoth.images.img_element(self.convert_image))
         return result.value
-        # TODO: convert images to files
-        #self.images = result.messages 
     
     def soup(self):
         return BeautifulSoup(self.html_content, "lxml")
