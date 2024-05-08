@@ -1,39 +1,37 @@
 <style type="text/css">
 
-/* Style for the table */
-table {
+/* Style for the table with class 'statement' */
+table.statement {
     border-collapse: collapse; /* Merge borders into a single line */
     width: 98%;
 }
 
-/* Style for the last row (horizontal line at the bottom) */
-tr:last-child {
-    border-bottom: 1px solid black; /* Remove the bottom border for the last row */
+/* Style for the last row within a table with class 'statement' */
+table.statement tr:last-child {
+    border-bottom: 1px solid black; /* Add bottom border for the last row */
 }
 
-/* Style for table headers */
-th {
-    border-bottom: 1px solid black; 
-    text-align:right
+/* Style for th elements within a table with class 'statement' */
+table.statement th {
+    border-bottom: 1px solid black;
+    text-align: right;
 }
 
-/* Style for table cells */
-td {
-    height: 15.0pt; 
-    text-align: right; 
+/* Style for the last th and td elements within a row within a table with class 'statement' */
+table.statement th:last-child, table.statement td:last-child {
+    min-width: 120px;
+    width: auto; /* Allow the width to adjust based on content */
+}
+
+/* Alignment for ALL tables, including word ones */
+table td {
+    height: 15.0pt;
+    text-align: right;
     font-size: 14px;
     margin: 10px;
 }
-
-/* Style for row names */
-td:first-child {
-    text-align: left; 
-}
-
-/* total column width */
-th:last-child, td:last-child {
-    min-width: 120px;
-    width: auto; /* Allow the width to adjust based on content */
+table td:first-child {
+    text-align: left;
 }
 
 .section_header, .subsection_header {
@@ -91,4 +89,94 @@ th:last-child, td:last-child {
 }
 
 h1.center {text-align: center;}
+
+body {
+    font-family: 'Times New Roman', serif;
+    line-height: 1.15; /* Example line height addition */
+}
+
+.word-content {
+    max-width: 7in;
+    margin: 1in;
+    padding: 1in; /* Adding padding to mimic Word's default content padding */
+    border: 1px solid #ccc;
+    background-color: #fff; /* To resemble a Word document's white page */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow around the "page" */
+    text-align: justify;
+}
+
+/* Word styles */
+
+h1.title {
+    font-weight: bold; /* Makes the text bold */
+    font-size: 2em; /* Larger font size for title */
+    text-align: center; /* Centers the text */
+    margin-top: 4em; /* Spacing above the title */
+    margin-bottom: 4em; /* Spacing below the title */
+    color: #333333; /* Dark grey color for the text */
+}
+
+h2.header {
+    font-weight: bold; /* Makes the text bold */
+    font-size: 1em; /* Slightly smaller font size for heading */
+    text-align: center; /* Aligns the text to the left */
+    margin-top: 0.5em; /* Spacing above the heading */
+    padding-bottom: 10px; /* Spacing between the text and the line */
+    margin-bottom: 20px; /* Spacing below the line */
+    position: relative;
+    color: #1a1a1a; /* Slightly darker grey color for the text */
+}
+
+h3.header2 {
+    font-size: 0.5em; /* Smaller font size for heading2 */
+    text-align: left; /* Aligns the text to the left */
+    margin-top: 0.1em; /* Spacing above the heading2 */
+    margin-bottom: 0.1em; /* Spacing below the heading2 */
+    color: #000000; /* Black color for the text */
+    position: relative;
+}
+
+h2.header:after {
+    content: ''; /* Essential for a pseudo-element */
+    display: block;
+    width: 100%; /* Adjust to control the width of the underline */
+    height: 1px; /* Underline thickness */
+    background: #000; /* Underline color */
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Aligns at the bottom of the element */
+}
+
+p {
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+.page-break {
+    display: block;
+    clear: both;
+    width: 8.9in;
+    margin-left: -1in;
+    margin-right: -1in;
+    margin-top: 50px; /* Increase the space before the break */
+    margin-bottom: 50px; /* Increase the space after the break */
+    border-bottom: 2px dotted #888; /* Dotted line to visually indicate a page break */
+    content: " "; /* Needed for the border to take effect */
+}
+
+.page-number {
+    text-align: center;
+}
+
+/* Word images */
+img {
+    display: block;
+    max-width: 7in;
+    height: auto;
+    /* Center the image */
+    margin-left: auto;
+    margin-right: auto;
+}
+
 </style>
+
