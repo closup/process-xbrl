@@ -103,29 +103,33 @@ body {
 }
 
 .word-content {
-    max-width: 6.5in;
+    max-width: 7in;
     margin: 1in;
     padding: 1in; /* Adding padding to mimic Word's default content padding */
     border: 1px solid #ccc;
     background-color: #fff; /* To resemble a Word document's white page */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow around the "page" */
-    /* text-align: justify; */
+    text-align: justify;
 }
 
 p {
     margin-top: 0em;
-    margin-bottom: 0em;
+    margin-bottom: 1em;
 }
 
 .page-break {
-        display: block;
-        clear: both;
-        page-break-before: always;
-        height: 100vh;
-        border-top: 1px solid #000;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+    display: block;
+    clear: both;
+    width: 100%;
+    margin-top: 50px; /* Increase the space before the break */
+    margin-bottom: 50px; /* Increase the space after the break */
+    border-bottom: 2px dotted #ccc; /* Dotted line to visually indicate a page break */
+    content: " "; /* Needed for the border to take effect */
+}
+
+.large-text {
+    color: red;
+}
 
 </style>
 </head>
@@ -137,27 +141,6 @@ p {
 </ix:references>
 <ix:resources>
 <!--Start of contexts-->
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_ComponentUnitDiscretelyPresented">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
 <xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_GovernmentalActivities">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
@@ -179,35 +162,68 @@ p {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_GovernmentalFunds">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalFundsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
 <acfr:nonedomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_CapitalImprovementProgram">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:CapitalImprovementProgramMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_GovernmentalActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
 <acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
+                    acfr:GovernmentalActivitiesMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_OtherGovernmentalFunds">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:OtherGovernmentalFundsMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -231,14 +247,14 @@ p {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions">
+<xbrli:context id="Ddate_parse_error_InternalServiceFunds">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:nonedomain>
+<xbrldi:explicitmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+<acfr:proprietaryfundsdomain>
+                    acfr:InternalServiceFundsMember
+                    </acfr:proprietaryfundsdomain>
 </xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
@@ -247,13 +263,13 @@ p {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_SuccessorHousingAgency">
+<xbrli:context id="Idate_parse_error_CapitalImprovementProgram">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
 <acfr:fundidentifierdomain>
-                    acfr:SuccessorHousingAgencyMember
+                    acfr:CapitalImprovementProgramMember
                     </acfr:fundidentifierdomain>
 </xbrldi:typedmember>
 </xbrli:segment>
@@ -262,69 +278,7 @@ p {
 <xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_LandscapeMaintenanceDistrict">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:LandscapeMaintenanceDistrictMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_SuccessorHousingAgency">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:SuccessorHousingAgencyMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_LandscapeMaintenanceDistrict">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:LandscapeMaintenanceDistrictMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_EndeavorHall">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-<acfr:proprietaryfundsdomain>
-                    acfr:EndeavorHallMember
-                    </acfr:proprietaryfundsdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
@@ -333,6 +287,11 @@ p {
                     acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -340,49 +299,25 @@ p {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_OtherGovernmentalFunds">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_ComponentUnitDiscretelyPresented">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:OtherGovernmentalFundsMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_AmericanRescuePlanAct">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:AmericanRescuePlanActMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_BusinessTypeActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
 <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
 <acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
+                    acfr:ComponentUnitDiscretelyPresentedMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
 <xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_BusinessTypeActivities">
@@ -406,10 +341,15 @@ p {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error">
+<xbrli:context id="Ddate_parse_error_SuccessorHousingAgency">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:SuccessorHousingAgencyMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -417,13 +357,18 @@ p {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_ComponentUnitDiscretelyPresented">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
 <acfr:nonedomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:ComponentUnitDiscretelyPresentedMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 </xbrli:segment>
@@ -454,18 +399,13 @@ p {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_ComponentUnitDiscretelyPresented">
+<xbrli:context id="Ddate_parse_error_GovernmentalFunds">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
 <acfr:nonedomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
+                    acfr:GovernmentalFundsMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 </xbrli:segment>
@@ -475,15 +415,26 @@ p {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
+<xbrli:context id="Ddate_parse_error_LandscapeMaintenanceDistrict">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:LandscapeMaintenanceDistrictMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_GovernmentalActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
 <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
 <acfr:nonedomain>
                     acfr:GovernmentalActivitiesMember
@@ -492,8 +443,7 @@ p {
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
+<xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
 <xbrli:context id="Idate_parse_error_PrimaryGovernmentActivities">
@@ -526,7 +476,7 @@ p {
 <xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_AmericanRescuePlanAct">
+<xbrli:context id="Idate_parse_error_AmericanRescuePlanAct">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
@@ -538,19 +488,13 @@ p {
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
+<xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_ComponentUnitDiscretelyPresented">
+<xbrli:context id="Ddate_parse_error">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -558,31 +502,10 @@ p {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_OtherGovernmentalFunds">
+<xbrli:context id="Ddate_parse_error_GovernmentalActivities">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:OtherGovernmentalFundsMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_GovernmentalActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
 <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
 <acfr:nonedomain>
                     acfr:GovernmentalActivitiesMember
@@ -595,69 +518,7 @@ p {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_PrimaryGovernmentActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:PrimaryGovernmentActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_CapitalImprovementProgram">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:CapitalImprovementProgramMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_GovernmentalFunds">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalFundsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_GeneralFund">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
-<acfr:nonedomain>
-                    acfr:GeneralFundMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_BusinessTypeActivities">
+<xbrli:context id="Idate_parse_error_BusinessTypeActivities">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
@@ -669,19 +530,38 @@ p {
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
+<xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_CapitalImprovementProgram">
+<xbrli:context id="Idate_parse_error_LandscapeMaintenanceDistrict">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
 <acfr:fundidentifierdomain>
-                    acfr:CapitalImprovementProgramMember
+                    acfr:LandscapeMaintenanceDistrictMember
                     </acfr:fundidentifierdomain>
 </xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_ComponentUnitDiscretelyPresented">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:ComponentUnitDiscretelyPresentedMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -705,15 +585,25 @@ p {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_ComponentUnitDiscretelyPresented">
+<xbrli:context id="Idate_parse_error_OtherGovernmentalFunds">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:OtherGovernmentalFundsMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ComponentUnitDiscretelyPresented">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
 <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
 <acfr:nonedomain>
                     acfr:ComponentUnitDiscretelyPresentedMember
@@ -726,13 +616,13 @@ p {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_GovernmentalActivities">
+<xbrli:context id="Idate_parse_error_GovernmentalFunds">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
 <acfr:nonedomain>
-                    acfr:GovernmentalActivitiesMember
+                    acfr:GovernmentalFundsMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 </xbrli:segment>
@@ -741,14 +631,29 @@ p {
 <xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_InternalServiceFunds">
+<xbrli:context id="Idate_parse_error_SuccessorHousingAgency">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-<acfr:proprietaryfundsdomain>
-                    acfr:InternalServiceFundsMember
-                    </acfr:proprietaryfundsdomain>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:SuccessorHousingAgencyMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_PrimaryGovernmentActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:PrimaryGovernmentActivitiesMember
+                    </acfr:nonedomain>
 </xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
@@ -757,13 +662,28 @@ p {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_GovernmentalActivities">
+<xbrli:context id="Idate_parse_error_EndeavorHall">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<xbrldi:typedmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+<acfr:proprietaryfundsdomain>
+                    acfr:EndeavorHallMember
+                    </acfr:proprietaryfundsdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
 <acfr:nonedomain>
-                    acfr:GovernmentalActivitiesMember
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 </xbrli:segment>
@@ -771,6 +691,90 @@ p {
 <xbrli:period>
 <xbrli:startdate>2021-07-01</xbrli:startdate>
 <xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_BusinessTypeActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_AmericanRescuePlanAct">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:AmericanRescuePlanActMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_GeneralFund">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
+<acfr:nonedomain>
+                    acfr:GeneralFundMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
 <!-- Word contexts -->
@@ -875,6 +879,7 @@ p {
 <html>
 <body>
 <p>
+<img src=""/>
 </p>
 <p>
 <strong>
@@ -909,11 +914,19 @@ p {
 <table>
 <tr>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
 <strong>
        Page
       </strong>
 </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -924,12 +937,24 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td rowspan="2">
 <p>
       1
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -939,6 +964,8 @@ p {
        Table of Contents……………………………………………………………………………….
       </strong>
 </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -954,6 +981,8 @@ p {
       4
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
@@ -967,6 +996,8 @@ p {
 <p>
       9
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -982,6 +1013,8 @@ p {
       10
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
@@ -995,6 +1028,8 @@ p {
 <p>
       11
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1010,6 +1045,8 @@ p {
       12
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -1018,6 +1055,12 @@ p {
        FINANCIAL SECTION
       </strong>
 </p>
+</td>
+<td colspan="2">
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1033,6 +1076,8 @@ p {
       17
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
@@ -1047,6 +1092,8 @@ p {
       21
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
@@ -1056,6 +1103,10 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
@@ -1064,6 +1115,10 @@ p {
        Government-Wide Financial Statements:
       </em>
 </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1077,6 +1132,8 @@ p {
       33
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
@@ -1089,6 +1146,8 @@ p {
       34
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
@@ -1097,6 +1156,10 @@ p {
        Governmental Fund Financial Statements:
       </em>
 </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1110,12 +1173,18 @@ p {
       39
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
 <p>
       Reconciliation of Governmental Funds Balance Sheet to the Statement of
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1129,6 +1198,8 @@ p {
       42
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
@@ -1141,6 +1212,8 @@ p {
       43
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
@@ -1148,12 +1221,20 @@ p {
       Reconciliation of the Governmental Funds Statement of Revenues, Expenditures and
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
 <p>
       Changes in Fund Balances to the Statement of Activities and Changes in Net
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1167,6 +1248,8 @@ p {
       45
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
@@ -1175,6 +1258,10 @@ p {
        Proprietary Fund Financial Statements:
       </em>
 </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1188,6 +1275,8 @@ p {
       47
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
@@ -1199,6 +1288,8 @@ p {
 <p>
       48
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1212,6 +1303,8 @@ p {
       49
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
@@ -1220,6 +1313,10 @@ p {
        Fiduciary Fund Financial Statements:
       </em>
 </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1233,6 +1330,8 @@ p {
       51
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="3">
@@ -1244,6 +1343,8 @@ p {
 <p>
       52
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1259,13 +1360,15 @@ p {
       55
      </p>
 </td>
+<td>
+</td>
 </tr>
 </table>
-<div class="page-break">
-</div>
 <p>
    1
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -1295,6 +1398,10 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
@@ -1304,6 +1411,8 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
@@ -1312,6 +1421,8 @@ p {
        Budgetary Comparison Schedules
       </em>
 </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1370,6 +1481,8 @@ p {
       </em>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
@@ -1402,6 +1515,8 @@ p {
        Other Postemployment Benefits Plan Funding Status
       </em>
 </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1450,6 +1565,8 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
@@ -1458,6 +1575,8 @@ p {
        Major Funds
       </em>
 </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1480,6 +1599,8 @@ p {
       </em>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
@@ -1498,6 +1619,8 @@ p {
 <p>
       Combining Statement of Revenues, Expenditures and Changes in Fund
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1532,6 +1655,8 @@ p {
       </em>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
@@ -1550,6 +1675,8 @@ p {
 <p>
       Combining Statement of Revenues, Expenses and Changes in Net
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1584,6 +1711,8 @@ p {
       </em>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
@@ -1598,11 +1727,11 @@ p {
 </td>
 </tr>
 </table>
-<div class="page-break">
-</div>
 <p>
    2
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -1632,6 +1761,10 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
@@ -1654,6 +1787,8 @@ p {
        Financial Trends
       </strong>
 </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1731,6 +1866,8 @@ p {
        Revenue Capacity
       </strong>
 </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -1826,6 +1963,8 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
@@ -1903,6 +2042,8 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
@@ -1928,6 +2069,8 @@ p {
        Operating Information
       </strong>
 </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -2004,6 +2147,8 @@ p {
       ADDITIONAL REPORTS
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
@@ -2011,12 +2156,16 @@ p {
       Independent Auditors’ Report on Internal Controls over Financial Reporting
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
 <p>
       and on Compliance and other Matters Based on an Audit of Financial Statements
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -2035,21 +2184,30 @@ p {
 </td>
 </tr>
 </table>
-<div class="page-break">
-</div>
 <p>
    3
   </p>
+<div class="page-break">
+</div>
 <p>
+<img src=""/>
 </p>
 <table>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
 <em>
        CITY COUNCIL
       </em>
 </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -2059,20 +2217,32 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
 <em>
        CARL “CW” WOLFE, MAYOR
       </em>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
 <em>
        PETER CLOVEN, VICE MAYOR
       </em>
 </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -2098,6 +2268,8 @@ p {
       </em>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -2122,8 +2294,16 @@ p {
       </em>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       HOLLY TILLMAN
@@ -2131,6 +2311,8 @@ p {
        , COUNCILMEMBER
       </em>
 </p>
+</td>
+<td>
 </td>
 </tr>
 </table>
@@ -2173,11 +2355,11 @@ p {
 <p>
    The City of Clayton was incorporated in 1964 and is located in Contra Costa County, a suburban region in the eastern portion of the San Francisco-Bay Area. Pursuant to its adopted budget for the fiscal year ending June 30, 2022, the City has a permanent staff of 27.4 full- time equivalent employees which serves approximately 11,585 residents in a land area of approximately 4 square miles. Nestled in a small valley at the northern base of Mt. Diablo, the boundaries of the City are mostly developed with a
   </p>
-<div class="page-break">
-</div>
 <p>
    4
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -2244,11 +2426,11 @@ p {
 <p>
    Essentially a cul-de-sac hugging the base of acclaimed Mt. Diablo, Clayton maintains a small-town atmosphere while its relative proximity to California State Highway 24 and neighboring city BART stations make it ideal for commuters. In addition, the semi-rural setting, low crime rate and excellent middle and elementary public schools make Clayton attractive to families of all types.
   </p>
-<div class="page-break">
-</div>
 <p>
    5
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -2283,12 +2465,13 @@ p {
    In order, the City General Fund’s top revenue sources are: in-lieu vehicle license fees (VLF – paid from the state’s portion of property taxes); secured property taxes; franchise fees; and sales &amp; use taxes (including the state- allocated “triple flip” prior to the fiscal year ending June 30, 2017). The following chart illustrates the ten-year trend of these four major revenue sources for the City taken from the 2022-23 Adopted Budget:
   </p>
 <p>
+<img src=""/>
 </p>
-<div class="page-break">
-</div>
 <p>
    6
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -2329,11 +2512,11 @@ p {
 <p>
    The City of Clayton maintains a five-year Capital Improvement Program (CIP), which serves as its planning document to ensure its infrastructure is well maintained. The City prioritizes roads for maintenance and reconstruction based on the relative pavement condition index, with other infrastructure and facility improvement projects prioritized at the discretion of the City Council. Over the course of the last 10 years the City has invested approximately $1.0 million into facility and infrastructure capital improvements, funded by Highway User Tax Apportionments (i.e. HUTA or “gas taxes”), local Measure J taxes, redevelopment property tax increment allocations (prior to the dissolution of the Clayton Redevelopment Agency in 2012), and other state and federal grants. For the upcoming fiscal year ending June 30, 2023, the City’s CIP is expected to invest an additional $1,362,697 into transportation and general infrastructure maintenance and improvement needs of the community.
   </p>
-<div class="page-break">
-</div>
 <p>
    7
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -2373,11 +2556,13 @@ p {
 <p>
    City Manager	Finance Director (Interim)
   </p>
-<div class="page-break">
-</div>
 <p>
    8
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 <p>
 <strong>
     OUR MISSION
@@ -2431,21 +2616,22 @@ p {
 <p>
    The City of Clayton organization will be recognized as a premier small city. Customer service will be our hallmark; organizational processes will be a model of efficiency and effectiveness; innovation will be common place; and excellence of work product will be the norm. The employees will enjoy their work environment, and each will be a valued and respected member in his or her field of work. All residents and the City Council will be proud of their City government.
   </p>
-<div class="page-break">
-</div>
 <p>
    9
   </p>
+<div class="page-break">
+</div>
 <p>
+<img src=""/>
 </p>
 <p>
    Finance Director
   </p>
-<div class="page-break">
-</div>
 <p>
    10
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     DIRECTORY OF PRINCIPAL OFFICIALS AND ADVISORY BODIES
@@ -2607,6 +2793,8 @@ p {
 </td>
 </tr>
 <tr>
+<td>
+</td>
 <td colspan="3">
 <p>
 <strong>
@@ -2616,6 +2804,14 @@ p {
 </td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
@@ -2642,11 +2838,11 @@ p {
 </td>
 </tr>
 </table>
-<div class="page-break">
-</div>
 <p>
    11
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     Regional Map of Clayton, California
@@ -2658,42 +2854,49 @@ p {
    </strong>
 </p>
 <p>
+<img src=""/>
 </p>
-<div class="page-break">
-</div>
 <p>
    12
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 <p>
 <em>
     This page intentionally left blank
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    13
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     FINANCIAL SECTION
    </strong>
 </p>
-<div class="page-break">
-</div>
 <p>
    14
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 <p>
 <em>
     This page intentionally left blank
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    15
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 <p>
 <strong>
     INDEPENDENT AUDITORS’
@@ -2704,12 +2907,13 @@ p {
     REPORT
    </strong>
 </p>
-<div class="page-break">
-</div>
 <p>
    16
   </p>
+<div class="page-break">
+</div>
 <p>
+<img src=""/>
 </p>
 <p>
    INDEPENDENT AUDITOR’S REPORT
@@ -2779,11 +2983,11 @@ p {
    </em>
    will always detect a material misstatement when it exists. The risk of not detecting a material misstatement resulting from fraud is higher than for one resulting
   </p>
-<div class="page-break">
-</div>
 <p>
    17
   </p>
+<div class="page-break">
+</div>
 <p>
    from error, as fraud may involve collusion, forgery, intentional omissions, misrepresentations, or the override of internal control. Misstatements are considered material if there is a substantial likelihood that, individually or in the aggregate, they would influence the judgment made by a reasonable user based on the financial statements.
   </p>
@@ -2832,28 +3036,31 @@ p {
 <p>
    Our audit was conducted for the purpose of forming opinions on the financial statements that collectively comprise the City of Clayton’s basic financial statements. The accompanying combining and individual nonmajor fund financial statements are presented for purposes of additional analysis and
   </p>
-<div class="page-break">
-</div>
 <p>
    18
   </p>
-<p>
-</p>
 <div class="page-break">
 </div>
 <p>
+<img src=""/>
+</p>
+<p>
    19
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 <p>
 <strong>
     MANAGEMENT’S DISCUSSION AND ANALYSIS
    </strong>
 </p>
-<div class="page-break">
-</div>
 <p>
    20
   </p>
+<div class="page-break">
+</div>
 <p>
    Management of the City of Clayton (the "City") provides this Management’s Discussion and Analysis of the City's Basic Financial Statements for readers of the City's financial statements. This narrative overview and analysis of the financial activities of the City is for its fiscal year ended June 30, 2022. We encourage readers to consider this information in conjunction with the additional information that is furnished with the City's financial statements, which follow.
   </p>
@@ -2927,11 +3134,11 @@ p {
    </em>
    . Over time, increases or decreases in net position may serve as a useful indicator of whether the financial position of the City of Clayton is improving or deteriorating.
   </p>
-<div class="page-break">
-</div>
 <p>
    21
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     OVERVIEW OF THE FINANCIAL STATEMENTS, Continued
@@ -3025,11 +3232,11 @@ p {
    </em>
    .
   </p>
-<div class="page-break">
-</div>
 <p>
    22
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     OVERVIEW OF THE FINANCIAL STATEMENTS, Continued
@@ -3086,11 +3293,11 @@ p {
 <p>
    The notes provide additional information that is essential to a full understanding of the data provided in the government -wide and fund financial statements. The notes to the financial statements can be found on pages 55-101 of this report.
   </p>
-<div class="page-break">
-</div>
 <p>
    23
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     OVERVIEW OF THE FINANCIAL STATEMENTS, Continued
@@ -3129,18 +3336,48 @@ p {
   </p>
 <table>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="3">
 <p>
       Business-
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       Business-
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td colspan="3">
 <p>
       Governmental
@@ -3151,22 +3388,44 @@ p {
       Governmental
      </p>
 </td>
-<td colspan="2">
-<p>
-      Type
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
       Type
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      Type
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Activities
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3178,10 +3437,14 @@ p {
       Activities
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Activities
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3189,9 +3452,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       Total
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3203,14 +3470,6 @@ p {
 </p>
 </td>
 <td>
-<p>
-      2022
-     </p>
-</td>
-<td>
-<p>
-      2021
-     </p>
 </td>
 <td>
 <p>
@@ -3218,9 +3477,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2021
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -3228,12 +3495,72 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2021
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      2022
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      2021
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -3250,6 +3577,8 @@ p {
 <p>
       14,773,722
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -3272,6 +3601,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -3292,6 +3623,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -3301,6 +3634,8 @@ p {
       14,700,639
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -3309,9 +3644,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       6,482,003
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3319,14 +3660,24 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3334,9 +3685,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       6,462,021
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3346,9 +3701,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       29,116,205
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3356,9 +3717,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       1,009,203
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3366,14 +3733,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       30,125,408
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       29,831,761
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3384,12 +3759,54 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td>
 <p>
       50,371,930
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3397,9 +3814,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       888,310
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3407,17 +3830,63 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       51,260,240
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       50,994,421
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -3428,9 +3897,15 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       1,285,641
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3438,14 +3913,24 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -3453,9 +3938,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,051,589
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3466,6 +3957,42 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -3474,9 +4001,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       640,113
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3484,9 +4017,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       8,171
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3494,14 +4033,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       648,284
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       364,853
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3511,24 +4058,6 @@ p {
      </p>
 </td>
 <td>
-<p>
-      3,666,339
-     </p>
-</td>
-<td colspan="2">
-<p>
-      5,944,104
-     </p>
-</td>
-<td colspan="2">
-<p>
-      -
-     </p>
-</td>
-<td colspan="2">
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
@@ -3536,9 +4065,45 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td colspan="2">
 <p>
       5,944,104
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      3,666,339
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      5,944,104
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3549,22 +4114,68 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td>
 <p>
       4,306,452
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       6,307,041
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       8,171
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3572,17 +4183,63 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       4,314,623
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       6,308,957
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -3593,9 +4250,15 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,471,384
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3603,14 +4266,24 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -3618,9 +4291,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       369,961
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3631,12 +4310,84 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Net investment in
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3646,19 +4397,29 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       29,116,205
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       28,793,685
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       1,009,203
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3666,14 +4427,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       30,125,408
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       29,831,761
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3683,9 +4452,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       9,890,048
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3693,14 +4468,24 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -3708,9 +4493,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       13,156,670
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3720,9 +4511,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       5,873,482
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3730,9 +4527,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (129,064)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3740,14 +4543,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       5,744,418
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,378,661
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3757,6 +4568,42 @@ p {
        Total net position
       </strong>
 </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3769,6 +4616,8 @@ p {
 <p>
       44,879,735
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -3791,6 +4640,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -3811,6 +4662,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -3820,15 +4673,55 @@ p {
       45,367,092
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
-<div class="page-break">
-</div>
 <p>
    24
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     FINANCIAL ANALYSIS GOVERNMENT-WIDE STATEMENTS, Continued
@@ -3849,18 +4742,52 @@ p {
   </p>
 <table>
 <tr>
-<td colspan="2">
-<p>
-      Business-
-     </p>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       Business-
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      Business-
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
+<td>
+</td>
 <td colspan="3">
 <p>
       Governmental
@@ -3871,37 +4798,67 @@ p {
       Governmental
      </p>
 </td>
-<td colspan="2">
-<p>
-      Type
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
       Type
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      Type
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
-<td colspan="2">
-<p>
-      Activities
-     </p>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       Activities
      </p>
 </td>
-<td colspan="2">
-<p>
-      Activities
-     </p>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       Activities
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      Activities
+     </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      Activities
+     </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3909,9 +4866,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       Total
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3923,14 +4884,6 @@ p {
 </p>
 </td>
 <td>
-<p>
-      2022
-     </p>
-</td>
-<td>
-<p>
-      2021
-     </p>
 </td>
 <td>
 <p>
@@ -3938,9 +4891,19 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2021
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -3948,18 +4911,118 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2021
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      2022
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      2021
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Program revenues:
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3977,6 +5040,8 @@ p {
 <p>
       1,002,338
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -3999,6 +5064,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -4019,6 +5086,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -4028,6 +5097,8 @@ p {
       960,468
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4036,24 +5107,38 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,755,382
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       893,718
      </p>
 </td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4061,9 +5146,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       893,718
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4073,24 +5162,38 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       120,774
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       42,363
      </p>
 </td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4098,9 +5201,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       42,363
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4109,27 +5216,79 @@ p {
       Total program revenues
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td>
 <p>
       3,878,494
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       1,897,991
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       16,847
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       (1,442)
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4137,9 +5296,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       1,896,549
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4147,6 +5310,44 @@ p {
 <p>
       General revenues:
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4156,24 +5357,38 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,846,766
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       2,722,906
      </p>
 </td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4181,9 +5396,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,722,906
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4192,25 +5411,7 @@ p {
       Special parcel taxes
      </p>
 </td>
-<td colspan="2">
-<p>
-      1,348,657
-     </p>
-</td>
-<td colspan="2">
-<p>
-      1,309,373
-     </p>
-</td>
-<td colspan="2">
-<p>
-      -
-     </p>
-</td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4218,9 +5419,43 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td colspan="2">
 <p>
       1,309,373
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      1,348,657
+     </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      1,309,373
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4230,24 +5465,38 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       563,908
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       510,029
      </p>
 </td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4255,9 +5504,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       510,029
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4267,24 +5520,38 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       162,881
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       90,872
      </p>
 </td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4292,9 +5559,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       90,872
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4304,24 +5575,38 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       587,740
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       567,350
      </p>
 </td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4329,9 +5614,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       567,350
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4341,24 +5630,38 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       174,443
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       171,029
      </p>
 </td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4366,9 +5669,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       171,029
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4377,20 +5684,7 @@ p {
       Investment income
      </p>
 </td>
-<td colspan="2">
-<p>
-      (281,502)
-     </p>
-</td>
-<td colspan="2">
-<p>
-      508,256
-     </p>
-</td>
-<td colspan="2">
-<p>
-      (379)
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4398,9 +5692,42 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      508,256
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      (379)
+     </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      (281,502)
+     </p>
+</td>
+<td>
+</td>
+<td>
 <p>
       507,877
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4410,24 +5737,6 @@ p {
      </p>
 </td>
 <td>
-<p>
-      54,512
-     </p>
-</td>
-<td>
-<p>
-      38,972
-     </p>
-</td>
-<td>
-<p>
-      -
-     </p>
-</td>
-<td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
@@ -4435,9 +5744,53 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       38,972
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      54,512
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      38,972
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4447,24 +5800,38 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       6,958
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       1,741
      </p>
 </td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4472,9 +5839,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       1,741
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4483,22 +5854,78 @@ p {
       Total general revenues
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td>
 <p>
       5,464,363
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       5,920,528
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       (379)
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4506,9 +5933,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       5,920,149
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4517,27 +5948,79 @@ p {
       Total revenues
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td>
 <p>
       9,342,857
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       7,818,519
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       16,847
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       (1,821)
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4545,9 +6028,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       7,816,698
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4558,6 +6045,44 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4565,20 +6090,23 @@ p {
       General government
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       2,629,048
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       1,796,454
      </p>
 </td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4586,14 +6114,29 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,629,048
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,796,454
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4602,25 +6145,7 @@ p {
       Public works
      </p>
 </td>
-<td colspan="2">
-<p>
-      2,509,096
-     </p>
-</td>
-<td colspan="2">
-<p>
-      2,909,710
-     </p>
-</td>
-<td colspan="2">
-<p>
-      -
-     </p>
-</td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4628,9 +6153,43 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td colspan="2">
 <p>
       2,909,710
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      2,509,096
+     </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      2,909,710
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4640,24 +6199,38 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,736,817
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       2,980,000
      </p>
 </td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4665,9 +6238,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,980,000
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4675,6 +6252,44 @@ p {
 <p>
       Community and economic
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4684,24 +6299,38 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       356,450
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       357,133
      </p>
 </td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4709,9 +6338,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       357,133
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4720,25 +6353,7 @@ p {
       Parks and recreation services
      </p>
 </td>
-<td colspan="2">
-<p>
-      729,729
-     </p>
-</td>
-<td colspan="2">
-<p>
-      592,433
-     </p>
-</td>
-<td colspan="2">
-<p>
-      -
-     </p>
-</td>
-<td colspan="2">
-<p>
-      -
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4746,9 +6361,43 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td colspan="2">
 <p>
       592,433
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      729,729
+     </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      592,433
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4758,24 +6407,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       -
      </p>
 </td>
-<td colspan="2">
-<p>
-      60,694
-     </p>
-</td>
-<td colspan="2">
-<p>
-      73,117
-     </p>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4783,9 +6432,27 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td colspan="2">
 <p>
       73,117
      </p>
+</td>
+<td>
+</td>
+<td colspan="2">
+<p>
+      60,694
+     </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      73,117
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4794,27 +6461,79 @@ p {
       Total expenses
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td>
 <p>
       8,961,140
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       8,635,730
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       60,694
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       73,117
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4822,12 +6541,56 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       8,708,847
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4836,24 +6599,38 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       381,717
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       (817,211)
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       (43,847)
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       (74,938)
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4861,9 +6638,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (892,149)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4872,12 +6653,58 @@ p {
       Net Position – Beginning, restated
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td>
 <p>
       44,498,018
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4885,14 +6712,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       923,986
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       998,924
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -4900,9 +6735,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       46,259,241
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4910,6 +6749,42 @@ p {
 <p>
       Net Position – ending
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4922,6 +6797,10 @@ p {
 <p>
       44,879,735
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -4942,6 +6821,8 @@ p {
 <p>
       880,139
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -4973,15 +6854,57 @@ p {
       45,367,092
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
-<div class="page-break">
-</div>
 <p>
    25
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     FINANCIAL ANALYSIS GOVERNMENT-WIDE STATEMENTS, Continued
@@ -4994,6 +6917,7 @@ p {
    The increase in net position of the governmental activities over the prior year was primarily attributable to a increase in both operating and capital grants and contributions. Total expenses were $8,961,140 in the current year compared to $8,635,730 in the prior year. The following chart depicts the relative size of expenses by function for the fiscal years ending June 30, 2022 and 2021:
   </p>
 <p>
+<img src=""/>
 </p>
 <p>
 <strong>
@@ -5048,19 +6972,21 @@ p {
    Development	Services
   </p>
 <p>
+<img src=""/>
    Fiscal Year 2021
   </p>
 <p>
+<img src=""/>
    Fiscal Year 2022
   </p>
 <p>
    Total program revenues from governmental activities were $ 3,878,494 in the current year compared to $1,897,991 in the prior year. Program revenues are derived directly from the program itself or from parties outside the reporting government's taxpayers or citizenry. They reduce the net cost of the function to be financed from government's general revenues. Of the governmental program revenues, 25.8% were derived from charges for services, which includes park use fees, rental fees, licenses and permits, planning services fees, engineering plan check fees, police service fees, and other revenues. The remaining 74.2% of the governmental program revenues came from operating and capital grants and contributions. General revenues are all other revenues not categorized as program revenues such as property taxes, special parcel taxes, sales and use taxes, motor vehicle fees, investment earnings, franchise fees, use of money and property, service charges, and miscellaneous revenues.
   </p>
-<div class="page-break">
-</div>
 <p>
    26
   </p>
+<div class="page-break">
+</div>
 <p>
    F
    <strong>
@@ -5074,6 +7000,7 @@ p {
    Total general revenues from governmental activities decreased by $456,165 (7.7%) over the prior year. The following pie charts depict the relative size of governmental activities program and general revenues by source for the fiscal years ending June 30, 2022 and 2021:
   </p>
 <p>
+<img src=""/>
 </p>
 <table>
 <tr>
@@ -5100,12 +7027,16 @@ p {
       $6,000,000
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       $5,000,000
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -5114,12 +7045,16 @@ p {
       $4,000,000
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       $3,000,000
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -5128,12 +7063,16 @@ p {
       $2,000,000
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       $1,000,000
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -5142,12 +7081,16 @@ p {
       $-
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       $(1,000,000)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -5173,11 +7116,11 @@ p {
 <p>
    Total business-type expenses decreased 20.4% from $73,117 in the prior year to $60,694 in the current year. This decrease is largely attributable to the decrease in general and administrative costs of the Endeavor Hall rental facility. Total services revenue increased significantly from $-1,442 in the prior year to $16,847 in the current year due to the increase in rental activity. Net position of business -type activities declined $43,847 to a total of $ 880,139 at June 30, 2022 due to charges for services being insufficient to cover the annual depreciation expense and general operating expenses of underlying Endeavor Hall rental facility assets.
   </p>
-<div class="page-break">
-</div>
 <p>
    27
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     FINANCIAL ANALYSIS OF INDIVIDUAL FUND STATEMENTS
@@ -5217,22 +7160,66 @@ p {
   </p>
 <table>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Pandemic
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="0">
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Rainy
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Recovery
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="0">
 </td>
 </tr>
 <tr>
@@ -5247,9 +7234,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       Day Fund
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5257,9 +7252,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       Total
      </p>
+</td>
+<td>
+</td>
+<td colspan="0">
 </td>
 </tr>
 <tr>
@@ -5272,6 +7275,8 @@ p {
 <p>
       1,447,700
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5303,6 +7308,8 @@ p {
       2,570,417
      </p>
 </td>
+<td colspan="0">
+</td>
 </tr>
 <tr>
 <td>
@@ -5311,24 +7318,36 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,684,319
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       -
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       -
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       2,684,319
      </p>
+</td>
+<td colspan="0">
 </td>
 </tr>
 <tr>
@@ -5338,24 +7357,40 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       333,423
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       333,423
      </p>
+</td>
+<td colspan="0">
 </td>
 </tr>
 <tr>
@@ -5363,6 +7398,32 @@ p {
 <p>
       Community and
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="0">
 </td>
 </tr>
 <tr>
@@ -5372,24 +7433,36 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       299,175
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       -
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       -
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       299,175
      </p>
+</td>
+<td colspan="0">
 </td>
 </tr>
 <tr>
@@ -5397,6 +7470,32 @@ p {
 <p>
       Parks and recreation
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="0">
 </td>
 </tr>
 <tr>
@@ -5406,24 +7505,36 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       336,592
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       -
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       -
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       336,592
      </p>
+</td>
+<td colspan="0">
 </td>
 </tr>
 <tr>
@@ -5433,9 +7544,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       22,168
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5443,14 +7560,26 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       22,168
      </p>
+</td>
+<td>
+</td>
+<td colspan="0">
 </td>
 </tr>
 <tr>
@@ -5468,6 +7597,8 @@ p {
 <p>
       5,123,377
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5499,8 +7630,38 @@ p {
       6,246,094
      </p>
 </td>
+<td colspan="0">
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="0">
+</td>
 </tr>
 </table>
 <p>
@@ -5511,11 +7672,11 @@ p {
 <p>
    Community Facilities District No. 2007-1, referred to as the Landscape Maintenance District special revenue fund, reported a decrease in fund balance of $447,353 (41.2%) in the current fiscal year. This decrease in fund balance is largely attributable to increases in operating costs such as water service and weed abatement, as well as a increase in project costs/capital outlay costs. Total fund balance of the Landscape Maintenance District is $ 638,533 as of June 30, 2022, of which $ 32,509 is reported as assigned or restricted for the following year’s operating budget, and the remaining fund balance is assigned.
   </p>
-<div class="page-break">
-</div>
 <p>
    28
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     FINANCIAL ANALYSIS OF INDIVIDUAL FUND STATEMENTS, Continued
@@ -5558,11 +7719,11 @@ p {
 <p>
    General Fund actual revenues and transfers fall short of total revenues and transfers of the final and adopted budget by $39,744. The variance is due to a combination of factors including an increase in taxes and assessment and a decrease in the investment reported at year-end based on the market rate. The unrealized investment loss was reported as a direct result of the City’s investment portfolio being largely made up of fixed instrument securities during a time of declining interest rates. As noted in recent quarterly investment portfolio reports presented to the City Council, the City’s investment policy is designed to reduce volatility and generate consistent returns in the long run-in order to protect public funds. Actual property tax revenues exceeded somewhat conservative adopted budgetary growth projections by $186,163 (6.9%), which was largely offset by lower-than-expected revenue from permits, licenses and fees and sales tax receipts.
   </p>
-<div class="page-break">
-</div>
 <p>
    29
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     GENERAL FUND BUDGETARY HIGHLIGHTS, Continued
@@ -5603,11 +7764,11 @@ p {
 <p>
    There was an increase in adopted General Fund operating appropriations when compared to the actuals reported as of June 30, 2022, for the upcoming fiscal year ending June 30, 2023 of $641,365 (10.2%) . The increase in appropriations is attributable primarily to labor wage and benefit costs of various City departments and capital improvement costs included as part of the general government. The annual June 2021 to June 2022 consumer price index inflationary factor is 6.8% as published by the U. S. Bureau of Labor and Statistics for the San Francisco-Oakland-Hayward region. In addition, there are projected decreases in the annual CalPERS unfunded accrued liabilities and normal costs, primarily due to Classic Tier employees retiring and new employees being hired in the PEPRA tier. The adopted budget for the fiscal year ending June 30, 2023 projects total General Fund revenues of $6,887,459 an increase of approximately
   </p>
-<div class="page-break">
-</div>
 <p>
    30
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -5639,11 +7800,13 @@ p {
 <p>
    This financial report is designed to provide a general overview of the City of Clayton's finances for all those with an interest in the City's finances. Questions concerning any of the information provided in this report, or requests for additional financial information, should be addressed to the Office of the Finance Manager, 6000 Heritage Trail, Clayton, California 94517.
   </p>
-<div class="page-break">
-</div>
 <p>
    31
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 <p>
 <strong>
     GOVERNMENT-WIDE
@@ -5654,11 +7817,11 @@ p {
     FINANCIAL STATEMENTS
    </strong>
 </p>
-<div class="page-break">
-</div>
 <p>
    32
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -5681,15 +7844,25 @@ p {
 </p>
 <table>
 <tr>
+<td>
+</td>
 <td colspan="2">
 <p>
       Governmental
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Business-Type
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -5701,14 +7874,24 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       Activities
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       Activites
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5721,6 +7904,22 @@ p {
 <p>
       Current Assets:
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -5767,14 +7966,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       1,133,315
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5789,14 +7998,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       25,257
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5811,14 +8030,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       120,893
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (120,893)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5833,14 +8062,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       52,578
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5855,14 +8094,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       14,773,722
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (120,893)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5876,6 +8125,22 @@ p {
       Noncurrent Assets:
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5884,14 +8149,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       3,170,453
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5906,14 +8181,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       3,311,550
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5928,14 +8213,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       3,133,754
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       167,738
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5950,14 +8245,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       25,982,451
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       841,465
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5972,14 +8277,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       35,598,208
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,009,203
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -5996,14 +8311,24 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       50,371,930
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       888,310
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6019,6 +8344,22 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6027,14 +8368,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       1,285,641
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6049,14 +8400,24 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6073,14 +8434,24 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       1,285,641
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6096,12 +8467,44 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Current Liabilites:
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -6111,14 +8514,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       149,907
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,671
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6133,14 +8546,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       5,500
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6155,14 +8578,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       37
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6177,14 +8610,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       332,166
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6199,14 +8642,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       83,645
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6221,14 +8674,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       74,358
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6243,14 +8706,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       640,113
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       8,171
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6264,6 +8737,22 @@ p {
       Noncurrent Liabilites:
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6272,14 +8761,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       83,645
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6294,14 +8793,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       578,315
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6316,14 +8825,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,759,739
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6338,14 +8857,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       244,640
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6360,14 +8889,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       3,666,339
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6384,14 +8923,24 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       4,306,452
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       8,171
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6407,6 +8956,22 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6415,14 +8980,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,471,384
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6437,14 +9012,24 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6461,14 +9046,24 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,471,384
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6484,6 +9079,22 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6492,14 +9103,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       29,116,205
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,009,203
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6514,14 +9135,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       9,890,048
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6536,14 +9167,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       5,873,482
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (129,064)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6570,6 +9211,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -6578,6 +9221,8 @@ p {
 <p>
       880,139
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6591,6 +9236,24 @@ p {
 </td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
 <p>
@@ -6598,11 +9261,11 @@ p {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    33
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -6625,6 +9288,24 @@ p {
 </p>
 <table>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Operating
@@ -6635,8 +9316,38 @@ p {
       Capital
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="3">
 <p>
       Charges
@@ -6657,6 +9368,14 @@ p {
       Governmental   Business-type
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6665,9 +9384,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       Expenses
      </p>
+</td>
+<td>
 </td>
 <td colspan="4">
 <p>
@@ -6685,19 +9410,31 @@ p {
      </p>
 </td>
 <td>
-<p>
-      Activities
-     </p>
 </td>
 <td>
 <p>
       Activities
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      Activities
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       Total
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -6706,12 +9443,96 @@ p {
       Primary Government:
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Governmental Activities
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -6739,6 +9560,10 @@ p {
 <p>
       437,626
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6790,6 +9615,8 @@ p {
       (2,177,614)
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6798,9 +9625,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,736,817
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6808,19 +9643,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       397,461
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
-</td>
-<td>
-<p>
-      (2,291,064)
-     </p>
 </td>
 <td>
 <p>
@@ -6828,9 +9661,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (2,291,064)
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      (2,291,064)
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -6840,9 +9695,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,509,096
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6850,9 +9713,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,344,113
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6860,9 +9731,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       210,869
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6870,9 +9747,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       210,869
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -6882,9 +9765,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       356,450
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6892,9 +9783,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6902,9 +9801,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (138,011)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6912,9 +9817,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (138,011)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -6924,9 +9835,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       729,729
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6934,14 +9853,24 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6949,14 +9878,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (686,826)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -6966,9 +9905,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       8,961,140
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6976,9 +9923,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,755,382
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6986,9 +9941,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (5,082,646)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -6996,9 +9957,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (5,082,646)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7007,15 +9974,53 @@ p {
       Business-Type Activities
      </p>
 </td>
-<td rowspan="2">
-<p>
-      (43,847)
-     </p>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td rowspan="2">
 <p>
       (43,847)
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td rowspan="2">
+<p>
+      (43,847)
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7025,9 +10030,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       60,694
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7035,9 +10048,10 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7045,9 +10059,28 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7059,9 +10092,17 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       60,694
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7069,9 +10110,10 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7079,9 +10121,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7089,9 +10144,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (43,847)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7099,6 +10160,8 @@ p {
 <p>
       Total Primary Government
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7111,6 +10174,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -7119,6 +10184,10 @@ p {
 <p>
       1,019,185
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7141,9 +10210,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (5,082,646)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7151,12 +10226,28 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (5,126,493)
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="5">
 <p>
 <strong>
@@ -7164,24 +10255,110 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="4">
 <p>
       Taxes:
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="3">
 <p>
       Property taxes
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,846,766
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7189,21 +10366,49 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,846,766
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="5">
 <p>
       Special parcel taxes
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,348,657
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7211,21 +10416,51 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,348,657
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="4">
 <p>
       Sales and use taxes
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       563,908
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7233,21 +10468,49 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       563,908
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="5">
 <p>
       Business license taxes
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       162,881
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7255,12 +10518,30 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       162,881
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="3">
 <p>
 <strong>
@@ -7269,9 +10550,23 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       4,922,212
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7279,21 +10574,51 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       4,922,212
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="4">
 <p>
       Franchise fees
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       587,740
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7301,21 +10626,47 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       587,740
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="6">
 <p>
       Payments in lieu of taxes
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       174,443
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7323,21 +10674,47 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       174,443
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="6">
 <p>
       Investment income (loss)
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (281,502)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7345,21 +10722,45 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (281,502)
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="7">
 <p>
       Other miscellaneous general revenues
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       54,512
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7367,21 +10768,45 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       54,512
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="7">
 <p>
       Gain (loss) on disposal of fixed assets
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       6,958
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7389,12 +10814,30 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       6,958
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="6">
 <p>
 <strong>
@@ -7403,9 +10846,17 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       5,464,363
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7413,12 +10864,28 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       5,464,363
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="6">
 <p>
 <strong>
@@ -7427,9 +10894,19 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       381,717
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7437,12 +10914,28 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       337,870
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="7">
 <p>
 <strong>
@@ -7451,9 +10944,17 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       44,498,018
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7461,18 +10962,40 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       45,422,004
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="5">
 <p>
 <strong>
        Net position - ending
       </strong>
 </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7504,54 +11027,158 @@ p {
       45,759,874
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
 <p>
+<img src=""/>
+<img src=""/>
+<img src=""/>
+<img src=""/>
+<img src=""/>
+<img src=""/>
 </p>
 <p>
 <em>
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    34
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 <p>
 <em>
     This page intentionally left blank
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    35
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 <p>
 <strong>
     FUND FINANCIAL STATEMENTS
    </strong>
 </p>
-<div class="page-break">
-</div>
 <p>
    36
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 <p>
 <em>
     This page intentionally left blank
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    37
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 <p>
 <strong>
     GOVERNMENTAL FUNDS
@@ -7624,11 +11251,11 @@ p {
 <p>
    All non-major governmental funds of the City are aggregated and presented on the face of the basic financial statements in one column.
   </p>
-<div class="page-break">
-</div>
 <p>
    38
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -7651,36 +11278,86 @@ p {
 </p>
 <table>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Special Revenue
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       Landscape
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       Maintenance
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       Successor
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td colspan="2">
 <p>
       General Fund
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -7692,6 +11369,8 @@ p {
       Housing Agency
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -7700,6 +11379,22 @@ p {
        ASSETS
       </strong>
 </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7738,6 +11433,8 @@ p {
       1,857,892
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -7746,19 +11443,29 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       646,294
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7768,19 +11475,29 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       25,257
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7790,19 +11507,29 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       3,170,453
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7812,19 +11539,29 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       3,311,550
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7834,19 +11571,29 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       52,578
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7856,19 +11603,29 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       120,893
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7878,9 +11635,6 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
@@ -7888,9 +11642,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7901,6 +11668,10 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2" rowspan="2">
 <p>
       $
@@ -7910,6 +11681,12 @@ p {
 <p>
       693,391
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7933,6 +11710,8 @@ p {
       8,339,895
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td rowspan="2">
@@ -7942,8 +11721,40 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -7953,12 +11764,44 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Liabilities:
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -7997,6 +11840,8 @@ p {
       -
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -8005,19 +11850,29 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       71,658
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8027,19 +11882,29 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       37
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8049,19 +11914,29 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       83,645
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8071,9 +11946,6 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
@@ -8081,9 +11953,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8093,9 +11978,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       157,166
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8103,9 +11994,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8113,6 +12008,22 @@ p {
 <p>
       Deferred Inflows of Resources:
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8122,9 +12033,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       260,379
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8132,9 +12049,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,722,200
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8143,22 +12064,46 @@ p {
       Total Deferred Inflows of Resources
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td rowspan="2">
 <p>
       -
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td>
 <p>
       260,379
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,722,200
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8166,6 +12111,22 @@ p {
 <p>
       Fund Balance:
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8175,19 +12136,29 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       173,471
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8197,9 +12168,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8207,9 +12184,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       5,617,695
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8219,19 +12200,29 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       495,019
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8241,9 +12232,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8251,9 +12248,13 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8263,19 +12264,29 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       5,744,867
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8284,22 +12295,46 @@ p {
       Total Fund Balance
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td rowspan="2">
 <p>
       638,533
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td>
 <p>
       6,413,357
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       5,617,695
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8340,6 +12375,8 @@ p {
       8,339,895
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -8349,26 +12386,92 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
 <p>
+<img src=""/>
+<img src=""/>
+<img src=""/>
+<img src=""/>
+<img src=""/>
+<img src=""/>
+<img src=""/>
+<img src=""/>
+<img src=""/>
+<img src=""/>
+<img src=""/>
+<img src=""/>
 </p>
 <p>
 <em>
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    39
   </p>
+<div class="page-break">
+</div>
 <table>
 <tr>
+<td>
+<p>
+</p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td>
 </td>
 <td colspan="2">
@@ -8378,8 +12481,26 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="5">
 <p>
 <strong>
@@ -8387,8 +12508,28 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
 <strong>
@@ -8396,8 +12537,30 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
 <strong>
@@ -8405,52 +12568,168 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Capital Project
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       Capital
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       Other
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       American
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       Improvement
      </p>
 </td>
+<td>
+</td>
 <td colspan="3">
 <p>
       Governmental
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td colspan="2">
 <p>
       Rescue Plan Act
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8458,14 +12737,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       Funds
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       Total
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -8500,6 +12789,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -8509,17 +12800,31 @@ p {
       12,981,238
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8527,16 +12832,21 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,133,315
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8544,21 +12854,39 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       25,257
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8566,21 +12894,39 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       3,170,453
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8588,21 +12934,39 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       3,311,550
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8610,21 +12974,39 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       52,578
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8632,39 +13014,102 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       120,893
      </p>
 </td>
-</tr>
-<tr>
 <td>
-<p>
-      -
-     </p>
-</td>
-<td>
-<p>
-      -
-     </p>
-</td>
-<td>
-<p>
-      -
-     </p>
-</td>
-<td>
-<p>
-      -
-     </p>
 </td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td rowspan="2">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td rowspan="2">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -8698,6 +13143,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -8707,8 +13154,36 @@ p {
       20,795,284
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td colspan="2">
@@ -8742,6 +13217,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -8751,17 +13228,31 @@ p {
       149,592
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8769,16 +13260,21 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       74,358
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8786,21 +13282,39 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       37
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8808,26 +13322,57 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       83,645
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8835,16 +13380,30 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       332,166
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8852,21 +13411,30 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       359,858
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       639,798
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8874,23 +13442,67 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       2,982,579
      </p>
 </td>
-</tr>
-<tr>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8898,21 +13510,39 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       2,982,579
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8920,26 +13550,57 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       173,471
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8947,21 +13608,39 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       6,719,595
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8969,21 +13648,39 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,204,821
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,606,444
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -8991,16 +13688,21 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       3,330,153
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9008,23 +13710,76 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       5,744,867
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9032,14 +13787,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,896,878
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       17,172,907
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9074,6 +13839,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -9083,10 +13850,64 @@ p {
       20,795,284
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
 <p>
@@ -9094,21 +13915,23 @@ p {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    40
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 <p>
 <em>
     This page intentionally left blank
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    41
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -9155,12 +13978,20 @@ p {
       Amounts reported for governmental activities in the Statement of Net Position are different because:
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       CAPITAL ASSETS
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9169,6 +14000,10 @@ p {
       Capital assets used in governmental activities are not current financial resources and therefore are
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -9176,12 +14011,18 @@ p {
       not reported in the Governmental Funds Balance Sheet.
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Non-depreciable capital assets
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9196,6 +14037,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       25,441,841
      </p>
@@ -9207,6 +14050,10 @@ p {
       ACCRUAL OF NON-CURRENT REVENUES AND EXPENSES
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -9214,12 +14061,18 @@ p {
       Unavailable revenue which are deferred inflows of resources in the Governmental Funds because
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       they are not available currently, but are taken into revenue in the statement of activities.
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9233,12 +14086,20 @@ p {
       LONG-TERM ASSETS AND LIABILITIES
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Long-term liabilities are not due and payable in the current period and therefore are not reported
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9247,12 +14108,18 @@ p {
       in the Governmental Funds Balance Sheet.
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Net OPEB liability not reported on the Governmental Funds Balance Sheet
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9267,6 +14134,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (83,645)
      </p>
@@ -9277,6 +14146,8 @@ p {
 <p>
       Net pension liability not reported on the Governmental Funds Balance Sheet
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9291,6 +14162,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (244,640)
      </p>
@@ -9302,12 +14175,20 @@ p {
       DEFERRED INFLOWS AND OUTFLOWS
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Deferred inflows/(outflows) of resources for not reported on the Governmental Funds Balance
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9316,12 +14197,18 @@ p {
       Sheet
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Deferred outflows of resources for net pension liability
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9336,6 +14223,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (2,471,384)
      </p>
@@ -9346,6 +14235,8 @@ p {
 <p>
       Deferred outflows of resources for net OPEB liability
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9360,6 +14251,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
@@ -9371,12 +14264,20 @@ p {
       ALLOCATION OF INTERNAL SERVICE FUND NET POSITION
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Internal service funds are used by management to charge the costs of certain activities to
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9385,12 +14286,18 @@ p {
       individual funds. The assets and liabilities of the internal service funds are included in the
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       governmental activities in the Government-wide Statement of Net Position.
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9418,6 +14325,12 @@ p {
 </td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
 <p>
@@ -9425,11 +14338,11 @@ p {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    42
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -9452,41 +14365,95 @@ p {
 </p>
 <table>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Special Revenue
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       Landscape
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       Successor
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       Maintenance
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       Housing
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td colspan="2">
 <p>
       General Fund
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9494,9 +14461,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       Agency
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9506,6 +14479,24 @@ p {
        REVENUES
       </strong>
 </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9544,6 +14535,8 @@ p {
       -
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -9552,19 +14545,31 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       111,400
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9574,9 +14579,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9584,9 +14595,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9596,19 +14613,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       563,908
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9618,19 +14647,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       162,881
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9640,19 +14681,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       114,026
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9662,19 +14715,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       151,409
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9684,19 +14749,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       135,233
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9706,9 +14783,6 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
@@ -9716,9 +14790,24 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9728,19 +14817,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       174,443
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9750,19 +14851,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       587,740
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9772,19 +14885,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       305,645
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9794,9 +14919,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (185,018)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9804,9 +14935,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       17,961
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9816,19 +14953,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       40,844
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9840,9 +14989,15 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       4,897,877
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9850,9 +15005,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       129,361
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9863,12 +15024,48 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Current:
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9878,19 +15075,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,570,417
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9900,19 +15109,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,684,319
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9922,9 +15143,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       333,423
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9932,9 +15159,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9944,19 +15177,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       299,175
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9966,19 +15211,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       336,592
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -9988,9 +15245,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       22,168
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -9998,9 +15261,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -10012,9 +15281,15 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       6,246,094
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10022,9 +15297,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -10035,20 +15316,32 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 <td rowspan="2">
 <p>
       (1,348,217)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td rowspan="2">
 <p>
       (405,544)
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 <td rowspan="2">
 <p>
       129,361
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -10059,6 +15352,18 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -10068,6 +15373,24 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -10076,19 +15399,31 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       58,091
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -10098,19 +15433,31 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       1,597,681
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -10120,9 +15467,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10130,9 +15483,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -10144,9 +15503,15 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       1,597,681
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10154,9 +15519,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       58,091
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -10168,9 +15539,15 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       249,464
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10178,9 +15555,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       187,452
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -10191,6 +15574,24 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -10199,9 +15600,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       6,163,893
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10209,9 +15616,15 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       5,430,243
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -10250,8 +15663,30 @@ p {
       5,617,695
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
 <p>
@@ -10259,13 +15694,29 @@ p {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    43
   </p>
+<div class="page-break">
+</div>
 <table>
 <tr>
+<td>
+<p>
+</p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td>
 </td>
 <td colspan="3">
@@ -10275,8 +15726,30 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="5">
 <p>
 <strong>
@@ -10284,8 +15757,14 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td colspan="11">
 <p>
 <strong>
@@ -10293,8 +15772,20 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="8">
 <p>
 <strong>
@@ -10302,52 +15793,176 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Capital Project
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td rowspan="2">
 <p>
       Other
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       Capital
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       American
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       Improvement
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Governmental
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td colspan="2">
 <p>
       Rescue Plan Act
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10355,14 +15970,26 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       Funds
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       Total
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -10406,12 +16033,15 @@ p {
       2,846,766
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10419,26 +16049,59 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       111,400
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10446,16 +16109,23 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,647,112
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10463,21 +16133,41 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       563,908
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10485,26 +16175,59 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       162,881
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10512,16 +16235,23 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       254,352
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10529,26 +16259,59 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       151,409
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       1,467,024
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10556,38 +16319,23 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,772,298
      </p>
 </td>
-</tr>
-<tr>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
-<p>
-      -
-     </p>
-</td>
-<td>
-<p>
-      -
-     </p>
-</td>
-<td>
-<p>
-      -
-     </p>
 </td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10595,21 +16343,83 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       174,443
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10617,21 +16427,41 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       587,740
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10639,26 +16469,59 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       305,645
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (80,986)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10666,21 +16529,41 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (324,916)
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10688,16 +16571,32 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       41,492
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       1,467,024
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10705,26 +16604,50 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,700,755
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       9,294,530
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10732,21 +16655,41 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,697,067
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10754,21 +16697,41 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,814,860
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10776,16 +16739,23 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,141,455
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10793,26 +16763,59 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       299,175
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10820,21 +16823,41 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       477,400
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       869,925
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10842,16 +16865,32 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,102,349
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10859,21 +16898,41 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       830,244
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       9,532,306
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       1,467,024
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10881,21 +16940,32 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       870,511
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       (237,776)
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10903,26 +16973,59 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       58,091
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,632,609
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10930,21 +17033,41 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       3,251,504
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       (1,467,024)
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10952,16 +17075,32 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (3,251,504)
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       (1,467,024)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10969,21 +17108,41 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (1,721,457)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       58,091
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -10991,21 +17150,41 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (850,946)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       (179,685)
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -11013,14 +17192,26 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,747,824
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       17,352,592
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11064,8 +17255,40 @@ p {
       17,172,907
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
 <p>
@@ -11073,11 +17296,11 @@ p {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    44
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -11182,11 +17405,13 @@ p {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    45
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 <p>
 <strong>
     PROPRIETARY FUNDS
@@ -11219,13 +17444,19 @@ p {
 <p>
    The City’s internal service funds account for activities that provide goods or services to other City funds, departments, or agencies on a cost reimbursement basis. All internal service funds of the City are aggregated and presented on the face of the proprietary fund financial statements in one column.
   </p>
-<div class="page-break">
-</div>
 <p>
    46
   </p>
+<div class="page-break">
+</div>
 <table>
 <tr>
+<td>
+<p>
+</p>
+</td>
+<td>
+</td>
 <td>
 </td>
 <td colspan="3">
@@ -11235,8 +17466,20 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="3">
 <p>
 <strong>
@@ -11244,8 +17487,16 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td colspan="8">
 <p>
 <strong>
@@ -11255,6 +17506,12 @@ p {
 </td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="3">
 <p>
 <strong>
@@ -11262,12 +17519,46 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td colspan="3">
+</td>
+<td>
+</td>
+<td colspan="2">
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td colspan="3">
+</td>
+<td>
+</td>
+<td colspan="2">
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td colspan="4">
 <p>
       Business-type
@@ -11280,10 +17571,18 @@ p {
 </td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="3">
 <p>
       Activities -
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
@@ -11292,6 +17591,10 @@ p {
 </td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td colspan="4">
 <p>
       Endeavor Hall
@@ -11311,12 +17614,44 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Current assets:
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11336,6 +17671,10 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -11345,12 +17684,30 @@ p {
       460,441
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Noncurrent assets
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11360,14 +17717,26 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       167,738
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11377,14 +17746,26 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       841,465
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       540,610
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11396,14 +17777,26 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,009,203
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,001,051
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11414,12 +17807,44 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       Current liabilities:
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11429,14 +17854,26 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,671
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       315
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11446,14 +17883,26 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
+</td>
+<td>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11463,14 +17912,26 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       5,500
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11480,14 +17941,26 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       120,893
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11499,14 +17972,26 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       129,064
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       315
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11517,6 +18002,22 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -11525,14 +18026,26 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,009,203
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       540,610
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11542,14 +18055,26 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (129,064)
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 <p>
       460,126
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11559,6 +18084,8 @@ p {
        Total Net Position
       </strong>
 </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -11571,6 +18098,10 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -11580,8 +18111,28 @@ p {
       1,000,736
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
 <p>
@@ -11589,11 +18140,11 @@ p {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    47
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -11616,46 +18167,80 @@ p {
 </p>
 <table>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Governmental
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td colspan="2">
 <p>
       Business-type
      </p>
 </td>
 <td>
-<p>
-      Activities -
-     </p>
 </td>
-</tr>
-<tr>
+<td>
+</td>
 <td>
 <p>
       Activities -
      </p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      Activities -
+     </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       Internal Service
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td colspan="2">
 <p>
       Endeavor Hall
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       Funds
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11665,6 +18250,18 @@ p {
        OPERATING REVENUES
       </strong>
 </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11693,6 +18290,8 @@ p {
       111,900
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -11703,14 +18302,22 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       16,847
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       111,900
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11721,6 +18328,18 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -11729,14 +18348,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       4,833
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11746,14 +18373,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       26,989
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       8,564
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11763,14 +18398,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       28,872
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       100,425
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11782,17 +18425,39 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       60,694
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       108,989
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -11803,14 +18468,22 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (43,847)
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,911
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11821,8 +18494,32 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -11831,14 +18528,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       6,958
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11848,17 +18553,39 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       (14,675)
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -11869,14 +18596,22 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (7,717)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11887,17 +18622,37 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td rowspan="2">
 <p>
       (43,847)
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 <td rowspan="2">
 <p>
       (4,806)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11908,6 +18663,14 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -11916,14 +18679,22 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11933,14 +18704,22 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11952,14 +18731,22 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (43,847)
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (4,806)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -11970,6 +18757,18 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -11978,17 +18777,39 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       923,986
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 <td>
 <p>
       1,005,542
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12016,8 +18837,24 @@ p {
       1,000,736
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
 <p>
@@ -12025,11 +18862,11 @@ p {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    48
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -12052,34 +18889,56 @@ p {
 </p>
 <table>
 <tr>
+<td>
+</td>
 <td colspan="2" rowspan="2">
 <p>
       Business-type
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       Governmental
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       Activities -
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       Activities -
      </p>
+</td>
+<td>
 </td>
 <td colspan="2">
 <p>
       Internal Service
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12096,12 +18955,30 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       Funds
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12129,6 +19006,8 @@ p {
       111,900
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12137,14 +19016,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (24,734)
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (4,001)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12154,14 +19041,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (4,833)
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12171,14 +19066,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (4,428)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12190,14 +19093,22 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       (8,720)
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       103,471
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12208,6 +19119,18 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12217,6 +19140,18 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12225,14 +19160,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       8,720
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12244,14 +19187,22 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       8,720
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12262,6 +19213,18 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12270,6 +19233,18 @@ p {
        CASH FLOWS FROM CAPITAL AND RELATED
       </strong>
 </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12280,6 +19255,18 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12288,14 +19275,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (153,184)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12305,14 +19300,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       6,958
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12324,14 +19327,22 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (146,226)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12342,6 +19353,18 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12351,6 +19374,18 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12359,14 +19394,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (14,675)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12378,14 +19421,22 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (14,675)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12397,14 +19448,22 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (57,430)
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12415,6 +19474,18 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12423,14 +19494,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       517,871
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12459,6 +19538,8 @@ p {
       460,441
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td rowspan="2">
@@ -12468,8 +19549,32 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12479,6 +19584,18 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12487,6 +19604,18 @@ p {
        OPERATING ACTIVITIES:
       </strong>
 </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12515,6 +19644,8 @@ p {
       2,911
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12522,12 +19653,36 @@ p {
       Adjustments to reconcile operating income (loss)
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
 <p>
       to net cash provided (used) by operating activities:
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12537,14 +19692,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       28,872
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       100,425
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12552,6 +19715,18 @@ p {
 <p>
       Changes in current assets and liabilities:
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12561,14 +19736,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       2,255
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       135
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12578,14 +19761,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       4,000
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12595,14 +19786,22 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12624,6 +19823,8 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       $
      </p>
@@ -12633,8 +19834,24 @@ p {
       103,471
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
 <p>
@@ -12642,11 +19859,13 @@ p {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    49
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 <p>
 <strong>
     FIDUCIARY FUNDS
@@ -12671,11 +19890,11 @@ p {
 <p>
    Private purpose trust funds account for resources held by the City as trustee for third party beneficiaries, and are used to report both the Fiduciary Net Position and Changes in Fiduciary Net Position for the Successor Agency for the former Redevelopment Agency. Private Purpose Trust Funds are accounted for under the full accrual basis of accounting.
   </p>
-<div class="page-break">
-</div>
 <p>
    50
   </p>
+<div class="page-break">
+</div>
 <p>
 <strong>
     City of Clayton
@@ -12698,43 +19917,95 @@ p {
 </p>
 <table>
 <tr>
+<td>
+</td>
 <td colspan="2">
 <p>
       Private Purpose
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       Trust Fund
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td colspan="2">
 <p>
       Redevelopment
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       Successor
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td>
 <p>
       Agency
      </p>
 </td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Agency Funds
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12744,6 +20015,18 @@ p {
        ASSETS
       </strong>
 </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12772,6 +20055,8 @@ p {
       1,632,920
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12780,14 +20065,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       1
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       376,103
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12797,14 +20090,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       10,188
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12814,14 +20115,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       967
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12831,14 +20140,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       655,931
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12848,14 +20165,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       182,883
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12865,14 +20190,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       52,607
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12882,14 +20215,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       470,000
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12901,14 +20242,22 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       579,415
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       3,328,992
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12919,6 +20268,18 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -12927,14 +20288,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       16,378
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12944,14 +20313,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,455,651
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12961,14 +20338,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       774,539
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12978,14 +20363,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       10,973
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -12995,14 +20388,22 @@ p {
      </p>
 </td>
 <td>
-<p>
-      -
-     </p>
 </td>
 <td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<p>
+      -
+     </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13012,14 +20413,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       52,606
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13029,14 +20438,22 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       1,145,000
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       1,029,818
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13048,9 +20465,13 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       1,155,973
      </p>
+</td>
+<td>
 </td>
 <td>
 <p>
@@ -13062,6 +20483,8 @@ p {
       3,328,992
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -13071,10 +20494,20 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 <td rowspan="2">
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13082,6 +20515,16 @@ p {
 <p>
       Deferred notes receivables
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13093,9 +20536,19 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13106,10 +20559,20 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 <td rowspan="2">
 <p>
       (576,558)
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13117,6 +20580,16 @@ p {
 <p>
       Held in trust for others
      </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13137,8 +20610,30 @@ p {
       (576,558)
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
 <p>
@@ -13146,14 +20641,16 @@ p {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    51
   </p>
+<div class="page-break">
+</div>
 <table>
 <tr>
 <td>
+<p>
+</p>
 </td>
 <td colspan="4">
 <p>
@@ -13162,14 +20659,20 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td colspan="4">
 <p>
 <strong>
        Fiduciary Funds
       </strong>
 </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13180,8 +20683,12 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
 <td colspan="4">
 <p>
 <strong>
@@ -13189,37 +20696,89 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2">
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2">
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td colspan="3">
 <p>
       Private Purpose
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Trust Fund
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Redevelopment
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Successor
      </p>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13230,13 +20789,29 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 <td colspan="2">
 <p>
       Agency
      </p>
 </td>
+<td>
+</td>
 </tr>
 <tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -13254,6 +20829,10 @@ p {
       618,554
      </p>
 </td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -13262,9 +20841,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       2,121
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13274,9 +20861,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       (15,186)
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13288,9 +20883,17 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       605,489
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13301,6 +20904,16 @@ p {
       </strong>
 </p>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -13309,9 +20922,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       24,141
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13321,9 +20942,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       252,179
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13333,9 +20962,17 @@ p {
      </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       -
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13347,9 +20984,17 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       276,320
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13361,9 +21006,17 @@ p {
 </p>
 </td>
 <td>
+</td>
+<td>
+</td>
+<td>
 <p>
       329,169
      </p>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -13373,6 +21026,16 @@ p {
        NET POSITION
       </strong>
 </p>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 </table>
@@ -13393,11 +21056,13 @@ p {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<div class="page-break">
-</div>
 <p>
    52
   </p>
+<div class="page-break">
+</div>
+<p>
+</p>
 </body>
 </html>
 </div>

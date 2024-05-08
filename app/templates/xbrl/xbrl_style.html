@@ -98,29 +98,33 @@ body {
 }
 
 .word-content {
-    max-width: 6.5in;
+    max-width: 7in;
     margin: 1in;
     padding: 1in; /* Adding padding to mimic Word's default content padding */
     border: 1px solid #ccc;
     background-color: #fff; /* To resemble a Word document's white page */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow around the "page" */
-    /* text-align: justify; */
+    text-align: justify;
 }
 
 p {
     margin-top: 0em;
-    margin-bottom: 0em;
+    margin-bottom: 1em;
 }
 
 .page-break {
-        display: block;
-        clear: both;
-        page-break-before: always;
-        height: 100vh;
-        border-top: 1px solid #000;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+    display: block;
+    clear: both;
+    width: 100%;
+    margin-top: 50px; /* Increase the space before the break */
+    margin-bottom: 50px; /* Increase the space after the break */
+    border-bottom: 2px dotted #ccc; /* Dotted line to visually indicate a page break */
+    content: " "; /* Needed for the border to take effect */
+}
+
+.large-text {
+    color: red;
+}
 
 </style>
 
