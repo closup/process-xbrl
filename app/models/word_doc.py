@@ -1,12 +1,15 @@
 import mammoth
 import zipfile
+import os
+import uuid
+import io
 from lxml import etree
 from bs4 import BeautifulSoup
 from typing import *
 from docx import Document
-from docx.oxml.ns import qn
-from docx.oxml import OxmlElement
 from app.utils.constants import custom_style_map
+from flask import session, url_for
+from PIL import Image as PILImage
 
 
 NAMESPACES = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
@@ -66,7 +69,25 @@ class WordDoc:
         """ 
         Save the image; return a dictionary {"src" : <file location>}
         """
-        return {"src" : ""}
+        # Generate unique filename for image (e.g., using UUID)
+        image_filename = str(uuid.uuid4()) + '.png'
+
+        # Save the image to the output folder
+        image_path = os.path.join("app/static/img", image_filename)
+        web_path = url_for('static', filename = f"img/{image_filename}")
+
+        with image.open() as image_file:
+            # Read the image data
+            image_data = image_file.read()
+            
+        # Create a PIL Image object from the image data
+        pil_image = PILImage.open(io.BytesIO(image_data))
+
+        # Save the image as PNG
+        pil_image.save(image_path, format='PNG')
+
+        # Return the file location (directory) of the saved image
+        return {"src": web_path}
 
     def convert_to_html(self, docx_file):
         """ Use mammoth to extract content and images """
@@ -81,13 +102,6 @@ class WordDoc:
         for a in self.soup.find_all('a'):
             a.decompose()
         self.update_html_content()
-
-    # def remove_empty_tags(self):
-    #     """ Remove all tags with no content """
-    #     for tag in self.soup.find_all():
-    #         if len(tag.get_text(strip=True)) == 0 and not tag.contents:
-    #             tag.extract()
-    #     self.update_html_content()
     
     def update_html_content(self):
         """ Update the HTML content from the soup object """

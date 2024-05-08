@@ -17,23 +17,21 @@ table.statement th {
     text-align: right;
 }
 
-/* Style for td elements within a table with class 'statement' */
-table.statement td {
+/* Style for the last th and td elements within a row within a table with class 'statement' */
+table.statement th:last-child, table.statement td:last-child {
+    min-width: 120px;
+    width: auto; /* Allow the width to adjust based on content */
+}
+
+/* Alignment for ALL tables, including word ones */
+table td {
     height: 15.0pt;
     text-align: right;
     font-size: 14px;
     margin: 10px;
 }
-
-/* Style for the first td element within a row within a table with class 'statement' */
-table.statement td:first-child {
+table td:first-child {
     text-align: left;
-}
-
-/* Style for the last th and td elements within a row within a table with class 'statement' */
-table.statement th:last-child, table.statement td:last-child {
-    min-width: 120px;
-    width: auto; /* Allow the width to adjust based on content */
 }
 
 .section_header, .subsection_header {
@@ -168,6 +166,16 @@ p {
 
 .page-number {
     text-align: center;
+}
+
+/* Word images */
+img {
+    display: block;
+    max-width: 7in;
+    height: auto;
+    /* Center the image */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 </style>
