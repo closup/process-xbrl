@@ -62,7 +62,7 @@ axis_dict = {"governmental_activities"  : ("TypeOfGovernmentUnit", None, "Govern
 
 custom_style_map = """
 p[style-name='title'] => h1.title
-p[style-name='heading'] => h2.heading
-p[style-name='heading2'] => h3.heading2
+p[style-name='header'] => h2.header
+p[style-name='header2'] => h3.header2
 """
 
