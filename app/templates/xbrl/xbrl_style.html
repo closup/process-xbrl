@@ -1,37 +1,37 @@
 <style type="text/css">
 
-/* Style for the table */
-table {
+/* Style for the table with class 'statement' */
+table.statement {
     border-collapse: collapse; /* Merge borders into a single line */
     width: 98%;
 }
 
-/* Style for the last row (horizontal line at the bottom) */
-tr:last-child {
-    border-bottom: 1px solid black; /* Remove the bottom border for the last row */
+/* Style for the last row within a table with class 'statement' */
+table.statement tr:last-child {
+    border-bottom: 1px solid black; /* Add bottom border for the last row */
 }
 
-/* Style for table headers */
-th {
-    border-bottom: 1px solid black; 
-    text-align:right
+/* Style for th elements within a table with class 'statement' */
+table.statement th {
+    border-bottom: 1px solid black;
+    text-align: right;
 }
 
-/* Style for table cells */
-td {
-    height: 15.0pt; 
-    text-align: right; 
+/* Style for td elements within a table with class 'statement' */
+table.statement td {
+    height: 15.0pt;
+    text-align: right;
     font-size: 14px;
     margin: 10px;
 }
 
-/* Style for row names */
-td:first-child {
-    text-align: left; 
+/* Style for the first td element within a row within a table with class 'statement' */
+table.statement td:first-child {
+    text-align: left;
 }
 
-/* total column width */
-th:last-child, td:last-child {
+/* Style for the last th and td elements within a row within a table with class 'statement' */
+table.statement th:last-child, table.statement td:last-child {
     min-width: 120px;
     width: auto; /* Allow the width to adjust based on content */
 }
@@ -147,10 +147,9 @@ h2.header {
 h3.header2 {
     font-size: 0.5em; /* Smaller font size for heading2 */
     text-align: left; /* Aligns the text to the left */
-    margin-top: 0.3em; /* Spacing above the heading2 */
-    margin-bottom: 0.2em; /* Spacing below the heading2 */
+    margin-top: 0.1em; /* Spacing above the heading2 */
+    margin-bottom: 0.1em; /* Spacing below the heading2 */
     color: #000000; /* Black color for the text */
-    padding-bottom: 10px; /* Spacing between the text and the line */
     position: relative;
 }
 
