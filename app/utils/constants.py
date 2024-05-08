@@ -55,3 +55,14 @@ axis_dict = {"governmental_activities"  : ("TypeOfGovernmentUnit", None, "Govern
              # Prop funds
              "total_enterprise_funds" : ("TypeOfActivitiesProprietaryFunds", "ProprietaryFunds", "BusinessTypeActivitiesEnterpriseFunds"),
              "internal_service_funds" : ("TypeOfActivitiesProprietaryFunds", "ProprietaryFunds", "InternalServiceFunds")}
+
+# =============================================================
+# Mammoth style conversions from Word
+# =============================================================
+
+custom_style_map = """
+p[style-name='title'] => h1.title
+p[style-name='heading'] => h2.heading
+p[style-name='heading2'] => h3.heading2
+"""
+

@@ -6,6 +6,7 @@ from typing import *
 from docx import Document
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
+from app.utils.constants import custom_style_map
 
 
 NAMESPACES = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
@@ -60,8 +61,8 @@ class WordDoc:
         #self.remove_empty_tags()
         self.insert_comments()
         self.identify_and_insert_html_page_breaks()
-        self.add_class_to_larger_fonts_in_html()
-        self.clean_tables()
+        #self.add_class_to_larger_fonts_in_html()
+        #self.clean_tables()
 
     @staticmethod
     def convert_image(image):
@@ -72,7 +73,9 @@ class WordDoc:
 
     def convert_to_html(self, docx_file):
         """ Use mammoth to extract content and images """
-        result = mammoth.convert_to_html(docx_file, convert_image = mammoth.images.img_element(self.convert_image))
+        result = mammoth.convert_to_html(docx_file, 
+                                         style_map = custom_style_map,
+                                         convert_image = mammoth.images.img_element(self.convert_image))
         html_content = result.value
         return html_content
 
