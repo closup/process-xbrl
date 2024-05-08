@@ -112,29 +112,14 @@ body {
     text-align: justify;
 }
 
-p {
-    margin-top: 0em;
-    margin-bottom: 1em;
-}
-
-.page-break {
-    display: block;
-    clear: both;
-    width: 100%;
-    margin-top: 50px; /* Increase the space before the break */
-    margin-bottom: 50px; /* Increase the space after the break */
-    border-bottom: 2px dotted #888; /* Dotted line to visually indicate a page break */
-    content: " "; /* Needed for the border to take effect */
-}
-
 /* Word styles */
 
 h1.title {
     font-weight: bold; /* Makes the text bold */
     font-size: 2em; /* Larger font size for title */
     text-align: center; /* Centers the text */
-    margin-top: 7em; /* Spacing above the title */
-    margin-bottom: 7em; /* Spacing below the title */
+    margin-top: 4em; /* Spacing above the title */
+    margin-bottom: 4em; /* Spacing below the title */
     color: #333333; /* Dark grey color for the text */
 }
 
@@ -169,6 +154,27 @@ h2.header:after {
     bottom: 0; /* Aligns at the bottom of the element */
 }
 
+p {
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+.page-break {
+    display: block;
+    clear: both;
+    width: 8.9in;
+    margin-left: -1in;
+    margin-right: -1in;
+    margin-top: 50px; /* Increase the space before the break */
+    margin-bottom: 50px; /* Increase the space after the break */
+    border-bottom: 2px dotted #888; /* Dotted line to visually indicate a page break */
+    content: " "; /* Needed for the border to take effect */
+}
+
+.page-number {
+    text-align: center;
+}
+
 </style>
 </head>
 <body class="gray">
@@ -179,13 +185,162 @@ h2.header:after {
 </ix:references>
 <ix:resources>
 <!--Start of contexts-->
-<xbrli:context id="Ddate_parse_error_GovernmentalFunds">
+<xbrli:context id="Idate_parse_error_AmericanRescuePlanAct">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:AmericanRescuePlanActMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_OtherGovernmentalFunds">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:OtherGovernmentalFundsMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ComponentUnitDiscretelyPresented">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:ComponentUnitDiscretelyPresentedMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_GeneralFund">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
+<acfr:nonedomain>
+                    acfr:GeneralFundMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_EndeavorHall">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+<acfr:proprietaryfundsdomain>
+                    acfr:EndeavorHallMember
+                    </acfr:proprietaryfundsdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_GovernmentalFunds">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
 <acfr:nonedomain>
                     acfr:GovernmentalFundsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_InternalServiceFunds">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+<acfr:proprietaryfundsdomain>
+                    acfr:InternalServiceFundsMember
+                    </acfr:proprietaryfundsdomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_ComponentUnitDiscretelyPresented">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:ComponentUnitDiscretelyPresentedMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 </xbrli:segment>
@@ -216,7 +371,7 @@ h2.header:after {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_GovernmentalActivities">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
@@ -225,33 +380,6 @@ h2.header:after {
                     acfr:ProgramRevenuesFromChargesForServicesMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_LandscapeMaintenanceDistrict">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:LandscapeMaintenanceDistrictMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_GovernmentalActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
 <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
 <acfr:nonedomain>
                     acfr:GovernmentalActivitiesMember
@@ -264,170 +392,19 @@ h2.header:after {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_GovernmentalActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_ComponentUnitDiscretelyPresented">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_GeneralFund">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
-<acfr:nonedomain>
-                    acfr:GeneralFundMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_AmericanRescuePlanAct">
+<xbrli:context id="Idate_parse_error_OtherGovernmentalFunds">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
 <acfr:fundidentifierdomain>
-                    acfr:AmericanRescuePlanActMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_EndeavorHall">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-<acfr:proprietaryfundsdomain>
-                    acfr:EndeavorHallMember
-                    </acfr:proprietaryfundsdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_EndeavorHall">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-<acfr:proprietaryfundsdomain>
-                    acfr:EndeavorHallMember
-                    </acfr:proprietaryfundsdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_AmericanRescuePlanAct">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:AmericanRescuePlanActMember
+                    acfr:OtherGovernmentalFundsMember
                     </acfr:fundidentifierdomain>
 </xbrldi:typedmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
 <xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_BusinessTypeActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
 <xbrli:context id="Ddate_parse_error_CapitalImprovementProgram">
@@ -446,127 +423,18 @@ h2.header:after {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_ComponentUnitDiscretelyPresented">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_InternalServiceFunds">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-<acfr:proprietaryfundsdomain>
-                    acfr:InternalServiceFundsMember
-                    </acfr:proprietaryfundsdomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_CapitalImprovementProgram">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:CapitalImprovementProgramMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_GovernmentalFunds">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalFundsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_SuccessorHousingAgency">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:SuccessorHousingAgencyMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_BusinessTypeActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
 <acfr:nonedomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_ComponentUnitDiscretelyPresented">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
 <acfr:nonedomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
+                    acfr:GovernmentalActivitiesMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 </xbrli:segment>
@@ -607,13 +475,40 @@ h2.header:after {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_OtherGovernmentalFunds">
+<xbrli:context id="Ddate_parse_error">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_GovernmentalFunds">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
+<acfr:nonedomain>
+                    acfr:GovernmentalFundsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_LandscapeMaintenanceDistrict">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
 <acfr:fundidentifierdomain>
-                    acfr:OtherGovernmentalFundsMember
+                    acfr:LandscapeMaintenanceDistrictMember
                     </acfr:fundidentifierdomain>
 </xbrldi:typedmember>
 </xbrli:segment>
@@ -623,13 +518,29 @@ h2.header:after {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
+<xbrli:context id="Ddate_parse_error_EndeavorHall">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+<acfr:proprietaryfundsdomain>
+                    acfr:EndeavorHallMember
+                    </acfr:proprietaryfundsdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_GovernmentalActivities">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
 <acfr:nonedomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
@@ -644,15 +555,83 @@ h2.header:after {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_SuccessorHousingAgency">
+<xbrli:context id="Ddate_parse_error_BusinessTypeActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_ComponentUnitDiscretelyPresented">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:ComponentUnitDiscretelyPresentedMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_GovernmentalActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_CapitalImprovementProgram">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
 <acfr:fundidentifierdomain>
-                    acfr:SuccessorHousingAgencyMember
+                    acfr:CapitalImprovementProgramMember
                     </acfr:fundidentifierdomain>
 </xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_GovernmentalActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -666,6 +645,89 @@ h2.header:after {
 <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
 <acfr:nonedomain>
                     acfr:PrimaryGovernmentActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_InternalServiceFunds">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+<acfr:proprietaryfundsdomain>
+                    acfr:InternalServiceFundsMember
+                    </acfr:proprietaryfundsdomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_PrimaryGovernmentActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:PrimaryGovernmentActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_BusinessTypeActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_BusinessTypeActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 </xbrli:segment>
@@ -696,123 +758,67 @@ h2.header:after {
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_PrimaryGovernmentActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:PrimaryGovernmentActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_InternalServiceFunds">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-<acfr:proprietaryfundsdomain>
-                    acfr:InternalServiceFundsMember
-                    </acfr:proprietaryfundsdomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_GovernmentalActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_GovernmentalActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_BusinessTypeActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_OtherGovernmentalFunds">
+<xbrli:context id="Idate_parse_error_SuccessorHousingAgency">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
 <acfr:fundidentifierdomain>
-                    acfr:OtherGovernmentalFundsMember
+                    acfr:SuccessorHousingAgencyMember
                     </acfr:fundidentifierdomain>
 </xbrldi:typedmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
 <xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_AmericanRescuePlanAct">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:AmericanRescuePlanActMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_SuccessorHousingAgency">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:SuccessorHousingAgencyMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
 <!-- Word contexts -->
@@ -1389,7 +1395,7 @@ h2.header:after {
 </td>
 </tr>
 </table>
-<p>
+<p class="page-number">
    1
   </p>
 <div class="page-break">
@@ -1741,7 +1747,7 @@ h2.header:after {
 </td>
 </tr>
 </table>
-<p>
+<p class="page-number">
    2
   </p>
 <div class="page-break">
@@ -2187,7 +2193,7 @@ h2.header:after {
 </td>
 </tr>
 </table>
-<p>
+<p class="page-number">
    3
   </p>
 <div class="page-break">
@@ -2358,7 +2364,7 @@ h2.header:after {
 <p>
    The City of Clayton was incorporated in 1964 and is located in Contra Costa County, a suburban region in the eastern portion of the San Francisco-Bay Area. Pursuant to its adopted budget for the fiscal year ending June 30, 2022, the City has a permanent staff of 27.4 full- time equivalent employees which serves approximately 11,585 residents in a land area of approximately 4 square miles. Nestled in a small valley at the northern base of Mt. Diablo, the boundaries of the City are mostly developed with a
   </p>
-<p>
+<p class="page-number">
    4
   </p>
 <div class="page-break">
@@ -2418,7 +2424,7 @@ h2.header:after {
 <p>
    Essentially a cul-de-sac hugging the base of acclaimed Mt. Diablo, Clayton maintains a small-town atmosphere while its relative proximity to California State Highway 24 and neighboring city BART stations make it ideal for commuters. In addition, the semi-rural setting, low crime rate and excellent middle and elementary public schools make Clayton attractive to families of all types.
   </p>
-<p>
+<p class="page-number">
    5
   </p>
 <div class="page-break">
@@ -2459,7 +2465,7 @@ h2.header:after {
 <p>
 <img src=""/>
 </p>
-<p>
+<p class="page-number">
    6
   </p>
 <div class="page-break">
@@ -2504,7 +2510,7 @@ h2.header:after {
 <p>
    The City of Clayton maintains a five-year Capital Improvement Program (CIP), which serves as its planning document to ensure its infrastructure is well maintained. The City prioritizes roads for maintenance and reconstruction based on the relative pavement condition index, with other infrastructure and facility improvement projects prioritized at the discretion of the City Council. Over the course of the last 10 years the City has invested approximately $1.0 million into facility and infrastructure capital improvements, funded by Highway User Tax Apportionments (i.e. HUTA or “gas taxes”), local Measure J taxes, redevelopment property tax increment allocations (prior to the dissolution of the Clayton Redevelopment Agency in 2012), and other state and federal grants. For the upcoming fiscal year ending June 30, 2023, the City’s CIP is expected to invest an additional $1,362,697 into transportation and general infrastructure maintenance and improvement needs of the community.
   </p>
-<p>
+<p class="page-number">
    7
   </p>
 <div class="page-break">
@@ -2548,7 +2554,7 @@ h2.header:after {
 <p>
    City Manager	Finance Director (Interim)
   </p>
-<p>
+<p class="page-number">
    8
   </p>
 <div class="page-break">
@@ -2608,7 +2614,7 @@ h2.header:after {
 <p>
    The City of Clayton organization will be recognized as a premier small city. Customer service will be our hallmark; organizational processes will be a model of efficiency and effectiveness; innovation will be common place; and excellence of work product will be the norm. The employees will enjoy their work environment, and each will be a valued and respected member in his or her field of work. All residents and the City Council will be proud of their City government.
   </p>
-<p>
+<p class="page-number">
    9
   </p>
 <div class="page-break">
@@ -2619,7 +2625,7 @@ h2.header:after {
 <p>
    Finance Director
   </p>
-<p>
+<p class="page-number">
    10
   </p>
 <div class="page-break">
@@ -2830,7 +2836,7 @@ h2.header:after {
 </td>
 </tr>
 </table>
-<p>
+<p class="page-number">
    11
   </p>
 <div class="page-break">
@@ -2848,7 +2854,7 @@ h2.header:after {
 <p>
 <img src=""/>
 </p>
-<p>
+<p class="page-number">
    12
   </p>
 <div class="page-break">
@@ -2860,7 +2866,7 @@ h2.header:after {
     This page intentionally left blank
    </em>
 </p>
-<p>
+<p class="page-number">
    13
   </p>
 <div class="page-break">
@@ -2872,7 +2878,7 @@ h2.header:after {
     FINANCIAL SECTION
    </strong>
 </p>
-<p>
+<p class="page-number">
    14
   </p>
 <div class="page-break">
@@ -2884,7 +2890,7 @@ h2.header:after {
     This page intentionally left blank
    </em>
 </p>
-<p>
+<p class="page-number">
    15
   </p>
 <div class="page-break">
@@ -2901,7 +2907,7 @@ h2.header:after {
     REPORT
    </strong>
 </p>
-<p>
+<p class="page-number">
    16
   </p>
 <div class="page-break">
@@ -2977,7 +2983,7 @@ h2.header:after {
    </em>
    will always detect a material misstatement when it exists. The risk of not detecting a material misstatement resulting from fraud is higher than for one resulting
   </p>
-<p>
+<p class="page-number">
    17
   </p>
 <div class="page-break">
@@ -3030,7 +3036,7 @@ h2.header:after {
 <p>
    Our audit was conducted for the purpose of forming opinions on the financial statements that collectively comprise the City of Clayton’s basic financial statements. The accompanying combining and individual nonmajor fund financial statements are presented for purposes of additional analysis and
   </p>
-<p>
+<p class="page-number">
    18
   </p>
 <div class="page-break">
@@ -3038,7 +3044,7 @@ h2.header:after {
 <p>
 <img src=""/>
 </p>
-<p>
+<p class="page-number">
    19
   </p>
 <div class="page-break">
@@ -3050,7 +3056,7 @@ h2.header:after {
     MANAGEMENT’S DISCUSSION AND ANALYSIS
    </strong>
 </p>
-<p>
+<p class="page-number">
    20
   </p>
 <div class="page-break">
@@ -3128,7 +3134,7 @@ h2.header:after {
    </em>
    . Over time, increases or decreases in net position may serve as a useful indicator of whether the financial position of the City of Clayton is improving or deteriorating.
   </p>
-<p>
+<p class="page-number">
    21
   </p>
 <div class="page-break">
@@ -3226,7 +3232,7 @@ h2.header:after {
    </em>
    .
   </p>
-<p>
+<p class="page-number">
    22
   </p>
 <div class="page-break">
@@ -3287,7 +3293,7 @@ h2.header:after {
 <p>
    The notes provide additional information that is essential to a full understanding of the data provided in the government -wide and fund financial statements. The notes to the financial statements can be found on pages 55-101 of this report.
   </p>
-<p>
+<p class="page-number">
    23
   </p>
 <div class="page-break">
@@ -4711,7 +4717,7 @@ h2.header:after {
 </td>
 </tr>
 </table>
-<p>
+<p class="page-number">
    24
   </p>
 <div class="page-break">
@@ -6894,7 +6900,7 @@ h2.header:after {
 </td>
 </tr>
 </table>
-<p>
+<p class="page-number">
    25
   </p>
 <div class="page-break">
@@ -6976,7 +6982,7 @@ h2.header:after {
 <p>
    Total program revenues from governmental activities were $ 3,878,494 in the current year compared to $1,897,991 in the prior year. Program revenues are derived directly from the program itself or from parties outside the reporting government's taxpayers or citizenry. They reduce the net cost of the function to be financed from government's general revenues. Of the governmental program revenues, 25.8% were derived from charges for services, which includes park use fees, rental fees, licenses and permits, planning services fees, engineering plan check fees, police service fees, and other revenues. The remaining 74.2% of the governmental program revenues came from operating and capital grants and contributions. General revenues are all other revenues not categorized as program revenues such as property taxes, special parcel taxes, sales and use taxes, motor vehicle fees, investment earnings, franchise fees, use of money and property, service charges, and miscellaneous revenues.
   </p>
-<p>
+<p class="page-number">
    26
   </p>
 <div class="page-break">
@@ -7110,7 +7116,7 @@ h2.header:after {
 <p>
    Total business-type expenses decreased 20.4% from $73,117 in the prior year to $60,694 in the current year. This decrease is largely attributable to the decrease in general and administrative costs of the Endeavor Hall rental facility. Total services revenue increased significantly from $-1,442 in the prior year to $16,847 in the current year due to the increase in rental activity. Net position of business -type activities declined $43,847 to a total of $ 880,139 at June 30, 2022 due to charges for services being insufficient to cover the annual depreciation expense and general operating expenses of underlying Endeavor Hall rental facility assets.
   </p>
-<p>
+<p class="page-number">
    27
   </p>
 <div class="page-break">
@@ -7666,7 +7672,7 @@ h2.header:after {
 <p>
    Community Facilities District No. 2007-1, referred to as the Landscape Maintenance District special revenue fund, reported a decrease in fund balance of $447,353 (41.2%) in the current fiscal year. This decrease in fund balance is largely attributable to increases in operating costs such as water service and weed abatement, as well as a increase in project costs/capital outlay costs. Total fund balance of the Landscape Maintenance District is $ 638,533 as of June 30, 2022, of which $ 32,509 is reported as assigned or restricted for the following year’s operating budget, and the remaining fund balance is assigned.
   </p>
-<p>
+<p class="page-number">
    28
   </p>
 <div class="page-break">
@@ -7713,7 +7719,7 @@ h2.header:after {
 <p>
    General Fund actual revenues and transfers fall short of total revenues and transfers of the final and adopted budget by $39,744. The variance is due to a combination of factors including an increase in taxes and assessment and a decrease in the investment reported at year-end based on the market rate. The unrealized investment loss was reported as a direct result of the City’s investment portfolio being largely made up of fixed instrument securities during a time of declining interest rates. As noted in recent quarterly investment portfolio reports presented to the City Council, the City’s investment policy is designed to reduce volatility and generate consistent returns in the long run-in order to protect public funds. Actual property tax revenues exceeded somewhat conservative adopted budgetary growth projections by $186,163 (6.9%), which was largely offset by lower-than-expected revenue from permits, licenses and fees and sales tax receipts.
   </p>
-<p>
+<p class="page-number">
    29
   </p>
 <div class="page-break">
@@ -7758,7 +7764,7 @@ h2.header:after {
 <p>
    There was an increase in adopted General Fund operating appropriations when compared to the actuals reported as of June 30, 2022, for the upcoming fiscal year ending June 30, 2023 of $641,365 (10.2%) . The increase in appropriations is attributable primarily to labor wage and benefit costs of various City departments and capital improvement costs included as part of the general government. The annual June 2021 to June 2022 consumer price index inflationary factor is 6.8% as published by the U. S. Bureau of Labor and Statistics for the San Francisco-Oakland-Hayward region. In addition, there are projected decreases in the annual CalPERS unfunded accrued liabilities and normal costs, primarily due to Classic Tier employees retiring and new employees being hired in the PEPRA tier. The adopted budget for the fiscal year ending June 30, 2023 projects total General Fund revenues of $6,887,459 an increase of approximately
   </p>
-<p>
+<p class="page-number">
    30
   </p>
 <div class="page-break">
@@ -7794,7 +7800,7 @@ h2.header:after {
 <p>
    This financial report is designed to provide a general overview of the City of Clayton's finances for all those with an interest in the City's finances. Questions concerning any of the information provided in this report, or requests for additional financial information, should be addressed to the Office of the Finance Manager, 6000 Heritage Trail, Clayton, California 94517.
   </p>
-<p>
+<p class="page-number">
    31
   </p>
 <div class="page-break">
@@ -7811,7 +7817,7 @@ h2.header:after {
     FINANCIAL STATEMENTS
    </strong>
 </p>
-<p>
+<p class="page-number">
    32
   </p>
 <div class="page-break">
@@ -9255,7 +9261,7 @@ h2.header:after {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<p>
+<p class="page-number">
    33
   </p>
 <div class="page-break">
@@ -11130,7 +11136,7 @@ h2.header:after {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<p>
+<p class="page-number">
    34
   </p>
 <div class="page-break">
@@ -11142,7 +11148,7 @@ h2.header:after {
     This page intentionally left blank
    </em>
 </p>
-<p>
+<p class="page-number">
    35
   </p>
 <div class="page-break">
@@ -11154,7 +11160,7 @@ h2.header:after {
     FUND FINANCIAL STATEMENTS
    </strong>
 </p>
-<p>
+<p class="page-number">
    36
   </p>
 <div class="page-break">
@@ -11166,7 +11172,7 @@ h2.header:after {
     This page intentionally left blank
    </em>
 </p>
-<p>
+<p class="page-number">
    37
   </p>
 <div class="page-break">
@@ -11245,7 +11251,7 @@ h2.header:after {
 <p>
    All non-major governmental funds of the City are aggregated and presented on the face of the basic financial statements in one column.
   </p>
-<p>
+<p class="page-number">
    38
   </p>
 <div class="page-break">
@@ -12443,7 +12449,7 @@ h2.header:after {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<p>
+<p class="page-number">
    39
   </p>
 <div class="page-break">
@@ -13909,7 +13915,7 @@ h2.header:after {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<p>
+<p class="page-number">
    40
   </p>
 <div class="page-break">
@@ -13921,7 +13927,7 @@ h2.header:after {
     This page intentionally left blank
    </em>
 </p>
-<p>
+<p class="page-number">
    41
   </p>
 <div class="page-break">
@@ -14332,7 +14338,7 @@ h2.header:after {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<p>
+<p class="page-number">
    42
   </p>
 <div class="page-break">
@@ -15688,7 +15694,7 @@ h2.header:after {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<p>
+<p class="page-number">
    43
   </p>
 <div class="page-break">
@@ -17290,7 +17296,7 @@ h2.header:after {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<p>
+<p class="page-number">
    44
   </p>
 <div class="page-break">
@@ -17399,7 +17405,7 @@ h2.header:after {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<p>
+<p class="page-number">
    45
   </p>
 <div class="page-break">
@@ -17438,7 +17444,7 @@ h2.header:after {
 <p>
    The City’s internal service funds account for activities that provide goods or services to other City funds, departments, or agencies on a cost reimbursement basis. All internal service funds of the City are aggregated and presented on the face of the proprietary fund financial statements in one column.
   </p>
-<p>
+<p class="page-number">
    46
   </p>
 <div class="page-break">
@@ -18134,7 +18140,7 @@ h2.header:after {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<p>
+<p class="page-number">
    47
   </p>
 <div class="page-break">
@@ -18856,7 +18862,7 @@ h2.header:after {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<p>
+<p class="page-number">
    48
   </p>
 <div class="page-break">
@@ -19853,7 +19859,7 @@ h2.header:after {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<p>
+<p class="page-number">
    49
   </p>
 <div class="page-break">
@@ -19884,7 +19890,7 @@ h2.header:after {
 <p>
    Private purpose trust funds account for resources held by the City as trustee for third party beneficiaries, and are used to report both the Fiduciary Net Position and Changes in Fiduciary Net Position for the Successor Agency for the former Redevelopment Agency. Private Purpose Trust Funds are accounted for under the full accrual basis of accounting.
   </p>
-<p>
+<p class="page-number">
    50
   </p>
 <div class="page-break">
@@ -20635,7 +20641,7 @@ h2.header:after {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<p>
+<p class="page-number">
    51
   </p>
 <div class="page-break">
@@ -21050,7 +21056,7 @@ h2.header:after {
     The accompanying notes are an integral part of the financial statements
    </em>
 </p>
-<p>
+<p class="page-number">
    52
   </p>
 <div class="page-break">

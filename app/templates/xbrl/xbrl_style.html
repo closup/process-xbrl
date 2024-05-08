@@ -107,29 +107,14 @@ body {
     text-align: justify;
 }
 
-p {
-    margin-top: 0em;
-    margin-bottom: 1em;
-}
-
-.page-break {
-    display: block;
-    clear: both;
-    width: 100%;
-    margin-top: 50px; /* Increase the space before the break */
-    margin-bottom: 50px; /* Increase the space after the break */
-    border-bottom: 2px dotted #888; /* Dotted line to visually indicate a page break */
-    content: " "; /* Needed for the border to take effect */
-}
-
 /* Word styles */
 
 h1.title {
     font-weight: bold; /* Makes the text bold */
     font-size: 2em; /* Larger font size for title */
     text-align: center; /* Centers the text */
-    margin-top: 7em; /* Spacing above the title */
-    margin-bottom: 7em; /* Spacing below the title */
+    margin-top: 4em; /* Spacing above the title */
+    margin-bottom: 4em; /* Spacing below the title */
     color: #333333; /* Dark grey color for the text */
 }
 
@@ -162,6 +147,27 @@ h2.header:after {
     position: absolute;
     left: 0;
     bottom: 0; /* Aligns at the bottom of the element */
+}
+
+p {
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+.page-break {
+    display: block;
+    clear: both;
+    width: 8.9in;
+    margin-left: -1in;
+    margin-right: -1in;
+    margin-top: 50px; /* Increase the space before the break */
+    margin-bottom: 50px; /* Increase the space after the break */
+    border-bottom: 2px dotted #888; /* Dotted line to visually indicate a page break */
+    content: " "; /* Needed for the border to take effect */
+}
+
+.page-number {
+    text-align: center;
 }
 
 </style>
