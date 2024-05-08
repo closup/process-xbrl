@@ -91,4 +91,36 @@ th:last-child, td:last-child {
 }
 
 h1.center {text-align: center;}
+
+body {
+    font-family: 'Times New Roman', serif;
+    line-height: 1.15; /* Example line height addition */
+}
+
+.word-content {
+    max-width: 6.5in;
+    margin: 1in;
+    padding: 1in; /* Adding padding to mimic Word's default content padding */
+    border: 1px solid #ccc;
+    background-color: #fff; /* To resemble a Word document's white page */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow around the "page" */
+    /* text-align: justify; */
+}
+
+p {
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+.page-break {
+        display: block;
+        clear: both;
+        page-break-before: always;
+        height: 100vh;
+        border-top: 1px solid #000;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
 </style>
+

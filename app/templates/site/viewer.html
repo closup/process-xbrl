@@ -96,6 +96,37 @@ th:last-child, td:last-child {
 }
 
 h1.center {text-align: center;}
+
+body {
+    font-family: 'Times New Roman', serif;
+    line-height: 1.15; /* Example line height addition */
+}
+
+.word-content {
+    max-width: 6.5in;
+    margin: 1in;
+    padding: 1in; /* Adding padding to mimic Word's default content padding */
+    border: 1px solid #ccc;
+    background-color: #fff; /* To resemble a Word document's white page */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow around the "page" */
+    /* text-align: justify; */
+}
+
+p {
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+.page-break {
+        display: block;
+        clear: both;
+        page-break-before: always;
+        height: 100vh;
+        border-top: 1px solid #000;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
 </style>
 </head>
 <body class="gray">
@@ -106,6 +137,85 @@ h1.center {text-align: center;}
 </ix:references>
 <ix:resources>
 <!--Start of contexts-->
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_GeneralFund">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
+<acfr:nonedomain>
+                    acfr:GeneralFundMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_SuccessorHousingAgency">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:SuccessorHousingAgencyMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_BusinessTypeActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_SuccessorHousingAgency">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:SuccessorHousingAgencyMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
 <xbrli:context id="Idate_parse_error_LandscapeMaintenanceDistrict">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
@@ -115,6 +225,21 @@ h1.center {text-align: center;}
                     acfr:LandscapeMaintenanceDistrictMember
                     </acfr:fundidentifierdomain>
 </xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_GovernmentalActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -136,13 +261,103 @@ h1.center {text-align: center;}
 <xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_GovernmentalFunds">
+<xbrli:context id="Ddate_parse_error_CapitalImprovementProgram">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:CapitalImprovementProgramMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_PrimaryGovernmentActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
 <acfr:nonedomain>
-                    acfr:GovernmentalFundsMember
+                    acfr:PrimaryGovernmentActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_OtherGovernmentalFunds">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:OtherGovernmentalFundsMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_GovernmentalActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_ComponentUnitDiscretelyPresented">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:ComponentUnitDiscretelyPresentedMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_PrimaryGovernmentActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:PrimaryGovernmentActivitiesMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 </xbrli:segment>
@@ -151,20 +366,19 @@ h1.center {text-align: center;}
 <xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_SuccessorHousingAgency">
+<xbrli:context id="Idate_parse_error_BusinessTypeActivities">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:SuccessorHousingAgencyMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
+<xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
 <xbrli:context id="Ddate_parse_error_GovernmentalFunds">
@@ -183,10 +397,20 @@ h1.center {text-align: center;}
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -194,7 +418,7 @@ h1.center {text-align: center;}
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_InternalServiceFunds">
+<xbrli:context id="Idate_parse_error_InternalServiceFunds">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
@@ -206,19 +430,71 @@ h1.center {text-align: center;}
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
+<xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_BusinessTypeActivities">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
 <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
 <acfr:nonedomain>
                     acfr:BusinessTypeActivitiesMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_GovernmentalActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_LandscapeMaintenanceDistrict">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:LandscapeMaintenanceDistrictMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -247,22 +523,145 @@ h1.center {text-align: center;}
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_CapitalImprovementProgram">
+<xbrli:context id="Ddate_parse_error_AmericanRescuePlanAct">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
 <acfr:fundidentifierdomain>
-                    acfr:CapitalImprovementProgramMember
+                    acfr:AmericanRescuePlanActMember
                     </acfr:fundidentifierdomain>
 </xbrldi:typedmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_OtherGovernmentalFunds">
+<xbrli:context id="Ddate_parse_error_EndeavorHall">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+<acfr:proprietaryfundsdomain>
+                    acfr:EndeavorHallMember
+                    </acfr:proprietaryfundsdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_GovernmentalActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_ComponentUnitDiscretelyPresented">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:ComponentUnitDiscretelyPresentedMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_BusinessTypeActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ComponentUnitDiscretelyPresented">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:ComponentUnitDiscretelyPresentedMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_InternalServiceFunds">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+<acfr:proprietaryfundsdomain>
+                    acfr:InternalServiceFundsMember
+                    </acfr:proprietaryfundsdomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_OtherGovernmentalFunds">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
@@ -274,32 +673,16 @@ h1.center {text-align: center;}
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_PrimaryGovernmentActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:PrimaryGovernmentActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
 <xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_SuccessorHousingAgency">
+<xbrli:context id="Idate_parse_error_CapitalImprovementProgram">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
 <acfr:fundidentifierdomain>
-                    acfr:SuccessorHousingAgencyMember
+                    acfr:CapitalImprovementProgramMember
                     </acfr:fundidentifierdomain>
 </xbrldi:typedmember>
 </xbrli:segment>
@@ -345,212 +728,7 @@ h1.center {text-align: center;}
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_GovernmentalActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_EndeavorHall">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-<acfr:proprietaryfundsdomain>
-                    acfr:EndeavorHallMember
-                    </acfr:proprietaryfundsdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_InternalServiceFunds">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-<acfr:proprietaryfundsdomain>
-                    acfr:InternalServiceFundsMember
-                    </acfr:proprietaryfundsdomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_LandscapeMaintenanceDistrict">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:LandscapeMaintenanceDistrictMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_GovernmentalActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_PrimaryGovernmentActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:PrimaryGovernmentActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_GovernmentalActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ComponentUnitDiscretelyPresented">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_BusinessTypeActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_GeneralFund">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
-<acfr:nonedomain>
-                    acfr:GeneralFundMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_AmericanRescuePlanAct">
+<xbrli:context id="Idate_parse_error_AmericanRescuePlanAct">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
@@ -562,50 +740,7 @@ h1.center {text-align: center;}
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_ComponentUnitDiscretelyPresented">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
+<xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
 <xbrli:context id="Idate_parse_error_GeneralFund">
@@ -623,119 +758,15 @@ h1.center {text-align: center;}
 <xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_BusinessTypeActivities">
+<xbrli:context id="Idate_parse_error_GovernmentalFunds">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
 <acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
+                    acfr:GovernmentalFundsMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_CapitalImprovementProgram">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:CapitalImprovementProgramMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_GovernmentalActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_AmericanRescuePlanAct">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:AmericanRescuePlanActMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_ComponentUnitDiscretelyPresented">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_OtherGovernmentalFunds">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:OtherGovernmentalFundsMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -834,9 +865,16 @@ h1.center {text-align: center;}
 </ix:header>
 </div>
 <!-- Visible content starts here -->
+<br/>
 <a href="#tables">Go to financial tables</a>
 <br/>
 <br/>
+<div style="text-align: center;">
+<!-- Include converted Word content -->
+<div class="word-content">
+<html><body><p></p><p><strong>City of Clayton, California Annual Financial Report For the Year Ended June 30, 2022</strong></p><p><strong>INTRODUCTORY SECTION</strong></p><p><strong>City of Clayton</strong></p><p><strong>Comprehensive Annual Financial Report</strong></p><p><strong>For the year ended June 30, 2022</strong></p><p><strong>Table of Contents</strong></p><table><tr><td><p><strong>Page</strong></p></td></tr><tr><td colspan="3"><p><strong>INTRODUCTORY SECTION</strong></p></td></tr><tr><td rowspan="2"><p>1</p></td></tr><tr><td colspan="3"><p><strong>Table of Contents……………………………………………………………………………….</strong></p></td></tr><tr><td colspan="3"><p><strong>Letter of Transmittal……………………………………………………………………………</strong></p></td><td><p>4</p></td></tr><tr><td colspan="3"><p><strong>Mission Statement……………………………………………………………………………...</strong></p></td><td><p>9</p></td></tr><tr><td colspan="3"><p><strong>Organizational Chart…………………………………………………………………………...</strong></p></td><td><p>10</p></td></tr><tr><td colspan="3"><p><strong>Principal Officers, Department Heads and Advisory Bodies</strong></p></td><td><p>11</p></td></tr><tr><td colspan="3"><p><strong>Regional Map of Clayton and Nearby Cities</strong></p></td><td><p>12</p></td></tr><tr><td><p><strong>FINANCIAL SECTION</strong></p></td></tr><tr><td colspan="3"><p><strong>Independent Auditors’ Report……………………………. . …………………………………</strong></p></td><td><p>17</p></td></tr><tr><td colspan="3"><p><strong>Management's Discussion and Analysis………………………. . . …………………………. .</strong></p></td><td><p>21</p></td></tr><tr><td colspan="3"><p><strong>Basic Financial Statements</strong></p></td></tr><tr><td colspan="3"><p><em>Government-Wide Financial Statements:</em></p></td></tr><tr><td colspan="3"><p>Statement of Net Position………………………………………………. . ……………</p></td><td><p>33</p></td></tr><tr><td colspan="3"><p>Statement of Activities and Changes in Net Position………………………. . …….</p></td><td><p>34</p></td></tr><tr><td colspan="3"><p><em>Governmental Fund Financial Statements:</em></p></td></tr><tr><td colspan="3"><p>Balance Sheet……………………………………………………………. . …………….</p></td><td><p>39</p></td></tr><tr><td colspan="3"><p>Reconciliation of Governmental Funds Balance Sheet to the Statement of</p></td></tr><tr><td colspan="3"><p>Net Position…………………………………………………………………………</p></td><td><p>42</p></td></tr><tr><td colspan="3"><p>Statement of Revenues, Expenditures and Changes in Fund Balances…………. .</p></td><td><p>43</p></td></tr><tr><td colspan="3"><p>Reconciliation of the Governmental Funds Statement of Revenues, Expenditures and</p></td></tr><tr><td colspan="3"><p>Changes in Fund Balances to the Statement of Activities and Changes in Net</p></td></tr><tr><td colspan="3"><p>Position…. . . ……………………………………. . …………. . .</p></td><td><p>45</p></td></tr><tr><td colspan="3"><p><em>Proprietary Fund Financial Statements:</em></p></td></tr><tr><td colspan="3"><p>Statement of Net Position………………………………………. . ……………………</p></td><td><p>47</p></td></tr><tr><td colspan="3"><p>Statement of Revenues, Expenses and Changes in Net Position…………. . . ……. .</p></td><td><p>48</p></td></tr><tr><td colspan="3"><p>Statement of Cash Flows……………………………………………………. . ……….</p></td><td><p>49</p></td></tr><tr><td colspan="3"><p><em>Fiduciary Fund Financial Statements:</em></p></td></tr><tr><td colspan="3"><p>Statement of Fiduciary Net Position…………………………………. . ……………. .</p></td><td><p>51</p></td></tr><tr><td colspan="3"><p>Statement of Changes in Fiduciary Net Position……………………. . …………….</p></td><td><p>52</p></td></tr><tr><td colspan="3"><p><em>Notes to Basic Financial Statements…………………………………. . ……………………. .</em></p></td><td><p>55</p></td></tr></table><p>1</p><p><strong>City of Clayton</strong></p><p><strong>Comprehensive Annual Financial Report</strong></p><p><strong>For the year ended June 30, 2022</strong></p><p><strong>Table of Contents</strong></p><table><tr><td><p><strong>FINANCIAL SECTION (Continued)</strong></p></td></tr><tr><td colspan="2"><p><strong>Required Supplementary Information</strong></p></td></tr><tr><td colspan="2"><p><em>Budgetary Comparison Schedules</em></p></td></tr><tr><td colspan="2"><p>General Fund……………………………………………………. . . ……………………</p></td><td><p>103</p></td></tr><tr><td colspan="2"><p>Landscape Maintenance District ……………. …………. . . ………………………….</p></td><td><p>104</p></td></tr><tr><td colspan="2"><p>Successor Housing Agency………. . ……………. . . …………………………………. .</p></td><td><p>105</p></td></tr><tr><td colspan="2"><p>American Rescue Plan Act………. . ……………. . . …………………………………. .</p></td><td><p>106</p></td></tr><tr><td colspan="2"><p><em>Pension Plan Funding Status</em></p></td></tr><tr><td colspan="2"><p>Schedule of Proportionate Share of Net Pension Liability…. . …………………….</p></td><td><p>107</p></td></tr><tr><td colspan="2"><p>Schedule of Pension Plan Contributions…. . …. . . ……………………………………</p></td><td><p>108</p></td></tr><tr><td colspan="2"><p><em>Other Postemployment Benefits Plan Funding Status</em></p></td></tr><tr><td colspan="2"><p>Schedule of Changes in the Net OPEB Liability and Related Ratios. …………….</p></td><td><p>109</p></td></tr><tr><td colspan="2"><p>Schedule of OPEB Plan Contributions……. . …. . . ……………………………………</p></td><td><p>110</p></td></tr><tr><td colspan="2"><p><em>Notes to the Required Supplementary Information………………………………………….</em></p></td><td><p>111</p></td></tr><tr><td colspan="2"><p><strong>Supplementary Information</strong></p></td></tr><tr><td colspan="2"><p><em>Major Funds</em></p></td></tr><tr><td colspan="2"><p>Budgetary Comparison Schedules. . . . . …………………………………………. . ……</p></td><td><p>114</p></td></tr><tr><td colspan="2"><p><em>Non-Major Governmental Funds Financial Statements:</em></p></td></tr><tr><td colspan="2"><p>Combining Balance Sheet………………………………………………………. . ……</p></td><td><p>117</p></td></tr><tr><td colspan="2"><p>Combining Statement of Revenues, Expenditures and Changes in Fund</p></td></tr><tr><td colspan="2"><p>Balances………………………………………………………. . . ……………………</p></td><td><p>119</p></td></tr><tr><td colspan="2"><p>Budgetary Comparison Schedules……………………………………. . …………….</p></td><td><p>121</p></td></tr><tr><td colspan="2"><p><em>Internal Service Funds:</em></p></td></tr><tr><td colspan="2"><p>Combining Statement of Net Position. . . ………………………………. . ……………</p></td><td><p>133</p></td></tr><tr><td colspan="2"><p>Combining Statement of Revenues, Expenses and Changes in Net</p></td></tr><tr><td colspan="2"><p>Position…………………………………………………………. . . ………………….</p></td><td><p>134</p></td></tr><tr><td colspan="2"><p>Combining Statement of Cash Flows………………………………. . ………………</p></td><td><p>135</p></td></tr><tr><td colspan="2"><p><em>Agency Funds:</em></p></td></tr><tr><td colspan="2"><p>Combining Statement of Changes in Assets and Liabilities………………. . ……. .</p></td><td><p>137</p></td></tr></table><p>2</p><p><strong>City of Clayton</strong></p><p><strong>Comprehensive Annual Financial Report</strong></p><p><strong>For the year ended June 30, 2022</strong></p><p><strong>Table of Contents</strong></p><table><tr><td><p><strong>STATISTICAL SECTION (UNAUDITED)</strong></p></td></tr><tr><td colspan="2"><p><strong>Statistical Section Table of Contents…………………………………………………..</strong></p></td><td><p>142</p></td></tr><tr><td colspan="2"><p><strong>Financial Trends</strong></p></td></tr><tr><td colspan="2"><p><em>Net Position by Component</em><strong>……………………………………………………………</strong></p></td><td><p>143</p></td></tr><tr><td colspan="2"><p><em>Changes in Net Position</em><strong>……………………………………………………………….</strong></p></td><td><p>145</p></td></tr><tr><td colspan="2"><p><em>Fund Balances of Governmental Funds</em><strong>……………………………………………….</strong></p></td><td><p>147</p></td></tr><tr><td colspan="2"><p><em>Changes in Fund Balances of Governmental Funds</em><strong>…………………………………..</strong></p></td><td><p>149</p></td></tr><tr><td colspan="2"><p><strong>Revenue Capacity</strong></p></td></tr><tr><td colspan="2"><p><em>Property Tax Levies and Collections</em><strong>……………………………………………..........</strong></p></td><td><p>151</p></td></tr><tr><td colspan="2"><p><em>Assessed Value and Estimated Actual Value of Taxable Property</em><strong>……………………</strong></p></td><td><p>152</p></td></tr><tr><td colspan="2"><p><em>Taxable Assessed Value by Source</em><strong>………………………………………………</strong></p></td><td><p>153</p></td></tr><tr><td colspan="2"><p><em>Property Tax Rates</em><strong>…………………………………………………………………….</strong></p></td><td><p>155</p></td></tr><tr><td colspan="2"><p><em>Principal Property Tax Payers</em><strong>………………………………………………………..</strong></p></td><td><p>157</p></td></tr><tr><td colspan="2"><p><strong>Debt Capacity</strong></p></td></tr><tr><td colspan="2"><p><em>Ratios of Debt Outstanding</em><strong>……………………………………………………….......</strong></p></td><td><p>159</p></td></tr><tr><td colspan="2"><p><em>Computation of Direct and Overlapping Debt</em><strong>……….……………………………….</strong></p></td><td><p>160</p></td></tr><tr><td colspan="2"><p><em>Legal Debt Margin</em><strong>………………………………………………………………….....</strong></p></td><td><p>161</p></td></tr><tr><td colspan="2"><p><em>Bonded Debt Pledged Revenue Coverage</em><strong>………………………………………………..</strong></p></td><td><p>163</p></td></tr><tr><td colspan="2"><p><strong>Demographic and Economic Information</strong></p></td></tr><tr><td colspan="2"><p><em>Demographic and Economic Statistics</em><strong>…………………………………………………</strong></p></td><td><p>164</p></td></tr><tr><td colspan="2"><p><strong>Operating Information</strong></p></td></tr><tr><td colspan="2"><p><em>Full-time Equivalent City Employees by Function</em><strong>…………………………………….</strong></p></td><td><p>165</p></td></tr><tr><td colspan="2"><p><em>Operating Indicators by Function</em><strong>………………………………………………………</strong></p></td><td><p>167</p></td></tr><tr><td colspan="2"><p><em>Capital Asset Statistics by Function</em><strong>……………………………………………………</strong></p></td><td><p>169</p></td></tr><tr><td colspan="2"><p><em>General Information</em><strong>…………………………………………………………………….</strong></p></td><td><p>171</p></td></tr><tr><td colspan="2"><p>ADDITIONAL REPORTS</p></td></tr><tr><td colspan="2"><p>Independent Auditors’ Report on Internal Controls over Financial Reporting</p></td></tr><tr><td colspan="2"><p>and on Compliance and other Matters Based on an Audit of Financial Statements</p></td></tr><tr><td colspan="2"><p>Performed in Accordance with Government Auditing Standards<strong>…………………….</strong></p></td><td><p>173</p></td></tr></table><p>3</p><p></p><table><tr><td><p><em>CITY COUNCIL</em></p></td></tr><tr><td rowspan="2"><p>COMMUNITY</p></td><td><p><em>CARL “CW” WOLFE, MAYOR</em></p></td></tr><tr><td><p><em>PETER CLOVEN, VICE MAYOR</em></p></td></tr><tr><td><p>DEVELOPMENT</p></td><td><p>(925) 673‐7340</p></td><td><p>6000 HERITAGE TRAIL  CLAYTON, CALIFORNIA 94517‐1250</p></td><td><p><em>JEFF WAN, COUNCILMEMBER</em></p></td></tr><tr><td><p>ENGINEERING</p></td><td><p>(925) 969‐8181</p></td><td><p>TELEPHONE (925) 673‐7300 FAX (925) 672‐4717</p></td><td><p><em>JIM DIAZ, COUNCILMEMBER</em></p></td></tr><tr><td><p>HOLLY TILLMAN<em>, COUNCILMEMBER</em></p></td></tr></table><p>January 23, 2023</p><p>Honorable Mayor and Members of the City Council</p><p>City of Clayton</p><p>We are pleased to submit the City of Clayton’s Annual Comprehensive Financial Report (ACFR) for the Fiscal year ended June 30, 2022. Since its incorporation, the City has submitted an annual audited Financial Report to the City Council and its citizens in accordance with <em>California Government Code</em> section 25253. The ACFR provides the public, businesses, property owners, investors and all interested parties with an overview of the City’s finances. It is important to note the acronym for this report has changed from CAFR to ACFR as the prior acronym can be considered an offensive racial slur and is no longer used. The information in this ACFR is prepared in accordance with Generally Accepted Accounting Principles (GAAP) and includes an “unmodified opinion” (the highest rating) on the report by an independent certified public accounting firm, Cropper Rowe, LLP.</p><p>Although we rely on the standards and expertise of these independent auditors, the responsibility for the accuracy and fair representation of the ACFR ultimately rests with City management. We believe the data presented in this Report is accurate in all material respects and all statements and disclosures have been included necessary for the reader to obtain a thorough understanding of the City’s financial activities. Management of the City has established an internal control framework that is designed both to protect the City’s assets from loss, theft, or misuse and to compile reliable and timely information for the preparation of the City’s financial statements in conformity with GAAP. Because the cost of internal controls should not outweigh its benefits, the City’s framework of internal controls has been designed to provide reasonable rather than absolute assurance that its financial statements will be free from material misstatements.</p><p>For readers interested in a more detailed review of the City’s financial statements, a section in the ACFR called “Management Discussion and Analysis” (MD&amp;A) has been included in accordance with Government Accounting Standards Board (GASB) Statement 34, <em>Basic Financial Statements – And Management’s Discussion and Analysis – For State and Local Governments</em>. The MD&amp;A recounts the<em> </em>financial highlights of the City and provides additional analyses on the variances and trends reported as part of the financial statements. The MD&amp;A further discloses significant items impacting the financial condition of the City and is designed to be read in conjunction with this Letter of Transmittal.</p><p><strong><em>City Profile</em></strong></p><p>The City of Clayton was incorporated in 1964 and is located in Contra Costa County, a suburban region in the eastern portion of the San Francisco-Bay Area. Pursuant to its adopted budget for the fiscal year ending June 30, 2022, the City has a permanent staff of 27.4 full- time equivalent employees which serves approximately 11,585 residents in a land area of approximately 4 square miles. Nestled in a small valley at the northern base of Mt. Diablo, the boundaries of the City are mostly developed with a</p><p>4</p><p><strong>City of Clayton</strong></p><p><strong>Comprehensive Annual Financial Report</strong></p><p><strong>For the year ended June 30, 2022</strong></p><p><strong>Letter of Transmittal</strong></p><p><strong><em>City Profile</em></strong>, <strong><em>continued</em></strong></p><p>strong community emphasis on open space preservation and maintenance of an extensive network of trails. The City continues to show strength as a safe community with attractive residential neighborhoods as a gateway to the fast paced and robust Bay Area economy.</p><p>The City operates under a Council- Manager form of government and provides many essential public services to the community. The City is governed by a five-member City Council elected at large, serving staggered terms of four years. The Mayor and Vice Mayor are selected by the City Council each year from its membership and serve one-year terms. The City Council is responsible for setting policies, adopting City ordinances, resolutions, the annual budget, appointing commissions and committees, and hiring the City Manager and City Attorney, among other key duties. The City Manager is responsible for implementing the City Council’s policies, ordinances and directives, overseeing the daily operations of the City, and appointing all department heads and through them all other employees of the City.</p><p>As presented in the City’s government-wide statement of activities, pursuant to GASBS 34, the City’s numerous departments and restricted- use funds accounting for public services are consolidated into higher-level <em>programs</em>, which include: public safety, public works, parks and recreation services, community and economic development, and general government. The public safety program is composed of an in-house police department, staffed with eleven (11) full-time sworn police officers and two (2) administrative personnel dedicated to the function of police services. Public works tracks the maintenance of public landscaping (i.e. street medians and shoulders, sub-division entryways, etc.), facilities, transportation infrastructure (i.e. streets, lighting, traffic signals, etc.), as well as contract City engineering services for management of the City’s Capital Improvement Program as well as land development regulatory needs. In their capacity of providing parks and recreation services, the City’s in-house maintenance department oversees the maintenance of the Clayton Community Library, the Clayton Community Park, The Grove Park, various neighborhood parks, and the historic Endeavor Hall rental facility. The community and economic development program consists of two (2) in-house staff providing planning and land-use regulatory services as well as the functions of economic development and affordable housing. Finally, the general government program reports legislative and support costs indispensable in providing in-house public services and maintains compliance an ever-expanding list of legal, fiscal and other statutory requirements imposed by the State of California.</p><p>The City’s fiscal year runs from July 1st through June 30th . Each year, the City Manager presents an annual budget to the City Council for adoption by Resolution on or before June 30th in accordance with <em>Clayton Municipal Code</em> section 3.02.040. On an interim basis the budget is monitored continually with the<em> </em>budgetary level of control maintained at the fund level.</p><p><strong><em>Economic Condition and Outlook</em></strong></p><p>Essentially a cul-de-sac hugging the base of acclaimed Mt. Diablo, Clayton maintains a small-town atmosphere while its relative proximity to California State Highway 24 and neighboring city BART stations make it ideal for commuters. In addition, the semi-rural setting, low crime rate and excellent middle and elementary public schools make Clayton attractive to families of all types.</p><p>5</p><p><strong>City of Clayton</strong></p><p><strong>Comprehensive Annual Financial Report</strong></p><p><strong>For the year ended June 30, 2022</strong></p><p><strong>Letter of Transmittal</strong></p><p><strong><em>Economic Condition and Outlook, continued</em></strong></p><p>Its residents are generally highly educated with approximately 57.8% of adults greater than age 25 having a bachelor’s degree or higher. In June of 2022, the unemployment rate of the City was 3.0%, compared to 3.20% and 4.0% for Contra Costa County and the State of California, respectively. In 2020 the median household income in the City was $153,607 compared to $87,355 for the state. The median age of Clayton residents is 43.1 as of the 2021 calendar year. The median sales price of homes in Clayton at June 30, 2022 was $ 1,050,000, a 8.7% year over year decrease. Despite this decline, property tax and sales &amp; use tax revenues remain relatively strong.</p><p>In order, the City General Fund’s top revenue sources are: in-lieu vehicle license fees (VLF – paid from the state’s portion of property taxes); secured property taxes; franchise fees; and sales &amp; use taxes (including the state- allocated “triple flip” prior to the fiscal year ending June 30, 2017). The following chart illustrates the ten-year trend of these four major revenue sources for the City taken from the 2022-23 Adopted Budget:</p><p></p><p>6</p><p><strong>City of Clayton</strong></p><p><strong>Comprehensive Annual Financial Report</strong></p><p><strong>For the year ended June 30, 2022</strong></p><p><strong>Letter of Transmittal</strong></p><p>Altogether, these four primary revenue sources (Property Tax In-Lieu 22.1%, Property Taxes 20.6%, Franchise Fees 10.7%, Sales and Use Taxes 10.5%) comprise 63.9% of General Fund revenues per the adopted budget for the fiscal year ending June 30, 2023. A non-recurring spike was realized in sales and use taxes six years ago in the year ended June 30, 2017 attributable to the City receiving a final true-up Triple Flip allocation from the state following the statutory dissolution of this process effective January 1, 2017. Accordingly, the following year realized a dip back to “normal” sales &amp; use tax trend levels. In the long-run however, given the suburban composition of the City and its geographic boundaries limiting future development, management anticipates slow growth for the next ten years in sales &amp; use taxes and franchise fees and moderate growth in property tax revenue (including in-lieu VLF property taxes received from the state) . With increasing telecommunications technologies, cable-based franchise fees could be a declining or at-risk revenue, while other factors such as weather patterns and sustainable energy trends could impact similar franchise fee revenue. Given the recent U.S. Supreme Court <em>South Dakota v. Wayfair</em> ruling, it is reasonably possible the City will see an increase in sales &amp; use tax revenue in forthcoming years with the definition of eligible taxable sales transactions now potentially including all online sales where “substantial nexus” requirements exist with online sellers in California.</p><p><strong><em>Long‐Term Financial Planning</em></strong></p><p>As of the year ended June 30, 2022, the City of Clayton’s financial condition remains sound. An indicator of financial condition is the level of fund balances, both reserved and unreserved, in the City’s General Fund. The City Council has directed an absolute minimum reserve of $250,000 as its never-to-be-expended “catastrophic reserve.” In practice, due to the effectiveness in fiscal management, this policy has been easily achieved, indicating perhaps this floor requirement should be elevated in the future. However, the standing Policy Goal of the City Council is to establish and retain an undesignated reserve of 50% the annual General Fund operating budget. At June 30, 2022, the total unassigned General Fund reserve balance is $6,068,266 or .97 times the size of the adopted General Fund operating budget for the fiscal year ending June 30, 2022. This means in an emergency scenario, the City could operate over an entire year on reserves alone.</p><p>The City of Clayton maintains a five-year Capital Improvement Program (CIP), which serves as its planning document to ensure its infrastructure is well maintained. The City prioritizes roads for maintenance and reconstruction based on the relative pavement condition index, with other infrastructure and facility improvement projects prioritized at the discretion of the City Council. Over the course of the last 10 years the City has invested approximately $1.0 million into facility and infrastructure capital improvements, funded by Highway User Tax Apportionments (i.e. HUTA or “gas taxes”), local Measure J taxes, redevelopment property tax increment allocations (prior to the dissolution of the Clayton Redevelopment Agency in 2012), and other state and federal grants. For the upcoming fiscal year ending June 30, 2023, the City’s CIP is expected to invest an additional $1,362,697 into transportation and general infrastructure maintenance and improvement needs of the community.</p><p>7</p><p><strong>City of Clayton</strong></p><p><strong>Comprehensive Annual Financial Report</strong></p><p><strong>For the year ended June 30, 2022</strong></p><p><strong>Letter of Transmittal</strong></p><p><strong><em>Acknowledgements</em></strong></p><p>The preparation of an ACFR cannot be accomplished without the professional, efficient and dedicated services of the Admin/Finance/Legal Department staff (in particular, Accounting Technician Jennifer Giantvalley), and the independent accounting firm of Cropper Rowe, LLP. We also thank the honorable members of the City Council and the various departments for their cooperation and support in planning and conducting the financial operations of the City during the fiscal year.</p><p>Respectfully Submitted,</p><p>Reina J. Schwartz	Nitish Sharma</p><p>City Manager	Finance Director (Interim)</p><p>8</p><p><strong>OUR MISSION</strong></p><p>To be of exemplary service to the Clayton community with an emphasis on:</p><ul><li>Health and safety</li><li>Responsive customer service</li><li>Highly trained team of employees</li><li>A cooperative work environment</li></ul><p><strong>OUR VALUES</strong></p><p> Courtesy	 Inclusiveness</p><p> Creativity	 Informed risk taking</p><p> Diversity	 Open communication</p><p> Employee participation	 Professionalism</p><p> Ethical behavior	 Trustworthiness</p><p> Fiscal responsibility</p><p><strong>OUR VISION</strong></p><p>The City of Clayton organization will be recognized as a premier small city. Customer service will be our hallmark; organizational processes will be a model of efficiency and effectiveness; innovation will be common place; and excellence of work product will be the norm. The employees will enjoy their work environment, and each will be a valued and respected member in his or her field of work. All residents and the City Council will be proud of their City government.</p><p>9</p><p></p><p>Finance Director</p><p>10</p><p><strong>DIRECTORY OF PRINCIPAL OFFICIALS AND ADVISORY BODIES</strong></p><p><strong>As of report issuance</strong></p><p><strong>CITY COUNCIL</strong></p><p>Jeff Wan, Mayor</p><p>Jim Diaz, Vice Mayor</p><p>Peter Cloven, Councilmember</p><p>Holly Tillman, Councilmember</p><p>Kim Trupiano, Councilmember</p><p><strong>COMMISSIONS</strong></p><p>Planning Commission</p><p><strong>COMMITTEES</strong></p><p>Trails and Landscaping Committee</p><p><strong>APPOINTED OFFICIALS AND DEPARTMENT HEADS</strong></p><table><tr><td colspan="2"><p>Reina Schwartz</p></td><td colspan="2"><p>City Manager</p></td></tr><tr><td colspan="2"><p>Hank Stratford</p></td><td colspan="2"><p>City Treasurer</p></td></tr><tr><td colspan="2"><p>Nitish Sharma</p></td><td colspan="2"><p>Finance Director (Interim)</p></td></tr><tr><td colspan="2"><p>Richard McEachin</p></td><td colspan="2"><p>Chief of Police</p></td></tr><tr><td colspan="2"><p>Janet Calderon</p></td><td colspan="2"><p>City Clerk / HR Manager</p></td></tr><tr><td colspan="2"><p>Dana Ayers</p></td><td colspan="2"><p>Community Development Director</p></td></tr><tr><td colspan="2"><p>Jim Warburton</p></td><td colspan="2"><p>Maintenance Supervisor</p></td></tr><tr><td colspan="2"><p>Malathy Subramanian</p></td><td colspan="2"><p>City Attorney (contract)</p></td></tr><tr><td colspan="2"><p>Larry Theis</p></td><td colspan="2"><p>City Engineer (contract)</p></td></tr><tr><td colspan="3"><p><strong>FINANCE TEAM</strong></p></td></tr><tr></tr><tr><td colspan="2"><p>Jennifer Giantvalley</p></td><td colspan="2"><p>Accounting Technician</p></td></tr><tr><td colspan="2"><p>Richard Sanders</p></td><td colspan="2"><p>Accountant (consultant)</p></td></tr></table><p>11</p><p><strong>Regional Map of Clayton, California</strong></p><p><strong>And Nearby Cities</strong></p><p></p><p>12</p><p><em>This page intentionally left blank</em></p><p>13</p><p><strong>FINANCIAL SECTION</strong></p><p>14</p><p><em>This page intentionally left blank</em></p><p>15</p><p><strong>INDEPENDENT AUDITORS’</strong></p><p><strong>REPORT</strong></p><p>16</p><p></p><p>INDEPENDENT AUDITOR’S REPORT</p><p>To the City Council</p><p>City of Clayton, California</p><p><strong>Report on the Audit of the Financial Statements</strong></p><p><strong><em>Opinions</em></strong></p><p>We have audited the accompanying financial statements of the governmental activities, the business-type activities, each major fund, and the aggregate remaining fund information of the City of Clayton, Clayton, as of and for the year ended June 30, 2022, and the related notes to the financial statements, which collectively comprise the City of Clayton’s basic financial statements as listed in the table of contents.</p><p>In our opinion, the financial statements referred to above present fairly, in all material respects, the respective financial position of the governmental activities, the business-type activities, each major fund, and the aggregate remaining fund information of the City of Clayton, as of June 30, 2022, and the respective changes in financial position, and, where applicable, cash flows thereof for the year then ended in accordance with accounting principles generally accepted in the United States of America.</p><p><strong><em>Basis for Opinions</em></strong></p><p>We conducted our audit in accordance with auditing standards generally accepted in the United States of America and the standards applicable to financial audits contained in <em>Government Auditing Standards</em>, issued by the Comptroller General of the United States. Our responsibilities under those standards are further described in the Auditor’s Responsibilities for the Audit of the Financial Statements section of our report. We are required to be independent of the City of Clayton and to meet our other ethical responsibilities, in accordance with the relevant ethical requirements relating to our audit. We believe that the audit evidence we have obtained is sufficient and appropriate to provide a basis for our audit opinions.</p><p><strong><em>Responsibilities of Management for the Financial Statements</em></strong></p><p>Management is responsible for the preparation and fair presentation of the financial statements in accordance with accounting principles generally accepted in the United States of America, and for the design, implementation, and maintenance of internal control relevant to the preparation and fair presentation of financial statements that are free from material misstatement, whether due to fraud or error.</p><p>In preparing the financial statements, management is required to evaluate whether there are conditions or events, considered in the aggregate, that raise substantial doubt about the City of Clayton’s ability to continue as a going concern for twelve months beyond the financial statement date, including any currently known information that may raise substantial doubt shortly thereafter.</p><p><strong><em>Auditor’s Responsibilities for the Audit of the Financial Statements</em></strong></p><p>Our objectives are to obtain reasonable assurance about whether the financial statements as a whole are free from material misstatement, whether due to fraud or error, and to issue an auditor’s report that includes our opinions. Reasonable assurance is a high level of assurance but is not absolute assurance and therefore is not a guarantee that an audit conducted in accordance with generally accepted auditing standards and <em>Government Auditing Standards</em> will always detect a material misstatement when it exists. The risk of not detecting a material misstatement resulting from fraud is higher than for one resulting</p><p>17</p><p>from error, as fraud may involve collusion, forgery, intentional omissions, misrepresentations, or the override of internal control. Misstatements are considered material if there is a substantial likelihood that, individually or in the aggregate, they would influence the judgment made by a reasonable user based on the financial statements.</p><p>In performing an audit in accordance with generally accepted auditing standards and <em>Government Auditing Standards</em>, we:</p><p>Exercise professional judgment and maintain professional skepticism throughout the audit.</p><p>Identify and assess the risks of material misstatement of the financial statements, whether due to fraud or error, and design and perform audit procedures responsive to those risks. Such procedures include examining, on a test basis, evidence regarding the amounts and disclosures in the financial statements.</p><p>Obtain an understanding of internal control relevant to the audit in order to design audit procedures that are appropriate in the circumstances, but not for the purpose of expressing an opinion on the effectiveness of the City of Clayton’s internal control. Accordingly, no such opinion is expressed.</p><p>Evaluate the appropriateness of accounting policies used and the reasonableness of significant accounting estimates made by management, as well as evaluate the overall presentation of the financial statements.</p><p>Conclude whether, in our judgment, there are conditions or events, considered in the aggregate, that raise substantial doubt about the City of Clayton’s ability to continue as a going concern for a reasonable period of time.</p><p>We are required to communicate with those charged with governance regarding, among other matters, the planned scope and timing of the audit, significant audit findings, and certain internal control-related matters that we identified during the audit.</p><p><strong><em>Required Supplementary Information</em></strong></p><p>Accounting principles generally accepted in the United States of America require that the management’s discussion and analysis, pension plan funding status, other postemployment benefits plan funding status, and budgetary comparison information on pages 21-31 and 103-111 be presented to supplement the basic financial statements. Such information is the responsibility of management and, although not a part of the basic financial statements, is required by the Governmental Accounting Standards Board who considers it to be an essential part of financial reporting for placing the basic financial statements in an appropriate operational, economic, or historical context. We have applied certain limited procedures to the required supplementary information in accordance with auditing standards generally accepted in the United States of America, which consisted of inquiries of management about the methods of preparing the information and comparing the information for consistency with management’s responses to our inquiries, the basic financial statements, and other knowledge we obtained during our audit of the basic financial statements. We do not express an opinion or provide any assurance on the information because the limited procedures do not provide us with sufficient evidence to express an opinion or provide any assurance.</p><p><strong><em>Supplementary Information</em></strong></p><p>Our audit was conducted for the purpose of forming opinions on the financial statements that collectively comprise the City of Clayton’s basic financial statements. The accompanying combining and individual nonmajor fund financial statements are presented for purposes of additional analysis and</p><p>18</p><p></p><p>19</p><p><strong>MANAGEMENT’S DISCUSSION AND ANALYSIS</strong></p><p>20</p><p>Management of the City of Clayton (the "City") provides this Management’s Discussion and Analysis of the City's Basic Financial Statements for readers of the City's financial statements. This narrative overview and analysis of the financial activities of the City is for its fiscal year ended June 30, 2022. We encourage readers to consider this information in conjunction with the additional information that is furnished with the City's financial statements, which follow.</p><p><strong>FINANCIAL HIGHLIGHTS - PRIMARY GOVERNMENT </strong><em>Government -Wide Highlights</em></p><p><em>Net Position</em> - The assets of the City of Clayton exceeded its liabilities at the close of the year ended June 30, 2022, by $45,759,874. Of this amount, $5,744,418 was reported as "unrestricted net position" and may be used to meet the ongoing obligations to citizens and creditors.</p><p><em>Changes in Net Position</em> - The City's total net position increased by $337,870 in the fiscal year ending June 30, 2022. Net position of governmental activities increased by $381,717, while net position of business-type activities decreased by $43,847.</p><p><em>Major Fund Highlights</em></p><p><em>Governmental Funds</em> – As of the year ended June 30, 2022, the City's governmental funds reported a combined ending fund balance of $17,172,907. Of this amount $5,744,867 represents "unassigned fund balances" available for appropriation.</p><p><em>General Fund</em> - The unassigned fund balance of the General Fund on June 30, 2022 was $5,744,867, while the non-spendable and committed fund balances were $173,471 and $495,019 respectively.</p><p><strong>OVERVIEW OF THE FINANCIAL STATEMENTS</strong></p><p>This discussion and analysis is intended to serve as an introduction to the City of Clayton's basic financial statements. The City of Clayton's basic financial statements comprise three components: 1) government-wide financial statements, 2) fund financial statements and 3) notes to the financial statements. This report also contains required supplementary information and supplemental information in addition to the basic financial statements themselves.</p><p><strong><em>Government-wide Financial Statements</em></strong></p><p>The <em>government-wide financial statements</em> are designed to provide readers with a broad overview of the City of Clayton's finances, in a manner similar to a private-sector business.</p><p>The <em>statement of net position</em> presents information on all of the City of Clayton's assets and liabilities, with the difference between the two reported as <em>net position</em>. Over time, increases or decreases in net position may serve as a useful indicator of whether the financial position of the City of Clayton is improving or deteriorating.</p><p>21</p><p><strong>OVERVIEW OF THE FINANCIAL STATEMENTS, Continued <em>Government-wide Financial Statements, Continued</em></strong></p><p>The <em>statement of activities</em> presents information showing how the City's <em>net position</em> changed during the most recent fiscal year. All changes in net position are reported as soon as the underlying event giving rise to the change occurs, <em>regardless of the timing of related cash flows</em>. Thus, revenues and expenses are reported in this statement for some items that will only result in cash flows in future fiscal periods (e. g. uncollected taxes and earned but unused vacation leave).</p><p>Both of the government-wide financial statements distinguish functions of the City of Clayton that are principally supported by taxes and intergovernmental revenues (<em>governmental activities</em>) from other functions that are intended to recover all or a significant portion of their costs through user fees and charges (<em>business-type activities</em>). The governmental activities of the City of Clayton include general government, public safety, public works, community and economic development, and parks and recreation services. The business-type activities of the City of Clayton include the activities of the Endeavor Hall enterprise fund.</p><p><strong><em>Fund Financial Statements</em></strong></p><p>A <em>fund</em> is a grouping of related accounts that is used to maintain control over resources that have been segregated for specific activities or objectives. The City of Clayton, like other state and local governments, uses fund accounting to ensure and demonstrate compliance with finance-related legal requirements. All of the funds of the City of Clayton can be divided into three categories: governmental funds, proprietary funds, and fiduciary funds.</p><p><em>Governmental Funds</em></p><p><em>Governmental funds</em> are used to account for essentially the same functions reported as <em>governmental activities</em> in the government-wide financial statements. However, unlike the government-wide financial statements, governmental fund financial statements focus on <em>near-term inflows and outflows of spendable</em> <em>resources</em>, as well as on <em>balances of spendable resources</em> available at the end of the fiscal year. Such information may be useful in evaluating a government's near-term financing requirements.</p><p>Because the focus of governmental funds is narrower than that of the government-wide financial statements, it is useful to compare the information presented for <em>governmental funds</em> with similar information presented for <em>governmental activities</em> in the government- wide financial statements. By doing so, readers may better understand the long- term impact of the government's near-term financing decisions. Both the governmental fund balance sheet and the governmental fund statement of revenues, expenditures, and changes in fund balances provide a reconciliation to facilitate this comparison between <em>governmental funds</em> and <em>governmental activities</em>.</p><p>22</p><p><strong>OVERVIEW OF THE FINANCIAL STATEMENTS, Continued <em>Fund Financial Statements, Continued</em></strong></p><p>The City of Clayton maintains fifteen individual governmental funds. Information is presented separately in the government funds balance sheet and governmental funds statement of revenues, expenditures, and changes in fund balances for the General Fund, Landscape Maintenance District, Housing Successor Agency, and Capital Improvement Program, all of which are reported as major funds.</p><p><em>Proprietary Funds</em></p><p>The City of Clayton maintains two different types of proprietary funds. <em>Enterprise funds</em> are used to report the same functions presented as <em>business-type activities</em> in the government- wide financial statements. The City of Clayton uses an enterprise fund to account for its Endeavor Hall activities. <em>Internal service funds</em> are an accounting device used to accumulate and allocate costs internally among the City of Clayton various functions. City of Clayton uses three internal service funds to account for its capital equipment replacement program, self-insurance activities, and extraordinary employer pension contribution fluctuations. Because these services predominantly benefit governmental rather that business-type functions, they have been included within <em>governmental activities</em> in the government-wide financial statements.</p><p>Proprietary funds provide the same type of information as the government-wide financial statements, only in more detail. The City’s sole enterprise fund is considered to be a major fund. The internal service funds are combined into a single, aggregated presentation in the proprietary fund financial statements.</p><p><em>Fiduciary Funds</em></p><p>The City is the fiscal agent for benefit assessment districts and other parties holding amounts collected which await payment as directed. The City’s fiduciary activities are reported in the separate statement of fiduciary net position and the agency funds statement of assets and liabilities. These activities are excluded from the City’s other financial statements because the City is acting as a trustee for these funds and cannot use these assets to finance its own operations. The City’s fiduciary funds include a private-purpose trust fund to account for the activities of the City of Clayton Redevelopment Successor Agency.</p><p><strong><em>Notes to the Financial Statements</em></strong></p><p>The notes provide additional information that is essential to a full understanding of the data provided in the government -wide and fund financial statements. The notes to the financial statements can be found on pages 55-101 of this report.</p><p>23</p><p><strong>OVERVIEW OF THE FINANCIAL STATEMENTS, Continued <em>Other Information</em></strong></p><p>In addition to the basic financial statements and accompanying notes, this report also presents certain <em>required supplementary information</em> concerning the City’s progress in funding its obligation to provide<em> </em>pension and other post -employment benefits to its employees as well as budgetary information for the General Fund and each of the major governmental funds.</p><p><strong>FINANCIAL ANALYSIS GOVERNMENT-WIDE STATEMENTS <em>Analysis of Overall Net Position and Results of Operations</em></strong></p><p>As noted previously, net position may serve over time as a useful indicator of a government's financial position. The City’s total net position was $45,759,874 at June 30, 2022, which is an increase of $392,782 from the prior year’s restated net position at June 30, 2021.</p><p>The largest portion of the City’s net position reflects its investment in capital assets (e. g. land, buildings, etc. ) net of any related debt used to acquire those assets that is still outstanding. The City uses these capital assets to provide services to citizens and these assets are <em>not</em> available for future spending. Although the City’s investment in its capital assets is reported net of related debt, it should be noted that the resources needed to repay this debt must be provided from other sources, since the capital assets themselves cannot be used to liquidate these liabilities. The following is condensed comparative Statements of Net Position for the fiscal years ended June 30, 2022 and June 30, 2021:</p><table><tr><td colspan="3"><p>Business-</p></td><td colspan="2"><p>Business-</p></td></tr><tr><td colspan="3"><p>Governmental</p></td><td colspan="3"><p>Governmental</p></td><td colspan="2"><p>Type</p></td><td colspan="2"><p>Type</p></td></tr><tr><td colspan="2"><p>Activities</p></td><td colspan="2"><p>Activities</p></td><td colspan="3"><p>Activities</p></td><td colspan="2"><p>Activities</p></td><td colspan="2"><p>Total</p></td><td><p>Total</p></td></tr><tr><td rowspan="2"><p><strong>Assets</strong></p></td><td><p>2022</p></td><td><p>2021</p></td><td><p>2022</p></td><td><p>2021</p></td><td><p>2022</p></td><td><p>2021</p></td></tr><tr></tr><tr><td><p>Current Assets</p></td><td><p>$</p></td><td><p>14,773,722</p></td><td><p>$</p></td><td colspan="2"><p>14,812,813</p></td><td><p>$</p></td><td><p>(120,893)</p></td><td><p>$</p></td><td colspan="2"><p>(112,174)</p></td><td><p>$</p></td><td><p>14,652,829</p></td><td><p>$</p></td><td><p>14,700,639</p></td></tr><tr><td><p>Noncurrent Assets</p></td><td><p>6,482,003</p></td><td colspan="2"><p>6,462,021</p></td><td><p>-</p></td><td><p>-</p></td><td colspan="2"><p>6,482,003</p></td><td><p>6,462,021</p></td></tr><tr><td><p>Capital Assets</p></td><td><p>29,116,205</p></td><td colspan="2"><p>28,793,685</p></td><td><p>1,009,203</p></td><td colspan="2"><p>1,038,076</p></td><td><p>30,125,408</p></td><td><p>29,831,761</p></td></tr><tr><td rowspan="2"><p><strong>Total Assets</strong></p></td></tr><tr><td><p>50,371,930</p></td><td colspan="2"><p>50,068,519</p></td><td><p>888,310</p></td><td colspan="2"><p>925,902</p></td><td><p>51,260,240</p></td><td><p>50,994,421</p></td></tr><tr></tr><tr><td><p><strong>Deferred outflows</strong></p></td><td><p>1,285,641</p></td><td colspan="2"><p>1,051,589</p></td><td><p>-</p></td><td><p>-</p></td><td><p>1,285,641</p></td><td><p>1,051,589</p></td></tr><tr><td><p><strong>Liabilities</strong></p></td></tr><tr><td><p>Current Liabilities</p></td><td><p>640,113</p></td><td colspan="2"><p>362,937</p></td><td><p>8,171</p></td><td colspan="2"><p>1,916</p></td><td><p>648,284</p></td><td><p>364,853</p></td></tr><tr><td><p>Noncurrent Liabilities</p></td><td><p>3,666,339</p></td><td colspan="2"><p>5,944,104</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td><p>3,666,339</p></td><td><p>5,944,104</p></td></tr><tr><td rowspan="2"><p><strong>Total Liabilities</strong></p></td></tr><tr><td><p>4,306,452</p></td><td colspan="2"><p>6,307,041</p></td><td colspan="2"><p>8,171</p></td><td colspan="2"><p>1,916</p></td><td><p>4,314,623</p></td><td><p>6,308,957</p></td></tr><tr></tr><tr><td><p><strong>Deferred inflows</strong></p></td><td><p>2,471,384</p></td><td colspan="2"><p>369,961</p></td><td><p>-</p></td><td><p>-</p></td><td><p>2,471,384</p></td><td><p>369,961</p></td></tr><tr><td><p><strong>Net Position</strong></p></td></tr><tr><td><p>Net investment in</p></td></tr><tr><td><p>capital assets</p></td><td><p>29,116,205</p></td><td colspan="2"><p>28,793,685</p></td><td colspan="2"><p>1,009,203</p></td><td colspan="2"><p>1,038,076</p></td><td><p>30,125,408</p></td><td><p>29,831,761</p></td></tr><tr><td><p>Restricted</p></td><td><p>9,890,048</p></td><td colspan="2"><p>13,156,670</p></td><td><p>-</p></td><td><p>-</p></td><td><p>9,890,048</p></td><td><p>13,156,670</p></td></tr><tr><td><p>Unrestricted</p></td><td><p>5,873,482</p></td><td colspan="2"><p>2,492,751</p></td><td><p>(129,064)</p></td><td colspan="2"><p>(114,090)</p></td><td><p>5,744,418</p></td><td><p>2,378,661</p></td></tr><tr><td rowspan="2"><p><strong>Total net position</strong></p></td></tr><tr><td><p>$</p></td><td><p>44,879,735</p></td><td><p>$</p></td><td colspan="2"><p>44,443,106</p></td><td><p>$</p></td><td><p>880,139</p></td><td><p>$</p></td><td colspan="2"><p>923,986</p></td><td><p>$</p></td><td><p>45,759,874</p></td><td><p>$</p></td><td><p>45,367,092</p></td></tr><tr></tr></table><p>24</p><p><strong>FINANCIAL ANALYSIS GOVERNMENT-WIDE STATEMENTS, Continued <em>Analysis of Overall Net Position and Results of Operations, Continued</em></strong></p><p>Of the City’s total net position, $9,890,048 (21.6%) represents resources that are subject to external restrictions on how they may be used. The balance of the <em>unrestricted net position</em> of $5,744,418 (12.6%) may be used to meet the City's ongoing obligations to citizens and creditors. City revenues for the year, including both governmental and business-type activities, were $9,359,704, while expenses totaled $9,021,834, resulting in a net increase in net position of $337,870 excluding transfers, extraordinary and special items. This net increase was primarily attributable to a increase in net position of governmental activities, which is discussed in greater detail in the following section.</p><p>The following is a recap of the City’s Statement of Activities and Changes in Net Position for the fiscal years ended June 30, 2022 and June 30, 2021:</p><table><tr><td colspan="2"><p>Business-</p></td><td colspan="2"><p>Business-</p></td></tr><tr><td colspan="3"><p>Governmental</p></td><td colspan="4"><p>Governmental</p></td><td colspan="2"><p>Type</p></td><td colspan="2"><p>Type</p></td></tr><tr><td colspan="2"><p>Activities</p></td><td colspan="2"><p>Activities</p></td><td colspan="2"><p>Activities</p></td><td colspan="2"><p>Activities</p></td><td colspan="2"><p>Total</p></td><td><p>Total</p></td></tr><tr><td rowspan="2"><p><strong>Revenues:</strong></p></td><td><p>2022</p></td><td><p>2021</p></td><td><p>2022</p></td><td><p>2021</p></td><td><p>2022</p></td><td><p>2021</p></td></tr><tr></tr><tr><td><p>Program revenues:</p></td></tr><tr><td><p>Charges for Services</p></td><td><p>$</p></td><td><p>1,002,338</p></td><td colspan="2"><p>$</p></td><td colspan="2"><p>961,910</p></td><td><p>$</p></td><td><p>16,847</p></td><td><p>$</p></td><td colspan="2"><p>(1,442)</p></td><td><p>$</p></td><td><p>1,019,185</p></td><td><p>$</p></td><td><p>960,468</p></td></tr><tr><td><p>Operating grants and contributions</p></td><td><p>2,755,382</p></td><td colspan="2"><p>893,718</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>2,755,382</p></td><td><p>893,718</p></td></tr><tr><td><p>Capital grants and contributions</p></td><td><p>120,774</p></td><td colspan="2"><p>42,363</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>120,774</p></td><td><p>42,363</p></td></tr><tr><td rowspan="2"><p>Total program revenues</p></td></tr><tr><td><p>3,878,494</p></td><td colspan="2"><p>1,897,991</p></td><td colspan="2"><p>16,847</p></td><td colspan="2"><p>(1,442)</p></td><td colspan="2"><p>3,895,341</p></td><td><p>1,896,549</p></td></tr><tr><td><p>General revenues:</p></td></tr><tr><td><p>Property taxes</p></td><td><p>2,846,766</p></td><td colspan="2"><p>2,722,906</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>2,846,766</p></td><td><p>2,722,906</p></td></tr><tr><td><p>Special parcel taxes</p></td><td colspan="2"><p>1,348,657</p></td><td colspan="2"><p>1,309,373</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>1,348,657</p></td><td><p>1,309,373</p></td></tr><tr><td><p>Sales and use taxes</p></td><td><p>563,908</p></td><td colspan="2"><p>510,029</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>563,908</p></td><td><p>510,029</p></td></tr><tr><td><p>Business license taxes</p></td><td><p>162,881</p></td><td colspan="2"><p>90,872</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>162,881</p></td><td><p>90,872</p></td></tr><tr><td><p>Franchise fees</p></td><td><p>587,740</p></td><td colspan="2"><p>567,350</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>587,740</p></td><td><p>567,350</p></td></tr><tr><td><p>Payments in lieu of taxes</p></td><td><p>174,443</p></td><td colspan="2"><p>171,029</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>174,443</p></td><td><p>171,029</p></td></tr><tr><td><p>Investment income</p></td><td colspan="2"><p>(281,502)</p></td><td colspan="2"><p>508,256</p></td><td colspan="2"><p>(379)</p></td><td colspan="2"><p>(281,502)</p></td><td><p>507,877</p></td></tr><tr><td><p>Miscellaneous</p></td><td><p>54,512</p></td><td><p>38,972</p></td><td><p>-</p></td><td><p>-</p></td><td><p>54,512</p></td><td><p>38,972</p></td></tr><tr><td><p>Gain (loss) on sale of assets</p></td><td><p>6,958</p></td><td colspan="2"><p>1,741</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>6,958</p></td><td><p>1,741</p></td></tr><tr><td rowspan="2"><p>Total general revenues</p></td></tr><tr><td><p>5,464,363</p></td><td colspan="2"><p>5,920,528</p></td><td colspan="2"><p>(379)</p></td><td colspan="2"><p>5,464,363</p></td><td><p>5,920,149</p></td></tr><tr><td rowspan="2"><p>Total revenues</p></td></tr><tr><td><p>9,342,857</p></td><td colspan="2"><p>7,818,519</p></td><td colspan="2"><p>16,847</p></td><td colspan="2"><p>(1,821)</p></td><td colspan="2"><p>9,359,704</p></td><td><p>7,816,698</p></td></tr><tr><td><p><strong>Expenses:</strong></p></td></tr><tr><td><p>General government</p></td><td colspan="2"><p>2,629,048</p></td><td colspan="2"><p>1,796,454</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td><p>2,629,048</p></td><td><p>1,796,454</p></td></tr><tr><td><p>Public works</p></td><td colspan="2"><p>2,509,096</p></td><td colspan="2"><p>2,909,710</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>2,509,096</p></td><td><p>2,909,710</p></td></tr><tr><td><p>Public safety</p></td><td><p>2,736,817</p></td><td colspan="2"><p>2,980,000</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>2,736,817</p></td><td><p>2,980,000</p></td></tr><tr><td><p>Community and economic</p></td></tr><tr><td><p>development</p></td><td><p>356,450</p></td><td colspan="2"><p>357,133</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>356,450</p></td><td><p>357,133</p></td></tr><tr><td><p>Parks and recreation services</p></td><td colspan="2"><p>729,729</p></td><td colspan="2"><p>592,433</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>729,729</p></td><td><p>592,433</p></td></tr><tr><td><p>Endeavor Hall</p></td><td><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>60,694</p></td><td colspan="2"><p>73,117</p></td><td colspan="2"><p>60,694</p></td><td><p>73,117</p></td></tr><tr><td rowspan="2"><p>Total expenses</p></td></tr><tr><td><p>8,961,140</p></td><td colspan="2"><p>8,635,730</p></td><td colspan="2"><p>60,694</p></td><td colspan="2"><p>73,117</p></td><td colspan="2"><p>9,021,834</p></td><td><p>8,708,847</p></td></tr><tr></tr><tr><td><p>Change in Net Position</p></td><td><p>381,717</p></td><td colspan="2"><p>(817,211)</p></td><td colspan="2"><p>(43,847)</p></td><td colspan="2"><p>(74,938)</p></td><td colspan="2"><p>337,870</p></td><td><p>(892,149)</p></td></tr><tr><td rowspan="2"><p>Net Position – Beginning, restated</p></td></tr><tr><td><p>44,498,018</p></td><td colspan="2"><p>45,260,317</p></td><td><p>923,986</p></td><td colspan="2"><p>998,924</p></td><td colspan="2"><p>45,422,004</p></td><td><p>46,259,241</p></td></tr><tr><td rowspan="2"><p>Net Position – ending</p></td></tr><tr><td><p>$</p></td><td><p>44,879,735</p></td><td><p>$</p></td><td colspan="2"><p>44,443,106</p></td><td><p>$</p></td><td><p>880,139</p></td><td><p>$</p></td><td colspan="2"><p>923,986</p></td><td><p>$</p></td><td colspan="2"><p>45,759,874</p></td><td><p>$</p></td><td><p>45,367,092</p></td></tr><tr></tr></table><p>25</p><p><strong>FINANCIAL ANALYSIS GOVERNMENT-WIDE STATEMENTS, Continued <em>Analysis of Governmental Activities</em></strong></p><p>The increase in net position of the governmental activities over the prior year was primarily attributable to a increase in both operating and capital grants and contributions. Total expenses were $8,961,140 in the current year compared to $8,635,730 in the prior year. The following chart depicts the relative size of expenses by function for the fiscal years ending June 30, 2022 and 2021:</p><p></p><p><strong>Government Activities</strong></p><p><strong>Expenses by Function</strong></p><p>3,500,000</p><p>3,000,000</p><p>2,500,000</p><p>2,000,000</p><p>1,500,000</p><p>1,000,000</p><p>500,000</p><p>-</p><p>General</p><p>Government</p><p>Public Safety</p><p>Public Works	Community	Parks and</p><p>and Economic	Recreation</p><p>Development	Services</p><p> Fiscal Year 2021</p><p> Fiscal Year 2022</p><p>Total program revenues from governmental activities were $ 3,878,494 in the current year compared to $1,897,991 in the prior year. Program revenues are derived directly from the program itself or from parties outside the reporting government's taxpayers or citizenry. They reduce the net cost of the function to be financed from government's general revenues. Of the governmental program revenues, 25.8% were derived from charges for services, which includes park use fees, rental fees, licenses and permits, planning services fees, engineering plan check fees, police service fees, and other revenues. The remaining 74.2% of the governmental program revenues came from operating and capital grants and contributions. General revenues are all other revenues not categorized as program revenues such as property taxes, special parcel taxes, sales and use taxes, motor vehicle fees, investment earnings, franchise fees, use of money and property, service charges, and miscellaneous revenues.</p><p>26</p><p>F<strong>INANCIAL ANALYSIS GOVERNMENT-WIDE STATEMENTS, Continued<em> Analysis of Governmental Activities, Continued</em></strong></p><p>Total general revenues from governmental activities decreased by $456,165 (7.7%) over the prior year. The following pie charts depict the relative size of governmental activities program and general revenues by source for the fiscal years ending June 30, 2022 and 2021:</p><p></p><table><tr><td colspan="2"><p><strong>Governmental Activities</strong></p></td></tr><tr><td colspan="2"><p><strong>Revenues by Source</strong></p></td></tr><tr><td><p>$6,000,000</p></td></tr><tr><td><p>$5,000,000</p></td></tr><tr><td><p>$4,000,000</p></td></tr><tr><td><p>$3,000,000</p></td></tr><tr><td><p>$2,000,000</p></td></tr><tr><td><p>$1,000,000</p></td></tr><tr><td><p>$-</p></td></tr><tr><td><p>$(1,000,000)</p></td></tr><tr><td><p>Fiscal Year 2021</p></td><td><p>Fiscal Year 2022</p></td></tr></table><p><strong><em>Analysis of Business-Type Activities</em></strong></p><p>Total business-type expenses decreased 20.4% from $73,117 in the prior year to $60,694 in the current year. This decrease is largely attributable to the decrease in general and administrative costs of the Endeavor Hall rental facility. Total services revenue increased significantly from $-1,442 in the prior year to $16,847 in the current year due to the increase in rental activity. Net position of business -type activities declined $43,847 to a total of $ 880,139 at June 30, 2022 due to charges for services being insufficient to cover the annual depreciation expense and general operating expenses of underlying Endeavor Hall rental facility assets.</p><p>27</p><p><strong>FINANCIAL ANALYSIS OF INDIVIDUAL FUND STATEMENTS <em>Analysis of Governmental Funds</em></strong></p><p>The focus of the City of Clayton's <em>governmental funds</em> is to provide information on near-term inflows, outflows, and balances of <em>spendable</em> resources. Such information is useful in assessing the City of Clayton's financing requirements. In particular, <em>unassigned fund balance</em> may serve as a useful measure of a government's net resources available for spending at the end of the fiscal year.</p><p>As of the end of the current fiscal year, the City’s governmental funds reported combined ending fund balances of $17,172,907. Of this amount, $5,744,867 (33.5%) is unassigned; $173,471(1.0%) is in non-spendable form; $3,330,153 (19.4%) is assigned for specific purposes; $6,719,595 (39.1%) is restricted by law, regulation, or other outside contractual agreements; and $1,204,821 (7.0%) is committed for specific expenditures in the future.</p><p><em>General Fund</em></p><p>The City’s General Fund reported an increase in fund balance of $249,464 (4.0%) in the current fiscal year. This modest increase is mostly attributable to increase in property taxes, special parcel taxes and assessments, and a corresponding decrease in investment earnings (primarily due to market rate adjustments). Total fund balance of the General Fund is $6,413,357 as of June 30, 2022, of which $5,744,867 (89.6%) is reported as unassigned and available for appropriation. This unassigned fund balance is .92 times the size of the General Fund’s adopted operating budget for the upcoming fiscal year ending June 30, 2022.</p><p>Below is a summary of the General Fund expenditures by department.</p><table><tr><td colspan="2"><p>Pandemic</p></td></tr><tr><td colspan="2"><p>Rainy</p></td><td colspan="2"><p>Recovery</p></td></tr><tr><td rowspan="2"><p>General government</p></td><td colspan="2"><p>General Fund</p></td><td><p>Day Fund</p></td><td><p>Reserve</p></td><td><p>Total</p></td></tr><tr><td><p>$</p></td><td><p>1,447,700</p></td><td><p>$</p></td><td colspan="2"><p>26,000</p></td><td><p>$</p></td><td colspan="2"><p>1,096,717</p></td><td><p>$</p></td><td colspan="2"><p>2,570,417</p></td></tr><tr><td><p>Public safety</p></td><td><p>2,684,319</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>2,684,319</p></td></tr><tr><td><p>Public works</p></td><td><p>333,423</p></td><td><p>-</p></td><td><p>-</p></td><td colspan="2"><p>333,423</p></td></tr><tr><td><p>Community and</p></td></tr><tr><td><p>economic development</p></td><td><p>299,175</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>299,175</p></td></tr><tr><td><p>Parks and recreation</p></td></tr><tr><td><p>services</p></td><td><p>336,592</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>-</p></td><td colspan="2"><p>336,592</p></td></tr><tr><td><p>Capital outlay</p></td><td><p>22,168</p></td><td><p>-</p></td><td><p>-</p></td><td><p>22,168</p></td></tr><tr><td><p>Total expenditures</p></td><td><p>$</p></td><td><p>5,123,377</p></td><td><p>$</p></td><td colspan="2"><p>26,000</p></td><td><p>$</p></td><td colspan="2"><p>1,096,717</p></td><td><p>$</p></td><td colspan="2"><p>6,246,094</p></td></tr><tr></tr></table><p><em>Landscape Maintenance District</em></p><p>Community Facilities District No. 2007-1, referred to as the Landscape Maintenance District special revenue fund, reported a decrease in fund balance of $447,353 (41.2%) in the current fiscal year. This decrease in fund balance is largely attributable to increases in operating costs such as water service and weed abatement, as well as a increase in project costs/capital outlay costs. Total fund balance of the Landscape Maintenance District is $ 638,533 as of June 30, 2022, of which $ 32,509 is reported as assigned or restricted for the following year’s operating budget, and the remaining fund balance is assigned.</p><p>28</p><p><strong>FINANCIAL ANALYSIS OF INDIVIDUAL FUND STATEMENTS, Continued <em>Analysis of Governmental Funds, Continued</em></strong></p><p><em>Successor Housing Agency</em></p><p>The Successor Housing Agency special revenue fund reported a increase in fund balance of $187,452 (3.4%) in the current fiscal year. This increase in fund balance resulted primarily from unspent program revenue on housing loan repayments as well as unrealized gains on the inventory of affordable income housing. Total fund balance of the Successor Housing Agency is $5,617,695 as of June 30, 2022, which is classified entirely as restricted.</p><p><em>Capital Improvement Program</em></p><p>The Capital Improvement Program capital projects fund reported an increase in fund balance of $681,698 (35.4%) in the current fiscal year. This increase in fund balance primarily arose from timing differences between project execution and funding. Total fund balance of the Capital Improvement Program fund is $2,606,444 and is reported entirely as assigned for capital projects as of June 30, 2022.</p><p><strong><em>Analysis of Proprietary Funds</em></strong></p><p>The City of Clayton's proprietary funds provide the same type of information found in the government-wide financial statements, but in more detail. The net position of the City’s only major enterprise fund, Endeavor Hall, at the end of the year was $880,139, and total net position for the internal service funds amounted to $1,000,736.</p><p><strong>GENERAL FUND BUDGETARY HIGHLIGHTS</strong></p><p>General Fund actual revenues and transfers fall short of total revenues and transfers of the final and adopted budget by $39,744. The variance is due to a combination of factors including an increase in taxes and assessment and a decrease in the investment reported at year-end based on the market rate. The unrealized investment loss was reported as a direct result of the City’s investment portfolio being largely made up of fixed instrument securities during a time of declining interest rates. As noted in recent quarterly investment portfolio reports presented to the City Council, the City’s investment policy is designed to reduce volatility and generate consistent returns in the long run-in order to protect public funds. Actual property tax revenues exceeded somewhat conservative adopted budgetary growth projections by $186,163 (6.9%), which was largely offset by lower-than-expected revenue from permits, licenses and fees and sales tax receipts.</p><p>29</p><p><strong>GENERAL FUND BUDGETARY HIGHLIGHTS, Continued</strong></p><p>Actual General Fund expenditures of $6,246,094 were more than the final adjusted budget by $1,447,307 for the year ended June 30, 2022. The negative variance is a result of actual expenditures being more than budgeted in General government due to investments in the capital expenditures for the fiscal year ended June 30, 2022.</p><p><strong>CAPITAL ASSET AND DEBT ADMINISTRATION <em>Capital Assets</em></strong></p><p>The City’s investment in capital assets for its governmental and business-type activities as of June 30, 2022 amounted to $30,125,408 (net of accumulated depreciation). This investment in capital assets includes land, building, improvements, machinery and equipment, park facilities, corporate yard building, and roads. Total depreciation expense on governmental assets totaled $1,048,171, versus $1,080,713 in the prior year. The slight decrease in depreciation is attributable to the completion of significant capital projects during the prior and current fiscal years and capital assets reaching their estimated useful lives. Additional information on the City of Clayton's capital assets can be found in Note 6 of this report.</p><p><strong><em>Debt Administration</em></strong></p><p>The remaining debt of the former Clayton Redevelopment Agency (RDA) of $ 5,835,000 was transferred to the Successor Agency on February 1, 2012 (fiscal year ending June 30, 2012) . The City has no outstanding general obligation debt. The Successor Agency has maintained its "AAA" credit rating (S&amp;P) on outstanding Tax Allocation Bonds. Additional information on the Successor Agency's long-term debt can be found in Note 13 of this report.</p><p><strong>ECONOMIC FACTORS AND NEXT YEAR’S BUDGET</strong></p><p>As the City of Clayton is largely a residential community the annual General Fund operating budget relies heavily on property taxes to finance annual operating appropriations rather than other sources of revenue larger and more commercially and industrial developed municipalities have access to (i. e. sales and transient occupancy taxes). The City strives to meet the ever evolving needs of local residents and businesses within the constraints of limited and sometimes restrictive revenue sources.</p><p>There was an increase in adopted General Fund operating appropriations when compared to the actuals reported as of June 30, 2022, for the upcoming fiscal year ending June 30, 2023 of $641,365 (10.2%) . The increase in appropriations is attributable primarily to labor wage and benefit costs of various City departments and capital improvement costs included as part of the general government. The annual June 2021 to June 2022 consumer price index inflationary factor is 6.8% as published by the U. S. Bureau of Labor and Statistics for the San Francisco-Oakland-Hayward region. In addition, there are projected decreases in the annual CalPERS unfunded accrued liabilities and normal costs, primarily due to Classic Tier employees retiring and new employees being hired in the PEPRA tier. The adopted budget for the fiscal year ending June 30, 2023 projects total General Fund revenues of $6,887,459 an increase of approximately</p><p>30</p><p><strong>City of Clayton</strong></p><p><strong>Management’s Discussion and Analysis</strong></p><p><strong>For the year ended June 30, 2022</strong></p><p><strong>ECONOMIC FACTORS AND NEXT YEAR’S BUDGET, Continued</strong></p><p>$34,920 over the prior year actual. The projected revenue growth reflects continued growth in property tax and sales and use taxes supported by actual results reported in the fiscal year ending June 30, 2022.</p><p><strong>REQUEST FOR INFORMATION</strong></p><p>This financial report is designed to provide a general overview of the City of Clayton's finances for all those with an interest in the City's finances. Questions concerning any of the information provided in this report, or requests for additional financial information, should be addressed to the Office of the Finance Manager, 6000 Heritage Trail, Clayton, California 94517.</p><p>31</p><p><strong>GOVERNMENT-WIDE</strong></p><p><strong>FINANCIAL STATEMENTS</strong></p><p>32</p><p><strong>City of Clayton</strong></p><p><strong>Government-Wide</strong></p><p><strong>Statement of Net Position</strong></p><p><strong>June 30, 2022</strong></p><table><tr><td colspan="2"><p>Governmental</p></td><td colspan="2"><p>Business-Type</p></td></tr><tr><td><p><strong>ASSETS</strong></p></td><td><p>Activities</p></td><td><p>Activites</p></td><td><p>Total</p></td></tr><tr><td><p>Current Assets:</p></td></tr><tr><td><p>Cash and investments</p></td><td><p>$</p></td><td><p>13,441,679</p></td><td colspan="2"><p>$</p></td><td><p>-</p></td><td colspan="2"><p>$</p></td><td><p>13,441,679</p></td></tr><tr><td><p>Accounts receivable (net of allowances)</p></td><td><p>1,133,315</p></td><td><p>-</p></td><td><p>1,133,315</p></td></tr><tr><td><p>Interest receivable</p></td><td><p>25,257</p></td><td><p>-</p></td><td><p>25,257</p></td></tr><tr><td><p>Internal balances</p></td><td><p>120,893</p></td><td><p>(120,893)</p></td><td><p>-</p></td></tr><tr><td><p>Prepaid expenses</p></td><td><p>52,578</p></td><td><p>-</p></td><td><p>52,578</p></td></tr><tr><td><p>Total Current Assets</p></td><td><p>14,773,722</p></td><td><p>(120,893)</p></td><td><p>14,652,829</p></td></tr><tr><td><p>Noncurrent Assets:</p></td></tr><tr><td><p>Investment in affordable housing</p></td><td><p>3,170,453</p></td><td><p>-</p></td><td><p>3,170,453</p></td></tr><tr><td><p>Notes receivable</p></td><td><p>3,311,550</p></td><td><p>-</p></td><td><p>3,311,550</p></td></tr><tr><td><p>Nondepreciable assets</p></td><td><p>3,133,754</p></td><td><p>167,738</p></td><td><p>3,301,492</p></td></tr><tr><td><p>Depreciable assets, net</p></td><td><p>25,982,451</p></td><td><p>841,465</p></td><td><p>26,823,916</p></td></tr><tr><td><p>Total Noncurrent Assets</p></td><td><p>35,598,208</p></td><td><p>1,009,203</p></td><td><p>36,607,411</p></td></tr><tr><td><p><strong>Total Assets</strong></p></td><td><p>50,371,930</p></td><td><p>888,310</p></td><td><p>51,260,240</p></td></tr><tr><td><p><strong>DEFERRED OUTFLOWS OF RESOURCES</strong></p></td></tr><tr><td><p>Deferred outflows related to pension</p></td><td><p>1,285,641</p></td><td><p>-</p></td><td><p>1,285,641</p></td></tr><tr><td><p>Deferred outflows related to OPEB</p></td><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p><strong>Total Deferred Outflows of Resources</strong></p></td><td><p>1,285,641</p></td><td><p>-</p></td><td><p>1,285,641</p></td></tr><tr><td><p><strong>LIABILITIES</strong></p></td></tr><tr><td><p>Current Liabilites:</p></td></tr><tr><td><p>Accounts payable</p></td><td><p>149,907</p></td><td><p>2,671</p></td><td><p>152,578</p></td></tr><tr><td><p>Deposits payable</p></td><td><p>-</p></td><td><p>5,500</p></td><td><p>5,500</p></td></tr><tr><td><p>Accrued payroll</p></td><td><p>37</p></td><td><p>-</p></td><td><p>37</p></td></tr><tr><td><p>Unearned revenue</p></td><td><p>332,166</p></td><td><p>-</p></td><td><p>332,166</p></td></tr><tr><td><p>Compensated absences payable</p></td><td><p>83,645</p></td><td><p>-</p></td><td><p>83,645</p></td></tr><tr><td><p>Other liabilities</p></td><td><p>74,358</p></td><td><p>-</p></td><td><p>74,358</p></td></tr><tr><td><p>Total Current Liabilities</p></td><td><p>640,113</p></td><td><p>8,171</p></td><td><p>648,284</p></td></tr><tr><td><p>Noncurrent Liabilites:</p></td></tr><tr><td><p>Compensated absences payable</p></td><td><p>83,645</p></td><td><p>-</p></td><td><p>83,645</p></td></tr><tr><td><p>Net OPEB liability</p></td><td><p>578,315</p></td><td><p>-</p></td><td><p>578,315</p></td></tr><tr><td><p>Net pension liability</p></td><td><p>2,759,739</p></td><td><p>-</p></td><td><p>2,759,739</p></td></tr><tr><td><p>Lease payable</p></td><td><p>244,640</p></td><td><p>-</p></td><td><p>244,640</p></td></tr><tr><td><p>Total Noncurrent Liabilities</p></td><td><p>3,666,339</p></td><td><p>-</p></td><td><p>3,666,339</p></td></tr><tr><td><p><strong>Total Liabilities</strong></p></td><td><p>4,306,452</p></td><td><p>8,171</p></td><td><p>4,314,623</p></td></tr><tr><td><p><strong>DEFERRED INFLOWS OF RESOURCES</strong></p></td></tr><tr><td><p>Deferred inflows related to pension</p></td><td><p>2,471,384</p></td><td><p>-</p></td><td><p>2,471,384</p></td></tr><tr><td><p>Deferred inflows related to OPEB</p></td><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p><strong>Total Deferred Inflows of Resources</strong></p></td><td><p>2,471,384</p></td><td><p>-</p></td><td><p>2,471,384</p></td></tr><tr><td><p><strong>NET POSITION</strong></p></td></tr><tr><td><p>Net investment in capital assets</p></td><td><p>29,116,205</p></td><td><p>1,009,203</p></td><td><p>30,125,408</p></td></tr><tr><td><p>Restricted for special projects and programs</p></td><td><p>9,890,048</p></td><td><p>-</p></td><td><p>9,890,048</p></td></tr><tr><td><p>Unrestricted</p></td><td><p>5,873,482</p></td><td><p>(129,064)</p></td><td><p>5,744,418</p></td></tr><tr><td><p><strong>Total Net Position</strong></p></td><td><p>$</p></td><td><p>44,879,735</p></td><td><p>$</p></td><td><p>880,139</p></td><td><p>$</p></td><td><p>45,759,874</p></td></tr><tr></tr></table><p><em>The accompanying notes are an integral part of the financial statements</em></p><p>33</p><p><strong>City of Clayton</strong></p><p><strong>Government-Wide</strong></p><p><strong>Statement of Activities and Changes in Net Position</strong></p><p><strong>For the year ended June 30, 2022</strong></p><table><tr><td colspan="2"><p>Operating</p></td><td colspan="2"><p>Capital</p></td></tr><tr><td colspan="3"><p>Charges</p></td><td colspan="2"><p>Grants and</p></td><td colspan="2"><p>Grants and</p></td><td colspan="5"><p>Governmental   Business-type</p></td></tr><tr><td><p>Functions/Programs</p></td><td><p>Expenses</p></td><td colspan="4"><p>for Services</p></td><td colspan="2"><p>Contributions</p></td><td colspan="2"><p>Contributions</p></td><td><p>Activities</p></td><td><p>Activities</p></td><td><p>Total</p></td></tr><tr><td><p>Primary Government:</p></td></tr><tr><td><p>Governmental Activities</p></td></tr><tr><td><p>General government</p></td><td colspan="2"><p>$</p></td><td><p>2,629,048</p></td><td colspan="2"><p>$</p></td><td><p>437,626</p></td><td><p>$</p></td><td><p>13,808</p></td><td><p>$</p></td><td><p>-</p></td><td><p>$</p></td><td><p>(2,177,614)</p></td><td colspan="2"><p>$</p></td><td><p>-</p></td><td colspan="2"><p>$</p></td><td><p>(2,177,614)</p></td></tr><tr><td><p>Public safety</p></td><td><p>2,736,817</p></td><td><p>48,292</p></td><td><p>397,461</p></td><td><p>-</p></td><td><p>(2,291,064)</p></td><td><p>-</p></td><td><p>(2,291,064)</p></td></tr><tr><td><p>Public works</p></td><td><p>2,509,096</p></td><td><p>331,218</p></td><td><p>2,344,113</p></td><td><p>44,634</p></td><td><p>210,869</p></td><td><p>-</p></td><td><p>210,869</p></td></tr><tr><td><p>Community and economic development</p></td><td><p>356,450</p></td><td><p>142,299</p></td><td><p>-</p></td><td><p>76,140</p></td><td><p>(138,011)</p></td><td><p>-</p></td><td><p>(138,011)</p></td></tr><tr><td><p>Parks and recreation services</p></td><td><p>729,729</p></td><td><p>42,903</p></td><td><p>-</p></td><td><p>-</p></td><td><p>(686,826)</p></td><td><p>-</p></td><td><p>(686,826)</p></td></tr><tr><td><p>Total Governmental Activities</p></td><td><p>8,961,140</p></td><td><p>1,002,338</p></td><td><p>2,755,382</p></td><td><p>120,774</p></td><td><p>(5,082,646)</p></td><td><p>-</p></td><td><p>(5,082,646)</p></td></tr><tr><td><p>Business-Type Activities</p></td><td rowspan="2"><p>(43,847)</p></td><td rowspan="2"><p>(43,847)</p></td></tr><tr><td><p>Endeavor Hall</p></td><td><p>60,694</p></td><td><p>16,847</p></td><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p><strong>Total Business-Type Activities</strong></p></td><td><p>60,694</p></td><td><p>16,847</p></td><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>(43,847)</p></td><td><p>(43,847)</p></td></tr><tr><td><p>Total Primary Government</p></td><td><p>$</p></td><td><p>9,021,834</p></td><td><p>$</p></td><td><p>1,019,185</p></td><td><p>$</p></td><td><p>2,755,382</p></td><td><p>$</p></td><td><p>120,774</p></td><td><p>(5,082,646)</p></td><td><p>(43,847)</p></td><td><p>(5,126,493)</p></td></tr><tr><td colspan="5"><p><strong>General revenues:</strong></p></td></tr><tr><td colspan="4"><p>Taxes:</p></td></tr><tr><td colspan="3"><p>Property taxes</p></td><td><p>2,846,766</p></td><td><p>-</p></td><td><p>2,846,766</p></td></tr><tr><td colspan="5"><p>Special parcel taxes</p></td><td><p>1,348,657</p></td><td><p>-</p></td><td><p>1,348,657</p></td></tr><tr><td colspan="4"><p>Sales and use taxes</p></td><td><p>563,908</p></td><td><p>-</p></td><td><p>563,908</p></td></tr><tr><td colspan="5"><p>Business license taxes</p></td><td><p>162,881</p></td><td><p>-</p></td><td><p>162,881</p></td></tr><tr><td colspan="3"><p><strong>Total Taxes</strong></p></td><td><p>4,922,212</p></td><td><p>-</p></td><td><p>4,922,212</p></td></tr><tr><td colspan="4"><p>Franchise fees</p></td><td><p>587,740</p></td><td><p>-</p></td><td><p>587,740</p></td></tr><tr><td colspan="6"><p>Payments in lieu of taxes</p></td><td><p>174,443</p></td><td><p>-</p></td><td><p>174,443</p></td></tr><tr><td colspan="6"><p>Investment income (loss)</p></td><td><p>(281,502)</p></td><td><p>-</p></td><td><p>(281,502)</p></td></tr><tr><td colspan="7"><p>Other miscellaneous general revenues</p></td><td><p>54,512</p></td><td><p>-</p></td><td><p>54,512</p></td></tr><tr><td colspan="7"><p>Gain (loss) on disposal of fixed assets</p></td><td><p>6,958</p></td><td><p>-</p></td><td><p>6,958</p></td></tr><tr><td colspan="6"><p><strong>Total general revenues and transfers</strong></p></td><td><p>5,464,363</p></td><td><p>-</p></td><td><p>5,464,363</p></td></tr><tr><td colspan="6"><p><strong>Change in net position</strong></p></td><td><p>381,717</p></td><td><p>(43,847)</p></td><td><p>337,870</p></td></tr><tr><td colspan="7"><p><strong>Net position - beginning, as restated</strong></p></td><td><p>44,498,018</p></td><td><p>923,986</p></td><td><p>45,422,004</p></td></tr><tr><td colspan="5"><p><strong>Net position - ending</strong></p></td><td><p>$</p></td><td><p>44,879,735</p></td><td colspan="2"><p>$</p></td><td><p>880,139</p></td><td colspan="2"><p>$</p></td><td><p>45,759,874</p></td></tr><tr></tr><tr></tr></table><p></p><p><em>The accompanying notes are an integral part of the financial statements</em></p><p>34</p><p><em>This page intentionally left blank</em></p><p>35</p><p><strong>FUND FINANCIAL STATEMENTS</strong></p><p>36</p><p><em>This page intentionally left blank</em></p><p>37</p><p><strong>GOVERNMENTAL FUNDS</strong></p><p>Governmental Funds are used to account for activities primarily supported by taxes, grants, and similar revenue sources. All governmental funds can be classified into one of five fund types: the General Fund, special revenue funds, debt service funds, capital projects funds, and permanent funds.</p><p><strong>General Fund:</strong></p><p>The General Fund is the main operating fund of the City and is presented as a major fund. It is used to account for all financial resources except those required to be accounted for in another fund.</p><p><strong>Special Revenue Funds:</strong></p><p>Special revenue funds account for and report the proceeds of specific revenue sources that are restricted or committed to expenditure for specified purposes other than debt service or capital projects. The following are reported as major special revenue funds:</p><p><strong><em>Landscape Maintenance District -</em></strong> Community Facilities District (CFD) No. 2007-1, referred to as the Landscape Maintenance District special revenue fund, accounts for real property voter-approved special parcel taxes collected to maintain arterial landscaping and open space within the City (CFD No. 2007-1 sunsets in 2027).</p><p><strong><em>Successor Housing Agency -</em></strong> Accounts for the activities related to the assets assumed by the City of Clayton as the Housing Successor to the housing activities of the former Redevelopment Agency of the City of Clayton.</p><p><strong><em>American Rescue Plan Act</em></strong> – Accounts for the activities related to the grant funding received from the American Rescue Plan Act.</p><p><strong>Capital Projects Funds:</strong></p><p>Capital projects funds are used to account for financial resources to be used for the acquisition or construction of major capital facilities other than those financed by proprietary funds. The following is the City’s sole major capital projects fund:</p><p><strong><em>Capital Improvement Program -</em></strong> Accounts for the projects identified in the capital improvement program funded by various federal and state grants as well as through transfers from the General Fund.</p><p><strong>Non-major Governmental Funds:</strong></p><p>All non-major governmental funds of the City are aggregated and presented on the face of the basic financial statements in one column.</p><p>38</p><p><strong>City of Clayton</strong></p><p><strong>Governmental Funds</strong></p><p><strong>Balance Sheet</strong></p><p><strong>June 30, 2022</strong></p><table><tr><td colspan="2"><p>Special Revenue</p></td></tr><tr><td><p>Landscape</p></td></tr><tr><td><p>Maintenance</p></td><td><p>Successor</p></td></tr><tr><td colspan="2"><p>General Fund</p></td><td><p>District</p></td><td colspan="2"><p>Housing Agency</p></td></tr><tr><td><p><strong>ASSETS</strong></p></td></tr><tr><td><p>Cash and investments</p></td><td><p>$</p></td><td><p>5,985,880</p></td><td colspan="2"><p>$</p></td><td><p>693,391</p></td><td><p>$</p></td><td><p>1,857,892</p></td></tr><tr><td><p>Accounts receivable</p></td><td><p>646,294</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Interest receivable</p></td><td><p>25,257</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Investment in affordable housing</p></td><td><p>-</p></td><td><p>-</p></td><td><p>3,170,453</p></td></tr><tr><td><p>Notes receivable</p></td><td><p>-</p></td><td><p>-</p></td><td><p>3,311,550</p></td></tr><tr><td><p>Prepaid items</p></td><td><p>52,578</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Due from other funds</p></td><td><p>120,893</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Advance to other funds</p></td><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td rowspan="2"><p><strong>Total Assets</strong></p></td><td colspan="2" rowspan="2"><p>$</p></td><td rowspan="2"><p>693,391</p></td></tr><tr><td><p>$</p></td><td><p>6,830,902</p></td><td><p>$</p></td><td><p>8,339,895</p></td></tr><tr><td rowspan="2"><p><strong>LIABILITIES, DEFERRED INFLOWS OF</strong></p></td></tr><tr></tr><tr><td><p><strong>RESOURCES AND FUND BALANCES</strong></p></td></tr><tr><td><p>Liabilities:</p></td></tr><tr><td><p>Accounts payable</p></td><td><p>$</p></td><td><p>1,826</p></td><td colspan="2"><p>$</p></td><td><p>54,858</p></td><td><p>$</p></td><td><p>-</p></td></tr><tr><td><p>Other payables</p></td><td><p>71,658</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Accrued payroll</p></td><td><p>37</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Compensated absences</p></td><td><p>83,645</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Unearned revenue</p></td><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Total Liabilities</p></td><td><p>157,166</p></td><td><p>54,858</p></td><td><p>-</p></td></tr><tr><td><p>Deferred Inflows of Resources:</p></td></tr><tr><td><p>Deferred revenue</p></td><td><p>260,379</p></td><td><p>-</p></td><td><p>2,722,200</p></td></tr><tr><td rowspan="2"><p>Total Deferred Inflows of Resources</p></td><td rowspan="2"><p>-</p></td></tr><tr><td><p>260,379</p></td><td><p>2,722,200</p></td></tr><tr><td><p>Fund Balance:</p></td></tr><tr><td><p>Non-spendable</p></td><td><p>173,471</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Restricted</p></td><td><p>-</p></td><td><p>32,509</p></td><td><p>5,617,695</p></td></tr><tr><td><p>Committed</p></td><td><p>495,019</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Assigned</p></td><td><p>-</p></td><td><p>606,024</p></td><td><p>-</p></td></tr><tr><td><p>Unassigned</p></td><td><p>5,744,867</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td rowspan="2"><p>Total Fund Balance</p></td><td rowspan="2"><p>638,533</p></td></tr><tr><td><p>6,413,357</p></td><td><p>5,617,695</p></td></tr><tr><td><p><strong>Total Liabilities, Deferred Inflows</strong></p></td><td rowspan="2"><p>$</p></td><td rowspan="2"><p>6,830,902</p></td><td colspan="2" rowspan="2"><p>$</p></td><td rowspan="2"><p>693,391</p></td><td rowspan="2"><p>$</p></td><td rowspan="2"><p>8,339,895</p></td></tr><tr><td><p><strong>of Resources and Fund Balances</strong></p></td></tr><tr></tr><tr></tr></table><p></p><p><em>The accompanying notes are an integral part of the financial statements</em></p><p>39</p><table><tr><td></td><td colspan="2"><p><strong>City of Clayton</strong></p></td></tr><tr><td colspan="5"><p><strong>Governmental Funds</strong></p></td></tr><tr><td colspan="2"><p><strong>Balance Sheet</strong></p></td></tr><tr><td colspan="2"><p><strong>June 30, 2022</strong></p></td></tr><tr></tr><tr></tr><tr><td colspan="2"><p>Capital Project</p></td></tr><tr><td><p>Capital</p></td><td colspan="2"><p>Other</p></td></tr><tr><td><p>American</p></td><td colspan="2"><p>Improvement</p></td><td colspan="3"><p>Governmental</p></td></tr><tr><td colspan="2"><p>Rescue Plan Act</p></td><td><p>Program</p></td><td><p>Funds</p></td><td><p>Total</p></td></tr><tr><td colspan="2"><p>$</p></td><td><p>-</p></td><td colspan="2"><p>$</p></td><td><p>2,674,360</p></td><td colspan="2"><p>$</p></td><td><p>1,769,715</p></td><td><p>$</p></td><td><p>12,981,238</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>487,021</p></td><td><p>1,133,315</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>25,257</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>3,170,453</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>3,311,550</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>52,578</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>120,893</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr></tr><tr><td><p>$</p></td><td><p>-</p></td><td><p>$</p></td><td><p>2,674,360</p></td><td><p>$</p></td><td><p>2,256,736</p></td><td><p>$</p></td><td><p>20,795,284</p></td></tr><tr></tr><tr><td colspan="2"><p>$</p></td><td><p>-</p></td><td colspan="2"><p>$</p></td><td><p>67,916</p></td><td colspan="2"><p>$</p></td><td><p>24,992</p></td><td><p>$</p></td><td><p>149,592</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>2,700</p></td><td><p>74,358</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>37</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>83,645</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>332,166</p></td><td><p>332,166</p></td></tr><tr><td><p>-</p></td><td><p>67,916</p></td><td><p>359,858</p></td><td><p>639,798</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>2,982,579</p></td></tr><tr></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>2,982,579</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>173,471</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>1,069,391</p></td><td><p>6,719,595</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>709,802</p></td><td><p>1,204,821</p></td></tr><tr><td><p>-</p></td><td><p>2,606,444</p></td><td><p>117,685</p></td><td><p>3,330,153</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>5,744,867</p></td></tr><tr></tr><tr><td><p>-</p></td><td><p>2,606,444</p></td><td><p>1,896,878</p></td><td><p>17,172,907</p></td></tr><tr><td colspan="2"><p>$</p></td><td><p>-</p></td><td colspan="2"><p>$</p></td><td><p>2,674,360</p></td><td colspan="2"><p>$</p></td><td><p>2,256,736</p></td><td><p>$</p></td><td><p>20,795,284</p></td></tr><tr></tr><tr></tr></table><p><em>The accompanying notes are an integral part of the financial statements</em></p><p>40</p><p><em>This page intentionally left blank</em></p><p>41</p><p><strong>City of Clayton</strong></p><p><strong>Reconciliation of Governmental Funds Balance Sheet to the</strong></p><p><strong>Statement of Net Position</strong></p><p><strong>June 30, 2022</strong></p><table><tr><td><p><strong>Total Fund Balances - Governmental Funds</strong></p></td><td><p>$</p></td><td><p>17,172,907</p></td></tr><tr><td><p>Amounts reported for governmental activities in the Statement of Net Position are different because:</p></td></tr><tr><td><p>CAPITAL ASSETS</p></td></tr><tr><td><p>Capital assets used in governmental activities are not current financial resources and therefore are</p></td></tr><tr><td><p>not reported in the Governmental Funds Balance Sheet.</p></td></tr><tr><td><p>Non-depreciable capital assets</p></td><td><p>3,133,754</p></td></tr><tr><td><p>Depreciable capital assets (net of internal service fund assets of $493,547)</p></td><td><p>25,441,841</p></td></tr><tr><td><p>ACCRUAL OF NON-CURRENT REVENUES AND EXPENSES</p></td></tr><tr><td><p>Unavailable revenue which are deferred inflows of resources in the Governmental Funds because</p></td></tr><tr><td><p>they are not available currently, but are taken into revenue in the statement of activities.</p></td><td><p>2,982,579</p></td></tr><tr><td><p>LONG-TERM ASSETS AND LIABILITIES</p></td></tr><tr><td><p>Long-term liabilities are not due and payable in the current period and therefore are not reported</p></td></tr><tr><td><p>in the Governmental Funds Balance Sheet.</p></td></tr><tr><td><p>Net OPEB liability not reported on the Governmental Funds Balance Sheet</p></td><td><p>(578,315)</p></td></tr><tr><td><p>Compensated absences payable</p></td><td><p>(83,645)</p></td></tr><tr><td><p>Net pension liability not reported on the Governmental Funds Balance Sheet</p></td><td><p>(2,759,739)</p></td></tr><tr><td><p>Lease liability not reported on the Governmental Funds Balance Sheet</p></td><td><p>(244,640)</p></td></tr><tr><td><p>DEFERRED INFLOWS AND OUTFLOWS</p></td></tr><tr><td><p>Deferred inflows/(outflows) of resources for not reported on the Governmental Funds Balance</p></td></tr><tr><td><p>Sheet</p></td></tr><tr><td><p>Deferred outflows of resources for net pension liability</p></td><td><p>1,285,641</p></td></tr><tr><td><p>Deferred inflows of resources for net pension liability</p></td><td><p>(2,471,384)</p></td></tr><tr><td><p>Deferred outflows of resources for net OPEB liability</p></td><td><p>-</p></td></tr><tr><td><p>Deferred inflows of resources for net OPEB liability</p></td><td><p>-</p></td></tr><tr><td><p>ALLOCATION OF INTERNAL SERVICE FUND NET POSITION</p></td></tr><tr><td><p>Internal service funds are used by management to charge the costs of certain activities to</p></td></tr><tr><td><p>individual funds. The assets and liabilities of the internal service funds are included in the</p></td></tr><tr><td><p>governmental activities in the Government-wide Statement of Net Position.</p></td><td><p>1,000,736</p></td></tr><tr><td><p><strong>Net Position of Governmental Activities</strong></p></td><td><p>$</p></td><td><p>44,879,735</p></td></tr><tr></tr></table><p><em>The accompanying notes are an integral part of the financial statements</em></p><p>42</p><p><strong>City of Clayton</strong></p><p><strong>Governmental Funds</strong></p><p><strong>Statement of Revenues, Expenditures and Changes in Fund Balance</strong></p><p><strong>For the year ended June 30, 2022</strong></p><table><tr><td colspan="2"><p>Special Revenue</p></td></tr><tr><td><p>Landscape</p></td><td><p>Successor</p></td></tr><tr><td><p>Maintenance</p></td><td><p>Housing</p></td></tr><tr><td colspan="2"><p>General Fund</p></td><td><p>District</p></td><td><p>Agency</p></td></tr><tr><td><p><strong>REVENUES</strong></p></td></tr><tr><td><p>Property taxes</p></td><td><p>$</p></td><td><p>2,846,766</p></td><td colspan="2"><p>$</p></td><td><p>-</p></td><td colspan="2"><p>$</p></td><td><p>-</p></td></tr><tr><td><p>Program income</p></td><td><p>-</p></td><td><p>-</p></td><td><p>111,400</p></td></tr><tr><td><p>Special parcel taxes and assessments</p></td><td><p>-</p></td><td><p>1,204,882</p></td><td><p>-</p></td></tr><tr><td><p>Sales and use taxes</p></td><td><p>563,908</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Business licenses</p></td><td><p>162,881</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Permits, licenses and fees</p></td><td><p>114,026</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Fines, forfeitures and penalties</p></td><td><p>151,409</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Intergovernmental</p></td><td><p>135,233</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Motor vehicle in-lieu fees</p></td><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Other in-lieu fees</p></td><td><p>174,443</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Franchise fees</p></td><td><p>587,740</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Service charges</p></td><td><p>305,645</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Use of money and property</p></td><td><p>(185,018)</p></td><td><p>(24,383)</p></td><td><p>17,961</p></td></tr><tr><td><p>Other revenue</p></td><td><p>40,844</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p><strong>Total Revenues</strong></p></td><td><p>4,897,877</p></td><td><p>1,180,499</p></td><td><p>129,361</p></td></tr><tr><td><p><strong>EXPENDITURES</strong></p></td></tr><tr><td><p>Current:</p></td></tr><tr><td><p>General government</p></td><td><p>2,570,417</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Public safety</p></td><td><p>2,684,319</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Public works</p></td><td><p>333,423</p></td><td><p>1,424,676</p></td><td><p>-</p></td></tr><tr><td><p>Community and economic development</p></td><td><p>299,175</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Parks and recreation services</p></td><td><p>336,592</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Capital outlay</p></td><td><p>22,168</p></td><td><p>161,367</p></td><td><p>-</p></td></tr><tr><td><p><strong>Total Expenditures</strong></p></td><td><p>6,246,094</p></td><td><p>1,586,043</p></td><td><p>-</p></td></tr><tr><td><p><strong>Excess (Deficiency) of Revenues</strong></p></td><td rowspan="2"><p>(1,348,217)</p></td><td rowspan="2"><p>(405,544)</p></td><td rowspan="2"><p>129,361</p></td></tr><tr><td><p><strong>Over (Under) Expenditures</strong></p></td></tr><tr><td><p><strong>OTHER FINANCING SOURCES (USES)</strong></p></td></tr><tr><td><p>Unrealized gains (losses)</p></td><td><p>-</p></td><td><p>-</p></td><td><p>58,091</p></td></tr><tr><td><p>Transfers in</p></td><td><p>1,597,681</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Transfers out</p></td><td><p>-</p></td><td><p>(41,809)</p></td><td><p>-</p></td></tr><tr><td><p><strong>Total Other Financing Sources (Uses)</strong></p></td><td><p>1,597,681</p></td><td><p>(41,809)</p></td><td><p>58,091</p></td></tr><tr><td><p><strong>Net Change in Fund Balances</strong></p></td><td><p>249,464</p></td><td><p>(447,353)</p></td><td><p>187,452</p></td></tr><tr><td><p><strong>FUND BALANCES</strong></p></td></tr><tr><td><p>Beginning of year, restated</p></td><td><p>6,163,893</p></td><td><p>1,085,886</p></td><td><p>5,430,243</p></td></tr><tr><td><p>End of fiscal year</p></td><td><p>$</p></td><td><p>6,413,357</p></td><td colspan="2"><p>$</p></td><td><p>638,533</p></td><td colspan="2"><p>$</p></td><td><p>5,617,695</p></td></tr><tr></tr></table><p><em>The accompanying notes are an integral part of the financial statements</em></p><p>43</p><table><tr><td></td><td colspan="3"><p><strong>City of Clayton</strong></p></td></tr><tr><td colspan="5"><p><strong>Governmental Funds</strong></p></td></tr><tr><td colspan="11"><p><strong>Statement of Revenues, Expenditures and Changes in Fund Balance</strong></p></td></tr><tr><td colspan="8"><p><strong>For the year ended June 30, 2022</strong></p></td></tr><tr></tr><tr></tr><tr><td colspan="2"><p>Capital Project</p></td><td rowspan="2"><p>Other</p></td></tr><tr><td><p>Capital</p></td></tr><tr><td><p>American</p></td><td colspan="2"><p>Improvement</p></td><td colspan="2"><p>Governmental</p></td></tr><tr><td colspan="2"><p>Rescue Plan Act</p></td><td><p>Program</p></td><td><p>Funds</p></td><td><p>Total</p></td></tr><tr><td colspan="2"><p>$</p></td><td><p>-</p></td><td colspan="2"><p>$</p></td><td><p>-</p></td><td colspan="2"><p>$</p></td><td><p>-</p></td><td colspan="2"><p>$</p></td><td><p>2,846,766</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>111,400</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>442,230</p></td><td><p>1,647,112</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>563,908</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>162,881</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>140,326</p></td><td><p>254,352</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>151,409</p></td></tr><tr><td><p>1,467,024</p></td><td><p>-</p></td><td><p>1,170,041</p></td><td><p>2,772,298</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>174,443</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>587,740</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>305,645</p></td></tr><tr><td><p>-</p></td><td><p>(80,986)</p></td><td><p>(52,490)</p></td><td><p>(324,916)</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>648</p></td><td><p>41,492</p></td></tr><tr><td><p>1,467,024</p></td><td><p>(80,986)</p></td><td><p>1,700,755</p></td><td><p>9,294,530</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>126,650</p></td><td><p>2,697,067</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>130,541</p></td><td><p>2,814,860</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>383,356</p></td><td><p>2,141,455</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>299,175</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>140,808</p></td><td><p>477,400</p></td></tr><tr><td><p>-</p></td><td><p>869,925</p></td><td><p>48,889</p></td><td><p>1,102,349</p></td></tr><tr><td><p>-</p></td><td><p>869,925</p></td><td><p>830,244</p></td><td><p>9,532,306</p></td></tr><tr><td><p>1,467,024</p></td><td><p>(950,911)</p></td><td><p>870,511</p></td><td><p>(237,776)</p></td></tr><tr><td><p>-</p></td><td><p>-</p></td><td><p>-</p></td><td><p>58,091</p></td></tr><tr><td><p>-</p></td><td><p>1,632,609</p></td><td><p>21,214</p></td><td><p>3,251,504</p></td></tr><tr><td><p>(1,467,024)</p></td><td><p>-</p></td><td><p>(1,742,671)</p></td><td><p>(3,251,504)</p></td></tr><tr><td><p>(1,467,024)</p></td><td><p>1,632,609</p></td><td><p>(1,721,457)</p></td><td><p>58,091</p></td></tr><tr><td><p>-</p></td><td><p>681,698</p></td><td><p>(850,946)</p></td><td><p>(179,685)</p></td></tr><tr><td><p>-</p></td><td><p>1,924,746</p></td><td><p>2,747,824</p></td><td><p>17,352,592</p></td></tr><tr><td colspan="2"><p>$</p></td><td><p>-</p></td><td colspan="2"><p>$</p></td><td><p>2,606,444</p></td><td colspan="2"><p>$</p></td><td><p>1,896,878</p></td><td colspan="2"><p>$</p></td><td><p>17,172,907</p></td></tr><tr></tr></table><p><em>The accompanying notes are an integral part of the financial statements</em></p><p>44</p><p><strong>City of Clayton</strong></p><p><strong>Reconciliation of Governmental Funds Statement of Revenues, Expenditures and Changes in Fund</strong></p><p><strong>Balances to the Statement of Activities and Changes in Net Position</strong></p><p><strong>For the year ended June 30, 2022</strong></p><p><strong>Net Change in Fund Balances - Total Governmental Funds</strong></p><p>Amounts reported for governmental activities in the Statement of Activities are different because:</p><p>ACCRUAL OF NON-CURRENT ITEMS</p><p>The amounts below included in the Statement of Activities do not provide (or require) the use of current financial resources and therefore are not reported as revenue or expenditures in the Governmental Funds (net change).</p><p>Net change in post-employment benefits (OPEB) liability and deferred inflows (outflows) Long-term compensated absences payable</p><p>Net change in pension liability and deferred inflows (outflows).</p><p>Unavailable revenues</p><p>Net change in lease liability</p><p>CAPITAL ASSET TRANSACTIONS</p><p>Governmental Funds report capital outlays as expenditures. However in the Statement of Activities the cost of those assets is capitalized and allocated over their estimated useful lives and reported as depreciation expense.</p><p>Capital asset acquisition, excluding internal service fund asset acquisitions.</p><p>Depreciation expense is deducted from the fund balance (Net of internal service fund depreciation of $100,425).</p><p>ALLOCATION OF INTERNAL SERVICE FUND ACTIVITY</p><p>Internal service funds are used by management to charge the costs of certain activities, such as insurance and fleet management, to individual funds. The net gain or loss of the internal service funds is reported with governmental activities.</p><p><strong>Change in Net Position of Governmental Activities on Statement of Activities</strong></p><p>$	(179,685)</p><p>(74,942)</p><p>(745)</p><p>730,720</p><p>(113,947)</p><p>(244,640)</p><p>1,217,507</p><p>(947,745)</p><p>(4,806)</p><p>$	381,717</p><p><em>The accompanying notes are an integral part of the financial statements</em></p><p>45</p><p><strong>PROPRIETARY FUNDS</strong></p><p>Proprietary funds account for City operations financed and operated in a manner similar to a private business enterprise. The intent of the City is that the cost of providing goods and services be financed primarily through user charges. The City’s proprietary funds can be classified into two fund types: enterprise and internal service funds.</p><p><strong>Enterprise Funds:</strong></p><p>Enterprise funds are used to report any activity for which a fee is charged to external users for goods or services. The following is the City’s sole major enterprise fund:</p><p><strong><em>Endeavor Hall –</em></strong> Accounts for all rental activities related to operation of the underlying rental facility asset. The primary use of the rental facility has been for wedding receptions and other formal special events.</p><p><strong>Internal Service Funds:</strong></p><p>The City’s internal service funds account for activities that provide goods or services to other City funds, departments, or agencies on a cost reimbursement basis. All internal service funds of the City are aggregated and presented on the face of the proprietary fund financial statements in one column.</p><p>46</p><table><tr><td></td><td colspan="3"><p><strong>City of Clayton</strong></p></td></tr><tr><td colspan="3"><p><strong>Proprietary Funds</strong></p></td></tr><tr><td colspan="8"><p><strong>Statement of Net Position</strong></p></td></tr><tr><td colspan="3"><p><strong>June 30, 2022</strong></p></td></tr><tr></tr><tr></tr><tr><td colspan="4"><p>Business-type</p></td><td colspan="3"><p>Governmental</p></td></tr><tr><td colspan="3"><p>Activities -</p></td><td colspan="2"><p>Activities -</p></td></tr><tr><td colspan="4"><p>Endeavor Hall</p></td><td colspan="3"><p>Internal Service</p></td></tr><tr><td><p><strong>ASSETS</strong></p></td></tr><tr><td><p>Current assets:</p></td></tr><tr><td><p>Cash and investments</p></td><td colspan="2"><p>$</p></td><td><p>-</p></td><td><p>$</p></td><td><p>460,441</p></td></tr><tr><td><p>Noncurrent assets</p></td></tr><tr><td><p>Land</p></td><td><p>167,738</p></td><td><p>-</p></td></tr><tr><td><p>Depreciable assets, net</p></td><td><p>841,465</p></td><td><p>540,610</p></td></tr><tr><td><p><strong>Total Assets</strong></p></td><td><p>1,009,203</p></td><td><p>1,001,051</p></td></tr><tr><td><p><strong>LIABILITIES</strong></p></td></tr><tr><td><p>Current liabilities:</p></td></tr><tr><td><p>Accounts payable</p></td><td><p>2,671</p></td><td><p>315</p></td></tr><tr><td><p>Other payables</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Deposits payable</p></td><td><p>5,500</p></td><td><p>-</p></td></tr><tr><td><p>Due to other funds</p></td><td><p>120,893</p></td><td><p>-</p></td></tr><tr><td><p><strong>Total Liabilities</strong></p></td><td><p>129,064</p></td><td><p>315</p></td></tr><tr><td><p><strong>NET POSITION</strong></p></td></tr><tr><td><p>Net investment in capital assets</p></td><td><p>1,009,203</p></td><td><p>540,610</p></td></tr><tr><td><p>Unrestricted</p></td><td><p>(129,064)</p></td><td><p>460,126</p></td></tr><tr><td><p><strong>Total Net Position</strong></p></td><td><p>$</p></td><td><p>880,139</p></td><td><p>$</p></td><td><p>1,000,736</p></td></tr><tr></tr></table><p><em>The accompanying notes are an integral part of the financial statements</em></p><p>47</p><p><strong>City of Clayton</strong></p><p><strong>Proprietary Funds</strong></p><p><strong>Statement of Revenues, Expenses and Changes in Net Position</strong></p><p><strong>For the year ended June 30, 2022</strong></p><table><tr><td colspan="2"><p>Governmental</p></td></tr><tr><td colspan="2"><p>Business-type</p></td><td><p>Activities -</p></td></tr><tr><td><p>Activities -</p></td><td colspan="2"><p>Internal Service</p></td></tr><tr><td colspan="2"><p>Endeavor Hall</p></td><td><p>Funds</p></td></tr><tr><td><p><strong>OPERATING REVENUES</strong></p></td></tr><tr><td><p>Charges for current services</p></td><td><p>$</p></td><td><p>16,847</p></td><td colspan="2"><p>$</p></td><td><p>111,900</p></td></tr><tr><td><p><strong>Total Operating Revenues</strong></p></td><td><p>16,847</p></td><td><p>111,900</p></td></tr><tr><td><p><strong>OPERATING EXPENSES</strong></p></td></tr><tr><td><p>Personnel</p></td><td><p>4,833</p></td><td><p>-</p></td></tr><tr><td><p>General and administrative</p></td><td><p>26,989</p></td><td><p>8,564</p></td></tr><tr><td><p>Depreciation and amortization</p></td><td><p>28,872</p></td><td><p>100,425</p></td></tr><tr><td><p><strong>Total Operating Expenses</strong></p></td><td><p>60,694</p></td><td><p>108,989</p></td></tr><tr></tr><tr><td><p><strong>Operating Income (Loss)</strong></p></td><td><p>(43,847)</p></td><td><p>2,911</p></td></tr><tr><td rowspan="2"><p><strong>NONOPERATING REVENUES (EXPENSES)</strong></p></td></tr><tr></tr><tr><td><p>Gain (loss) on disposal of assets</p></td><td><p>-</p></td><td><p>6,958</p></td></tr><tr><td><p>Investment income</p></td><td><p>-</p></td><td><p>(14,675)</p></td></tr><tr></tr><tr><td><p><strong>Total Nonoperating Revenues (Expenses)</strong></p></td><td><p>-</p></td><td><p>(7,717)</p></td></tr><tr><td rowspan="2"><p><strong>Net (loss) Before Contributions and</strong></p></td></tr><tr><td rowspan="2"><p>(43,847)</p></td><td rowspan="2"><p>(4,806)</p></td></tr><tr><td><p><strong>Operating Transfers</strong></p></td></tr><tr><td><p>Capital contributions</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Transfers in / (out)</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p><strong>Change in Net Position</strong></p></td><td><p>(43,847)</p></td><td><p>(4,806)</p></td></tr><tr><td><p><strong>NET POSITION:</strong></p></td></tr><tr><td><p>Beginning of fiscal year</p></td><td><p>923,986</p></td><td><p>1,005,542</p></td></tr><tr></tr><tr><td><p>End of fiscal year</p></td><td><p>$</p></td><td><p>880,139</p></td><td colspan="2"><p>$</p></td><td><p>1,000,736</p></td></tr><tr></tr></table><p><em>The accompanying notes are an integral part of the financial statements</em></p><p>48</p><p><strong>City of Clayton</strong></p><p><strong>Proprietary Funds</strong></p><p><strong>Statement of Cash Flows</strong></p><p><strong>For the year ended June 30, 2022</strong></p><table><tr><td colspan="2" rowspan="2"><p>Business-type</p></td><td colspan="2"><p>Governmental</p></td></tr><tr><td><p>Activities -</p></td></tr><tr><td><p>Activities -</p></td><td colspan="2"><p>Internal Service</p></td></tr><tr><td rowspan="2"><p><strong>CASH FLOWS FROM OPERATING ACTIVITIES:</strong></p></td><td colspan="2"><p>Endeavor Hall</p></td><td><p>Funds</p></td></tr><tr></tr><tr><td><p>Receipts from customers</p></td><td><p>$</p></td><td><p>20,847</p></td><td colspan="2"><p>$</p></td><td><p>111,900</p></td></tr><tr><td><p>Payments to suppliers</p></td><td><p>(24,734)</p></td><td><p>(4,001)</p></td></tr><tr><td><p>Payments to employees</p></td><td><p>(4,833)</p></td><td><p>-</p></td></tr><tr><td><p>Claims paid</p></td><td><p>-</p></td><td><p>(4,428)</p></td></tr><tr><td><p><strong>Net cash provided (used) by operating activities</strong></p></td><td><p>(8,720)</p></td><td><p>103,471</p></td></tr><tr><td><p><strong>CASH FLOWS FROM NONCAPITAL FINANCING</strong></p></td></tr><tr><td><p><strong>ACTIVITIES:</strong></p></td></tr><tr><td><p>Transfers in / (out)</p></td><td><p>8,720</p></td><td><p>-</p></td></tr><tr><td><p><strong>Net cash provided by noncapital financing</strong></p></td><td><p>8,720</p></td><td><p>-</p></td></tr><tr><td><p><strong>activities</strong></p></td></tr><tr><td><p><strong>CASH FLOWS FROM CAPITAL AND RELATED</strong></p></td></tr><tr><td><p><strong>FINANCING ACTIVITIES:</strong></p></td></tr><tr><td><p>Acquisition of fixed assets</p></td><td><p>-</p></td><td><p>(153,184)</p></td></tr><tr><td><p>Proceeds from the sale of capital assets</p></td><td><p>-</p></td><td><p>6,958</p></td></tr><tr><td><p><strong>Net cash provided (used) by capital and related</strong></p></td><td><p>-</p></td><td><p>(146,226)</p></td></tr><tr><td><p><strong>financing activities</strong></p></td></tr><tr><td><p><strong>CASH FLOWS FROM INVESTING ACTIVITIES:</strong></p></td></tr><tr><td><p>Interest received on investments</p></td><td><p>-</p></td><td><p>(14,675)</p></td></tr><tr><td><p><strong>Net Cash provided by investing activities</strong></p></td><td><p>-</p></td><td><p>(14,675)</p></td></tr><tr><td><p><strong>Net increase (decrease) in cash and cash equivalents</strong></p></td><td><p>-</p></td><td><p>(57,430)</p></td></tr><tr><td><p><strong>CASH AND CASH EQUIVALENTS:</strong></p></td></tr><tr><td><p>Beginning of fiscal year</p></td><td><p>-</p></td><td><p>517,871</p></td></tr><tr><td><p>End of fiscal year</p></td><td><p>$</p></td><td><p>-</p></td><td colspan="2"><p>$</p></td><td><p>460,441</p></td></tr><tr><td rowspan="2"><p><strong>RECONCILIATION OF OPERATING INCOME</strong></p></td></tr><tr></tr><tr><td><p><strong>(LOSS) TO NET CASH PROVIDED (USED) BY</strong></p></td></tr><tr><td><p><strong>OPERATING ACTIVITIES:</strong></p></td></tr><tr><td><p>Operating income (loss)</p></td><td><p>$</p></td><td><p>(43,847)</p></td><td colspan="2"><p>$</p></td><td><p>2,911</p></td></tr><tr><td><p>Adjustments to reconcile operating income (loss)</p></td></tr><tr><td><p>to net cash provided (used) by operating activities:</p></td></tr><tr><td><p>Depreciation and amortization</p></td><td><p>28,872</p></td><td><p>100,425</p></td></tr><tr><td><p>Changes in current assets and liabilities:</p></td></tr><tr><td><p>Increase (decrease) in accounts payable</p></td><td><p>2,255</p></td><td><p>135</p></td></tr><tr><td><p>Increase (decrease) in deposits payable</p></td><td><p>4,000</p></td><td><p>-</p></td></tr><tr><td><p>Increase (decrease) in interfund payables</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p><strong>Net cash provided (used) by operating activities</strong></p></td><td><p>$</p></td><td><p>(8,720)</p></td><td><p>$</p></td><td><p>103,471</p></td></tr><tr></tr></table><p><em>The accompanying notes are an integral part of the financial statements</em></p><p>49</p><p><strong>FIDUCIARY FUNDS</strong></p><p>Fiduciary funds report assets held in a trustee or agency capacity for others and therefore cannot be used to support the government’s own programs. The City’s fiduciary funds can be classified into two fund types: agency and private purpose trust funds.</p><p><strong>Agency Funds:</strong></p><p>Agency funds are custodial in nature (assets equal liabilities) and do not involve measurements of results of operations. They are used to account for assets held in an agency capacity for others and therefore cannot be used to support the City's program. Agency funds are accounted for using the economic resources measurement focus and the accrual basis of accounting.</p><p><strong>Private Purpose Trust Funds</strong></p><p>Private purpose trust funds account for resources held by the City as trustee for third party beneficiaries, and are used to report both the Fiduciary Net Position and Changes in Fiduciary Net Position for the Successor Agency for the former Redevelopment Agency. Private Purpose Trust Funds are accounted for under the full accrual basis of accounting.</p><p>50</p><p><strong>City of Clayton</strong></p><p><strong>Fiduciary Funds</strong></p><p><strong>Statement of Fiduciary Net Position</strong></p><p><strong>June 30, 2022</strong></p><table><tr><td colspan="2"><p>Private Purpose</p></td></tr><tr><td><p>Trust Fund</p></td></tr><tr><td colspan="2"><p>Redevelopment</p></td></tr><tr><td><p>Successor</p></td></tr><tr><td><p>Agency</p></td><td colspan="2"><p>Agency Funds</p></td></tr><tr><td><p><strong>ASSETS</strong></p></td></tr><tr><td><p>Cash and investments</p></td><td><p>$</p></td><td><p>526,807</p></td><td colspan="2"><p>$</p></td><td><p>1,632,920</p></td></tr><tr><td><p>Cash and investments with fiscal agents</p></td><td><p>1</p></td><td><p>376,103</p></td></tr><tr><td><p>Accounts receivable</p></td><td><p>-</p></td><td><p>10,188</p></td></tr><tr><td><p>Other assets</p></td><td><p>-</p></td><td><p>967</p></td></tr><tr><td><p>Assessments receivable</p></td><td><p>-</p></td><td><p>655,931</p></td></tr><tr><td><p>Due from bondholders</p></td><td><p>-</p></td><td><p>182,883</p></td></tr><tr><td><p>Notes receivable</p></td><td><p>52,607</p></td><td><p>-</p></td></tr><tr><td><p>Investment in bonds</p></td><td><p>-</p></td><td><p>470,000</p></td></tr><tr><td><p><strong>Total Assets</strong></p></td><td><p>579,415</p></td><td><p>3,328,992</p></td></tr><tr><td><p><strong>LIABILITIES</strong></p></td></tr><tr><td><p>Accounts payable</p></td><td><p>-</p></td><td><p>16,378</p></td></tr><tr><td><p>Other liabilities</p></td><td><p>-</p></td><td><p>1,455,651</p></td></tr><tr><td><p>Deposits payable</p></td><td><p>-</p></td><td><p>774,539</p></td></tr><tr><td><p>Accrued interest payable</p></td><td><p>10,973</p></td><td><p>-</p></td></tr><tr><td><p>Advance from Successor Housing Agency</p></td><td><p>-</p></td><td><p>-</p></td></tr><tr><td><p>Notes payable</p></td><td><p>-</p></td><td><p>52,606</p></td></tr><tr><td><p>Bonds payable</p></td><td><p>1,145,000</p></td><td><p>1,029,818</p></td></tr><tr><td><p><strong>Total Liabilities</strong></p></td><td><p>1,155,973</p></td><td><p>$</p></td><td><p>3,328,992</p></td></tr><tr><td><p><strong>DEFERRED INFLOWS OF RESOURCES</strong></p></td><td rowspan="2"><p>-</p></td></tr><tr><td><p>Deferred notes receivables</p></td></tr><tr><td><p><strong>Total Deferred Inflows of Resources</strong></p></td><td><p>-</p></td></tr><tr><td><p><strong>NET POSITION</strong></p></td><td rowspan="2"><p>(576,558)</p></td></tr><tr><td><p>Held in trust for others</p></td></tr><tr><td><p><strong>Total Net Position</strong></p></td><td><p>$</p></td><td><p>(576,558)</p></td></tr><tr></tr></table><p><em>The accompanying notes are an integral part of the financial statements</em></p><p>51</p><table><tr><td></td><td colspan="4"><p><strong>City of Clayton</strong></p></td></tr><tr><td colspan="4"><p><strong>Fiduciary Funds</strong></p></td></tr><tr><td colspan="5"><p><strong>Statement of Changes in Fiduciary Net Position</strong></p></td></tr><tr><td colspan="4"><p><strong>For the year ended June 30, 2022</strong></p></td></tr><tr></tr><tr></tr><tr><td colspan="3"><p>Private Purpose</p></td></tr><tr><td colspan="2"><p>Trust Fund</p></td></tr><tr><td colspan="2"><p>Redevelopment</p></td></tr><tr><td colspan="2"><p>Successor</p></td></tr><tr><td rowspan="2"><p><strong>ADDITIONS</strong></p></td><td colspan="2"><p>Agency</p></td></tr><tr></tr><tr><td><p>Tax increment revenue</p></td><td colspan="2"><p>$</p></td><td><p>618,554</p></td></tr><tr><td><p>Program revenue</p></td><td><p>2,121</p></td></tr><tr><td><p>Investment gain (loss)</p></td><td><p>(15,186)</p></td></tr><tr><td><p><strong>Total Additions</strong></p></td><td><p>605,489</p></td></tr><tr><td><p><strong>DEDUCTIONS</strong></p></td></tr><tr><td><p>Interest expense</p></td><td><p>24,141</p></td></tr><tr><td><p>Administrative costs</p></td><td><p>252,179</p></td></tr><tr><td><p>Other expenses</p></td><td><p>-</p></td></tr><tr><td><p><strong>Total Deductions</strong></p></td><td><p>276,320</p></td></tr><tr><td><p><strong>Changes in Net Position</strong></p></td><td><p>329,169</p></td></tr><tr><td><p><strong>NET POSITION</strong></p></td></tr></table><p>Beginning of Year</p><p>End of Year</p><p>(905,727)</p><p>$	(576,558)</p><p><em>The accompanying notes are an integral part of the financial statements</em></p><p>52</p></body></html>
+</div>
+</div>
 <span id="tables"></span>
 <div>
 <!-- Header for the sheet from the Excel doc -->

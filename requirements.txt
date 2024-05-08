@@ -18,6 +18,7 @@ python-dotenv
 # io
 lxml
 # zipfile
+python-docx
 
 #Additional Arelle requirements
 regex

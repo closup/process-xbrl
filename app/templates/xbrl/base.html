@@ -36,6 +36,7 @@
         </div>
         <!-- Visible content starts here -->
 
+        <br />
         <a href="#tables">Go to financial tables</a>
         <br />
         <br />
@@ -59,8 +60,12 @@
         <br />
         <br />
         {% else %}
-        <!-- Include converted Word content -->
-        {{ page.get_html() | safe }}
+        <div style="text-align: center;">
+            <!-- Include converted Word content -->
+            <div class="word-content">
+                {{ page.get_html() | safe }}
+            </div>
+        </div>
         {% endif %}
         {% endfor %}
 
