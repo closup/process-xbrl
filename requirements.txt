@@ -19,6 +19,9 @@ python-dotenv
 lxml
 # zipfile
 python-docx
+pillow
+uuid
+python-dotenv
 
 #Additional Arelle requirements
 regex
