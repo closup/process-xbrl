@@ -14,3 +14,6 @@ venv/
 
 # ignore unsaved Microsoft docs
 ~$*
+
+# ignore images
+app/static/img/*
