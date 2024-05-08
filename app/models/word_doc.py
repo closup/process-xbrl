@@ -58,8 +58,7 @@ class WordDoc:
         self.remove_links()
         self.remove_empty_tags()
         self.insert_comments()
-        self.identify_and_mark_page_numbers()
-        self.convert_page_numbers_to_html_divs()
+        self.identify_and_insert_html_page_breaks()
 
     @staticmethod
     def convert_image(image):
@@ -89,7 +88,7 @@ class WordDoc:
     
     def update_html_content(self):
         """ Update the HTML content from the soup object """
-        self.html_content = str(self.soup)
+        self.html_content = self.soup.prettify()
 
     def get_html(self):
         """ Return the HTML content """
@@ -143,21 +142,14 @@ class WordDoc:
                 p_tags[comment.p_num].replace_with(comment.ix_tag())
         self.update_html_content()
     
-    def identify_and_mark_page_numbers(self):
-        """Go through the docx document and mark page numbers with a custom XML tag."""
-        for paragraph in self.doc.paragraphs:
-            if paragraph.text.strip().isdigit():  # Check if this paragraph is a page number
-                # Insert a custom marker/tag before the paragraph
-                paragraph.text = 'PAGE_NUMBER_MARKER_HERE'
-
-    def convert_page_numbers_to_html_divs(self):
-        """Replace page number markers with HTML divs for styled page breaks, but not inside tables."""
-        soup = BeautifulSoup(self.html_content, "html.parser")
+    def identify_and_insert_html_page_breaks(self):
+        """Go through the converted HTML document and insert page breaks before paragraphs that contain only a number and are not contained in a table."""
+        for paragraph in self.soup.find_all('p'):
+            # Check if paragraph contains only a number and is not a child of a table
+            if paragraph.string and paragraph.string.strip().isdigit() and not paragraph.find_parent('table'):
+                # Create a div with the 'page-break' class and insert before this paragraph
+                page_break_div = self.soup.new_tag("div", **{'class': 'page-break'})
+                paragraph.insert_before(page_break_div)
         
-        # Replace custom markers with divs
-        for marker in soup.find_all(string='PAGE_NUMBER_MARKER_HERE'):
-            if marker.find_parent('table') is None:  # Make sure it's not within a table
-                page_break_div = soup.new_tag("div", **{'class': 'page-break'})
-                marker.replace_with(page_break_div)
-
-        return str(soup)
+        # Update the html_content with the modified soup
+        self.update_html_content()
