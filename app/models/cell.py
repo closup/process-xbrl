@@ -52,9 +52,8 @@ class Cell:
         return self._xbrl_tag
 
     def context_ref(self):
-        # TODO: fix
-        if self._context is None:
-            return "ERROR"
+        # if self._context is None:
+        #     return "ERROR"
         return self._context.id
     
     def in_first_col(self):
@@ -125,3 +124,6 @@ class Cell:
     
     def __eq__(self, other):
         return self.index() == other.index()
+
+    def needs_ix_tag(self):
+        return self.show_value() != "" and self.context_ref() != None

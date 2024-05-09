@@ -72,7 +72,6 @@ class Table:
         """ Get date from spreadsheet and interpret """
         # clean date of extra words
         date = str.replace(self.raw_date(), "for_the_year_ended_", "")
-        print(f"converting date in Table.py: date = {date}")
         try:
         # First try parsing with the numerical year-month-day format (default if "date" in Excel)
             date = datetime.strptime(date, "%Y-%m-%d_%H:%M:%S")
@@ -97,6 +96,8 @@ class Table:
         """ Finds the first row of taggable data """
         i = 0
         while self._data[i].show_value() == "":
+            # PRINT
+            print(self._data[i].show_value())
             i += 1
         # tag all cells in that row
         row_name = self._data[i].row_name()
