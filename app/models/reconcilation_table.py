@@ -23,13 +23,15 @@ class Reconciliation(Table):
             # Iterate through filtered rows and create Cell objects with the specified context
             for _, row in rows.iterrows():
                 print(f'row: {row["nan"]}; col: {row["header"]}')
-                cell = Cell(id = row["id"], 
-                            xbrl_tag = None, 
-                            row_name = str(row["nan"]), 
-                            col_name = str(row["header"]),
-                            value = row["value"],
-                            context = None)
-                self._data.append(cell)
+                if xbrl_tag != "Choose from drop-down -->":
+                    cell = Cell(id = row["id"], 
+                                xbrl_tag = None, 
+                                row_name = str(row["nan"]), 
+                                col_name = str(row["header"]),
+                                value = row["value"],
+                                context = None,
+                                n_left_cols = self.extra_left_cols)
+                    self._data.append(cell)
         # put data back in its original order
         self._data.sort()
 

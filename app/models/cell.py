@@ -126,4 +126,4 @@ class Cell:
         return self.index() == other.index()
 
     def needs_ix_tag(self):
-        return self.show_value() != "" and self.context_ref() != None
+        return self.show_value() != "" and self._context != None
