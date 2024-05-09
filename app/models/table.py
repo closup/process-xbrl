@@ -43,6 +43,11 @@ class Table:
     def raw_date(self) -> str:
         return clean(str(self._df.iloc[3, 1]))
     
+    def formatted_date(self) -> str:
+        if self.get_time_type() == 'D':
+            return self.raw_date()
+        return self.date.strftime('%B %d, %Y')
+
     def contexts(self) -> List[Context]:
         return self._contexts
     
@@ -57,7 +62,7 @@ class Table:
 
     def get_header(self) -> List[str]:
         """ Header at the top of each sheet containing city, date, etc"""
-        return [print_nicely(line) for line in [self.city(), self.scope(), self.statement(), self.raw_date()]]
+        return [print_nicely(line) for line in [self.city(), self.scope(), self.statement(), self.formatted_date()]]
 
     def n_header_lines(self) -> int:
         # determine number of lines above the first taggable row
@@ -67,6 +72,7 @@ class Table:
         """ Get date from spreadsheet and interpret """
         # clean date of extra words
         date = str.replace(self.raw_date(), "for_the_year_ended_", "")
+        print(f"converting date in Table.py: date = {date}")
         try:
         # First try parsing with the numerical year-month-day format (default if "date" in Excel)
             date = datetime.strptime(date, "%Y-%m-%d_%H:%M:%S")
@@ -79,7 +85,8 @@ class Table:
                     date = datetime.strptime(date, "%Y-%m-%d_%H%M%S")
                 except ValueError:
                     pass
-        return date
+        finally:
+            return date
 
     def get_col_names(self) -> List[str]:
         """ Get unique column names in the sheet """

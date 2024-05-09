@@ -41,7 +41,6 @@ class Context:
         try:
             return self._time_type + self._date.strftime('%Y%m%d') + ret
         finally:
-            print(f"Date parse error: {self._date}")
             return self._time_type + "date_parse_error" + ret
         
     

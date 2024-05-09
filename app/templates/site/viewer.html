@@ -5,40 +5,38 @@
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <style type="text/css">
 
-/* Style for the table */
-table {
+/* Style for the table with class 'statement' */
+table.statement {
     border-collapse: collapse; /* Merge borders into a single line */
     width: 98%;
 }
 
-/* Style for the last row (horizontal line at the bottom) */
-tr:last-child {
-    border-bottom: 1px solid black; /* Remove the bottom border for the last row */
+/* Style for the last row within a table with class 'statement' */
+table.statement tr:last-child {
+    border-bottom: 1px solid black; /* Add bottom border for the last row */
 }
 
-/* Style for table headers */
-th {
-    border-bottom: 1px solid black; 
-    text-align:right
+/* Style for th elements within a table with class 'statement' */
+table.statement th {
+    border-bottom: 1px solid black;
+    text-align: right;
 }
 
-/* Style for table cells */
-td {
-    height: 15.0pt; 
-    text-align: right; 
+/* Style for the last th and td elements within a row within a table with class 'statement' */
+table.statement th:last-child, table.statement td:last-child {
+    min-width: 120px;
+    width: auto; /* Allow the width to adjust based on content */
+}
+
+/* Alignment for ALL tables, including word ones */
+table td {
+    height: 15.0pt;
+    text-align: right;
     font-size: 14px;
     margin: 10px;
 }
-
-/* Style for row names */
-td:first-child {
-    text-align: left; 
-}
-
-/* total column width */
-th:last-child, td:last-child {
-    min-width: 120px;
-    width: auto; /* Allow the width to adjust based on content */
+table td:first-child {
+    text-align: left;
 }
 
 .section_header, .subsection_header {
@@ -96,6 +94,95 @@ th:last-child, td:last-child {
 }
 
 h1.center {text-align: center;}
+
+body {
+    font-family: 'Times New Roman', serif;
+    line-height: 1.15; /* Example line height addition */
+}
+
+.word-content {
+    max-width: 7in;
+    margin: 1in;
+    padding: 1in; /* Adding padding to mimic Word's default content padding */
+    border: 1px solid #ccc;
+    background-color: #fff; /* To resemble a Word document's white page */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow around the "page" */
+    text-align: justify;
+}
+
+/* Word styles */
+
+h1.title {
+    font-weight: bold; /* Makes the text bold */
+    font-size: 2em; /* Larger font size for title */
+    text-align: center; /* Centers the text */
+    margin-top: 2em; /* Spacing above the title */
+    margin-bottom: 2em; /* Spacing below the title */
+    color: #333333; /* Dark grey color for the text */
+}
+
+h2.header {
+    font-weight: bold; /* Makes the text bold */
+    font-size: 1em; /* Slightly smaller font size for heading */
+    text-align: center; /* Aligns the text to the left */
+    margin-top: 0.5em; /* Spacing above the heading */
+    padding-bottom: 10px; /* Spacing between the text and the line */
+    margin-bottom: 20px; /* Spacing below the line */
+    position: relative;
+    color: #1a1a1a; /* Slightly darker grey color for the text */
+}
+
+h3.header2 {
+    font-size: 0.5em; /* Smaller font size for heading2 */
+    text-align: left; /* Aligns the text to the left */
+    margin-top: 0.1em; /* Spacing above the heading2 */
+    margin-bottom: 0.1em; /* Spacing below the heading2 */
+    color: #000000; /* Black color for the text */
+    position: relative;
+}
+
+h2.header:after {
+    content: ''; /* Essential for a pseudo-element */
+    display: block;
+    width: 100%; /* Adjust to control the width of the underline */
+    height: 1px; /* Underline thickness */
+    background: #000; /* Underline color */
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Aligns at the bottom of the element */
+}
+
+p {
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+.page-break {
+    display: block;
+    clear: both;
+    width: 8.9in;
+    margin-left: -1in;
+    margin-right: -1in;
+    margin-top: 50px; /* Increase the space before the break */
+    margin-bottom: 50px; /* Increase the space after the break */
+    border-bottom: 2px dotted #888; /* Dotted line to visually indicate a page break */
+    content: " "; /* Needed for the border to take effect */
+}
+
+.page-number {
+    text-align: center;
+}
+
+/* Word images */
+img {
+    display: block;
+    max-width: 7in;
+    height: auto;
+    /* Center the image */
+    margin-left: auto;
+    margin-right: auto;
+}
+
 </style>
 </head>
 <body class="gray">
@@ -106,240 +193,13 @@ h1.center {text-align: center;}
 </ix:references>
 <ix:resources>
 <!--Start of contexts-->
-<xbrli:context id="Idate_parse_error_LandscapeMaintenanceDistrict">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:LandscapeMaintenanceDistrictMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_InternalServiceFunds">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-<acfr:proprietaryfundsdomain>
-                    acfr:InternalServiceFundsMember
-                    </acfr:proprietaryfundsdomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_CapitalImprovementProgram">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:CapitalImprovementProgramMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_GovernmentalActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_LandscapeMaintenanceDistrict">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:LandscapeMaintenanceDistrictMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_BusinessTypeActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_EndeavorHall">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-<acfr:proprietaryfundsdomain>
-                    acfr:EndeavorHallMember
-                    </acfr:proprietaryfundsdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_OtherGovernmentalFunds">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:OtherGovernmentalFundsMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ComponentUnitDiscretelyPresented">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_GovernmentalFunds">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalFundsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_BusinessTypeActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_ComponentUnitDiscretelyPresented">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_BusinessTypeActivities">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
 <acfr:nonedomain>
                     acfr:ProgramRevenuesFromChargesForServicesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 </xbrli:segment>
@@ -370,19 +230,77 @@ h1.center {text-align: center;}
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_GovernmentalActivities">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
 <acfr:nonedomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_InternalServiceFunds">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+<acfr:proprietaryfundsdomain>
+                    acfr:InternalServiceFundsMember
+                    </acfr:proprietaryfundsdomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+<acfr:proprietaryfundsdomain>
+                    acfr:BusinessTypeActivitiesEndeavorHallMember
+                    </acfr:proprietaryfundsdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_BusinessTypeActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
 <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
 <acfr:nonedomain>
-                    acfr:GovernmentalActivitiesMember
+                    acfr:BusinessTypeActivitiesMember
                     </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_InternalServiceFunds">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+<acfr:proprietaryfundsdomain>
+                    acfr:InternalServiceFundsMember
+                    </acfr:proprietaryfundsdomain>
 </xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
@@ -407,106 +325,13 @@ h1.center {text-align: center;}
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_GeneralFund">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
-<acfr:nonedomain>
-                    acfr:GeneralFundMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_SuccessorHousingAgency">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:SuccessorHousingAgencyMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_InternalServiceFunds">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-<acfr:proprietaryfundsdomain>
-                    acfr:InternalServiceFundsMember
-                    </acfr:proprietaryfundsdomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_AmericanRescuePlanAct">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:AmericanRescuePlanActMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_CapitalImprovementProgram">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:CapitalImprovementProgramMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_GovernmentalActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_GovernmentalActivities">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
 <xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
 <acfr:nonedomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
 <xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
@@ -514,22 +339,6 @@ h1.center {text-align: center;}
                     acfr:GovernmentalActivitiesMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_OtherGovernmentalFunds">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:OtherGovernmentalFundsMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -553,104 +362,31 @@ h1.center {text-align: center;}
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_ComponentUnitDiscretelyPresented">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:ComponentUnitDiscretelyPresentedMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
 <xbrli:context id="Ddate_parse_error">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_BusinessTypeActivities">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:BusinessTypeActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_AmericanRescuePlanAct">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:AmericanRescuePlanActMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_EndeavorHall">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-<acfr:proprietaryfundsdomain>
-                    acfr:EndeavorHallMember
-                    </acfr:proprietaryfundsdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Idate_parse_error_SuccessorHousingAgency">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
-<acfr:fundidentifierdomain>
-                    acfr:SuccessorHousingAgencyMember
-                    </acfr:fundidentifierdomain>
-</xbrldi:typedmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:instant>2022-06-30</xbrli:instant>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
-</xbrli:segment>
-</xbrli:entity>
-<xbrli:period>
-<xbrli:startdate>2021-07-01</xbrli:startdate>
-<xbrli:enddate>2022-06-30</xbrli:enddate>
-</xbrli:period>
-</xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices">
-<xbrli:entity>
-<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-<xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -674,6 +410,275 @@ h1.center {text-align: center;}
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
+<xbrli:context id="Idate_parse_error_GovernmentalActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_GovernmentalFunds">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
+<acfr:nonedomain>
+                    acfr:GovernmentalFundsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_SuccessorHousingAgency">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:SuccessorHousingAgencyMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_OtherGovernmentalFunds">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:OtherGovernmentalFundsMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_BusinessTypeActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_LandscapeMaintenanceDistrict">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:LandscapeMaintenanceDistrictMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_BusinessTypeActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_SuccessorHousingAgency">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:SuccessorHousingAgencyMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ComponentUnitDiscretelyPresented">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:ComponentUnitDiscretelyPresentedMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_PrimaryGovernmentActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:PrimaryGovernmentActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_AmericanRescuePlanAct">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:AmericanRescuePlanActMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_BusinessTypeActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_GovernmentalActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_GeneralFund">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:GovernmentalFundsAxis">
+<acfr:nonedomain>
+                    acfr:GeneralFundMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
 <xbrli:context id="Ddate_parse_error_GovernmentalFunds">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
@@ -683,6 +688,73 @@ h1.center {text-align: center;}
                     acfr:GovernmentalFundsMember
                     </acfr:nonedomain>
 </xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
+<acfr:nonedomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
+<acfr:nonedomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:nonedomain>
+</xbrldi:explicitmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startdate>2021-07-01</xbrli:startdate>
+<xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_LandscapeMaintenanceDistrict">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:LandscapeMaintenanceDistrictMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_AmericanRescuePlanAct">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:AmericanRescuePlanActMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Ddate_parse_error_CapitalImprovementProgram">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:CapitalImprovementProgramMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
@@ -711,35 +783,50 @@ h1.center {text-align: center;}
 <xbrli:enddate>2022-06-30</xbrli:enddate>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Idate_parse_error_PrimaryGovernmentActivities">
+<xbrli:context id="Idate_parse_error_CapitalImprovementProgram">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfGovernmentUnitAxis">
-<acfr:nonedomain>
-                    acfr:PrimaryGovernmentActivitiesMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:CapitalImprovementProgramMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
 <xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions">
+<xbrli:context id="Ddate_parse_error_OtherGovernmentalFunds">
 <xbrli:entity>
 <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
 <xbrli:segment>
-<xbrldi:explicitmember dimension="acfr:TypeOfProgramRevenuesAxis">
-<acfr:nonedomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:nonedomain>
-</xbrldi:explicitmember>
+<xbrldi:typedmember dimension="acfr:FundIdentifierAxis">
+<acfr:fundidentifierdomain>
+                    acfr:OtherGovernmentalFundsMember
+                    </acfr:fundidentifierdomain>
+</xbrldi:typedmember>
 </xbrli:segment>
 </xbrli:entity>
 <xbrli:period>
 <xbrli:startdate>2021-07-01</xbrli:startdate>
 <xbrli:enddate>2022-06-30</xbrli:enddate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="Idate_parse_error_BusinessTypeActivitiesEndeavorHall">
+<xbrli:entity>
+<xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:typedmember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+<acfr:proprietaryfundsdomain>
+                    acfr:BusinessTypeActivitiesEndeavorHallMember
+                    </acfr:proprietaryfundsdomain>
+</xbrldi:typedmember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2022-06-30</xbrli:instant>
 </xbrli:period>
 </xbrli:context>
 <!-- Word contexts -->
@@ -834,6 +921,7 @@ h1.center {text-align: center;}
 </ix:header>
 </div>
 <!-- Visible content starts here -->
+<br/>
 <a href="#tables">Go to financial tables</a>
 <br/>
 <br/>
@@ -843,10 +931,10 @@ h1.center {text-align: center;}
 <b>City Of Clayton, California</b><br/>
 <b>Government Wide</b><br/>
 <b>Statement Of Net Position</b><br/>
-<b>2022 06 30 000000</b><br/>
+<b>June 30, 2022</b><br/>
 </div>
 <!-- Sheet cell data -->
-<table>
+<table class="statement">
 <!-- Headers (hardcoded) -->
 <tr>
 <th></th>
@@ -1712,7 +1800,7 @@ h1.center {text-align: center;}
 <b>For The Year Ended June 30, 2022</b><br/>
 </div>
 <!-- Sheet cell data -->
-<table>
+<table class="statement">
 <!-- Headers (hardcoded) -->
 <tr>
 <th></th>
@@ -1959,18 +2047,18 @@ h1.center {text-align: center;}
 </td>
 <td class="row" id="StatementofActivities_G13">
             
-            -<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G13" name="acfr:NetExpenseRevenueForCulturalActivities" sign="-" unitref="USD">
+            -<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G13" name="acfr:NetExpenseRevenueForParksAndRecreation" sign="-" unitref="USD">
                 686,826
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_H13">
-<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H13" name="acfr:NetExpenseRevenueForCulturalActivities" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H13" name="acfr:NetExpenseRevenueForParksAndRecreation" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_I13">
             
-            -<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I13" name="acfr:NetExpenseRevenueForCulturalActivities" sign="-" unitref="USD">
+            -<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I13" name="acfr:NetExpenseRevenueForParksAndRecreation" sign="-" unitref="USD">
                 686,826
             </ix:nonfraction>
 </td>
@@ -2048,9 +2136,6 @@ h1.center {text-align: center;}
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_E25">
-<ix:nonfraction contextref="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_E25" name="acfr:ExpensesForConventionCenterServices" unitref="USD">
-                -
-            </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_F25">
 <ix:nonfraction contextref="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_F25" name="acfr:ExpensesForConventionCenterServices" unitref="USD">
@@ -2100,9 +2185,6 @@ h1.center {text-align: center;}
             </ix:nonfraction>
 </td>
 <td class="data_total" id="StatementofActivities_G37">
-<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_G37" name="acfr:NetExpenseRevenue" unitref="USD">
-                -
-            </ix:nonfraction>
 </td>
 <td class="data_total" id="StatementofActivities_H37">
             
@@ -2407,7 +2489,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_StatementofActivities_C58">  
-            Taxes
+            Fines and Forfeitures and Penalties
         </td>
 <td class="row" id="StatementofActivities_C58">
 </td>
@@ -2418,21 +2500,24 @@ h1.center {text-align: center;}
 <td class="row" id="StatementofActivities_F58">
 </td>
 <td class="row" id="StatementofActivities_G58">
+<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G58" name="acfr:RevenueFromFinesAndForfeituresAndPenalties" unitref="USD">
+                587,740
+            </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_H58">
-<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H58" name="acfr:RevenueFromTaxes" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H58" name="acfr:RevenueFromFinesAndForfeituresAndPenalties" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_I58">
-<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_I58" name="acfr:RevenueFromTaxes" unitref="USD">
-                -
+<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I58" name="acfr:RevenueFromFinesAndForfeituresAndPenalties" unitref="USD">
+                587,740
             </ix:nonfraction>
 </td>
 </tr>
 <tr class="row">
 <td id="header_StatementofActivities_C59">  
-            Fines and Forfeitures and Penalties
+            Payment in Lieu of Taxes
         </td>
 <td class="row" id="StatementofActivities_C59">
 </td>
@@ -2443,24 +2528,24 @@ h1.center {text-align: center;}
 <td class="row" id="StatementofActivities_F59">
 </td>
 <td class="row" id="StatementofActivities_G59">
-<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G59" name="acfr:RevenueFromFinesAndForfeituresAndPenalties" unitref="USD">
-                587,740
+<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G59" name="acfr:PaymentInLieuOfTaxes" unitref="USD">
+                174,443
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_H59">
-<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H59" name="acfr:RevenueFromFinesAndForfeituresAndPenalties" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H59" name="acfr:PaymentInLieuOfTaxes" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_I59">
-<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I59" name="acfr:RevenueFromFinesAndForfeituresAndPenalties" unitref="USD">
-                587,740
+<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I59" name="acfr:PaymentInLieuOfTaxes" unitref="USD">
+                174,443
             </ix:nonfraction>
 </td>
 </tr>
 <tr class="row">
 <td id="header_StatementofActivities_C60">  
-            Payment in Lieu of Taxes
+            Investment Income
         </td>
 <td class="row" id="StatementofActivities_C60">
 </td>
@@ -2471,24 +2556,26 @@ h1.center {text-align: center;}
 <td class="row" id="StatementofActivities_F60">
 </td>
 <td class="row" id="StatementofActivities_G60">
-<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G60" name="acfr:PaymentInLieuOfTaxes" unitref="USD">
-                174,443
+            
+            -<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G60" name="acfr:InvestmentIncome" sign="-" unitref="USD">
+                281,502
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_H60">
-<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H60" name="acfr:PaymentInLieuOfTaxes" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H60" name="acfr:InvestmentIncome" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_I60">
-<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I60" name="acfr:PaymentInLieuOfTaxes" unitref="USD">
-                174,443
+            
+            -<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I60" name="acfr:InvestmentIncome" sign="-" unitref="USD">
+                281,502
             </ix:nonfraction>
 </td>
 </tr>
 <tr class="row">
 <td id="header_StatementofActivities_C61">  
-            Investment Income
+            Other General Revenues
         </td>
 <td class="row" id="StatementofActivities_C61">
 </td>
@@ -2499,26 +2586,24 @@ h1.center {text-align: center;}
 <td class="row" id="StatementofActivities_F61">
 </td>
 <td class="row" id="StatementofActivities_G61">
-            
-            -<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G61" name="acfr:InvestmentIncome" sign="-" unitref="USD">
-                281,502
+<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G61" name="acfr:OtherGeneralRevenues" unitref="USD">
+                54,512
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_H61">
-<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H61" name="acfr:InvestmentIncome" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H61" name="acfr:OtherGeneralRevenues" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_I61">
-            
-            -<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I61" name="acfr:InvestmentIncome" sign="-" unitref="USD">
-                281,502
+<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I61" name="acfr:OtherGeneralRevenues" unitref="USD">
+                54,512
             </ix:nonfraction>
 </td>
 </tr>
 <tr class="row">
 <td id="header_StatementofActivities_C62">  
-            Other General Revenues
+            Gain (Loss) on Sale of Capital Assets
         </td>
 <td class="row" id="StatementofActivities_C62">
 </td>
@@ -2529,99 +2614,99 @@ h1.center {text-align: center;}
 <td class="row" id="StatementofActivities_F62">
 </td>
 <td class="row" id="StatementofActivities_G62">
-<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G62" name="acfr:OtherGeneralRevenues" unitref="USD">
-                54,512
+<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G62" name="acfr:GainLossOnSaleOfCapitalAssets" unitref="USD">
+                6,958
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_H62">
-<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H62" name="acfr:OtherGeneralRevenues" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H62" name="acfr:GainLossOnSaleOfCapitalAssets" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_I62">
-<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I62" name="acfr:OtherGeneralRevenues" unitref="USD">
-                54,512
-            </ix:nonfraction>
-</td>
-</tr>
-<tr class="row">
-<td id="header_StatementofActivities_C63">  
-            Gain (Loss) on Sale of Capital Assets
-        </td>
-<td class="row" id="StatementofActivities_C63">
-</td>
-<td class="row" id="StatementofActivities_D63">
-</td>
-<td class="row" id="StatementofActivities_E63">
-</td>
-<td class="row" id="StatementofActivities_F63">
-</td>
-<td class="row" id="StatementofActivities_G63">
-<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G63" name="acfr:GainLossOnSaleOfCapitalAssets" unitref="USD">
-                6,958
-            </ix:nonfraction>
-</td>
-<td class="row" id="StatementofActivities_H63">
-<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H63" name="acfr:GainLossOnSaleOfCapitalAssets" unitref="USD">
-                -
-            </ix:nonfraction>
-</td>
-<td class="row" id="StatementofActivities_I63">
-<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I63" name="acfr:GainLossOnSaleOfCapitalAssets" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I62" name="acfr:GainLossOnSaleOfCapitalAssets" unitref="USD">
                 6,958
             </ix:nonfraction>
 </td>
 </tr>
 <tr class="total">
-<td id="header_StatementofActivities_C64">  
+<td id="header_StatementofActivities_C63">  
             Total General Revenues
         </td>
-<td class="data_total" id="StatementofActivities_C64">
+<td class="data_total" id="StatementofActivities_C63">
 </td>
-<td class="data_total" id="StatementofActivities_D64">
+<td class="data_total" id="StatementofActivities_D63">
 </td>
-<td class="data_total" id="StatementofActivities_E64">
+<td class="data_total" id="StatementofActivities_E63">
 </td>
-<td class="data_total" id="StatementofActivities_F64">
+<td class="data_total" id="StatementofActivities_F63">
 </td>
-<td class="data_total" id="StatementofActivities_G64">
-<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G64" name="acfr:GeneralRevenuesNet" unitref="USD">
+<td class="data_total" id="StatementofActivities_G63">
+<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G63" name="acfr:GeneralRevenuesNet" unitref="USD">
                 5,464,363
             </ix:nonfraction>
 </td>
-<td class="data_total" id="StatementofActivities_H64">
-<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H64" name="acfr:GeneralRevenuesNet" unitref="USD">
+<td class="data_total" id="StatementofActivities_H63">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H63" name="acfr:GeneralRevenuesNet" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
-<td class="data_total" id="StatementofActivities_I64">
-<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I64" name="acfr:GeneralRevenuesNet" unitref="USD">
+<td class="data_total" id="StatementofActivities_I63">
+<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I63" name="acfr:GeneralRevenuesNet" unitref="USD">
                 5,464,363
             </ix:nonfraction>
 </td>
 </tr>
 <tr class="subsection_header">
-<td id="header_StatementofActivities_C65">  
+<td id="header_StatementofActivities_C64">  
             Transfers:
         </td>
-<td class="subsection_header" id="StatementofActivities_C65">
+<td class="subsection_header" id="StatementofActivities_C64">
 </td>
-<td class="subsection_header" id="StatementofActivities_D65">
+<td class="subsection_header" id="StatementofActivities_D64">
 </td>
-<td class="subsection_header" id="StatementofActivities_E65">
+<td class="subsection_header" id="StatementofActivities_E64">
 </td>
-<td class="subsection_header" id="StatementofActivities_F65">
+<td class="subsection_header" id="StatementofActivities_F64">
 </td>
-<td class="subsection_header" id="StatementofActivities_G65">
+<td class="subsection_header" id="StatementofActivities_G64">
 </td>
-<td class="subsection_header" id="StatementofActivities_H65">
+<td class="subsection_header" id="StatementofActivities_H64">
 </td>
-<td class="subsection_header" id="StatementofActivities_I65">
+<td class="subsection_header" id="StatementofActivities_I64">
+</td>
+</tr>
+<tr class="total">
+<td id="header_StatementofActivities_C70">  
+            Total Transfers
+        </td>
+<td class="data_total" id="StatementofActivities_C70">
+</td>
+<td class="data_total" id="StatementofActivities_D70">
+</td>
+<td class="data_total" id="StatementofActivities_E70">
+</td>
+<td class="data_total" id="StatementofActivities_F70">
+</td>
+<td class="data_total" id="StatementofActivities_G70">
+<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_G70" name="acfr:GeneralRevenuesNet" unitref="USD">
+                -
+            </ix:nonfraction>
+</td>
+<td class="data_total" id="StatementofActivities_H70">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H70" name="acfr:GeneralRevenuesNet" unitref="USD">
+                -
+            </ix:nonfraction>
+</td>
+<td class="data_total" id="StatementofActivities_I70">
+<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_I70" name="acfr:GeneralRevenuesNet" unitref="USD">
+                -
+            </ix:nonfraction>
 </td>
 </tr>
 <tr class="total">
 <td id="header_StatementofActivities_C71">  
-            Total Transfers
+            Total General Revenues and Transfers
         </td>
 <td class="data_total" id="StatementofActivities_C71">
 </td>
@@ -2632,8 +2717,8 @@ h1.center {text-align: center;}
 <td class="data_total" id="StatementofActivities_F71">
 </td>
 <td class="data_total" id="StatementofActivities_G71">
-<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_G71" name="acfr:GeneralRevenuesNet" unitref="USD">
-                -
+<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G71" name="acfr:GeneralRevenuesNet" unitref="USD">
+                5,464,363
             </ix:nonfraction>
 </td>
 <td class="data_total" id="StatementofActivities_H71">
@@ -2642,79 +2727,80 @@ h1.center {text-align: center;}
             </ix:nonfraction>
 </td>
 <td class="data_total" id="StatementofActivities_I71">
-<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_I71" name="acfr:GeneralRevenuesNet" unitref="USD">
-                -
-            </ix:nonfraction>
-</td>
-</tr>
-<tr class="total">
-<td id="header_StatementofActivities_C72">  
-            Total General Revenues and Transfers
-        </td>
-<td class="data_total" id="StatementofActivities_C72">
-</td>
-<td class="data_total" id="StatementofActivities_D72">
-</td>
-<td class="data_total" id="StatementofActivities_E72">
-</td>
-<td class="data_total" id="StatementofActivities_F72">
-</td>
-<td class="data_total" id="StatementofActivities_G72">
-<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G72" name="acfr:GeneralRevenuesNet" unitref="USD">
-                5,464,363
-            </ix:nonfraction>
-</td>
-<td class="data_total" id="StatementofActivities_H72">
-<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:fixed-zero" id="StatementofActivities_H72" name="acfr:GeneralRevenuesNet" unitref="USD">
-                -
-            </ix:nonfraction>
-</td>
-<td class="data_total" id="StatementofActivities_I72">
-<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I72" name="acfr:GeneralRevenuesNet" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I71" name="acfr:GeneralRevenuesNet" unitref="USD">
                 5,464,363
             </ix:nonfraction>
 </td>
 </tr>
 <tr class="empty_row">
-<td id="header_StatementofActivities_C73">
+<td id="header_StatementofActivities_C72">
 </td>
-<td class="empty_row" id="StatementofActivities_C73">
+<td class="empty_row" id="StatementofActivities_C72">
 </td>
-<td class="empty_row" id="StatementofActivities_D73">
+<td class="empty_row" id="StatementofActivities_D72">
 </td>
-<td class="empty_row" id="StatementofActivities_E73">
+<td class="empty_row" id="StatementofActivities_E72">
 </td>
-<td class="empty_row" id="StatementofActivities_F73">
+<td class="empty_row" id="StatementofActivities_F72">
 </td>
-<td class="empty_row" id="StatementofActivities_G73">
+<td class="empty_row" id="StatementofActivities_G72">
 </td>
-<td class="empty_row" id="StatementofActivities_H73">
+<td class="empty_row" id="StatementofActivities_H72">
 </td>
-<td class="empty_row" id="StatementofActivities_I73">
+<td class="empty_row" id="StatementofActivities_I72">
 </td>
 </tr>
 <tr class="section_header">
-<td id="header_StatementofActivities_C74">  
+<td id="header_StatementofActivities_C73">  
             NET POSITION
         </td>
-<td class="section_header" id="StatementofActivities_C74">
+<td class="section_header" id="StatementofActivities_C73">
 </td>
-<td class="section_header" id="StatementofActivities_D74">
+<td class="section_header" id="StatementofActivities_D73">
 </td>
-<td class="section_header" id="StatementofActivities_E74">
+<td class="section_header" id="StatementofActivities_E73">
 </td>
-<td class="section_header" id="StatementofActivities_F74">
+<td class="section_header" id="StatementofActivities_F73">
 </td>
-<td class="section_header" id="StatementofActivities_G74">
+<td class="section_header" id="StatementofActivities_G73">
 </td>
-<td class="section_header" id="StatementofActivities_H74">
+<td class="section_header" id="StatementofActivities_H73">
 </td>
-<td class="section_header" id="StatementofActivities_I74">
+<td class="section_header" id="StatementofActivities_I73">
+</td>
+</tr>
+<tr class="row">
+<td id="header_StatementofActivities_C74">  
+            Change in Net Position
+        </td>
+<td class="row" id="StatementofActivities_C74">
+</td>
+<td class="row" id="StatementofActivities_D74">
+</td>
+<td class="row" id="StatementofActivities_E74">
+</td>
+<td class="row" id="StatementofActivities_F74">
+</td>
+<td class="row" id="StatementofActivities_G74">
+<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G74" name="acfr:ChangesInNetPosition" unitref="USD">
+                381,717
+            </ix:nonfraction>
+</td>
+<td class="row" id="StatementofActivities_H74">
+            
+            -<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_H74" name="acfr:ChangesInNetPosition" sign="-" unitref="USD">
+                43,847
+            </ix:nonfraction>
+</td>
+<td class="row" id="StatementofActivities_I74">
+<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I74" name="acfr:ChangesInNetPosition" unitref="USD">
+                337,870
+            </ix:nonfraction>
 </td>
 </tr>
 <tr class="row">
 <td id="header_StatementofActivities_C75">  
-            Change in Net Position
+            Net position (deficit), beginning of year
         </td>
 <td class="row" id="StatementofActivities_C75">
 </td>
@@ -2725,25 +2811,24 @@ h1.center {text-align: center;}
 <td class="row" id="StatementofActivities_F75">
 </td>
 <td class="row" id="StatementofActivities_G75">
-<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G75" name="acfr:ChangesInNetPosition" unitref="USD">
-                381,717
+<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G75" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitref="USD">
+                44,498,018
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_H75">
-            
-            -<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_H75" name="acfr:ChangesInNetPosition" sign="-" unitref="USD">
-                43,847
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_H75" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitref="USD">
+                923,986
             </ix:nonfraction>
 </td>
 <td class="row" id="StatementofActivities_I75">
-<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I75" name="acfr:ChangesInNetPosition" unitref="USD">
-                337,870
+<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I75" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitref="USD">
+                45,422,004
             </ix:nonfraction>
 </td>
 </tr>
 <tr class="row">
 <td id="header_StatementofActivities_C76">  
-            Net position (deficit), beginning of year
+            Net position (deficit), end of year
         </td>
 <td class="row" id="StatementofActivities_C76">
 </td>
@@ -2754,45 +2839,17 @@ h1.center {text-align: center;}
 <td class="row" id="StatementofActivities_F76">
 </td>
 <td class="row" id="StatementofActivities_G76">
-<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G76" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitref="USD">
-                44,498,018
-            </ix:nonfraction>
-</td>
-<td class="row" id="StatementofActivities_H76">
-<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_H76" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitref="USD">
-                923,986
-            </ix:nonfraction>
-</td>
-<td class="row" id="StatementofActivities_I76">
-<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I76" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitref="USD">
-                45,422,004
-            </ix:nonfraction>
-</td>
-</tr>
-<tr class="row">
-<td id="header_StatementofActivities_C77">  
-            Net position (deficit), end of year
-        </td>
-<td class="row" id="StatementofActivities_C77">
-</td>
-<td class="row" id="StatementofActivities_D77">
-</td>
-<td class="row" id="StatementofActivities_E77">
-</td>
-<td class="row" id="StatementofActivities_F77">
-</td>
-<td class="row" id="StatementofActivities_G77">
-<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G77" name="acfr:NetPosition" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_GovernmentalActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_G76" name="acfr:NetPosition" unitref="USD">
                 44,879,735
             </ix:nonfraction>
 </td>
-<td class="row" id="StatementofActivities_H77">
-<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_H77" name="acfr:NetPosition" unitref="USD">
+<td class="row" id="StatementofActivities_H76">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_H76" name="acfr:NetPosition" unitref="USD">
                 880,139
             </ix:nonfraction>
 </td>
-<td class="row" id="StatementofActivities_I77">
-<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I77" name="acfr:NetPosition" unitref="USD">
+<td class="row" id="StatementofActivities_I76">
+<ix:nonfraction contextref="Ddate_parse_error_PrimaryGovernmentActivities" decimals="0" format="ixt:num-dot-decimal" id="StatementofActivities_I76" name="acfr:NetPosition" unitref="USD">
                 45,759,874
             </ix:nonfraction>
 </td>
@@ -2807,10 +2864,10 @@ h1.center {text-align: center;}
 <b>City Of Clayton, California</b><br/>
 <b>Governmental Funds</b><br/>
 <b>Balance Sheet</b><br/>
-<b>2022 06 30 000000</b><br/>
+<b>June 30, 2022</b><br/>
 </div>
 <!-- Sheet cell data -->
-<table>
+<table class="statement">
 <!-- Headers (hardcoded) -->
 <tr>
 <th></th>
@@ -3075,7 +3132,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundBalanceSheet_C13">  
-            Due from Others, Modified Accrual
+            Due from Others
         </td>
 <td class="row" id="GovFundBalanceSheet_C13">
 <ix:nonfraction contextref="Idate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundBalanceSheet_C13" name="acfr:DueFromOthersModifiedAccrual" unitref="USD">
@@ -3112,7 +3169,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundBalanceSheet_C14">  
-            Travel Advances Receivable, Modified Accrual
+            Travel Advances Receivable
         </td>
 <td class="row" id="GovFundBalanceSheet_C14">
 <ix:nonfraction contextref="Idate_parse_error_GeneralFund" decimals="0" format="ixt:fixed-zero" id="GovFundBalanceSheet_C14" name="acfr:TravelAdvancesReceivableModifiedAccrual" unitref="USD">
@@ -3263,7 +3320,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundBalanceSheet_C21">  
-            Other Liabilities, Modified Accrual
+            Other Liabilities
         </td>
 <td class="row" id="GovFundBalanceSheet_C21">
 <ix:nonfraction contextref="Idate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundBalanceSheet_C21" name="acfr:OtherLiabilitiesModifiedAccrual" unitref="USD">
@@ -3343,7 +3400,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundBalanceSheet_C23">  
-            Compensated Absences Payable, Modified Accrual
+            Compensated Absences Payable
         </td>
 <td class="row" id="GovFundBalanceSheet_C23">
 <ix:nonfraction contextref="Idate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundBalanceSheet_C23" name="acfr:CompensatedAbsencesPayableModifiedAccrual" unitref="USD">
@@ -3481,7 +3538,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="section_header">
 <td id="header_GovFundBalanceSheet_C32">  
-            DEFERRED INFLOWS OF RESOURCES
+            DEFERRED INFLOW OF RESOURCES
         </td>
 <td class="section_header" id="GovFundBalanceSheet_C32">
 </td>
@@ -3675,6 +3732,9 @@ h1.center {text-align: center;}
             </ix:nonfraction>
 </td>
 <td class="row" id="GovFundBalanceSheet_F47">
+<ix:nonfraction contextref="Idate_parse_error_AmericanRescuePlanAct" decimals="0" format="ixt:fixed-zero" id="GovFundBalanceSheet_F47" name="acfr:FundBalanceRestricted" unitref="USD">
+                -
+            </ix:nonfraction>
 </td>
 <td class="row" id="GovFundBalanceSheet_G47">
 <ix:nonfraction contextref="Idate_parse_error_CapitalImprovementProgram" decimals="0" format="ixt:fixed-zero" id="GovFundBalanceSheet_G47" name="acfr:FundBalanceRestricted" unitref="USD">
@@ -3712,6 +3772,9 @@ h1.center {text-align: center;}
             </ix:nonfraction>
 </td>
 <td class="row" id="GovFundBalanceSheet_F48">
+<ix:nonfraction contextref="Idate_parse_error_AmericanRescuePlanAct" decimals="0" format="ixt:fixed-zero" id="GovFundBalanceSheet_F48" name="acfr:FundBalanceCommitted" unitref="USD">
+                -
+            </ix:nonfraction>
 </td>
 <td class="row" id="GovFundBalanceSheet_G48">
 <ix:nonfraction contextref="Idate_parse_error_CapitalImprovementProgram" decimals="0" format="ixt:fixed-zero" id="GovFundBalanceSheet_G48" name="acfr:FundBalanceCommitted" unitref="USD">
@@ -3749,6 +3812,9 @@ h1.center {text-align: center;}
             </ix:nonfraction>
 </td>
 <td class="row" id="GovFundBalanceSheet_F49">
+<ix:nonfraction contextref="Idate_parse_error_AmericanRescuePlanAct" decimals="0" format="ixt:fixed-zero" id="GovFundBalanceSheet_F49" name="acfr:FundBalanceAssigned" unitref="USD">
+                -
+            </ix:nonfraction>
 </td>
 <td class="row" id="GovFundBalanceSheet_G49">
 <ix:nonfraction contextref="Idate_parse_error_CapitalImprovementProgram" decimals="0" format="ixt:num-dot-decimal" id="GovFundBalanceSheet_G49" name="acfr:FundBalanceAssigned" unitref="USD">
@@ -3786,6 +3852,9 @@ h1.center {text-align: center;}
             </ix:nonfraction>
 </td>
 <td class="row" id="GovFundBalanceSheet_F50">
+<ix:nonfraction contextref="Idate_parse_error_AmericanRescuePlanAct" decimals="0" format="ixt:fixed-zero" id="GovFundBalanceSheet_F50" name="acfr:FundBalanceUnassigned" unitref="USD">
+                -
+            </ix:nonfraction>
 </td>
 <td class="row" id="GovFundBalanceSheet_G50">
 <ix:nonfraction contextref="Idate_parse_error_CapitalImprovementProgram" decimals="0" format="ixt:fixed-zero" id="GovFundBalanceSheet_G50" name="acfr:FundBalanceUnassigned" unitref="USD">
@@ -3893,7 +3962,7 @@ h1.center {text-align: center;}
 <b>For The Year Ended June 30, 2022</b><br/>
 </div>
 <!-- Sheet cell data -->
-<table>
+<table class="statement">
 <!-- Headers (hardcoded) -->
 <tr>
 <th></th>
@@ -3926,7 +3995,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C7">  
-            Revenues from Property Tax, Modified Accrual
+            Revenues from Property Tax
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C7">
             
@@ -3973,7 +4042,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C8">  
-            Revenues from Grants and Entitlements Restricted for Specific Programs, Modified Accrual
+            Revenues from Grants and Entitlements Restricted for Specific Programs
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C8">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_C8" name="acfr:RevenueFromGrantsAndEntitlementsRestrictedForSpecificProgramsModifiedAccrual" unitref="USD">
@@ -4013,7 +4082,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C9">  
-            Revenues from Special Assessments, Modified Accrual
+            Revenues from Special Assessments
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C9">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_C9" name="acfr:RevenueFromSpecialAssessmentsModifiedAccrual" unitref="USD">
@@ -4053,7 +4122,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C10">  
-            Revenues from Sales and Use Tax, Modified Accrual
+            Revenues from Sales and Use Tax
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C10">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C10" name="acfr:RevenueFromSalesAndUseTaxModifiedAccrual" unitref="USD">
@@ -4093,7 +4162,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C11">  
-            Revenues from Business Licenses and Permits, Modified Accrual
+            Revenues from Business Licenses and Permits
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C11">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C11" name="acfr:RevenueFromBusinessLicensesAndPermitsModifiedAccrual" unitref="USD">
@@ -4133,7 +4202,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C12">  
-            Revenues from Licenses and Permits and Franchise Fees, Modified Accrual
+            Revenues from Licenses and Permits and Franchise Fees
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C12">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C12" name="acfr:RevenueFromLicensesAndPermitsAndFranchiseFeesModifiedAccrual" unitref="USD">
@@ -4173,7 +4242,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C13">  
-            Revenues from Fines and Forfeitures and Penalties, Modified Accrual
+            Revenues from Fines and Forfeitures and Penalties
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C13">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C13" name="acfr:RevenueFromFinesAndForfeituresAndPenaltiesModifiedAccrual" unitref="USD">
@@ -4213,7 +4282,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C14">  
-            Grants, Contributions and Donations from Federal Governmental Entities, Modified Accrual
+            Grants, Contributions and Donations from Federal Governmental Entities
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C14">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C14" name="acfr:GrantsContributionsAndDonationsFromFederalGovernmentalEntitiesModifiedAccrual" unitref="USD">
@@ -4253,7 +4322,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C15">  
-            Revenues from Vehicles Tax, Modified Accrual
+            Revenues from Vehicles Tax
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C15">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_C15" name="acfr:RevenueFromVehiclesTaxModifiedAccrual" unitref="USD">
@@ -4284,7 +4353,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C16">  
-            Payment in Lieu of Taxes, Modified Accrual
+            Payment in Lieu of Taxes
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C16">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C16" name="acfr:PaymentInLieuOfTaxesModifiedAccrual" unitref="USD">
@@ -4324,7 +4393,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C17">  
-            Revenues from Cable Franchise Fees, Modified Accrual
+            Revenues from Cable Franchise Fees
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C17">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C17" name="acfr:RevenueFromCableFranchiseFeesModifiedAccrual" unitref="USD">
@@ -4364,7 +4433,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C18">  
-            Charges for Services, Fees, Modified Accrual
+            Charges for Services, Fees
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C18">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C18" name="acfr:FeesModifiedAccrual" unitref="USD">
@@ -4404,7 +4473,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C19">  
-            Revenues from Use of Money and Property, Modified Accrual
+            Revenues from Use of Money and Property
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C19">
             
@@ -4449,7 +4518,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C20">  
-            Other Revenues, Modified Accrual
+            Other Revenues
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C20">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C20" name="acfr:OtherRevenuesModifiedAccrual" unitref="USD">
@@ -4555,7 +4624,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C24">  
-            Expenditures for General Government Services, Administration, Modified Accrual
+             General Government Services, Administration
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C24">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C24" name="acfr:ExpendituresForGeneralGovernmentServicesAdministrationModifiedAccrual" unitref="USD">
@@ -4595,7 +4664,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C25">  
-            Expenditures for Public Safety Services, Modified Accrual
+             Public Safety Services
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C25">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C25" name="acfr:ExpendituresForPublicSafetyServicesModifiedAccrual" unitref="USD">
@@ -4635,7 +4704,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C26">  
-            Expenditures for Public Works Services, Modified Accrual
+             Public Works Services
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C26">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C26" name="acfr:ExpendituresForPublicWorksServicesModifiedAccrual" unitref="USD">
@@ -4675,7 +4744,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C27">  
-            Expenditures for Community And Economic Development Services, Modified Accrual
+             Community And Economic Development Services
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C27">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C27" name="acfr:ExpendituresForCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitref="USD">
@@ -4715,7 +4784,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C28">  
-            Expenditures for Parks and Recreation Department, Modified Accrual
+             Parks and Recreation Department
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C28">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C28" name="acfr:ExpendituresForRecreationAndCultureParksAndRecreationModifiedAccrual" unitref="USD">
@@ -4755,7 +4824,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C29">  
-            Expenditures for Capital Outlay, Modified Accrual
+             Capital Outlay
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C29">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C29" name="acfr:ExpendituresForCapitalOutlayModifiedAccrual" unitref="USD">
@@ -4916,47 +4985,47 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C37">  
-            Other Financing Sources (Uses)
+            Additional Other Financing Sources (Uses)
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C37">
-<ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_C37" name="acfr:OtherFinancingSourcesUses" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_C37" name="acfr:AdditionalOtherFinancingSourcesUses" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
 <td class="row" id="GovFundStmtofRevExpandChg_D37">
-<ix:nonfraction contextref="Ddate_parse_error_LandscapeMaintenanceDistrict" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_D37" name="acfr:OtherFinancingSourcesUses" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_LandscapeMaintenanceDistrict" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_D37" name="acfr:AdditionalOtherFinancingSourcesUses" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
 <td class="row" id="GovFundStmtofRevExpandChg_E37">
-<ix:nonfraction contextref="Ddate_parse_error_SuccessorHousingAgency" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_E37" name="acfr:OtherFinancingSourcesUses" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_SuccessorHousingAgency" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_E37" name="acfr:AdditionalOtherFinancingSourcesUses" unitref="USD">
                 58,091
             </ix:nonfraction>
 </td>
 <td class="row" id="GovFundStmtofRevExpandChg_F37">
-<ix:nonfraction contextref="Ddate_parse_error_AmericanRescuePlanAct" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_F37" name="acfr:OtherFinancingSourcesUses" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_AmericanRescuePlanAct" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_F37" name="acfr:AdditionalOtherFinancingSourcesUses" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
 <td class="row" id="GovFundStmtofRevExpandChg_G37">
-<ix:nonfraction contextref="Ddate_parse_error_CapitalImprovementProgram" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_G37" name="acfr:OtherFinancingSourcesUses" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_CapitalImprovementProgram" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_G37" name="acfr:AdditionalOtherFinancingSourcesUses" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
 <td class="row" id="GovFundStmtofRevExpandChg_H37">
-<ix:nonfraction contextref="Ddate_parse_error_OtherGovernmentalFunds" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_H37" name="acfr:OtherFinancingSourcesUses" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_OtherGovernmentalFunds" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_H37" name="acfr:AdditionalOtherFinancingSourcesUses" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
 <td class="row" id="GovFundStmtofRevExpandChg_I37">
-<ix:nonfraction contextref="Ddate_parse_error_GovernmentalFunds" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_I37" name="acfr:OtherFinancingSourcesUses" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_GovernmentalFunds" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_I37" name="acfr:AdditionalOtherFinancingSourcesUses" unitref="USD">
                 58,091
             </ix:nonfraction>
 </td>
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C38">  
-            Transfers In, Modified Accrual
+            Transfers In
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C38">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:num-dot-decimal" id="GovFundStmtofRevExpandChg_C38" name="acfr:TransfersInModifiedAccrual" unitref="USD">
@@ -4996,7 +5065,7 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_GovFundStmtofRevExpandChg_C39">  
-            Transfers Out, Modified Accrual
+            Transfers Out
         </td>
 <td class="row" id="GovFundStmtofRevExpandChg_C39">
 <ix:nonfraction contextref="Ddate_parse_error_GeneralFund" decimals="0" format="ixt:fixed-zero" id="GovFundStmtofRevExpandChg_C39" name="acfr:TransfersOutModifiedAccrual" unitref="USD">
@@ -5251,14 +5320,14 @@ h1.center {text-align: center;}
 <b>City Of Clayton, California</b><br/>
 <b>Proprietary Funds</b><br/>
 <b>Statement Of Net Position</b><br/>
-<b>2022 06 30 000000</b><br/>
+<b>June 30, 2022</b><br/>
 </div>
 <!-- Sheet cell data -->
-<table>
+<table class="statement">
 <!-- Headers (hardcoded) -->
 <tr>
 <th></th>
-<th>Endeavor Hall</th>
+<th>Business Type Activities   Endeavor Hall</th>
 <th>Internal Service Funds</th>
 </tr>
 <tr class="section_header">
@@ -5285,7 +5354,7 @@ h1.center {text-align: center;}
         </td>
 <td class="row" id="PropFunds-NetPosition_C10">
             
-            $ <ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:fixed-zero" id="PropFunds-NetPosition_C10" name="acfr:CashAndCashEquivalentsAndInvestments" unitref="USD">
+            $ <ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:fixed-zero" id="PropFunds-NetPosition_C10" name="acfr:CashAndCashEquivalentsAndInvestments" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
@@ -5301,7 +5370,7 @@ h1.center {text-align: center;}
             Total Current Assets
         </td>
 <td class="data_total" id="PropFunds-NetPosition_C24">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:fixed-zero" id="PropFunds-NetPosition_C24" name="acfr:CurrentAssets" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:fixed-zero" id="PropFunds-NetPosition_C24" name="acfr:CurrentAssets" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
@@ -5325,7 +5394,7 @@ h1.center {text-align: center;}
             Land
         </td>
 <td class="row" id="PropFunds-NetPosition_C26">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C26" name="acfr:Land" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C26" name="acfr:Land" unitref="USD">
                 167,738
             </ix:nonfraction>
 </td>
@@ -5340,7 +5409,7 @@ h1.center {text-align: center;}
             Capital Assets Being Depreciated Net
         </td>
 <td class="row" id="PropFunds-NetPosition_C27">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C27" name="acfr:CapitalAssetsBeingDepreciatedNet" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C27" name="acfr:CapitalAssetsBeingDepreciatedNet" unitref="USD">
                 841,465
             </ix:nonfraction>
 </td>
@@ -5355,7 +5424,7 @@ h1.center {text-align: center;}
             Total Noncurrent Assets
         </td>
 <td class="data_total" id="PropFunds-NetPosition_C38">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C38" name="acfr:NoncurrentAssets" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C38" name="acfr:NoncurrentAssets" unitref="USD">
                 1,009,203
             </ix:nonfraction>
 </td>
@@ -5370,7 +5439,7 @@ h1.center {text-align: center;}
             Total Assets
         </td>
 <td class="data_total" id="PropFunds-NetPosition_C39">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C39" name="acfr:Assets" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C39" name="acfr:Assets" unitref="USD">
                 1,009,203
             </ix:nonfraction>
 </td>
@@ -5411,7 +5480,7 @@ h1.center {text-align: center;}
             Accounts payable
         </td>
 <td class="row" id="PropFunds-NetPosition_C43">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C43" name="acfr:AccountsPayable" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C43" name="acfr:AccountsPayable" unitref="USD">
                 2,671
             </ix:nonfraction>
 </td>
@@ -5426,7 +5495,7 @@ h1.center {text-align: center;}
             Other Accounts Payable And Accrued Liabilities
         </td>
 <td class="row" id="PropFunds-NetPosition_C44">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:fixed-zero" id="PropFunds-NetPosition_C44" name="acfr:OtherAccountsPayableAndAccruedLiabilities" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:fixed-zero" id="PropFunds-NetPosition_C44" name="acfr:OtherAccountsPayableAndAccruedLiabilities" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
@@ -5441,7 +5510,7 @@ h1.center {text-align: center;}
             Deposits Held for Others
         </td>
 <td class="row" id="PropFunds-NetPosition_C45">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C45" name="acfr:DepositsHeldforOthers" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C45" name="acfr:DepositsHeldforOthers" unitref="USD">
                 5,500
             </ix:nonfraction>
 </td>
@@ -5456,7 +5525,7 @@ h1.center {text-align: center;}
             Due to other funds
         </td>
 <td class="row" id="PropFunds-NetPosition_C46">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C46" name="acfr:DueToOtherFunds" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C46" name="acfr:DueToOtherFunds" unitref="USD">
                 120,893
             </ix:nonfraction>
 </td>
@@ -5471,7 +5540,7 @@ h1.center {text-align: center;}
             Total Current Liabilities
         </td>
 <td class="data_total" id="PropFunds-NetPosition_C54">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C54" name="acfr:CurrentLiabilities" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C54" name="acfr:CurrentLiabilities" unitref="USD">
                 129,064
             </ix:nonfraction>
 </td>
@@ -5495,7 +5564,7 @@ h1.center {text-align: center;}
             Total Noncurrent Liabilities
         </td>
 <td class="data_total" id="PropFunds-NetPosition_C65">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:fixed-zero" id="PropFunds-NetPosition_C65" name="acfr:NoncurrentLiabilities" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:fixed-zero" id="PropFunds-NetPosition_C65" name="acfr:NoncurrentLiabilities" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
@@ -5510,7 +5579,7 @@ h1.center {text-align: center;}
             Total Liabilities
         </td>
 <td class="data_total" id="PropFunds-NetPosition_C66">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C66" name="acfr:Liabilities" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C66" name="acfr:Liabilities" unitref="USD">
                 129,064
             </ix:nonfraction>
 </td>
@@ -5542,7 +5611,7 @@ h1.center {text-align: center;}
             Net investment in capital assets
         </td>
 <td class="row" id="PropFunds-NetPosition_C69">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C69" name="acfr:NetInvestmentInCapitalAssets" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C69" name="acfr:NetInvestmentInCapitalAssets" unitref="USD">
                 1,009,203
             </ix:nonfraction>
 </td>
@@ -5558,7 +5627,7 @@ h1.center {text-align: center;}
         </td>
 <td class="row" id="PropFunds-NetPosition_C70">
             
-            -<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C70" name="acfr:UnrestrictedNetPosition" sign="-" unitref="USD">
+            -<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C70" name="acfr:UnrestrictedNetPosition" sign="-" unitref="USD">
                 129,064
             </ix:nonfraction>
 </td>
@@ -5573,7 +5642,7 @@ h1.center {text-align: center;}
             Total Net Position
         </td>
 <td class="data_total" id="PropFunds-NetPosition_C78">
-<ix:nonfraction contextref="Idate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C78" name="acfr:NetPosition" unitref="USD">
+<ix:nonfraction contextref="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFunds-NetPosition_C78" name="acfr:NetPosition" unitref="USD">
                 880,139
             </ix:nonfraction>
 </td>
@@ -5596,11 +5665,11 @@ h1.center {text-align: center;}
 <b>For The Year Ended June 30, 2022</b><br/>
 </div>
 <!-- Sheet cell data -->
-<table>
+<table class="statement">
 <!-- Headers (hardcoded) -->
 <tr>
 <th></th>
-<th>Endeavor Hall</th>
+<th>Business Type Activities   Endeavor Hall</th>
 <th>Internal Service Funds</th>
 </tr>
 <tr class="section_header">
@@ -5614,11 +5683,11 @@ h1.center {text-align: center;}
 </tr>
 <tr class="row">
 <td id="header_PropFundStmtofRevExpandCh_C8">  
-            Revenue for Charges for Services
+             Charges for Services
         </td>
 <td class="row" id="PropFundStmtofRevExpandCh_C8">
             
-            $ <ix:nonfraction contextref="Ddate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C8" name="acfr:ChargesForServices" unitref="USD">
+            $ <ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C8" name="acfr:ChargesForServices" unitref="USD">
                 16,847
             </ix:nonfraction>
 </td>
@@ -5634,7 +5703,7 @@ h1.center {text-align: center;}
             Total Operating Revenues
         </td>
 <td class="data_total" id="PropFundStmtofRevExpandCh_C22">
-<ix:nonfraction contextref="Ddate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C22" name="acfr:RevenueOperating" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C22" name="acfr:RevenueOperating" unitref="USD">
                 16,847
             </ix:nonfraction>
 </td>
@@ -5666,7 +5735,7 @@ h1.center {text-align: center;}
             Benefits Expense
         </td>
 <td class="row" id="PropFundStmtofRevExpandCh_C25">
-<ix:nonfraction contextref="Ddate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C25" name="acfr:BenefitsExpense" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C25" name="acfr:BenefitsExpense" unitref="USD">
                 4,833
             </ix:nonfraction>
 </td>
@@ -5681,7 +5750,7 @@ h1.center {text-align: center;}
             Expenses for Institutional Support
         </td>
 <td class="row" id="PropFundStmtofRevExpandCh_C26">
-<ix:nonfraction contextref="Ddate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C26" name="acfr:ExpensesForInstitutionalSupport" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C26" name="acfr:ExpensesForInstitutionalSupport" unitref="USD">
                 26,989
             </ix:nonfraction>
 </td>
@@ -5696,7 +5765,7 @@ h1.center {text-align: center;}
             Depletion, Depreciation and Amortization Expense
         </td>
 <td class="row" id="PropFundStmtofRevExpandCh_C27">
-<ix:nonfraction contextref="Ddate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C27" name="acfr:DepletionDepreciationAndAmortizationExpense" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C27" name="acfr:DepletionDepreciationAndAmortizationExpense" unitref="USD">
                 28,872
             </ix:nonfraction>
 </td>
@@ -5711,7 +5780,7 @@ h1.center {text-align: center;}
             Total Operating Expenses
         </td>
 <td class="data_total" id="PropFundStmtofRevExpandCh_C37">
-<ix:nonfraction contextref="Ddate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C37" name="acfr:OperatingExpense" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C37" name="acfr:OperatingExpense" unitref="USD">
                 60,694
             </ix:nonfraction>
 </td>
@@ -5761,7 +5830,7 @@ h1.center {text-align: center;}
             Total Nonoperating Revenues (expenses)
         </td>
 <td class="data_total" id="PropFundStmtofRevExpandCh_C51">
-<ix:nonfraction contextref="Ddate_parse_error_EndeavorHall" decimals="0" format="ixt:fixed-zero" id="PropFundStmtofRevExpandCh_C51" name="acfr:NonoperatingRevenuesAndExpenses" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:fixed-zero" id="PropFundStmtofRevExpandCh_C51" name="acfr:NonoperatingRevenuesAndExpenses" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
@@ -5777,7 +5846,7 @@ h1.center {text-align: center;}
         </td>
 <td class="row" id="PropFundStmtofRevExpandCh_C52">
             
-            -<ix:nonfraction contextref="Ddate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C52" name="acfr:IncomeLossBeforeCapitalContributions" sign="-" unitref="USD">
+            -<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C52" name="acfr:IncomeLossBeforeCapitalContributions" sign="-" unitref="USD">
                 43,847
             </ix:nonfraction>
 </td>
@@ -5809,7 +5878,7 @@ h1.center {text-align: center;}
             Total Capital Contributions
         </td>
 <td class="data_total" id="PropFundStmtofRevExpandCh_C64">
-<ix:nonfraction contextref="Ddate_parse_error_EndeavorHall" decimals="0" format="ixt:fixed-zero" id="PropFundStmtofRevExpandCh_C64" name="acfr:ContributionsCapital" unitref="USD">
+<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:fixed-zero" id="PropFundStmtofRevExpandCh_C64" name="acfr:ContributionsCapital" unitref="USD">
                 -
             </ix:nonfraction>
 </td>
@@ -5825,7 +5894,7 @@ h1.center {text-align: center;}
         </td>
 <td class="row" id="PropFundStmtofRevExpandCh_C65">
             
-            -<ix:nonfraction contextref="Ddate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C65" name="acfr:ChangesInNetPosition" sign="-" unitref="USD">
+            -<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C65" name="acfr:ChangesInNetPosition" sign="-" unitref="USD">
                 43,847
             </ix:nonfraction>
 </td>
@@ -5867,7 +5936,7 @@ h1.center {text-align: center;}
         </td>
 <td class="row" id="PropFundStmtofRevExpandCh_C69">
             
-            -<ix:nonfraction contextref="Ddate_parse_error_EndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C69" name="acfr:NetPosition" sign="-" unitref="USD">
+            -<ix:nonfraction contextref="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" decimals="0" format="ixt:num-dot-decimal" id="PropFundStmtofRevExpandCh_C69" name="acfr:NetPosition" sign="-" unitref="USD">
                 43,847
             </ix:nonfraction>
 </td>
@@ -7215,13 +7284,13 @@ h1.center {text-align: center;}
         }
        }
       },
-      "acfr:NetExpenseRevenueForCulturalActivities": {
+      "acfr:NetExpenseRevenueForParksAndRecreation": {
        "labels": {
         "doc": {
-         "en-us": "Net (expense) revenue for various cultural activities, fine arts, historical society, museums, etc."
+         "en-us": "Net (expense) revenue for Recreation and Culture, parks and recreation. Used for amounts on the governmental funds statements, reported on a modified accrual basis."
         },
         "std": {
-         "en-us": "Net (Expense) Revenue, Cultural Activities"
+         "en-us": "Net (Expense) Revenue, Parks and Recreation"
         }
        }
       },
@@ -7413,16 +7482,6 @@ h1.center {text-align: center;}
         },
         "std": {
          "en-us": "Revenues from Business License Tax"
-        }
-       }
-      },
-      "acfr:RevenueFromTaxes": {
-       "labels": {
-        "doc": {
-         "en-us": "All revenue generated from taxes which are mandatory contributions levied on individuals or corporations by a government entity\u2014whether local, regional, or national. Tax revenues finance government activities, including public works and services such as roads and schools, or programs."
-        },
-        "std": {
-         "en-us": "Revenues from Taxes"
         }
        }
       },
@@ -8653,31 +8712,6 @@ h1.center {text-align: center;}
          "en-us": "Excess (Deficiency) of Revenues Over (Under) Expenditures"
         }
        }
-      },
-      "acfr:OtherFinancingSourcesUses": {
-       "labels": {
-        "doc": {
-         "en-us": "Other financing sources (uses) which the reporting entity does not separately disclose in the same statement or note. It includes a limited number of special transactions that are used to account for non-operating revenues or receipts and expenditures or disbursements . Included in this financial reporting category are operating transfers (inflow) and proceeds from debt transactions. Used to report amounts on a modified accrual basis."
-        },
-        "std": {
-         "en-us": "Other Financing Sources (Uses)"
-        },
-        "ns0": {
-         "en-us": "TOTAL OTHER FINANCING SOURCES"
-        }
-       },
-       "r": [
-        [
-         [
-          "URI",
-          "https://www.michigan.gov/documents/uniformchart_24524_7.pdf"
-         ],
-         [
-          "MIUCAAccountNumber",
-          "690, 691 - 699"
-         ]
-        ]
-       ]
       },
       "acfr:TransfersInModifiedAccrual": {
        "labels": {
@@ -11422,6 +11456,16 @@ h1.center {text-align: center;}
         ]
        ]
       },
+      "acfr:NetExpenseRevenueForCulturalActivities": {
+       "labels": {
+        "doc": {
+         "en-us": "Net (expense) revenue for various cultural activities, fine arts, historical society, museums, etc."
+        },
+        "std": {
+         "en-us": "Net (Expense) Revenue, Cultural Activities"
+        }
+       }
+      },
       "acfr:NetExpenseRevenueWritOfGarnishmentRestitutionAttachmentOrExecution": {
        "labels": {
         "doc": {
@@ -11738,16 +11782,6 @@ h1.center {text-align: center;}
          ]
         ]
        ]
-      },
-      "acfr:NetExpenseRevenueForParksAndRecreation": {
-       "labels": {
-        "doc": {
-         "en-us": "Net (expense) revenue for Recreation and Culture, parks and recreation. Used for amounts on the governmental funds statements, reported on a modified accrual basis."
-        },
-        "std": {
-         "en-us": "Net (Expense) Revenue, Parks and Recreation"
-        }
-       }
       },
       "acfr:RevenuesForCulturalActivities": {
        "labels": {
@@ -16190,6 +16224,16 @@ h1.center {text-align: center;}
         },
         "std": {
          "en-us": "Revenues from Other Tax for General Purpose"
+        }
+       }
+      },
+      "acfr:RevenueFromTaxes": {
+       "labels": {
+        "doc": {
+         "en-us": "All revenue generated from taxes which are mandatory contributions levied on individuals or corporations by a government entity\u2014whether local, regional, or national. Tax revenues finance government activities, including public works and services such as roads and schools, or programs."
+        },
+        "std": {
+         "en-us": "Revenues from Taxes"
         }
        }
       },
@@ -40072,6 +40116,31 @@ h1.center {text-align: center;}
          "en-us": "Contributions to Permanent Fund, Modified Accrual"
         }
        }
+      },
+      "acfr:OtherFinancingSourcesUses": {
+       "labels": {
+        "doc": {
+         "en-us": "Other financing sources (uses) which the reporting entity does not separately disclose in the same statement or note. It includes a limited number of special transactions that are used to account for non-operating revenues or receipts and expenditures or disbursements . Included in this financial reporting category are operating transfers (inflow) and proceeds from debt transactions. Used to report amounts on a modified accrual basis."
+        },
+        "std": {
+         "en-us": "Other Financing Sources (Uses)"
+        },
+        "ns0": {
+         "en-us": "TOTAL OTHER FINANCING SOURCES"
+        }
+       },
+       "r": [
+        [
+         [
+          "URI",
+          "https://www.michigan.gov/documents/uniformchart_24524_7.pdf"
+         ],
+         [
+          "MIUCAAccountNumber",
+          "690, 691 - 699"
+         ]
+        ]
+       ]
       },
       "acfr:ExpendituresForProjectCostsModifiedAccrual": {
        "labels": {
@@ -64443,7 +64512,7 @@ h1.center {text-align: center;}
       },
       "StatementofActivities_G13": {
        "a": {
-        "c": "acfr:NetExpenseRevenueForCulturalActivities",
+        "c": "acfr:NetExpenseRevenueForParksAndRecreation",
         "e": "e:0613882",
         "u": "iso4217:USD",
         "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
@@ -64455,7 +64524,7 @@ h1.center {text-align: center;}
       },
       "StatementofActivities_H13": {
        "a": {
-        "c": "acfr:NetExpenseRevenueForCulturalActivities",
+        "c": "acfr:NetExpenseRevenueForParksAndRecreation",
         "e": "e:0613882",
         "u": "iso4217:USD",
         "acfr:TypeOfGovernmentUnitAxis": "acfr:BusinessTypeActivitiesMember",
@@ -64467,7 +64536,7 @@ h1.center {text-align: center;}
       },
       "StatementofActivities_I13": {
        "a": {
-        "c": "acfr:NetExpenseRevenueForCulturalActivities",
+        "c": "acfr:NetExpenseRevenueForParksAndRecreation",
         "e": "e:0613882",
         "u": "iso4217:USD",
         "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
@@ -64577,19 +64646,6 @@ h1.center {text-align: center;}
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
-      "StatementofActivities_E25": {
-       "a": {
-        "c": "acfr:ExpensesForConventionCenterServices",
-        "e": "e:0613882",
-        "u": "iso4217:USD",
-        "acfr:TypeOfProgramRevenuesAxis": "acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:BusinessTypeActivitiesMember",
-        "p": "2021-07-01/2022-07-01"
-       },
-       "v": "0",
-       "f": "ixt:fixed-zero",
-       "d": 0
-      },
       "StatementofActivities_F25": {
        "a": {
         "c": "acfr:ExpensesForConventionCenterServices",
@@ -64684,18 +64740,6 @@ h1.center {text-align: center;}
         "u": "iso4217:USD",
         "acfr:TypeOfProgramRevenuesAxis": "acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember",
         "acfr:TypeOfGovernmentUnitAxis": "acfr:BusinessTypeActivitiesMember",
-        "p": "2021-07-01/2022-07-01"
-       },
-       "v": "0",
-       "f": "ixt:fixed-zero",
-       "d": 0
-      },
-      "StatementofActivities_G37": {
-       "a": {
-        "c": "acfr:NetExpenseRevenue",
-        "e": "e:0613882",
-        "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "0",
@@ -65044,9 +65088,21 @@ h1.center {text-align: center;}
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
+      "StatementofActivities_G58": {
+       "a": {
+        "c": "acfr:RevenueFromFinesAndForfeituresAndPenalties",
+        "e": "e:0613882",
+        "u": "iso4217:USD",
+        "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
+        "p": "2021-07-01/2022-07-01"
+       },
+       "v": "587740",
+       "f": "ixt:num-dot-decimal",
+       "d": 0
+      },
       "StatementofActivities_H58": {
        "a": {
-        "c": "acfr:RevenueFromTaxes",
+        "c": "acfr:RevenueFromFinesAndForfeituresAndPenalties",
         "e": "e:0613882",
         "u": "iso4217:USD",
         "acfr:TypeOfGovernmentUnitAxis": "acfr:BusinessTypeActivitiesMember",
@@ -65058,31 +65114,31 @@ h1.center {text-align: center;}
       },
       "StatementofActivities_I58": {
        "a": {
-        "c": "acfr:RevenueFromTaxes",
-        "e": "e:0613882",
-        "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
-        "p": "2021-07-01/2022-07-01"
-       },
-       "v": "0",
-       "f": "ixt:fixed-zero",
-       "d": 0
-      },
-      "StatementofActivities_G59": {
-       "a": {
         "c": "acfr:RevenueFromFinesAndForfeituresAndPenalties",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
+        "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "587740",
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
+      "StatementofActivities_G59": {
+       "a": {
+        "c": "acfr:PaymentInLieuOfTaxes",
+        "e": "e:0613882",
+        "u": "iso4217:USD",
+        "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
+        "p": "2021-07-01/2022-07-01"
+       },
+       "v": "174443",
+       "f": "ixt:num-dot-decimal",
+       "d": 0
+      },
       "StatementofActivities_H59": {
        "a": {
-        "c": "acfr:RevenueFromFinesAndForfeituresAndPenalties",
+        "c": "acfr:PaymentInLieuOfTaxes",
         "e": "e:0613882",
         "u": "iso4217:USD",
         "acfr:TypeOfGovernmentUnitAxis": "acfr:BusinessTypeActivitiesMember",
@@ -65094,31 +65150,31 @@ h1.center {text-align: center;}
       },
       "StatementofActivities_I59": {
        "a": {
-        "c": "acfr:RevenueFromFinesAndForfeituresAndPenalties",
-        "e": "e:0613882",
-        "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
-        "p": "2021-07-01/2022-07-01"
-       },
-       "v": "587740",
-       "f": "ixt:num-dot-decimal",
-       "d": 0
-      },
-      "StatementofActivities_G60": {
-       "a": {
         "c": "acfr:PaymentInLieuOfTaxes",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
+        "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "174443",
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
+      "StatementofActivities_G60": {
+       "a": {
+        "c": "acfr:InvestmentIncome",
+        "e": "e:0613882",
+        "u": "iso4217:USD",
+        "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
+        "p": "2021-07-01/2022-07-01"
+       },
+       "v": "-281502",
+       "f": "ixt:num-dot-decimal",
+       "d": 0
+      },
       "StatementofActivities_H60": {
        "a": {
-        "c": "acfr:PaymentInLieuOfTaxes",
+        "c": "acfr:InvestmentIncome",
         "e": "e:0613882",
         "u": "iso4217:USD",
         "acfr:TypeOfGovernmentUnitAxis": "acfr:BusinessTypeActivitiesMember",
@@ -65130,31 +65186,31 @@ h1.center {text-align: center;}
       },
       "StatementofActivities_I60": {
        "a": {
-        "c": "acfr:PaymentInLieuOfTaxes",
-        "e": "e:0613882",
-        "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
-        "p": "2021-07-01/2022-07-01"
-       },
-       "v": "174443",
-       "f": "ixt:num-dot-decimal",
-       "d": 0
-      },
-      "StatementofActivities_G61": {
-       "a": {
         "c": "acfr:InvestmentIncome",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
+        "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "-281502",
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
+      "StatementofActivities_G61": {
+       "a": {
+        "c": "acfr:OtherGeneralRevenues",
+        "e": "e:0613882",
+        "u": "iso4217:USD",
+        "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
+        "p": "2021-07-01/2022-07-01"
+       },
+       "v": "54512",
+       "f": "ixt:num-dot-decimal",
+       "d": 0
+      },
       "StatementofActivities_H61": {
        "a": {
-        "c": "acfr:InvestmentIncome",
+        "c": "acfr:OtherGeneralRevenues",
         "e": "e:0613882",
         "u": "iso4217:USD",
         "acfr:TypeOfGovernmentUnitAxis": "acfr:BusinessTypeActivitiesMember",
@@ -65166,31 +65222,31 @@ h1.center {text-align: center;}
       },
       "StatementofActivities_I61": {
        "a": {
-        "c": "acfr:InvestmentIncome",
-        "e": "e:0613882",
-        "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
-        "p": "2021-07-01/2022-07-01"
-       },
-       "v": "-281502",
-       "f": "ixt:num-dot-decimal",
-       "d": 0
-      },
-      "StatementofActivities_G62": {
-       "a": {
         "c": "acfr:OtherGeneralRevenues",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
+        "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "54512",
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
+      "StatementofActivities_G62": {
+       "a": {
+        "c": "acfr:GainLossOnSaleOfCapitalAssets",
+        "e": "e:0613882",
+        "u": "iso4217:USD",
+        "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
+        "p": "2021-07-01/2022-07-01"
+       },
+       "v": "6958",
+       "f": "ixt:num-dot-decimal",
+       "d": 0
+      },
       "StatementofActivities_H62": {
        "a": {
-        "c": "acfr:OtherGeneralRevenues",
+        "c": "acfr:GainLossOnSaleOfCapitalAssets",
         "e": "e:0613882",
         "u": "iso4217:USD",
         "acfr:TypeOfGovernmentUnitAxis": "acfr:BusinessTypeActivitiesMember",
@@ -65202,31 +65258,31 @@ h1.center {text-align: center;}
       },
       "StatementofActivities_I62": {
        "a": {
-        "c": "acfr:OtherGeneralRevenues",
-        "e": "e:0613882",
-        "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
-        "p": "2021-07-01/2022-07-01"
-       },
-       "v": "54512",
-       "f": "ixt:num-dot-decimal",
-       "d": 0
-      },
-      "StatementofActivities_G63": {
-       "a": {
         "c": "acfr:GainLossOnSaleOfCapitalAssets",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
+        "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "6958",
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
+      "StatementofActivities_G63": {
+       "a": {
+        "c": "acfr:GeneralRevenuesNet",
+        "e": "e:0613882",
+        "u": "iso4217:USD",
+        "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
+        "p": "2021-07-01/2022-07-01"
+       },
+       "v": "5464363",
+       "f": "ixt:num-dot-decimal",
+       "d": 0
+      },
       "StatementofActivities_H63": {
        "a": {
-        "c": "acfr:GainLossOnSaleOfCapitalAssets",
+        "c": "acfr:GeneralRevenuesNet",
         "e": "e:0613882",
         "u": "iso4217:USD",
         "acfr:TypeOfGovernmentUnitAxis": "acfr:BusinessTypeActivitiesMember",
@@ -65238,17 +65294,17 @@ h1.center {text-align: center;}
       },
       "StatementofActivities_I63": {
        "a": {
-        "c": "acfr:GainLossOnSaleOfCapitalAssets",
+        "c": "acfr:GeneralRevenuesNet",
         "e": "e:0613882",
         "u": "iso4217:USD",
         "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
         "p": "2021-07-01/2022-07-01"
        },
-       "v": "6958",
+       "v": "5464363",
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
-      "StatementofActivities_G64": {
+      "StatementofActivities_G70": {
        "a": {
         "c": "acfr:GeneralRevenuesNet",
         "e": "e:0613882",
@@ -65256,11 +65312,11 @@ h1.center {text-align: center;}
         "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
         "p": "2021-07-01/2022-07-01"
        },
-       "v": "5464363",
-       "f": "ixt:num-dot-decimal",
+       "v": "0",
+       "f": "ixt:fixed-zero",
        "d": 0
       },
-      "StatementofActivities_H64": {
+      "StatementofActivities_H70": {
        "a": {
         "c": "acfr:GeneralRevenuesNet",
         "e": "e:0613882",
@@ -65272,7 +65328,7 @@ h1.center {text-align: center;}
        "f": "ixt:fixed-zero",
        "d": 0
       },
-      "StatementofActivities_I64": {
+      "StatementofActivities_I70": {
        "a": {
         "c": "acfr:GeneralRevenuesNet",
         "e": "e:0613882",
@@ -65280,8 +65336,8 @@ h1.center {text-align: center;}
         "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
         "p": "2021-07-01/2022-07-01"
        },
-       "v": "5464363",
-       "f": "ixt:num-dot-decimal",
+       "v": "0",
+       "f": "ixt:fixed-zero",
        "d": 0
       },
       "StatementofActivities_G71": {
@@ -65292,8 +65348,8 @@ h1.center {text-align: center;}
         "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
         "p": "2021-07-01/2022-07-01"
        },
-       "v": "0",
-       "f": "ixt:fixed-zero",
+       "v": "5464363",
+       "f": "ixt:num-dot-decimal",
        "d": 0
       },
       "StatementofActivities_H71": {
@@ -65316,47 +65372,11 @@ h1.center {text-align: center;}
         "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
         "p": "2021-07-01/2022-07-01"
        },
-       "v": "0",
-       "f": "ixt:fixed-zero",
-       "d": 0
-      },
-      "StatementofActivities_G72": {
-       "a": {
-        "c": "acfr:GeneralRevenuesNet",
-        "e": "e:0613882",
-        "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:GovernmentalActivitiesMember",
-        "p": "2021-07-01/2022-07-01"
-       },
        "v": "5464363",
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
-      "StatementofActivities_H72": {
-       "a": {
-        "c": "acfr:GeneralRevenuesNet",
-        "e": "e:0613882",
-        "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:BusinessTypeActivitiesMember",
-        "p": "2021-07-01/2022-07-01"
-       },
-       "v": "0",
-       "f": "ixt:fixed-zero",
-       "d": 0
-      },
-      "StatementofActivities_I72": {
-       "a": {
-        "c": "acfr:GeneralRevenuesNet",
-        "e": "e:0613882",
-        "u": "iso4217:USD",
-        "acfr:TypeOfGovernmentUnitAxis": "acfr:PrimaryGovernmentActivitiesMember",
-        "p": "2021-07-01/2022-07-01"
-       },
-       "v": "5464363",
-       "f": "ixt:num-dot-decimal",
-       "d": 0
-      },
-      "StatementofActivities_G75": {
+      "StatementofActivities_G74": {
        "a": {
         "c": "acfr:ChangesInNetPosition",
         "e": "e:0613882",
@@ -65368,7 +65388,7 @@ h1.center {text-align: center;}
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
-      "StatementofActivities_H75": {
+      "StatementofActivities_H74": {
        "a": {
         "c": "acfr:ChangesInNetPosition",
         "e": "e:0613882",
@@ -65380,7 +65400,7 @@ h1.center {text-align: center;}
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
-      "StatementofActivities_I75": {
+      "StatementofActivities_I74": {
        "a": {
         "c": "acfr:ChangesInNetPosition",
         "e": "e:0613882",
@@ -65392,7 +65412,7 @@ h1.center {text-align: center;}
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
-      "StatementofActivities_G76": {
+      "StatementofActivities_G75": {
        "a": {
         "c": "acfr:NetPositionAtBeginningOfPeriodAfterAdjustments",
         "e": "e:0613882",
@@ -65404,7 +65424,7 @@ h1.center {text-align: center;}
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
-      "StatementofActivities_H76": {
+      "StatementofActivities_H75": {
        "a": {
         "c": "acfr:NetPositionAtBeginningOfPeriodAfterAdjustments",
         "e": "e:0613882",
@@ -65416,7 +65436,7 @@ h1.center {text-align: center;}
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
-      "StatementofActivities_I76": {
+      "StatementofActivities_I75": {
        "a": {
         "c": "acfr:NetPositionAtBeginningOfPeriodAfterAdjustments",
         "e": "e:0613882",
@@ -65428,7 +65448,7 @@ h1.center {text-align: center;}
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
-      "StatementofActivities_G77": {
+      "StatementofActivities_G76": {
        "a": {
         "c": "acfr:NetPosition",
         "e": "e:0613882",
@@ -65440,7 +65460,7 @@ h1.center {text-align: center;}
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
-      "StatementofActivities_H77": {
+      "StatementofActivities_H76": {
        "a": {
         "c": "acfr:NetPosition",
         "e": "e:0613882",
@@ -65452,7 +65472,7 @@ h1.center {text-align: center;}
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
-      "StatementofActivities_I77": {
+      "StatementofActivities_I76": {
        "a": {
         "c": "acfr:NetPosition",
         "e": "e:0613882",
@@ -66916,6 +66936,18 @@ h1.center {text-align: center;}
        "f": "ixt:num-dot-decimal",
        "d": 0
       },
+      "GovFundBalanceSheet_F47": {
+       "a": {
+        "c": "acfr:FundBalanceRestricted",
+        "e": "e:0613882",
+        "u": "iso4217:USD",
+        "acfr:FundIdentifierAxis": "\n                    acfr:AmericanRescuePlanActMember\n                    ",
+        "p": "2022-07-01"
+       },
+       "v": "0",
+       "f": "ixt:fixed-zero",
+       "d": 0
+      },
       "GovFundBalanceSheet_G47": {
        "a": {
         "c": "acfr:FundBalanceRestricted",
@@ -66982,6 +67014,18 @@ h1.center {text-align: center;}
         "e": "e:0613882",
         "u": "iso4217:USD",
         "acfr:FundIdentifierAxis": "\n                    acfr:SuccessorHousingAgencyMember\n                    ",
+        "p": "2022-07-01"
+       },
+       "v": "0",
+       "f": "ixt:fixed-zero",
+       "d": 0
+      },
+      "GovFundBalanceSheet_F48": {
+       "a": {
+        "c": "acfr:FundBalanceCommitted",
+        "e": "e:0613882",
+        "u": "iso4217:USD",
+        "acfr:FundIdentifierAxis": "\n                    acfr:AmericanRescuePlanActMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "0",
@@ -67060,6 +67104,18 @@ h1.center {text-align: center;}
        "f": "ixt:fixed-zero",
        "d": 0
       },
+      "GovFundBalanceSheet_F49": {
+       "a": {
+        "c": "acfr:FundBalanceAssigned",
+        "e": "e:0613882",
+        "u": "iso4217:USD",
+        "acfr:FundIdentifierAxis": "\n                    acfr:AmericanRescuePlanActMember\n                    ",
+        "p": "2022-07-01"
+       },
+       "v": "0",
+       "f": "ixt:fixed-zero",
+       "d": 0
+      },
       "GovFundBalanceSheet_G49": {
        "a": {
         "c": "acfr:FundBalanceAssigned",
@@ -67126,6 +67182,18 @@ h1.center {text-align: center;}
         "e": "e:0613882",
         "u": "iso4217:USD",
         "acfr:FundIdentifierAxis": "\n                    acfr:SuccessorHousingAgencyMember\n                    ",
+        "p": "2022-07-01"
+       },
+       "v": "0",
+       "f": "ixt:fixed-zero",
+       "d": 0
+      },
+      "GovFundBalanceSheet_F50": {
+       "a": {
+        "c": "acfr:FundBalanceUnassigned",
+        "e": "e:0613882",
+        "u": "iso4217:USD",
+        "acfr:FundIdentifierAxis": "\n                    acfr:AmericanRescuePlanActMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "0",
@@ -69174,87 +69242,73 @@ h1.center {text-align: center;}
       },
       "GovFundStmtofRevExpandChg_C37": {
        "a": {
-        "c": "acfr:OtherFinancingSourcesUses",
+        "c": "acfr:AdditionalOtherFinancingSourcesUses",
         "e": "e:0613882",
-        "u": "iso4217:USD",
         "acfr:GovernmentalFundsAxis": "acfr:GeneralFundMember",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "0",
-       "f": "ixt:fixed-zero",
-       "d": 0
+       "f": "ixt:fixed-zero"
       },
       "GovFundStmtofRevExpandChg_D37": {
        "a": {
-        "c": "acfr:OtherFinancingSourcesUses",
+        "c": "acfr:AdditionalOtherFinancingSourcesUses",
         "e": "e:0613882",
-        "u": "iso4217:USD",
         "acfr:FundIdentifierAxis": "\n                    acfr:LandscapeMaintenanceDistrictMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "0",
-       "f": "ixt:fixed-zero",
-       "d": 0
+       "f": "ixt:fixed-zero"
       },
       "GovFundStmtofRevExpandChg_E37": {
        "a": {
-        "c": "acfr:OtherFinancingSourcesUses",
+        "c": "acfr:AdditionalOtherFinancingSourcesUses",
         "e": "e:0613882",
-        "u": "iso4217:USD",
         "acfr:FundIdentifierAxis": "\n                    acfr:SuccessorHousingAgencyMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "58091",
-       "f": "ixt:num-dot-decimal",
-       "d": 0
+       "f": "ixt:num-dot-decimal"
       },
       "GovFundStmtofRevExpandChg_F37": {
        "a": {
-        "c": "acfr:OtherFinancingSourcesUses",
+        "c": "acfr:AdditionalOtherFinancingSourcesUses",
         "e": "e:0613882",
-        "u": "iso4217:USD",
         "acfr:FundIdentifierAxis": "\n                    acfr:AmericanRescuePlanActMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "0",
-       "f": "ixt:fixed-zero",
-       "d": 0
+       "f": "ixt:fixed-zero"
       },
       "GovFundStmtofRevExpandChg_G37": {
        "a": {
-        "c": "acfr:OtherFinancingSourcesUses",
+        "c": "acfr:AdditionalOtherFinancingSourcesUses",
         "e": "e:0613882",
-        "u": "iso4217:USD",
         "acfr:FundIdentifierAxis": "\n                    acfr:CapitalImprovementProgramMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "0",
-       "f": "ixt:fixed-zero",
-       "d": 0
+       "f": "ixt:fixed-zero"
       },
       "GovFundStmtofRevExpandChg_H37": {
        "a": {
-        "c": "acfr:OtherFinancingSourcesUses",
+        "c": "acfr:AdditionalOtherFinancingSourcesUses",
         "e": "e:0613882",
-        "u": "iso4217:USD",
         "acfr:FundIdentifierAxis": "\n                    acfr:OtherGovernmentalFundsMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "0",
-       "f": "ixt:fixed-zero",
-       "d": 0
+       "f": "ixt:fixed-zero"
       },
       "GovFundStmtofRevExpandChg_I37": {
        "a": {
-        "c": "acfr:OtherFinancingSourcesUses",
+        "c": "acfr:AdditionalOtherFinancingSourcesUses",
         "e": "e:0613882",
-        "u": "iso4217:USD",
         "acfr:GovernmentalFundsAxis": "acfr:GovernmentalFundsMember",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "58091",
-       "f": "ixt:num-dot-decimal",
-       "d": 0
+       "f": "ixt:num-dot-decimal"
       },
       "GovFundStmtofRevExpandChg_C38": {
        "a": {
@@ -69765,7 +69819,7 @@ h1.center {text-align: center;}
         "c": "acfr:CashAndCashEquivalentsAndInvestments",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "0",
@@ -69789,7 +69843,7 @@ h1.center {text-align: center;}
         "c": "acfr:CurrentAssets",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "0",
@@ -69813,7 +69867,7 @@ h1.center {text-align: center;}
         "c": "acfr:Land",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "167738",
@@ -69837,7 +69891,7 @@ h1.center {text-align: center;}
         "c": "acfr:CapitalAssetsBeingDepreciatedNet",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "841465",
@@ -69861,7 +69915,7 @@ h1.center {text-align: center;}
         "c": "acfr:NoncurrentAssets",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "1009203",
@@ -69885,7 +69939,7 @@ h1.center {text-align: center;}
         "c": "acfr:Assets",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "1009203",
@@ -69909,7 +69963,7 @@ h1.center {text-align: center;}
         "c": "acfr:AccountsPayable",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "2671",
@@ -69933,7 +69987,7 @@ h1.center {text-align: center;}
         "c": "acfr:OtherAccountsPayableAndAccruedLiabilities",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "0",
@@ -69957,7 +70011,7 @@ h1.center {text-align: center;}
         "c": "acfr:DepositsHeldforOthers",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "5500",
@@ -69981,7 +70035,7 @@ h1.center {text-align: center;}
         "c": "acfr:DueToOtherFunds",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "120893",
@@ -70005,7 +70059,7 @@ h1.center {text-align: center;}
         "c": "acfr:CurrentLiabilities",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "129064",
@@ -70029,7 +70083,7 @@ h1.center {text-align: center;}
         "c": "acfr:NoncurrentLiabilities",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "0",
@@ -70053,7 +70107,7 @@ h1.center {text-align: center;}
         "c": "acfr:Liabilities",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "129064",
@@ -70077,7 +70131,7 @@ h1.center {text-align: center;}
         "c": "acfr:NetInvestmentInCapitalAssets",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "1009203",
@@ -70101,7 +70155,7 @@ h1.center {text-align: center;}
         "c": "acfr:UnrestrictedNetPosition",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "-129064",
@@ -70125,7 +70179,7 @@ h1.center {text-align: center;}
         "c": "acfr:NetPosition",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2022-07-01"
        },
        "v": "880139",
@@ -70149,7 +70203,7 @@ h1.center {text-align: center;}
         "c": "acfr:ChargesForServices",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "16847",
@@ -70173,7 +70227,7 @@ h1.center {text-align: center;}
         "c": "acfr:RevenueOperating",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "16847",
@@ -70197,7 +70251,7 @@ h1.center {text-align: center;}
         "c": "acfr:BenefitsExpense",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "4833",
@@ -70221,7 +70275,7 @@ h1.center {text-align: center;}
         "c": "acfr:ExpensesForInstitutionalSupport",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "26989",
@@ -70245,7 +70299,7 @@ h1.center {text-align: center;}
         "c": "acfr:DepletionDepreciationAndAmortizationExpense",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "28872",
@@ -70269,7 +70323,7 @@ h1.center {text-align: center;}
         "c": "acfr:OperatingExpense",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "60694",
@@ -70293,7 +70347,7 @@ h1.center {text-align: center;}
         "c": "acfr:NonoperatingRevenuesAndExpenses",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "0",
@@ -70317,7 +70371,7 @@ h1.center {text-align: center;}
         "c": "acfr:IncomeLossBeforeCapitalContributions",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "-43847",
@@ -70341,7 +70395,7 @@ h1.center {text-align: center;}
         "c": "acfr:ContributionsCapital",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "0",
@@ -70365,7 +70419,7 @@ h1.center {text-align: center;}
         "c": "acfr:ChangesInNetPosition",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "-43847",
@@ -70389,7 +70443,7 @@ h1.center {text-align: center;}
         "c": "acfr:NetPosition",
         "e": "e:0613882",
         "u": "iso4217:USD",
-        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:EndeavorHallMember\n                    ",
+        "acfr:TypeOfActivitiesProprietaryFundsAxis": "\n                    acfr:BusinessTypeActivitiesEndeavorHallMember\n                    ",
         "p": "2021-07-01/2022-07-01"
        },
        "v": "-43847",
