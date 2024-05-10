@@ -167,7 +167,9 @@ class WordDoc:
         
         for paragraph in self.soup.find_all('p'):
             # Check if paragraph contains only a number and is not a child of a table
-            if paragraph.string and paragraph.string.strip().isdigit() and not paragraph.find_parent('table'):
+            if paragraph.string and \
+                (paragraph.string.strip().isdigit() or paragraph.string.strip() in ["i", "ii"])  and \
+                not paragraph.find_parent('table'):
                 # Add a custom class to the paragraph itself to indicate it's a page number
                 paragraph['class'] = paragraph.get('class', []) + ["page-number"]
 

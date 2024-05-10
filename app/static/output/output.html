@@ -17,27 +17,35 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <style type="text/css">
 
+:root {
+    --max-row-width: 10000px;
+}
+
 /* Style for the table with class 'statement' */
 table.statement {
     border-collapse: collapse; /* Merge borders into a single line */
-    width: 98%;
+    width: 95%;
+    align-self: center;
 }
 
 /* Style for the last row within a table with class 'statement' */
 table.statement tr:last-child {
     border-bottom: 1px solid black; /* Add bottom border for the last row */
+    max-width: var(--max-row-width);
 }
 
 /* Style for th elements within a table with class 'statement' */
 table.statement th {
     border-bottom: 1px solid black;
     text-align: right;
+    max-width: var(--max-row-width);
 }
 
 /* Style for the last th and td elements within a row within a table with class 'statement' */
 table.statement th:last-child, table.statement td:last-child {
-    min-width: 120px;
-    width: auto; /* Allow the width to adjust based on content */
+    /* min-width: 120px; */
+    max-width: var(--max-row-width);
+    /* width: auto; */
 }
 
 /* Alignment for ALL tables, including word ones */
@@ -46,6 +54,7 @@ table td {
     text-align: right;
     font-size: 14px;
     margin: 10px;
+    max-width: var(--max-row-width);
 }
 table td:first-child {
     text-align: left;
@@ -208,27 +217,6 @@ img {
             <ix:resources>
                 <!--Start of contexts-->
                 
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
 <xbrli:context id="Ddate_parse_error_GovernmentalFunds">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
@@ -250,49 +238,27 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_GovernmentalActivities">
+<xbrli:context id="Idate_parse_error_BusinessTypeActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:NoneDomain>
-                    acfr:GovernmentalActivitiesMember
+                    acfr:BusinessTypeActivitiesMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
         </xbrli:segment>   
     </xbrli:entity>
     <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-                <acfr:ProprietaryFundsDomain>
-                    acfr:BusinessTypeActivitiesEndeavorHallMember
-                    </acfr:ProprietaryFundsDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
          
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_ComponentUnitDiscretelyPresented">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
@@ -300,127 +266,6 @@ img {
             <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
                 <acfr:NoneDomain>
                     acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_ComponentUnitDiscretelyPresented">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_ComponentUnitDiscretelyPresented">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Idate_parse_error_LandscapeMaintenanceDistrict">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:LandscapeMaintenanceDistrictMember
-                    </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Idate_parse_error_SuccessorHousingAgency">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:SuccessorHousingAgencyMember
-                    </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_GovernmentalActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:GovernmentalActivitiesMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -455,14 +300,61 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Idate_parse_error_GovernmentalActivities">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:NoneDomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:NoneDomain>
-                    acfr:GovernmentalActivitiesMember
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Idate_parse_error_LandscapeMaintenanceDistrict">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    acfr:LandscapeMaintenanceDistrictMember
+                    </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Idate_parse_error_GeneralFund">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
+                <acfr:NoneDomain>
+                    acfr:GeneralFundMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -475,20 +367,80 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_GovernmentalActivities">
+<xbrli:context id="Idate_parse_error_InternalServiceFunds">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+                <acfr:ProprietaryFundsDomain>
+                    acfr:InternalServiceFundsMember
+                    </acfr:ProprietaryFundsDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Idate_parse_error_GovernmentalFunds">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
+                <acfr:NoneDomain>
+                    acfr:GovernmentalFundsMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Idate_parse_error_PrimaryGovernmentActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:PrimaryGovernmentActivitiesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_ComponentUnitDiscretelyPresented">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
                 <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:NoneDomain>
-                    acfr:GovernmentalActivitiesMember
+                    acfr:ComponentUnitDiscretelyPresentedMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -522,35 +474,14 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_GeneralFund">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
-                <acfr:NoneDomain>
-                    acfr:GeneralFundMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_AmericanRescuePlanAct">
+<xbrli:context id="Ddate_parse_error_CapitalImprovementProgram">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
             <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
                 <acfr:FundIdentifierDomain>
-                    acfr:AmericanRescuePlanActMember
+                    acfr:CapitalImprovementProgramMember
                     </acfr:FundIdentifierDomain>
             </xbrldi:typedMember>
             
@@ -564,55 +495,15 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Idate_parse_error_GeneralFund">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
                 <acfr:NoneDomain>
-                    acfr:GeneralFundMember
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
                     </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Idate_parse_error_GovernmentalFunds">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
-                <acfr:NoneDomain>
-                    acfr:GovernmentalFundsMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_InternalServiceFunds">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-                <acfr:ProprietaryFundsDomain>
-                    acfr:InternalServiceFundsMember
-                    </acfr:ProprietaryFundsDomain>
             </xbrldi:explicitMember>
             
         </xbrli:segment>   
@@ -625,22 +516,7 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_SuccessorHousingAgency">
+<xbrli:context id="Idate_parse_error_SuccessorHousingAgency">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
@@ -654,23 +530,22 @@ img {
         </xbrli:segment>   
     </xbrli:entity>
     <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
          
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_OtherGovernmentalFunds">
+<xbrli:context id="Ddate_parse_error_GovernmentalActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:OtherGovernmentalFundsMember
-                    </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
             
         </xbrli:segment>   
     </xbrli:entity>
@@ -682,7 +557,34 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Idate_parse_error_BusinessTypeActivities">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_GovernmentalActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:NoneDomain>
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_BusinessTypeActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
@@ -690,73 +592,6 @@ img {
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:NoneDomain>
                     acfr:BusinessTypeActivitiesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:BusinessTypeActivitiesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Idate_parse_error_PrimaryGovernmentActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:PrimaryGovernmentActivitiesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -790,14 +625,20 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_ComponentUnitDiscretelyPresented">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
                 <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:ComponentUnitDiscretelyPresentedMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -807,6 +648,41 @@ img {
          
         <xbrli:startDate>2021-07-01</xbrli:startDate>
         <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Idate_parse_error_OtherGovernmentalFunds">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    acfr:OtherGovernmentalFundsMember
+                    </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
          
     </xbrli:period>
 </xbrli:context>
@@ -832,47 +708,82 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Idate_parse_error_InternalServiceFunds">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-                <acfr:ProprietaryFundsDomain>
-                    acfr:InternalServiceFundsMember
-                    </acfr:ProprietaryFundsDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Idate_parse_error_AmericanRescuePlanAct">
+<xbrli:context id="Ddate_parse_error_SuccessorHousingAgency">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
             <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
                 <acfr:FundIdentifierDomain>
-                    acfr:AmericanRescuePlanActMember
+                    acfr:SuccessorHousingAgencyMember
                     </acfr:FundIdentifierDomain>
             </xbrldi:typedMember>
             
         </xbrli:segment>   
     </xbrli:entity>
     <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
          
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Idate_parse_error_OtherGovernmentalFunds">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:NoneDomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_GovernmentalActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:NoneDomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_OtherGovernmentalFunds">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
@@ -886,26 +797,6 @@ img {
         </xbrli:segment>   
     </xbrli:entity>
     <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_CapitalImprovementProgram">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:CapitalImprovementProgramMember
-                    </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
          
         <xbrli:startDate>2021-07-01</xbrli:startDate>
         <xbrli:endDate>2022-06-30</xbrli:endDate>
@@ -913,7 +804,7 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_BusinessTypeActivities">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
@@ -921,39 +812,6 @@ img {
             <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
                 <acfr:NoneDomain>
                     acfr:ProgramRevenuesFromChargesForServicesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:BusinessTypeActivitiesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_ComponentUnitDiscretelyPresented">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -994,20 +852,82 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
+<xbrli:context id="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+                <acfr:ProprietaryFundsDomain>
+                    acfr:BusinessTypeActivitiesEndeavorHallMember
+                    </acfr:ProprietaryFundsDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_InternalServiceFunds">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+                <acfr:ProprietaryFundsDomain>
+                    acfr:InternalServiceFundsMember
+                    </acfr:ProprietaryFundsDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Idate_parse_error_GovernmentalActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:GovernmentalActivitiesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_ComponentUnitDiscretelyPresented">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
                 <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:NoneDomain>
-                    acfr:GovernmentalActivitiesMember
+                    acfr:ComponentUnitDiscretelyPresentedMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -1021,14 +941,103 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_BusinessTypeActivities">
+<xbrli:context id="Idate_parse_error_AmericanRescuePlanAct">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    acfr:AmericanRescuePlanActMember
+                    </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_ComponentUnitDiscretelyPresented">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:NoneDomain>
+                    acfr:ComponentUnitDiscretelyPresentedMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_BusinessTypeActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:NoneDomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
                     acfr:BusinessTypeActivitiesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_AmericanRescuePlanAct">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    acfr:AmericanRescuePlanActMember
+                    </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_GeneralFund">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
+                <acfr:NoneDomain>
+                    acfr:GeneralFundMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -1147,6 +1156,1752 @@ img {
         <a href="#tables">Go to financial tables</a>
         <br />
         <br />
+        
+        
+            
+        <div style="text-align: center;">
+            <!-- Include converted Word content -->
+            <div class="word-content">
+                <html>
+ <body>
+  <p>
+   <img alt="Auditor Logo" src="/static/img/f1bd7115-471f-4e6b-b9c3-df69b8810239.png"/>
+  </p>
+  <p>
+   <img src="/static/img/db5f3c97-e3f9-4cb0-8ddc-b271db725d21.png"/>
+  </p>
+  <p>
+  </p>
+  <h1 class="title">
+   City of Clayton, California Annual Financial Report For the Year Ended June 30, 2022
+  </h1>
+  <p>
+   <img src="/static/img/c0a72dbe-7d79-4b42-9d45-6d1dc4edc950.png"/>
+  </p>
+  <p>
+   <img alt="Professional" src="/static/img/f48ffd26-80ed-4324-b2bb-64556d61374a.png"/>
+  </p>
+  <p class="page-number">
+   i
+  </p>
+  <div class="page-break">
+  </div>
+  <p>
+   <img src="/static/img/73dc0f85-736c-4ce7-a516-e645619a77d7.png"/>
+  </p>
+  <h1 class="title">
+   INTRODUCTORY SECTION
+  </h1>
+  <p>
+   <img src="/static/img/b1f5fc9d-7962-4336-b891-4683b7f039ae.png"/>
+  </p>
+  <p class="page-number">
+   ii
+  </p>
+  <div class="page-break">
+  </div>
+  <h2 class="header">
+   City of Clayton
+   <br/>
+   Comprehensive Annual Financial Report
+   <br/>
+   For the year ended June 30, 2022
+   <br/>
+   Table of Contents
+  </h2>
+  <table>
+   <tr>
+    <td>
+    </td>
+    <td>
+     <p>
+      <strong>
+       Page
+      </strong>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <strong>
+       INTRODUCTORY SECTION
+      </strong>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <strong>
+       Table of Contents……………………………………………………………………………….
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      1
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <strong>
+       Letter of Transmittal……………………………………………………………………………
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      4
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <strong>
+       Mission Statement……………………………………………………………………………...
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      9
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <strong>
+       Organizational Chart…………………………………………………………………………...
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      10
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <strong>
+       Principal Officers, Department Heads and Advisory Bodies
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      11
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <strong>
+       Regional Map of Clayton and Nearby Cities
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      12
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <strong>
+       FINANCIAL SECTION
+      </strong>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <strong>
+       Independent Auditors’ Report……………………………. . …………………………………
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      17
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <strong>
+       Management's Discussion and Analysis………………………. . . …………………………. .
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      21
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <strong>
+       Basic Financial Statements
+      </strong>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <em>
+       Government-Wide Financial Statements:
+      </em>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Statement of Net Position………………………………………………. . ……………
+     </p>
+    </td>
+    <td>
+     <p>
+      33
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Statement of Activities and Changes in Net Position………………………. . …….
+     </p>
+    </td>
+    <td>
+     <p>
+      34
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <em>
+       Governmental Fund Financial Statements:
+      </em>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Balance Sheet……………………………………………………………. . …………….
+     </p>
+    </td>
+    <td>
+     <p>
+      39
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Reconciliation of Governmental Funds Balance Sheet to the Statement of
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Net Position…………………………………………………………………………
+     </p>
+    </td>
+    <td>
+     <p>
+      42
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Statement of Revenues, Expenditures and Changes in Fund Balances…………. .
+     </p>
+    </td>
+    <td>
+     <p>
+      43
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Reconciliation of the Governmental Funds Statement of Revenues, Expenditures and
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Changes in Fund Balances to the Statement of Activities and Changes in Net
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Position…. . . ……………………………………. . …………. . .
+     </p>
+    </td>
+    <td>
+     <p>
+      45
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <em>
+       Proprietary Fund Financial Statements:
+      </em>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Statement of Net Position………………………………………. . ……………………
+     </p>
+    </td>
+    <td>
+     <p>
+      47
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Statement of Revenues, Expenses and Changes in Net Position…………. . . ……. .
+     </p>
+    </td>
+    <td>
+     <p>
+      48
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Statement of Cash Flows……………………………………………………. . ……….
+     </p>
+    </td>
+    <td>
+     <p>
+      49
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <em>
+       Fiduciary Fund Financial Statements:
+      </em>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Statement of Fiduciary Net Position…………………………………. . ……………. .
+     </p>
+    </td>
+    <td>
+     <p>
+      51
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      Statement of Changes in Fiduciary Net Position……………………. . …………….
+     </p>
+    </td>
+    <td>
+     <p>
+      52
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <p>
+      <em>
+       Notes to Basic Financial Statements…………………………………. . ……………………. .
+      </em>
+     </p>
+    </td>
+    <td>
+     <p>
+      55
+     </p>
+    </td>
+   </tr>
+  </table>
+  <p class="page-number">
+   1
+  </p>
+  <div class="page-break">
+  </div>
+  <h2 class="header">
+   City of Clayton
+   <br/>
+   Comprehensive Annual Financial Report
+   <br/>
+   For the year ended June 30, 2022
+   <br/>
+   Table of Contents
+  </h2>
+  <table>
+   <tr>
+    <td>
+     <p>
+      <strong>
+       FINANCIAL SECTION (Continued)
+      </strong>
+     </p>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <strong>
+       Required Supplementary Information
+      </strong>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Budgetary Comparison Schedules
+      </em>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      General Fund……………………………………………………. . . ……………………
+     </p>
+    </td>
+    <td>
+     <p>
+      103
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Landscape Maintenance District ……………. …………. . . ………………………….
+     </p>
+    </td>
+    <td>
+     <p>
+      104
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Successor Housing Agency………. . ……………. . . …………………………………. .
+     </p>
+    </td>
+    <td>
+     <p>
+      105
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      American Rescue Plan Act………. . ……………. . . …………………………………. .
+     </p>
+    </td>
+    <td>
+     <p>
+      106
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Pension Plan Funding Status
+      </em>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Schedule of Proportionate Share of Net Pension Liability…. . …………………….
+     </p>
+    </td>
+    <td>
+     <p>
+      107
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Schedule of Pension Plan Contributions…. . …. . . ……………………………………
+     </p>
+    </td>
+    <td>
+     <p>
+      108
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Other Postemployment Benefits Plan Funding Status
+      </em>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Schedule of Changes in the Net OPEB Liability and Related Ratios. …………….
+     </p>
+    </td>
+    <td>
+     <p>
+      109
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Schedule of OPEB Plan Contributions……. . …. . . ……………………………………
+     </p>
+    </td>
+    <td>
+     <p>
+      110
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Notes to the Required Supplementary Information………………………………………….
+      </em>
+     </p>
+    </td>
+    <td>
+     <p>
+      111
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <strong>
+       Supplementary Information
+      </strong>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Major Funds
+      </em>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Budgetary Comparison Schedules. . . . . …………………………………………. . ……
+     </p>
+    </td>
+    <td>
+     <p>
+      114
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Non-Major Governmental Funds Financial Statements:
+      </em>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Combining Balance Sheet………………………………………………………. . ……
+     </p>
+    </td>
+    <td>
+     <p>
+      117
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Combining Statement of Revenues, Expenditures and Changes in Fund
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Balances………………………………………………………. . . ……………………
+     </p>
+    </td>
+    <td>
+     <p>
+      119
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Budgetary Comparison Schedules……………………………………. . …………….
+     </p>
+    </td>
+    <td>
+     <p>
+      121
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Internal Service Funds:
+      </em>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Combining Statement of Net Position. . . ………………………………. . ……………
+     </p>
+    </td>
+    <td>
+     <p>
+      133
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Combining Statement of Revenues, Expenses and Changes in Net
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Position…………………………………………………………. . . ………………….
+     </p>
+    </td>
+    <td>
+     <p>
+      134
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Combining Statement of Cash Flows………………………………. . ………………
+     </p>
+    </td>
+    <td>
+     <p>
+      135
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Agency Funds:
+      </em>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Combining Statement of Changes in Assets and Liabilities………………. . ……. .
+     </p>
+    </td>
+    <td>
+     <p>
+      137
+     </p>
+    </td>
+   </tr>
+  </table>
+  <p class="page-number">
+   2
+  </p>
+  <div class="page-break">
+  </div>
+  <h2 class="header">
+   City of Clayton
+   <br/>
+   Comprehensive Annual Financial Report
+   <br/>
+   For the year ended June 30, 2022
+   <br/>
+   Table of Contents
+  </h2>
+  <table>
+   <tr>
+    <td>
+     <p>
+      <strong>
+       STATISTICAL SECTION (UNAUDITED)
+      </strong>
+     </p>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <strong>
+       Statistical Section Table of Contents…………………………………………………..
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      142
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <strong>
+       Financial Trends
+      </strong>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Net Position by Component
+      </em>
+      <strong>
+       ……………………………………………………………
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      143
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Changes in Net Position
+      </em>
+      <strong>
+       ……………………………………………………………….
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      145
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Fund Balances of Governmental Funds
+      </em>
+      <strong>
+       ……………………………………………….
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      147
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Changes in Fund Balances of Governmental Funds
+      </em>
+      <strong>
+       …………………………………..
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      149
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <strong>
+       Revenue Capacity
+      </strong>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Property Tax Levies and Collections
+      </em>
+      <strong>
+       ……………………………………………..........
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      151
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Assessed Value and Estimated Actual Value of Taxable Property
+      </em>
+      <strong>
+       ……………………
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      152
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Taxable Assessed Value by Source
+      </em>
+      <strong>
+       ………………………………………………
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      153
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Property Tax Rates
+      </em>
+      <strong>
+       …………………………………………………………………….
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      155
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Principal Property Tax Payers
+      </em>
+      <strong>
+       ………………………………………………………..
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      157
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <strong>
+       Debt Capacity
+      </strong>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Ratios of Debt Outstanding
+      </em>
+      <strong>
+       ……………………………………………………….......
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      159
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Computation of Direct and Overlapping Debt
+      </em>
+      <strong>
+       ……….……………………………….
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      160
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Legal Debt Margin
+      </em>
+      <strong>
+       ………………………………………………………………….....
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      161
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Bonded Debt Pledged Revenue Coverage
+      </em>
+      <strong>
+       ………………………………………………..
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      163
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <strong>
+       Demographic and Economic Information
+      </strong>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Demographic and Economic Statistics
+      </em>
+      <strong>
+       …………………………………………………
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      164
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <strong>
+       Operating Information
+      </strong>
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Full-time Equivalent City Employees by Function
+      </em>
+      <strong>
+       …………………………………….
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      165
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Operating Indicators by Function
+      </em>
+      <strong>
+       ………………………………………………………
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      167
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       Capital Asset Statistics by Function
+      </em>
+      <strong>
+       ……………………………………………………
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      169
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      <em>
+       General Information
+      </em>
+      <strong>
+       …………………………………………………………………….
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      171
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      ADDITIONAL REPORTS
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Independent Auditors’ Report on Internal Controls over Financial Reporting
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      and on Compliance and other Matters Based on an Audit of Financial Statements
+     </p>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Performed in Accordance with Government Auditing Standards
+      <strong>
+       …………………….
+      </strong>
+     </p>
+    </td>
+    <td>
+     <p>
+      173
+     </p>
+    </td>
+   </tr>
+  </table>
+  <p class="page-number">
+   3
+  </p>
+  <div class="page-break">
+  </div>
+  <p>
+   <img alt="A logo with mountains in the background
+
+Description automatically generated" src="/static/img/1d93a058-0b9e-42c5-b175-fbaadc53d8fb.png"/>
+  </p>
+  <p>
+   January 23, 2023
+  </p>
+  <p>
+   Honorable Mayor and Members of the City Council
+  </p>
+  <p>
+   City of Clayton
+  </p>
+  <p>
+   We are pleased to submit the City of Clayton’s Annual Comprehensive Financial Report (ACFR) for the Fiscal year ended June 30, 2022. Since its incorporation, the City has submitted an annual audited Financial Report to the City Council and its citizens in accordance with
+   <em>
+    California Government Code
+   </em>
+   section 25253. The ACFR provides the public, businesses, property owners, investors and all interested parties with an overview of the City’s finances. It is important to note the acronym for this report has changed from CAFR to ACFR as the prior acronym can be considered an offensive racial slur and is no longer used. The information in this ACFR is prepared in accordance with Generally Accepted Accounting Principles (GAAP) and includes an “unmodified opinion” (the highest rating) on the report by an independent certified public accounting firm, Cropper Rowe, LLP.
+  </p>
+  <p>
+   Although we rely on the standards and expertise of these independent auditors, the responsibility for the accuracy and fair representation of the ACFR ultimately rests with City management. We believe the data presented in this Report is accurate in all material respects and all statements and disclosures have been included necessary for the reader to obtain a thorough understanding of the City’s financial activities. Management of the City has established an internal control framework that is designed both to protect the City’s assets from loss, theft, or misuse and to compile reliable and timely information for the preparation of the City’s financial statements in conformity with GAAP. Because the cost of internal controls should not outweigh its benefits, the City’s framework of internal controls has been designed to provide reasonable rather than absolute assurance that its financial statements will be free from material misstatements.
+  </p>
+  <p>
+   For readers interested in a more detailed review of the City’s financial statements, a section in the ACFR called “Management Discussion and Analysis” (MD&amp;A) has been included in accordance with Government Accounting Standards Board (GASB) Statement 34,
+   <em>
+    Basic Financial Statements – And Management’s Discussion and Analysis – For State and Local Governments
+   </em>
+   . The MD&amp;A recounts the
+   <em>
+   </em>
+   financial highlights of the City and provides additional analyses on the variances and trends reported as part of the financial statements. The MD&amp;A further discloses significant items impacting the financial condition of the City and is designed to be read in conjunction with this Letter of Transmittal.
+  </p>
+  <p>
+   <strong>
+    <em>
+     City Profile
+    </em>
+   </strong>
+  </p>
+  <p>
+   The City of Clayton was incorporated in 1964 and is located in Contra Costa County, a suburban region in the eastern portion of the San Francisco-Bay Area. Pursuant to its adopted budget for the fiscal year ending June 30, 2022, the City has a permanent staff of 27.4 full- time equivalent employees which serves approximately 11,585 residents in a land area of approximately 4 square miles. Nestled in a small valley at the northern base of Mt. Diablo, the boundaries of the City are mostly developed with a
+  </p>
+  <p class="page-number">
+   4
+  </p>
+  <div class="page-break">
+  </div>
+  <h2 class="header">
+   City of Clayton
+   <br/>
+   Comprehensive Annual Financial Report
+   <br/>
+   For the year ended June 30, 2022
+   <br/>
+   Letter of Transmittal
+  </h2>
+  <p>
+   <strong>
+    <em>
+     City Profile
+    </em>
+   </strong>
+   ,
+   <strong>
+    <em>
+     continued
+    </em>
+   </strong>
+  </p>
+  <p>
+   strong community emphasis on open space preservation and maintenance of an extensive network of trails. The City continues to show strength as a safe community with attractive residential neighborhoods as a gateway to the fast paced and robust Bay Area economy.
+  </p>
+  <p>
+   The City operates under a Council- Manager form of government and provides many essential public services to the community. The City is governed by a five-member City Council elected at large, serving staggered terms of four years. The Mayor and Vice Mayor are selected by the City Council each year from its membership and serve one-year terms. The City Council is responsible for setting policies, adopting City ordinances, resolutions, the annual budget, appointing commissions and committees, and hiring the City Manager and City Attorney, among other key duties. The City Manager is responsible for implementing the City Council’s policies, ordinances and directives, overseeing the daily operations of the City, and appointing all department heads and through them all other employees of the City.
+  </p>
+  <p>
+   As presented in the City’s government-wide statement of activities, pursuant to GASBS 34, the City’s numerous departments and restricted- use funds accounting for public services are consolidated into higher-level
+   <em>
+    programs
+   </em>
+   , which include: public safety, public works, parks and recreation services, community and economic development, and general government. The public safety program is composed of an in-house police department, staffed with eleven (11) full-time sworn police officers and two (2) administrative personnel dedicated to the function of police services. Public works tracks the maintenance of public landscaping (i.e. street medians and shoulders, sub-division entryways, etc.), facilities, transportation infrastructure (i.e. streets, lighting, traffic signals, etc.), as well as contract City engineering services for management of the City’s Capital Improvement Program as well as land development regulatory needs. In their capacity of providing parks and recreation services, the City’s in-house maintenance department oversees the maintenance of the Clayton Community Library, the Clayton Community Park, The Grove Park, various neighborhood parks, and the historic Endeavor Hall rental facility. The community and economic development program consists of two (2) in-house staff providing planning and land-use regulatory services as well as the functions of economic development and affordable housing. Finally, the general government program reports legislative and support costs indispensable in providing in-house public services and maintains compliance an ever-expanding list of legal, fiscal and other statutory requirements imposed by the State of California.
+  </p>
+  <p>
+   The City’s fiscal year runs from July 1st through June 30th . Each year, the City Manager presents an annual budget to the City Council for adoption by Resolution on or before June 30th in accordance with
+   <em>
+    Clayton Municipal Code
+   </em>
+   section 3.02.040. On an interim basis the budget is monitored continually with the
+   <em>
+   </em>
+   budgetary level of control maintained at the fund level.
+  </p>
+  <p>
+   <strong>
+    <em>
+     Economic Condition and Outlook
+    </em>
+   </strong>
+  </p>
+  <p>
+   Essentially a cul-de-sac hugging the base of acclaimed Mt. Diablo, Clayton maintains a small-town atmosphere while its relative proximity to California State Highway 24 and neighboring city BART stations make it ideal for commuters. In addition, the semi-rural setting, low crime rate and excellent middle and elementary public schools make Clayton attractive to families of all types.
+  </p>
+  <p class="page-number">
+   5
+  </p>
+  <div class="page-break">
+  </div>
+  <h2 class="header">
+   City of Clayton
+   <br/>
+   Comprehensive Annual Financial Report
+   <br/>
+   For the year ended June 30, 2022
+   <br/>
+   Letter of Transmittal
+  </h2>
+  <p>
+   <strong>
+    <em>
+     Economic Condition and Outlook, continued
+    </em>
+   </strong>
+  </p>
+  <p>
+   Its residents are generally highly educated with approximately 57.8% of adults greater than age 25 having a bachelor’s degree or higher. In June of 2022, the unemployment rate of the City was 3.0%, compared to 3.20% and 4.0% for Contra Costa County and the State of California, respectively. In 2020 the median household income in the City was $153,607 compared to $87,355 for the state. The median age of Clayton residents is 43.1 as of the 2021 calendar year. The median sales price of homes in Clayton at June 30, 2022 was $ 1,050,000, a 8.7% year over year decrease. Despite this decline, property tax and sales &amp; use tax revenues remain relatively strong.
+  </p>
+  <p>
+   In order, the City General Fund’s top revenue sources are: in-lieu vehicle license fees (VLF – paid from the state’s portion of property taxes); secured property taxes; franchise fees; and sales &amp; use taxes (including the state- allocated “triple flip” prior to the fiscal year ending June 30, 2017). The following chart illustrates the ten-year trend of these four major revenue sources for the City taken from the 2022-23 Adopted Budget:
+  </p>
+  <p>
+   <img src="/static/img/46022c0b-84f6-4a04-aba1-94a4d253feae.png"/>
+  </p>
+  <p class="page-number">
+   6
+  </p>
+  <div class="page-break">
+  </div>
+  <h2 class="header">
+   City of Clayton
+   <br/>
+   Comprehensive Annual Financial Report
+   <br/>
+   For the year ended June 30, 2022
+   <br/>
+   Letter of Transmittal
+  </h2>
+  <p>
+   Altogether, these four primary revenue sources (Property Tax In-Lieu 22.1%, Property Taxes 20.6%, Franchise Fees 10.7%, Sales and Use Taxes 10.5%) comprise 63.9% of General Fund revenues per the adopted budget for the fiscal year ending June 30, 2023. A non-recurring spike was realized in sales and use taxes six years ago in the year ended June 30, 2017 attributable to the City receiving a final true-up Triple Flip allocation from the state following the statutory dissolution of this process effective January 1, 2017. Accordingly, the following year realized a dip back to “normal” sales &amp; use tax trend levels. In the long-run however, given the suburban composition of the City and its geographic boundaries limiting future development, management anticipates slow growth for the next ten years in sales &amp; use taxes and franchise fees and moderate growth in property tax revenue (including in-lieu VLF property taxes received from the state) . With increasing telecommunications technologies, cable-based franchise fees could be a declining or at-risk revenue, while other factors such as weather patterns and sustainable energy trends could impact similar franchise fee revenue. Given the recent U.S. Supreme Court
+   <em>
+    South Dakota v. Wayfair
+   </em>
+   ruling, it is reasonably possible the City will see an increase in sales &amp; use tax revenue in forthcoming years with the definition of eligible taxable sales transactions now potentially including all online sales where “substantial nexus” requirements exist with online sellers in California.
+  </p>
+  <p>
+   <strong>
+    <em>
+     Long‐Term Financial Planning
+    </em>
+   </strong>
+  </p>
+  <p>
+   As of the year ended June 30, 2022, the City of Clayton’s financial condition remains sound. An indicator of financial condition is the level of fund balances, both reserved and unreserved, in the City’s General Fund. The City Council has directed an absolute minimum reserve of $250,000 as its never-to-be-expended “catastrophic reserve.” In practice, due to the effectiveness in fiscal management, this policy has been easily achieved, indicating perhaps this floor requirement should be elevated in the future. However, the standing Policy Goal of the City Council is to establish and retain an undesignated reserve of 50% the annual General Fund operating budget. At June 30, 2022, the total unassigned General Fund reserve balance is $6,068,266 or .97 times the size of the adopted General Fund operating budget for the fiscal year ending June 30, 2022. This means in an emergency scenario, the City could operate over an entire year on reserves alone.
+  </p>
+  <p>
+   The City of Clayton maintains a five-year Capital Improvement Program (CIP), which serves as its planning document to ensure its infrastructure is well maintained. The City prioritizes roads for maintenance and reconstruction based on the relative pavement condition index, with other infrastructure and facility improvement projects prioritized at the discretion of the City Council. Over the course of the last 10 years the City has invested approximately $1.0 million into facility and infrastructure capital improvements, funded by Highway User Tax Apportionments (i.e. HUTA or “gas taxes”), local Measure J taxes, redevelopment property tax increment allocations (prior to the dissolution of the Clayton Redevelopment Agency in 2012), and other state and federal grants. For the upcoming fiscal year ending June 30, 2023, the City’s CIP is expected to invest an additional $1,362,697 into transportation and general infrastructure maintenance and improvement needs of the community.
+  </p>
+  <p class="page-number">
+   7
+  </p>
+  <div class="page-break">
+  </div>
+  <h2 class="header">
+   City of Clayton
+   <br/>
+   Comprehensive Annual Financial Report
+   <br/>
+   For the year ended June 30, 2022
+   <br/>
+   Letter of Transmittal
+  </h2>
+  <p>
+   <strong>
+    <em>
+     Acknowledgements
+    </em>
+   </strong>
+  </p>
+  <p>
+   The preparation of an ACFR cannot be accomplished without the professional, efficient and dedicated services of the Admin/Finance/Legal Department staff (in particular, Accounting Technician Jennifer Giantvalley), and the independent accounting firm of Cropper Rowe, LLP. We also thank the honorable members of the City Council and the various departments for their cooperation and support in planning and conducting the financial operations of the City during the fiscal year.
+  </p>
+  <p>
+   Respectfully Submitted,
+  </p>
+  <p>
+   Reina J. Schwartz	Nitish Sharma
+  </p>
+  <p>
+   City Manager	Finance Director (Interim)
+  </p>
+  <p class="page-number">
+   8
+  </p>
+  <div class="page-break">
+  </div>
+  <p>
+  </p>
+  <h1 class="title">
+   OUR MISSION
+  </h1>
+  <p>
+   To be of exemplary service to the Clayton community with an emphasis on:
+  </p>
+  <ul>
+   <li>
+    Health and safety
+   </li>
+   <li>
+    Responsive customer service
+   </li>
+   <li>
+    Highly trained team of employees
+   </li>
+   <li>
+    A cooperative work environment
+   </li>
+  </ul>
+  <h1 class="title">
+   OUR VALUES
+  </h1>
+  <p>
+    Courtesy	 Inclusiveness
+  </p>
+  <p>
+    Creativity	 Informed risk taking
+  </p>
+  <p>
+    Diversity	 Open communication
+  </p>
+  <p>
+    Employee participation	 Professionalism
+  </p>
+  <p>
+    Ethical behavior	 Trustworthiness
+  </p>
+  <p>
+    Fiscal responsibility
+  </p>
+  <h1 class="title">
+   OUR VISION
+  </h1>
+  <p>
+   The City of Clayton organization will be recognized as a premier small city. Customer service will be our hallmark; organizational processes will be a model of efficiency and effectiveness; innovation will be common place; and excellence of work product will be the norm. The employees will enjoy their work environment, and each will be a valued and respected member in his or her field of work. All residents and the City Council will be proud of their City government.
+  </p>
+  <p class="page-number">
+   9
+  </p>
+  <div class="page-break">
+  </div>
+  <p>
+  </p>
+  <p>
+   <img alt="A diagram of a organization chart
+
+Description automatically generated" src="/static/img/024fd54c-7f59-4cb8-9abb-915b8572f6f6.png"/>
+  </p>
+  <p class="page-number">
+   10
+  </p>
+  <div class="page-break">
+  </div>
+  <h1 class="title">
+   DIRECTORY OF PRINCIPAL OFFICIALS AND ADVISORY BODIES
+  </h1>
+  <p>
+   <strong>
+    As of report issuance
+   </strong>
+  </p>
+  <p>
+   <strong>
+    CITY COUNCIL
+   </strong>
+  </p>
+  <p>
+   Jeff Wan, Mayor
+  </p>
+  <p>
+   Jim Diaz, Vice Mayor
+  </p>
+  <p>
+   Peter Cloven, Councilmember
+  </p>
+  <p>
+   Holly Tillman, Councilmember
+  </p>
+  <p>
+   Kim Trupiano, Councilmember
+  </p>
+  <p>
+   <strong>
+    COMMISSIONS
+   </strong>
+  </p>
+  <p>
+   Planning Commission
+  </p>
+  <p>
+   <strong>
+    COMMITTEES
+   </strong>
+  </p>
+  <p>
+   Trails and Landscaping Committee
+  </p>
+  <p>
+   <strong>
+    APPOINTED OFFICIALS AND DEPARTMENT HEADS
+   </strong>
+  </p>
+  <table>
+   <tr>
+    <td colspan="2">
+     <p>
+      Reina Schwartz
+     </p>
+    </td>
+    <td colspan="2">
+     <p>
+      City Manager
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Hank Stratford
+     </p>
+    </td>
+    <td colspan="2">
+     <p>
+      City Treasurer
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Nitish Sharma
+     </p>
+    </td>
+    <td colspan="2">
+     <p>
+      Finance Director (Interim)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Richard McEachin
+     </p>
+    </td>
+    <td colspan="2">
+     <p>
+      Chief of Police
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Janet Calderon
+     </p>
+    </td>
+    <td colspan="2">
+     <p>
+      City Clerk / HR Manager
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Dana Ayers
+     </p>
+    </td>
+    <td colspan="2">
+     <p>
+      Community Development Director
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Jim Warburton
+     </p>
+    </td>
+    <td colspan="2">
+     <p>
+      Maintenance Supervisor
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Malathy Subramanian
+     </p>
+    </td>
+    <td colspan="2">
+     <p>
+      City Attorney (contract)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Larry Theis
+     </p>
+    </td>
+    <td colspan="2">
+     <p>
+      City Engineer (contract)
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+    </td>
+    <td colspan="3">
+     <p>
+      <strong>
+       FINANCE TEAM
+      </strong>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Jennifer Giantvalley
+     </p>
+    </td>
+    <td colspan="2">
+     <p>
+      Accounting Technician
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="2">
+     <p>
+      Richard Sanders
+     </p>
+    </td>
+    <td colspan="2">
+     <p>
+      Accountant (consultant)
+     </p>
+    </td>
+   </tr>
+  </table>
+  <p class="page-number">
+   11
+  </p>
+  <div class="page-break">
+  </div>
+  <h1 class="title">
+   Regional Map of Clayton, CaliforniaAnd Nearby Cities
+  </h1>
+  <p>
+   <img src="/static/img/a121371e-2e4d-4812-9900-cd9fb0f6f67b.png"/>
+  </p>
+  <p class="page-number">
+   12
+  </p>
+  <div class="page-break">
+  </div>
+ </body>
+</html>
+
+            </div>
+        </div>
         
         
             
@@ -7139,25 +8894,12 @@ img {
      
     
     </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationBalanceSheet_B16">  
-            
-        </td> 
-    
-    <td id="ReconciliationBalanceSheet_B16" class="empty_row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
     <tr class="section_header">
-        <td id="header_ReconciliationBalanceSheet_B17">  
+        <td id="header_ReconciliationBalanceSheet_B16">  
             ACCRUAL OF NON-CURRENT REVENEUS AND EXPENSES
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B17" class="section_header">
+    <td id="ReconciliationBalanceSheet_B16" class="section_header">
             
                 
             
@@ -7166,11 +8908,11 @@ img {
     
     </tr>
     <tr class="row">
-        <td id="header_ReconciliationBalanceSheet_B18">  
+        <td id="header_ReconciliationBalanceSheet_B17">  
             Unavailable revenue which are deferred inflows of resources in the Governmental Funds because they are not available currently, but are taken into revenue in the statement of activities.
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B18" class="row">
+    <td id="ReconciliationBalanceSheet_B17" class="row">
             
                 2,982,579
             
@@ -7179,11 +8921,24 @@ img {
     
     </tr>
     <tr class="empty_row">
-        <td id="header_ReconciliationBalanceSheet_B19">  
+        <td id="header_ReconciliationBalanceSheet_B18">  
             
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B19" class="empty_row">
+    <td id="ReconciliationBalanceSheet_B18" class="empty_row">
+            
+                
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="section_header">
+        <td id="header_ReconciliationBalanceSheet_B19">  
+            LONG-TERM ASSETS AND LIABILITIES
+        </td> 
+    
+    <td id="ReconciliationBalanceSheet_B19" class="section_header">
             
                 
             
@@ -7204,51 +8959,12 @@ img {
      
     
     </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationBalanceSheet_B21">  
-            
-        </td> 
-    
-    <td id="ReconciliationBalanceSheet_B21" class="empty_row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="section_header">
-        <td id="header_ReconciliationBalanceSheet_B22">  
-            LONG-TERM ASSETS AND LIABILITIES
-        </td> 
-    
-    <td id="ReconciliationBalanceSheet_B22" class="section_header">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationBalanceSheet_B23">  
-            
-        </td> 
-    
-    <td id="ReconciliationBalanceSheet_B23" class="empty_row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
     <tr class="row">
-        <td id="header_ReconciliationBalanceSheet_B24">  
+        <td id="header_ReconciliationBalanceSheet_B21">  
             Long-term liabilities are not due and payable in the current period and therefore are not reported in the Governmental Funds Balance Sheet.
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B24" class="row">
+    <td id="ReconciliationBalanceSheet_B21" class="row">
             
                 
             
@@ -7257,11 +8973,11 @@ img {
     
     </tr>
     <tr class="row">
-        <td id="header_ReconciliationBalanceSheet_B25">  
+        <td id="header_ReconciliationBalanceSheet_B22">  
             Net OPEB liability not reported on the Governmental Funds Balance Sheet
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B25" class="row">
+    <td id="ReconciliationBalanceSheet_B22" class="row">
             
                 578,315
             
@@ -7270,11 +8986,11 @@ img {
     
     </tr>
     <tr class="row">
-        <td id="header_ReconciliationBalanceSheet_B26">  
+        <td id="header_ReconciliationBalanceSheet_B23">  
             Compensated absences payable
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B26" class="row">
+    <td id="ReconciliationBalanceSheet_B23" class="row">
             
                 83,645
             
@@ -7283,11 +8999,11 @@ img {
     
     </tr>
     <tr class="row">
-        <td id="header_ReconciliationBalanceSheet_B27">  
+        <td id="header_ReconciliationBalanceSheet_B24">  
             Net pension liability not reported on the Governmental Funds Balance Sheet
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B27" class="row">
+    <td id="ReconciliationBalanceSheet_B24" class="row">
             
                 2,759,739
             
@@ -7296,11 +9012,11 @@ img {
     
     </tr>
     <tr class="row">
-        <td id="header_ReconciliationBalanceSheet_B28">  
+        <td id="header_ReconciliationBalanceSheet_B25">  
             Lease liability not reported on the Governmental Funds Balance Sheet
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B28" class="row">
+    <td id="ReconciliationBalanceSheet_B25" class="row">
             
                 244,640
             
@@ -7309,11 +9025,11 @@ img {
     
     </tr>
     <tr class="empty_row">
-        <td id="header_ReconciliationBalanceSheet_B29">  
+        <td id="header_ReconciliationBalanceSheet_B26">  
             
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B29" class="empty_row">
+    <td id="ReconciliationBalanceSheet_B26" class="empty_row">
             
                 
             
@@ -7322,11 +9038,11 @@ img {
     
     </tr>
     <tr class="section_header">
-        <td id="header_ReconciliationBalanceSheet_B30">  
+        <td id="header_ReconciliationBalanceSheet_B27">  
             DEFERRED INFLOWS AND OUTFLOWS
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B30" class="section_header">
+    <td id="ReconciliationBalanceSheet_B27" class="section_header">
             
                 
             
@@ -7335,8 +9051,47 @@ img {
     
     </tr>
     <tr class="row">
-        <td id="header_ReconciliationBalanceSheet_B31">  
+        <td id="header_ReconciliationBalanceSheet_B28">  
             Deferred inflows/(outflows) of resources for not reported on the Governmental Funds Balance Sheet
+        </td> 
+    
+    <td id="ReconciliationBalanceSheet_B28" class="row">
+            
+                
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_ReconciliationBalanceSheet_B29">  
+            Deferred outflows of resources for net pension liability
+        </td> 
+    
+    <td id="ReconciliationBalanceSheet_B29" class="row">
+            
+                1,285,641
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_ReconciliationBalanceSheet_B30">  
+            Deferred inflows of resources for net pension liability
+        </td> 
+    
+    <td id="ReconciliationBalanceSheet_B30" class="row">
+            
+                2,471,384
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_ReconciliationBalanceSheet_B31">  
+            Deferred outflows of resources for net OPEB liability
         </td> 
     
     <td id="ReconciliationBalanceSheet_B31" class="row">
@@ -7349,36 +9104,36 @@ img {
     </tr>
     <tr class="row">
         <td id="header_ReconciliationBalanceSheet_B32">  
-            Deferred outflows of resources for net pension liability
+            Deferred inflows of resources for net OPEB liability
         </td> 
     
     <td id="ReconciliationBalanceSheet_B32" class="row">
             
-                1,285,641
+                
             
         </td>
      
     
     </tr>
-    <tr class="row">
+    <tr class="empty_row">
         <td id="header_ReconciliationBalanceSheet_B33">  
-            Deferred inflows of resources for net pension liability
+            
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B33" class="row">
+    <td id="ReconciliationBalanceSheet_B33" class="empty_row">
             
-                2,471,384
+                
             
         </td>
      
     
     </tr>
-    <tr class="row">
+    <tr class="section_header">
         <td id="header_ReconciliationBalanceSheet_B34">  
-            Deferred outflows of resources for net OPEB liability
+            ALLOCATION OF INTERNAL SERVICE FUND NET POSITION
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B34" class="row">
+    <td id="ReconciliationBalanceSheet_B34" class="section_header">
             
                 
             
@@ -7388,12 +9143,12 @@ img {
     </tr>
     <tr class="row">
         <td id="header_ReconciliationBalanceSheet_B35">  
-            Deferred inflows of resources for net OPEB liability
+            Internal service funds are used by management to charge the costs of certain activities to individual funds. The assets and liabilities of the internal service funds are included in the governmental activities in the Government-wide Statement of Net Position.
         </td> 
     
     <td id="ReconciliationBalanceSheet_B35" class="row">
             
-                
+                1,000,736
             
         </td>
      
@@ -7412,90 +9167,12 @@ img {
      
     
     </tr>
-    <tr class="section_header">
+    <tr class="row">
         <td id="header_ReconciliationBalanceSheet_B37">  
-            ALLOCATION OF INTERNAL SERVICE FUND NET POSITION
-        </td> 
-    
-    <td id="ReconciliationBalanceSheet_B37" class="section_header">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="row">
-        <td id="header_ReconciliationBalanceSheet_B38">  
-            Internal service funds are used by management to charge the costs of certain activities to individual funds. The assets and liabilities of the internal service funds are included in the governmental activities in the Government-wide Statement of Net Position.
-        </td> 
-    
-    <td id="ReconciliationBalanceSheet_B38" class="row">
-            
-                1,000,736
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationBalanceSheet_B39">  
-            
-        </td> 
-    
-    <td id="ReconciliationBalanceSheet_B39" class="empty_row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationBalanceSheet_B40">  
-            
-        </td> 
-    
-    <td id="ReconciliationBalanceSheet_B40" class="empty_row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationBalanceSheet_B41">  
-            
-        </td> 
-    
-    <td id="ReconciliationBalanceSheet_B41" class="empty_row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationBalanceSheet_B42">  
-            
-        </td> 
-    
-    <td id="ReconciliationBalanceSheet_B42" class="empty_row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="row">
-        <td id="header_ReconciliationBalanceSheet_B43">  
             Net Position of Governmental Activities
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B43" class="row">
+    <td id="ReconciliationBalanceSheet_B37" class="row">
             
                 44,879,735
             
@@ -7608,7 +9285,7 @@ img {
     </tr>
     <tr class="row">
         <td id="header_GovFundStmtofRevExpandChg_C7">  
-            Revenues from Property Tax
+             Property Tax
         </td> 
     
     <td id="GovFundStmtofRevExpandChg_C7" class="row">
@@ -7677,7 +9354,7 @@ img {
     </tr>
     <tr class="row">
         <td id="header_GovFundStmtofRevExpandChg_C8">  
-            Revenues from Grants and Entitlements Restricted for Specific Programs
+             Grants and Entitlements Restricted for Specific Programs
         </td> 
     
     <td id="GovFundStmtofRevExpandChg_C8" class="row">
@@ -7746,7 +9423,7 @@ img {
     </tr>
     <tr class="row">
         <td id="header_GovFundStmtofRevExpandChg_C9">  
-            Revenues from Special Assessments
+             Special Assessments
         </td> 
     
     <td id="GovFundStmtofRevExpandChg_C9" class="row">
@@ -7815,7 +9492,7 @@ img {
     </tr>
     <tr class="row">
         <td id="header_GovFundStmtofRevExpandChg_C10">  
-            Revenues from Sales and Use Tax
+             Sales and Use Tax
         </td> 
     
     <td id="GovFundStmtofRevExpandChg_C10" class="row">
@@ -7884,7 +9561,7 @@ img {
     </tr>
     <tr class="row">
         <td id="header_GovFundStmtofRevExpandChg_C11">  
-            Revenues from Business Licenses and Permits
+             Business Licenses and Permits
         </td> 
     
     <td id="GovFundStmtofRevExpandChg_C11" class="row">
@@ -7953,7 +9630,7 @@ img {
     </tr>
     <tr class="row">
         <td id="header_GovFundStmtofRevExpandChg_C12">  
-            Revenues from Licenses and Permits and Franchise Fees
+             Licenses and Permits and Franchise Fees
         </td> 
     
     <td id="GovFundStmtofRevExpandChg_C12" class="row">
@@ -8022,7 +9699,7 @@ img {
     </tr>
     <tr class="row">
         <td id="header_GovFundStmtofRevExpandChg_C13">  
-            Revenues from Fines and Forfeitures and Penalties
+             Fines and Forfeitures and Penalties
         </td> 
     
     <td id="GovFundStmtofRevExpandChg_C13" class="row">
@@ -8160,7 +9837,7 @@ img {
     </tr>
     <tr class="row">
         <td id="header_GovFundStmtofRevExpandChg_C15">  
-            Revenues from Vehicles Tax
+             Vehicles Tax
         </td> 
     
     <td id="GovFundStmtofRevExpandChg_C15" class="row">
@@ -8292,7 +9969,7 @@ img {
     </tr>
     <tr class="row">
         <td id="header_GovFundStmtofRevExpandChg_C17">  
-            Revenues from Cable Franchise Fees
+             Cable Franchise Fees
         </td> 
     
     <td id="GovFundStmtofRevExpandChg_C17" class="row">
@@ -8430,7 +10107,7 @@ img {
     </tr>
     <tr class="row">
         <td id="header_GovFundStmtofRevExpandChg_C19">  
-            Revenues from Use of Money and Property
+             Use of Money and Property
         </td> 
     
     <td id="GovFundStmtofRevExpandChg_C19" class="row">
@@ -8813,7 +10490,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_C25" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_GeneralFund" name="acfr:ExpendituresForPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_C25" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="Ddate_parse_error_GeneralFund" name="acfr:RevenuesFromPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_C25" decimals="0" format="ixt:num-dot-decimal" >
                 2,684,319
             </ix:nonFraction>
             
@@ -8822,7 +10499,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_D25" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_LandscapeMaintenanceDistrict" name="acfr:ExpendituresForPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_D25" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_LandscapeMaintenanceDistrict" name="acfr:RevenuesFromPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_D25" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -8831,7 +10508,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_E25" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_SuccessorHousingAgency" name="acfr:ExpendituresForPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_E25" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_SuccessorHousingAgency" name="acfr:RevenuesFromPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_E25" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -8840,7 +10517,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_F25" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_AmericanRescuePlanAct" name="acfr:ExpendituresForPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_F25" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_AmericanRescuePlanAct" name="acfr:RevenuesFromPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_F25" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -8849,7 +10526,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_G25" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_CapitalImprovementProgram" name="acfr:ExpendituresForPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_G25" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_CapitalImprovementProgram" name="acfr:RevenuesFromPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_G25" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -8858,7 +10535,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_H25" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_OtherGovernmentalFunds" name="acfr:ExpendituresForPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_H25" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="Ddate_parse_error_OtherGovernmentalFunds" name="acfr:RevenuesFromPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_H25" decimals="0" format="ixt:num-dot-decimal" >
                 130,541
             </ix:nonFraction>
             
@@ -8867,7 +10544,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_I25" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_GovernmentalFunds" name="acfr:ExpendituresForPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_I25" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="Ddate_parse_error_GovernmentalFunds" name="acfr:RevenuesFromPublicSafetyServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_I25" decimals="0" format="ixt:num-dot-decimal" >
                 2,814,860
             </ix:nonFraction>
             
@@ -8882,7 +10559,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_C26" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_GeneralFund" name="acfr:ExpendituresForPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_C26" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="Ddate_parse_error_GeneralFund" name="acfr:RevenuesFromPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_C26" decimals="0" format="ixt:num-dot-decimal" >
                 333,423
             </ix:nonFraction>
             
@@ -8891,7 +10568,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_D26" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_LandscapeMaintenanceDistrict" name="acfr:ExpendituresForPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_D26" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="Ddate_parse_error_LandscapeMaintenanceDistrict" name="acfr:RevenuesFromPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_D26" decimals="0" format="ixt:num-dot-decimal" >
                 1,424,676
             </ix:nonFraction>
             
@@ -8900,7 +10577,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_E26" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_SuccessorHousingAgency" name="acfr:ExpendituresForPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_E26" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_SuccessorHousingAgency" name="acfr:RevenuesFromPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_E26" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -8909,7 +10586,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_F26" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_AmericanRescuePlanAct" name="acfr:ExpendituresForPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_F26" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_AmericanRescuePlanAct" name="acfr:RevenuesFromPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_F26" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -8918,7 +10595,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_G26" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_CapitalImprovementProgram" name="acfr:ExpendituresForPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_G26" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_CapitalImprovementProgram" name="acfr:RevenuesFromPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_G26" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -8927,7 +10604,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_H26" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_OtherGovernmentalFunds" name="acfr:ExpendituresForPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_H26" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="Ddate_parse_error_OtherGovernmentalFunds" name="acfr:RevenuesFromPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_H26" decimals="0" format="ixt:num-dot-decimal" >
                 383,356
             </ix:nonFraction>
             
@@ -8936,7 +10613,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_I26" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_GovernmentalFunds" name="acfr:ExpendituresForPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_I26" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="Ddate_parse_error_GovernmentalFunds" name="acfr:RevenuesFromPublicWorksServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_I26" decimals="0" format="ixt:num-dot-decimal" >
                 2,141,455
             </ix:nonFraction>
             
@@ -8951,7 +10628,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_C27" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_GeneralFund" name="acfr:ExpendituresForCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_C27" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="Ddate_parse_error_GeneralFund" name="acfr:RevenuesFromCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_C27" decimals="0" format="ixt:num-dot-decimal" >
                 299,175
             </ix:nonFraction>
             
@@ -8960,7 +10637,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_D27" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_LandscapeMaintenanceDistrict" name="acfr:ExpendituresForCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_D27" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_LandscapeMaintenanceDistrict" name="acfr:RevenuesFromCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_D27" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -8969,7 +10646,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_E27" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_SuccessorHousingAgency" name="acfr:ExpendituresForCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_E27" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_SuccessorHousingAgency" name="acfr:RevenuesFromCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_E27" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -8978,7 +10655,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_F27" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_AmericanRescuePlanAct" name="acfr:ExpendituresForCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_F27" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_AmericanRescuePlanAct" name="acfr:RevenuesFromCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_F27" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -8987,7 +10664,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_G27" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_CapitalImprovementProgram" name="acfr:ExpendituresForCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_G27" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_CapitalImprovementProgram" name="acfr:RevenuesFromCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_G27" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -8996,7 +10673,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_H27" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_OtherGovernmentalFunds" name="acfr:ExpendituresForCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_H27" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_OtherGovernmentalFunds" name="acfr:RevenuesFromCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_H27" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -9005,7 +10682,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_I27" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_GovernmentalFunds" name="acfr:ExpendituresForCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_I27" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="Ddate_parse_error_GovernmentalFunds" name="acfr:RevenuesFromCommunityAndEconomicDevelopmentServicesModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_I27" decimals="0" format="ixt:num-dot-decimal" >
                 299,175
             </ix:nonFraction>
             
@@ -9020,7 +10697,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_C28" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_GeneralFund" name="acfr:ExpendituresForRecreationAndCultureParksAndRecreationModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_C28" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="Ddate_parse_error_GeneralFund" name="acfr:RevenuesFromRecreationAndCultureParksAndRecreationDepartmentModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_C28" decimals="0" format="ixt:num-dot-decimal" >
                 336,592
             </ix:nonFraction>
             
@@ -9029,7 +10706,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_D28" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_LandscapeMaintenanceDistrict" name="acfr:ExpendituresForRecreationAndCultureParksAndRecreationModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_D28" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_LandscapeMaintenanceDistrict" name="acfr:RevenuesFromRecreationAndCultureParksAndRecreationDepartmentModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_D28" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -9038,7 +10715,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_E28" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_SuccessorHousingAgency" name="acfr:ExpendituresForRecreationAndCultureParksAndRecreationModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_E28" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_SuccessorHousingAgency" name="acfr:RevenuesFromRecreationAndCultureParksAndRecreationDepartmentModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_E28" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -9047,7 +10724,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_F28" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_AmericanRescuePlanAct" name="acfr:ExpendituresForRecreationAndCultureParksAndRecreationModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_F28" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_AmericanRescuePlanAct" name="acfr:RevenuesFromRecreationAndCultureParksAndRecreationDepartmentModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_F28" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -9056,7 +10733,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_G28" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_CapitalImprovementProgram" name="acfr:ExpendituresForRecreationAndCultureParksAndRecreationModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_G28" decimals="0" format="ixt:fixed-zero" >
+            <ix:nonFraction contextRef="Ddate_parse_error_CapitalImprovementProgram" name="acfr:RevenuesFromRecreationAndCultureParksAndRecreationDepartmentModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_G28" decimals="0" format="ixt:fixed-zero" >
                 -
             </ix:nonFraction>
             
@@ -9065,7 +10742,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_H28" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_OtherGovernmentalFunds" name="acfr:ExpendituresForRecreationAndCultureParksAndRecreationModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_H28" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="Ddate_parse_error_OtherGovernmentalFunds" name="acfr:RevenuesFromRecreationAndCultureParksAndRecreationDepartmentModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_H28" decimals="0" format="ixt:num-dot-decimal" >
                 140,808
             </ix:nonFraction>
             
@@ -9074,7 +10751,7 @@ img {
     
     <td id="GovFundStmtofRevExpandChg_I28" class="row">
             
-            <ix:nonFraction contextRef="Ddate_parse_error_GovernmentalFunds" name="acfr:ExpendituresForRecreationAndCultureParksAndRecreationModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_I28" decimals="0" format="ixt:num-dot-decimal" >
+            <ix:nonFraction contextRef="Ddate_parse_error_GovernmentalFunds" name="acfr:RevenuesFromRecreationAndCultureParksAndRecreationDepartmentModifiedAccrual" unitRef="USD" id="GovFundStmtofRevExpandChg_I28" decimals="0" format="ixt:num-dot-decimal" >
                 477,400
             </ix:nonFraction>
             
@@ -10041,38 +11718,25 @@ img {
      
     
     </tr>
-    <tr class="subsection_header">
+    <tr class="empty_row">
         <td id="header_ReconciliationofRevExp_B10">  
+            
+        </td> 
+    
+    <td id="ReconciliationofRevExp_B10" class="empty_row">
+            
+                
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="subsection_header">
+        <td id="header_ReconciliationofRevExp_B11">  
             Amounts reported for governmental activities in the Statement of Activities are different because:
         </td> 
     
-    <td id="ReconciliationofRevExp_B10" class="subsection_header">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationofRevExp_B11">  
-            
-        </td> 
-    
-    <td id="ReconciliationofRevExp_B11" class="empty_row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationofRevExp_B12">  
-            
-        </td> 
-    
-    <td id="ReconciliationofRevExp_B12" class="empty_row">
+    <td id="ReconciliationofRevExp_B11" class="subsection_header">
             
                 
             
@@ -10081,11 +11745,24 @@ img {
     
     </tr>
     <tr class="section_header">
-        <td id="header_ReconciliationofRevExp_B13">  
+        <td id="header_ReconciliationofRevExp_B12">  
             ACCRUAL OF NON-CURRENT ITEMS
         </td> 
     
-    <td id="ReconciliationofRevExp_B13" class="section_header">
+    <td id="ReconciliationofRevExp_B12" class="section_header">
+            
+                
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_ReconciliationofRevExp_B13">  
+            The amounts below included in the Statement of Activities do not provide (or require) the use of  current financial resources and therefore are not reported as revenue or expenditures in the Governmental Funds (net change).
+        </td> 
+    
+    <td id="ReconciliationofRevExp_B13" class="row">
             
                 
             
@@ -10095,23 +11772,10 @@ img {
     </tr>
     <tr class="row">
         <td id="header_ReconciliationofRevExp_B14">  
-            The amounts below included in the Statement of Activities do not provide (or require) the use of  current financial resources and therefore are not reported as revenue or expenditures in the Governmental Funds (net change).
-        </td> 
-    
-    <td id="ReconciliationofRevExp_B14" class="row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="row">
-        <td id="header_ReconciliationofRevExp_B15">  
             Net change in post-employment benefits (OPEB) liability and deferred inflows (outflows)
         </td> 
     
-    <td id="ReconciliationofRevExp_B15" class="row">
+    <td id="ReconciliationofRevExp_B14" class="row">
             
                 74,942
             
@@ -10120,11 +11784,11 @@ img {
     
     </tr>
     <tr class="row">
-        <td id="header_ReconciliationofRevExp_B16">  
+        <td id="header_ReconciliationofRevExp_B15">  
             Long-term compensated absences payable
         </td> 
     
-    <td id="ReconciliationofRevExp_B16" class="row">
+    <td id="ReconciliationofRevExp_B15" class="row">
             
                 745
             
@@ -10133,11 +11797,11 @@ img {
     
     </tr>
     <tr class="row">
-        <td id="header_ReconciliationofRevExp_B17">  
+        <td id="header_ReconciliationofRevExp_B16">  
             Net change in pension liability and deferred inflows (outflows).
         </td> 
     
-    <td id="ReconciliationofRevExp_B17" class="row">
+    <td id="ReconciliationofRevExp_B16" class="row">
             
                 730,720
             
@@ -10146,11 +11810,11 @@ img {
     
     </tr>
     <tr class="row">
-        <td id="header_ReconciliationofRevExp_B18">  
+        <td id="header_ReconciliationofRevExp_B17">  
             Unavailable revenues
         </td> 
     
-    <td id="ReconciliationofRevExp_B18" class="row">
+    <td id="ReconciliationofRevExp_B17" class="row">
             
                 113,947
             
@@ -10159,11 +11823,11 @@ img {
     
     </tr>
     <tr class="row">
-        <td id="header_ReconciliationofRevExp_B19">  
+        <td id="header_ReconciliationofRevExp_B18">  
             Net change in lease liability
         </td> 
     
-    <td id="ReconciliationofRevExp_B19" class="row">
+    <td id="ReconciliationofRevExp_B18" class="row">
             
                 244,640
             
@@ -10172,24 +11836,11 @@ img {
     
     </tr>
     <tr class="empty_row">
-        <td id="header_ReconciliationofRevExp_B20">  
+        <td id="header_ReconciliationofRevExp_B19">  
             
         </td> 
     
-    <td id="ReconciliationofRevExp_B20" class="empty_row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationofRevExp_B21">  
-            
-        </td> 
-    
-    <td id="ReconciliationofRevExp_B21" class="empty_row">
+    <td id="ReconciliationofRevExp_B19" class="empty_row">
             
                 
             
@@ -10198,11 +11849,11 @@ img {
     
     </tr>
     <tr class="section_header">
-        <td id="header_ReconciliationofRevExp_B22">  
+        <td id="header_ReconciliationofRevExp_B20">  
             CAPITAL ASSET TRANSACTIONS
         </td> 
     
-    <td id="ReconciliationofRevExp_B22" class="section_header">
+    <td id="ReconciliationofRevExp_B20" class="section_header">
             
                 
             
@@ -10211,11 +11862,11 @@ img {
     
     </tr>
     <tr class="row">
-        <td id="header_ReconciliationofRevExp_B23">  
+        <td id="header_ReconciliationofRevExp_B21">  
             Governmental Funds report capital outlays as expenditures. However in the Statement of Activities the cost of those assets is capitalized and allocated over their estimated useful lives and reported as depreciation expense
         </td> 
     
-    <td id="ReconciliationofRevExp_B23" class="row">
+    <td id="ReconciliationofRevExp_B21" class="row">
             
                 
             
@@ -10224,11 +11875,11 @@ img {
     
     </tr>
     <tr class="row">
-        <td id="header_ReconciliationofRevExp_B24">  
+        <td id="header_ReconciliationofRevExp_B22">  
             Capital asset acquisition, excluding internal service fund asset acquisitions.
         </td> 
     
-    <td id="ReconciliationofRevExp_B24" class="row">
+    <td id="ReconciliationofRevExp_B22" class="row">
             
                 1,217,507
             
@@ -10237,12 +11888,12 @@ img {
     
     </tr>
     <tr class="row">
-        <td id="header_ReconciliationofRevExp_B25">  
+        <td id="header_ReconciliationofRevExp_B23">  
             Depreciation expense is deducted from the fund balance (Net of internal service fund depreciation
 of $100,425).
         </td> 
     
-    <td id="ReconciliationofRevExp_B25" class="row">
+    <td id="ReconciliationofRevExp_B23" class="row">
             
                 947,745
             
@@ -10251,13 +11902,39 @@ of $100,425).
     
     </tr>
     <tr class="empty_row">
-        <td id="header_ReconciliationofRevExp_B26">  
+        <td id="header_ReconciliationofRevExp_B24">  
             
         </td> 
     
-    <td id="ReconciliationofRevExp_B26" class="empty_row">
+    <td id="ReconciliationofRevExp_B24" class="empty_row">
             
                 
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="section_header">
+        <td id="header_ReconciliationofRevExp_B25">  
+            ALLOCATION OF INTERNAL SERVICE FUND ACTIVITY
+        </td> 
+    
+    <td id="ReconciliationofRevExp_B25" class="section_header">
+            
+                
+            
+        </td>
+     
+    
+    </tr>
+    <tr class="row">
+        <td id="header_ReconciliationofRevExp_B26">  
+            Internal service funds are used by management to charge the costs of certain activities, such as insurance and fleet management, to individual funds. The net gain or loss of the internal service funds is reported with governmental activities.
+        </td> 
+    
+    <td id="ReconciliationofRevExp_B26" class="row">
+            
+                4,806
             
         </td>
      
@@ -10276,90 +11953,12 @@ of $100,425).
      
     
     </tr>
-    <tr class="section_header">
+    <tr class="row">
         <td id="header_ReconciliationofRevExp_B28">  
-            ALLOCATION OF INTERNAL SERVICE FUND ACTIVITY
-        </td> 
-    
-    <td id="ReconciliationofRevExp_B28" class="section_header">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="row">
-        <td id="header_ReconciliationofRevExp_B29">  
-            Internal service funds are used by management to charge the costs of certain activities, such as insurance and fleet management, to individual funds. The net gain or loss of the internal service funds is reported with governmental activities.
-        </td> 
-    
-    <td id="ReconciliationofRevExp_B29" class="row">
-            
-                4,806
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationofRevExp_B30">  
-            
-        </td> 
-    
-    <td id="ReconciliationofRevExp_B30" class="empty_row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationofRevExp_B31">  
-            
-        </td> 
-    
-    <td id="ReconciliationofRevExp_B31" class="empty_row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationofRevExp_B32">  
-            
-        </td> 
-    
-    <td id="ReconciliationofRevExp_B32" class="empty_row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="empty_row">
-        <td id="header_ReconciliationofRevExp_B33">  
-            
-        </td> 
-    
-    <td id="ReconciliationofRevExp_B33" class="empty_row">
-            
-                
-            
-        </td>
-     
-    
-    </tr>
-    <tr class="row">
-        <td id="header_ReconciliationofRevExp_B34">  
             Change in Net Position of Governmental Activities on Statement of Activities
         </td> 
     
-    <td id="ReconciliationofRevExp_B34" class="row">
+    <td id="ReconciliationofRevExp_B28" class="row">
             
                 381,717
             
