@@ -1,8 +1,13 @@
 import mammoth
 import zipfile
+import os
+import uuid
+import io
 from lxml import etree
 from bs4 import BeautifulSoup
 from typing import *
+from flask import session, url_for
+from PIL import Image as PILImage
 
 NAMESPACES = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
 
@@ -49,14 +54,50 @@ class WordDoc:
         self.html_content = self.convert_to_html(docx_file)
         self.html_content = self.remove_links()
         self.html_content = self.remove_empty_tags()
-        self.html_content = self.insert_comments(docx_file)        
+        self.html_content = self.insert_comments(docx_file) 
+
+    @staticmethod
+    def convert_image(image):
+        """ 
+        Save the image; return a dictionary {"src" : <file location>}
+        """
+        # Get the session ID
+        session_id = session.get('session_id')
+        if not session_id:
+            raise ValueError("Session ID not found")
+        
+        # Output folder based on the session ID
+        output_folder = os.path.join('app/static/sessions_data', session_id, 'input/img')
+
+        os.makedirs(output_folder, exist_ok=True)
+
+        # Generate unique filename for image (e.g., using UUID)
+        image_filename = str(uuid.uuid4()) + '.png'
+
+        # Save the image to the output folder
+        image_path = os.path.join(output_folder, image_filename)
+        web_path = url_for('static', filename=f'sessions_data/{session_id}/input/img/{image_filename}')
+
+        with image.open() as image_file:
+            # Read the image data
+            image_data = image_file.read()
+            
+        # Create a PIL Image object from the image data
+        pil_image = PILImage.open(io.BytesIO(image_data))
+
+        # Save the image as PNG
+        pil_image.save(image_path, format='PNG')
+
+        # Return the file location (directory) of the saved image
+        print('path:', web_path)
+        return {"src": web_path}
+    
 
     def convert_to_html(self, docx_file):
         """ Use mammoth to extract content and images """
-        result = mammoth.convert_to_html(docx_file)
+        result = mammoth.convert_to_html(docx_file, convert_image = mammoth.images.img_element(self.convert_image))
+        print('test msgs\n', result.messages)
         return result.value
-        # TODO: convert images to files
-        #self.images = result.messages 
     
     def soup(self):
         return BeautifulSoup(self.html_content, "lxml")
@@ -71,7 +112,7 @@ class WordDoc:
         for a in soup.find_all(['a']):
             a.decompose()
         return soup.prettify()
-    
+     
     def remove_empty_tags(self):
         """ Recursively find all tags with no content and remove them """
         soup = self.soup()

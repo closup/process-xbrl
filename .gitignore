@@ -10,6 +10,10 @@ __pycache__/
 # Ignore venv files
 xbrl_venv/
 .venv
+venv/
 
 # ignore unsaved Microsoft docs
 ~$*
+
+# Ignore sessions data
+sessions_data/*

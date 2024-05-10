@@ -3,7 +3,7 @@ from app.utils.helper_functions import *
 from typing import *
 
 class NetPosition(Table):
-    """ extends the Sheet class for statement of net position """
+    """ extends the Table class for statement of net position """
 
     def __init__(self, excel_file: str, sheet_name: str, extra_left_cols: int = 2):
         super().__init__(excel_file, sheet_name, extra_left_cols)

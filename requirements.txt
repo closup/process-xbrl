@@ -3,7 +3,8 @@
 # platform: osx-arm64
 
 #python>=3.11.7
-flask==3.0.0
+# python==3.12
+Flask
 jinja2==3.1.2
 openpyxl==3.1.2
 pandas==2.0.3
@@ -13,9 +14,12 @@ setuptools==68.0.0
 mammoth == 1.7.0
 bs4
 werkzeug
+python-dotenv
+# io
 lxml
 uuid
 python-dotenv
+pillow
 
 #Additional Arelle requirements
 regex
