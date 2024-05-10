@@ -4,7 +4,7 @@
 
 #python>=3.11.7
 # python==3.12
-flask==3.0.0
+Flask
 jinja2==3.1.2
 openpyxl==3.1.2
 pandas==2.0.3
