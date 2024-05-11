@@ -1,11 +1,11 @@
-<script src="js/download.js"></script>
-
 {% extends "site/base_page.html" %}
 {% block head %}
     {{ super() }}
     <!--Split out these scripts-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="{{url_for('static', filename='js/spinner.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/delete_session.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='js/download.js') }}"></script> -->
 {% endblock %}
 {% block card1 %}
         <div class="card-header">Download XBRL as HTML</div>

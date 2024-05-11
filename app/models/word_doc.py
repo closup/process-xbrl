@@ -89,7 +89,6 @@ class WordDoc:
         pil_image.save(image_path, format='PNG')
 
         # Return the file location (directory) of the saved image
-        print('path:', web_path)
         return {"src": web_path}
     
 

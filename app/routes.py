@@ -8,7 +8,7 @@ from app.utils import *
 # flask dependencies
 from flask import Blueprint, request, render_template, jsonify, session
 
-import uuid
+import uuid, shutil
 
 # =============================================================
 # Set up routes
@@ -89,7 +89,17 @@ def check_session():
     else:
         return "Session not found"
 
-
 @routes_bp.route('/upload/complete', methods=['GET'])
 def successful_upload():
     return render_template("site/upload.html")
+
+@routes_bp.route("/delete_session", methods=["GET"])
+def delete_session():
+    session_id = request.args.get("session_id")
+    print('session id', session_id)
+    if session_id:
+        session_folder_path = os.path.join("static", "sessions_data", session_id)
+        if os.path.exists(session_folder_path):
+            shutil.rmtree(session_folder_path)  # Delete the session folder
+            return "Session folder deleted successfully"
+    return "Session folder not found", 404
