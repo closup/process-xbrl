@@ -6,7 +6,7 @@ from typing import * # to specify funtion inputs and outputs
 from app.utils import *
 
 # flask dependencies
-from flask import Blueprint, request, render_template, jsonify, session
+from flask import Blueprint, request, render_template, jsonify, session, redirect, url_for
 
 import uuid, shutil
 
@@ -91,15 +91,22 @@ def check_session():
 
 @routes_bp.route('/upload/complete', methods=['GET'])
 def successful_upload():
-    return render_template("site/upload.html")
+    # Get the current session ID
+    session_id = session.get('session_id')
+    print('in successful upload func, id is: ', session_id)
+
+    return render_template("site/upload.html", session_id=session_id)
 
 @routes_bp.route("/delete_session", methods=["GET"])
 def delete_session():
     session_id = request.args.get("session_id")
-    print('session id', session_id)
+    print('session id:', session_id)
     if session_id:
         session_folder_path = os.path.join("static", "sessions_data", session_id)
         if os.path.exists(session_folder_path):
             shutil.rmtree(session_folder_path)  # Delete the session folder
-            return "Session folder deleted successfully"
-    return "Session folder not found", 404
+            return "Session folder deleted successfully"  # Return success message
+        else:
+            return "Session folder not found", 404  # Return 404 if session folder doesn't exist
+    else:
+        return "No session ID provided", 400  # Return 400 if no session ID provided

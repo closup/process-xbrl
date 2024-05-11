@@ -4,6 +4,10 @@
     <!--Split out these scripts-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="{{url_for('static', filename='js/spinner.js')}}"></script>
+    <script> 
+        var sessionID = "{{ session_id }}";
+        console.log('in HTML', sessionID);
+    </script>
     <script src="{{ url_for('static', filename='js/delete_session.js') }}"></script>
     <!-- <script src="{{ url_for('static', filename='js/download.js') }}"></script> -->
 {% endblock %}
