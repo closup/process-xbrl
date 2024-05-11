@@ -102,8 +102,11 @@ def delete_session():
     session_id = request.args.get("session_id")
     print('session id:', session_id)
     if session_id:
-        session_folder_path = os.path.join("static", "sessions_data", session_id)
+        print('session ID does exist')
+        session_folder_path = os.path.join('app/static/sessions_data', session_id)
+        print('path to folder is', session_folder_path)
         if os.path.exists(session_folder_path):
+            print('sesh folder does exist')
             shutil.rmtree(session_folder_path)  # Delete the session folder
             return "Session folder deleted successfully"  # Return success message
         else:
