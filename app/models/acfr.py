@@ -1,5 +1,5 @@
 import pandas as pd
-from app.models import NetPosition, StatementofActivities, Table, WordDoc, GovFunds, PropFunds
+from app.models import NetPosition, StatementofActivities, Table, WordDoc, GovFunds, PropFunds, Reconciliation
 from typing import *
 from app.utils.helper_functions import *
 
@@ -40,6 +40,8 @@ class Acfr:
                 sheets.append(GovFunds(input_file, sheet_name))
             elif sheet_name in ["Prop Funds - Net Position", "PropFund Stmt of Rev Exp and Ch", "Prop Fund Cash Flow"]:
                 sheets.append(PropFunds(input_file, sheet_name))
+            elif "Reconciliation" in sheet_name:
+                sheets.append(Reconciliation(input_file, sheet_name))
         return sheets
     
     def get_contexts(self):

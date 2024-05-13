@@ -41,7 +41,6 @@ class Context:
         try:
             return self._time_type + self._date.strftime('%Y%m%d') + ret
         finally:
-            print(f"Date parse error: {self._date}")
             return self._time_type + "date_parse_error" + ret
         
     
@@ -51,7 +50,9 @@ class Context:
     
     def __eq__(self, other):
         """ Equality check """
-        return(self.id == other.id)
+        if type(other) is Context:
+            return(self.id == other.id)
+        return False
 
     def __hash__(self):
         return hash(self.id)
