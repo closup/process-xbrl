@@ -81,7 +81,7 @@ class WordDoc:
         image_filename = str(uuid.uuid4()) + '.png'
 
         # Save the image to the output folder
-        image_path = os.path.join("app/static/img", image_filename)
+        image_path = os.path.join("static/img", image_filename)
         web_path = url_for('static', filename = f"img/{image_filename}")
 
         with image.open() as image_file:
