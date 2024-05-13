@@ -51,18 +51,26 @@ class Comment:
     {self.selected_text}
 </ix:nonFraction>\n\n''')
 
+
+
+
+
+
+
 class WordDoc:
     """ Class to represent a Word file """
     def __init__(self, docx_file):
-        self.doc = Document(docx_file)
         self.docx_file = docx_file
-        html_content = self.convert_to_html(docx_file)
+        html_content = self.convert2html(docx_file)
         self.soup = BeautifulSoup(html_content, "lxml")
         
         # Processing steps
         self.remove_links()
         self.insert_comments()
         self.identify_and_insert_html_page_breaks()
+
+    # def mark_page_breaks(self):
+    #     doc = Document(self.docx_file)
 
     @staticmethod
     def convert_image(image):
@@ -89,7 +97,7 @@ class WordDoc:
         # Return the file location (directory) of the saved image
         return {"src": web_path}
 
-    def convert_to_html(self, docx_file):
+    def convert2html(self, docx_file):
         """ Use mammoth to extract content and images """
         result = mammoth.convert_to_html(docx_file, 
                                          style_map = custom_style_map,
@@ -168,7 +176,7 @@ class WordDoc:
         for paragraph in self.soup.find_all('p'):
             # Check if paragraph contains only a number and is not a child of a table
             if paragraph.string and \
-                (paragraph.string.strip().isdigit() or paragraph.string.strip() in ["i", "ii"])  and \
+                paragraph.string.strip().isdigit()  and \
                 not paragraph.find_parent('table'):
                 # Add a custom class to the paragraph itself to indicate it's a page number
                 paragraph['class'] = paragraph.get('class', []) + ["page-number"]
@@ -177,5 +185,28 @@ class WordDoc:
                 page_break_div = self.soup.new_tag("div", **{'class': 'page-break'})
                 paragraph.insert_after(page_break_div)
         
+        # Update the html_content with the modified soup
+        self.update_html_content()
+
+    def find_page_breaks(self):
+        """ Find manual page breaks and their locations in the doc """
+        document = Document(self.docx_file)
+        page_break_positions = []  # Will include (paragraph index, run index)
+        for para_num, paragraph in enumerate(document.paragraphs):
+            for run_num, run in enumerate(paragraph.runs):
+                if '\u000c' in run.text:  # Unicode character for Form Feed (page break)
+                    page_break_positions.append((para_num, run_num))
+        return page_break_positions
+    
+    def insert_page_breaks_in_html(self):
+        """ Add html page break elements where relevant """
+        paragraphs = self.soup.find_all("p")  # Assuming each 'p' corresponds to a paragraph in the DOCX
+
+        # Insert HTML page break after every paragraph that has a corresponding position
+        for para_num, _ in self.find_page_breaks():
+            if para_num < len(paragraphs):  # Check if we have the corresponding paragraph
+                page_break_div = self.soup.new_tag("div", style="page-break-after: always;")
+                paragraphs[para_num].insert_after(page_break_div)
+
         # Update the html_content with the modified soup
         self.update_html_content()
