@@ -10,19 +10,16 @@ class Reconciliation(Table):
         self._data = []
         self._contexts = []
         self.process_cells()
-        print(self._data)
         self.mark_first_numeric_row()
 
     def process_cells(self):
         """Create a list of Cell objects to represent Excel data"""
-        print(f"df : {self._df}")
         for col_name in self._df['header'].unique():
             # get the rows
             rows = self._df[self._df['header'] == col_name]
 
             # Iterate through filtered rows and create Cell objects with the specified context
             for _, row in rows.iterrows():
-                print(f'row: {row["nan"]}; col: {row["header"]}')
                 cell = Cell(id = row["id"], 
                             xbrl_tag = None, 
                             row_name = str(row["nan"]), 
@@ -57,7 +54,6 @@ class Reconciliation(Table):
         # Reshape using 'melt' to give one row per taggable item
         id_cols = self._df.columns[:self.extra_left_cols].tolist() + ["row"]
         val_cols = self._df.columns[self.extra_left_cols:].tolist()
-        print(f"id_cols: {id_cols}; val_cols: {val_cols}")
         self._df = pd.melt(self._df, id_vars=id_cols, value_vars=val_cols, var_name="header")
 
         # Calculate original sheet column and cell in Excel document

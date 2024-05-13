@@ -113,7 +113,7 @@ class WordDoc:
     
     def update_html_content(self):
         """ Update the HTML content from the soup object """
-        self.html_content = self.soup.prettify()
+        self.html_content = self.soup.prettify().replace("&lt;", "<").replace("&gt;", ">")
 
     def get_html(self):
         """ Return the HTML content """
@@ -188,25 +188,45 @@ class WordDoc:
         # Update the html_content with the modified soup
         self.update_html_content()
 
-    def find_page_breaks(self):
-        """ Find manual page breaks and their locations in the doc """
-        document = Document(self.docx_file)
-        page_break_positions = []  # Will include (paragraph index, run index)
-        for para_num, paragraph in enumerate(document.paragraphs):
-            for run_num, run in enumerate(paragraph.runs):
-                if '\u000c' in run.text:  # Unicode character for Form Feed (page break)
-                    page_break_positions.append((para_num, run_num))
-        return page_break_positions
+    # def extract_page_breaks(self):
+    #     """Extracts positions of manual page breaks from the Word document."""
+    #     page_break_positions = []
+    #     # Zip the docx file to extract its xml content
+    #     with zipfile.ZipFile(self.docx_file) as docx_zip:
+    #         document_xml = docx_zip.read('word/document.xml')
+
+    #     # Parse the XML to find manual page breaks
+    #     document_tree = etree.XML(document_xml)
+    #     paragraphs = document_tree.xpath('//w:p', namespaces=NAMESPACES)
+
+    #     # Iterate through paragraphs looking for the page break element
+    #     for para_num, paragraph in enumerate(paragraphs):
+    #         # Check if the paragraph contains a manual page break
+    #         br_elements = paragraph.xpath('.//w:br[@w:type="page"]', namespaces=NAMESPACES)
+    #         if br_elements:
+    #             page_break_positions.append(para_num)
+    #     return page_break_positions
     
-    def insert_page_breaks_in_html(self):
-        """ Add html page break elements where relevant """
-        paragraphs = self.soup.find_all("p")  # Assuming each 'p' corresponds to a paragraph in the DOCX
+    # def identify_and_insert_html_page_breaks(self):
+    #     """Identify special page number paragraphs and manual page breaks."""
+    #     # Extract manual page breaks from the Word document
+    #     page_break_paragraphs = self.extract_page_breaks()
 
-        # Insert HTML page break after every paragraph that has a corresponding position
-        for para_num, _ in self.find_page_breaks():
-            if para_num < len(paragraphs):  # Check if we have the corresponding paragraph
-                page_break_div = self.soup.new_tag("div", style="page-break-after: always;")
-                paragraphs[para_num].insert_after(page_break_div)
+    #     # Insert HTML page breaks for those identified by extract_page_breaks
+    #     all_paragraphs = self.soup.find_all("p")
+    #     for paragraph_index in page_break_paragraphs:
+    #         if paragraph_index < len(all_paragraphs):
+    #             page_break_div = self.soup.new_tag("div", **{'class': 'page-break'})
+    #             all_paragraphs[paragraph_index].insert_before(page_break_div)
 
-        # Update the html_content with the modified soup
-        self.update_html_content()
+    #     # Identify special page number paragraphs and update them
+    #     for paragraph in all_paragraphs:
+    #         if paragraph.string and paragraph.string.strip().isdigit() and not paragraph.find_parent('table'):
+    #             paragraph['class'] = paragraph.get('class', []) + ["page-number"]
+    #             # If this paragraph is not identified as a page break, create a page break after it
+    #             if all_paragraphs.index(paragraph) not in page_break_paragraphs:
+    #                 page_break_div = self.soup.new_tag("div", **{'class': 'page-break'})
+    #                 paragraph.insert_after(page_break_div)
+
+    #     # Update the html_content with the modified soup
+    #     self.update_html_content()

@@ -96,8 +96,6 @@ class Table:
         """ Finds the first row of taggable data """
         i = 0
         while self._data[i].show_value() == "":
-            # PRINT
-            print(self._data[i].show_value())
             i += 1
         # tag all cells in that row
         row_name = self._data[i].row_name()
