@@ -92,7 +92,7 @@ class WordDoc:
         pil_image = PILImage.open(io.BytesIO(image_data))
 
         # Save the image as PNG
-        pil_image.save(image_path, format='PNG')
+        pil_image.save(web_path, format='PNG')
 
         # Return the file location (directory) of the saved image
         return {"src": web_path}
