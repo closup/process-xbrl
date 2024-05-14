@@ -179,7 +179,7 @@ class WordDoc:
                 # Add a custom class to the paragraph itself to indicate it's a page number
                 paragraph['class'] = paragraph.get('class', []) + ["page-number"]
 
-                # Create a div with the 'page-break' class and insert it before this paragraph
+                # Create a div with the 'page-break' class and insert it after this paragraph
                 page_break_div = self.soup.new_tag("div", **{'class': 'page-break'})
                 paragraph.insert_after(page_break_div)
         
