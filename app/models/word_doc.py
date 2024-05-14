@@ -80,7 +80,7 @@ class WordDoc:
         # Save the image to the output folder
         image_path = os.path.join("app/static/img", image_filename)
         # Serve the newly saved image using a dedicated route.
-        web_path = url_for('routes_bp.serve_image', filename=image_filename)
+        web_path = url_for('routes_bp.serve_image', filename=image_filename, _external = True)
 
         with image.open() as image_file:
             # Read the image data
