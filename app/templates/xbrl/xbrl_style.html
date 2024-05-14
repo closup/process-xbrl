@@ -4,11 +4,16 @@
     --max-row-width: 10000px;
 }
 
+/* container with all the tables */
+.table-container {
+    text-align: center;
+    padding: 0.25in;
+}
+
 /* Style for the table with class 'statement' */
 table.statement {
     border-collapse: collapse; /* Merge borders into a single line */
-    width: 95%;
-    align-self: center;
+    width: 100%;
 }
 
 /* Style for the last row within a table with class 'statement' */
@@ -39,12 +44,16 @@ table td {
     text-align: right;
     font-size: 14px;
     margin: 10px;
+    /* max-width: var(--max-row-width); */
+}
+
+table.statement td {
     min-width: 110px;
     padding-right: 10px;
     padding-top: 2.5px;
     padding-bottom: 2.5px;
-    /* max-width: var(--max-row-width); */
 }
+
 table td:first-child {
     text-align: left;
     min-width: 150px;
@@ -141,15 +150,6 @@ h2.header {
     margin-bottom: 20px; /* Spacing below the line */
     position: relative;
     color: #1a1a1a; /* Slightly darker grey color for the text */
-}
-
-h3.header2 {
-    font-size: 0.5em; /* Smaller font size for heading2 */
-    text-align: left; /* Aligns the text to the left */
-    margin-top: 0.1em; /* Spacing above the heading2 */
-    margin-bottom: 0.1em; /* Spacing below the heading2 */
-    color: #000000; /* Black color for the text */
-    position: relative;
 }
 
 h2.header:after {
