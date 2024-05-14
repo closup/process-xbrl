@@ -14,21 +14,22 @@ table.statement {
 /* Style for the last row within a table with class 'statement' */
 table.statement tr:last-child {
     border-bottom: 1px solid black; /* Add bottom border for the last row */
-    max-width: var(--max-row-width);
+    /* max-width: var(--max-row-width); */
 }
 
 /* Style for th elements within a table with class 'statement' */
 table.statement th {
     border-bottom: 1px solid black;
     text-align: right;
-    max-width: var(--max-row-width);
+    padding: 10px;
+    /* max-width: var(--max-row-width); */
 }
 
 /* Style for the last th and td elements within a row within a table with class 'statement' */
 table.statement th:last-child, table.statement td:last-child {
-    /* min-width: 120px; */
-    max-width: var(--max-row-width);
-    /* width: auto; */
+    min-width: 120px;
+    /* max-width: var(--max-row-width); */
+    width: auto;
 }
 
 /* Alignment for ALL tables, including word ones */
@@ -37,7 +38,11 @@ table td {
     text-align: right;
     font-size: 14px;
     margin: 10px;
-    max-width: var(--max-row-width);
+    min-width: 120px;
+    padding-right: 10px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    /* max-width: var(--max-row-width); */
 }
 table td:first-child {
     text-align: left;
