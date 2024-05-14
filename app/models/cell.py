@@ -84,10 +84,16 @@ class Cell:
         """
         ret = ""
         if self._value < 0:
-            ret = "-" + ret
+            ret = "("
         if self._first_row:
-            ret = "$ " + ret
+            ret = f"$ {ret}"
         return ret
+    
+    def suffix(self):
+        """Add closing parans if relevant"""
+        if self._value < 0:
+            return ")"
+        return ""
     
     def tr_class(self):
         """
