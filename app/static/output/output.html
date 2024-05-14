@@ -37,14 +37,15 @@ table.statement tr:last-child {
 /* Style for th elements within a table with class 'statement' */
 table.statement th {
     border-bottom: 1px solid black;
-    text-align: right;
+    text-align: center;
     padding: 10px;
+    vertical-align: bottom;
     /* max-width: var(--max-row-width); */
 }
 
 /* Style for the last th and td elements within a row within a table with class 'statement' */
 table.statement th:last-child, table.statement td:last-child {
-    min-width: 120px;
+    min-width: 110px;
     /* max-width: var(--max-row-width); */
     width: auto;
 }
@@ -55,7 +56,7 @@ table td {
     text-align: right;
     font-size: 14px;
     margin: 10px;
-    min-width: 120px;
+    min-width: 110px;
     padding-right: 10px;
     padding-top: 2.5px;
     padding-bottom: 2.5px;
@@ -63,6 +64,7 @@ table td {
 }
 table td:first-child {
     text-align: left;
+    min-width: 150px;
 }
 
 .section_header, .subsection_header {
@@ -222,42 +224,15 @@ img {
             <ix:resources>
                 <!--Start of contexts-->
                 
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_GovernmentalActivities">
+<xbrli:context id="Idate_parse_error_InternalServiceFunds">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Idate_parse_error_PrimaryGovernmentActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:PrimaryGovernmentActivitiesMember
-                    </acfr:NoneDomain>
+            <xbrldi:explicitMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+                <acfr:ProprietaryFundsDomain>
+                    acfr:InternalServiceFundsMember
+                    </acfr:ProprietaryFundsDomain>
             </xbrldi:explicitMember>
             
         </xbrli:segment>   
@@ -269,7 +244,7 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
@@ -282,7 +257,7 @@ img {
             
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:NoneDomain>
-                    acfr:BusinessTypeActivitiesMember
+                    acfr:GovernmentalActivitiesMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -316,33 +291,6 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_GovernmentalActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
 <xbrli:context id="Idate_parse_error_GeneralFund">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
@@ -363,48 +311,7 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-                <acfr:ProprietaryFundsDomain>
-                    acfr:BusinessTypeActivitiesEndeavorHallMember
-                    </acfr:ProprietaryFundsDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Idate_parse_error_AmericanRescuePlanAct">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:AmericanRescuePlanActMember
-                    </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_GovernmentalActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
@@ -415,30 +322,9 @@ img {
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_BusinessTypeActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromChargesForServicesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:NoneDomain>
-                    acfr:BusinessTypeActivitiesMember
+                    acfr:GovernmentalActivitiesMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -479,16 +365,16 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Idate_parse_error_OtherGovernmentalFunds">
+<xbrli:context id="Idate_parse_error_PrimaryGovernmentActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:OtherGovernmentalFundsMember
-                    </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:PrimaryGovernmentActivitiesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
             
         </xbrli:segment>   
     </xbrli:entity>
@@ -499,20 +385,14 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_BusinessTypeActivities">
+<xbrli:context id="Ddate_parse_error_PrimaryGovernmentActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
-                <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:NoneDomain>
-                    acfr:BusinessTypeActivitiesMember
+                    acfr:PrimaryGovernmentActivitiesMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -526,15 +406,50 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Idate_parse_error_BusinessTypeActivitiesEndeavorHall">
+<xbrli:context id="Ddate_parse_error">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:typedMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-                <acfr:ProprietaryFundsDomain>
-                    acfr:BusinessTypeActivitiesEndeavorHallMember
-                    </acfr:ProprietaryFundsDomain>
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Idate_parse_error_GovernmentalFunds">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
+                <acfr:NoneDomain>
+                    acfr:GovernmentalFundsMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Idate_parse_error_CapitalImprovementProgram">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    acfr:CapitalImprovementProgramMember
+                    </acfr:FundIdentifierDomain>
             </xbrldi:typedMember>
             
         </xbrli:segment>   
@@ -546,10 +461,16 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:NoneDomain>
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
             
         </xbrli:segment>   
     </xbrli:entity>
@@ -582,10 +503,36 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_ComponentUnitDiscretelyPresented">
+<xbrli:context id="Idate_parse_error_BusinessTypeActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_ComponentUnitDiscretelyPresented">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:NoneDomain>
+                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:NoneDomain>
@@ -603,14 +550,41 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_GeneralFund">
+<xbrli:context id="Ddate_parse_error_OtherGovernmentalFunds">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    acfr:OtherGovernmentalFundsMember
+                    </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_GovernmentalActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
                 <acfr:NoneDomain>
-                    acfr:GeneralFundMember
+                    acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:GovernmentalActivitiesMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -624,15 +598,36 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_InternalServiceFunds">
+<xbrli:context id="Ddate_parse_error_SuccessorHousingAgency">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-                <acfr:ProprietaryFundsDomain>
-                    acfr:InternalServiceFundsMember
-                    </acfr:ProprietaryFundsDomain>
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    acfr:SuccessorHousingAgencyMember
+                    </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_BusinessTypeActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
         </xbrli:segment>   
@@ -645,14 +640,14 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_PrimaryGovernmentActivities">
+<xbrli:context id="Ddate_parse_error_GovernmentalFunds">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
                 <acfr:NoneDomain>
-                    acfr:PrimaryGovernmentActivitiesMember
+                    acfr:GovernmentalFundsMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -693,76 +688,14 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Idate_parse_error_InternalServiceFunds">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
-                <acfr:ProprietaryFundsDomain>
-                    acfr:InternalServiceFundsMember
-                    </acfr:ProprietaryFundsDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_GovernmentalFunds">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
-                <acfr:NoneDomain>
-                    acfr:GovernmentalFundsMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_GovernmentalActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Idate_parse_error_CapitalImprovementProgram">
+<xbrli:context id="Idate_parse_error_AmericanRescuePlanAct">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
             <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
                 <acfr:FundIdentifierDomain>
-                    acfr:CapitalImprovementProgramMember
+                    acfr:AmericanRescuePlanActMember
                     </acfr:FundIdentifierDomain>
             </xbrldi:typedMember>
             
@@ -775,7 +708,27 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_OtherGovernmentalFunds">
+<xbrli:context id="Idate_parse_error_SuccessorHousingAgency">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    acfr:SuccessorHousingAgencyMember
+                    </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Idate_parse_error_OtherGovernmentalFunds">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
@@ -783,6 +736,26 @@ img {
             <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
                 <acfr:FundIdentifierDomain>
                     acfr:OtherGovernmentalFundsMember
+                    </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_CapitalImprovementProgram">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    acfr:CapitalImprovementProgramMember
                     </acfr:FundIdentifierDomain>
             </xbrldi:typedMember>
             
@@ -817,7 +790,7 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromChargesForServices_BusinessTypeActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
@@ -825,6 +798,12 @@ img {
             <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
                 <acfr:NoneDomain>
                     acfr:ProgramRevenuesFromChargesForServicesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:BusinessTypeActivitiesMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -838,7 +817,28 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_ComponentUnitDiscretelyPresented">
+<xbrli:context id="Ddate_parse_error_GeneralFund">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
+                <acfr:NoneDomain>
+                    acfr:GeneralFundMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_BusinessTypeActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
@@ -851,7 +851,68 @@ img {
             
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:NoneDomain>
-                    acfr:ComponentUnitDiscretelyPresentedMember
+                    acfr:BusinessTypeActivitiesMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Idate_parse_error_LandscapeMaintenanceDistrict">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
+                <acfr:FundIdentifierDomain>
+                    acfr:LandscapeMaintenanceDistrictMember
+                    </acfr:FundIdentifierDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Idate_parse_error_BusinessTypeActivitiesEndeavorHall">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:typedMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+                <acfr:ProprietaryFundsDomain>
+                    acfr:BusinessTypeActivitiesEndeavorHallMember
+                    </acfr:ProprietaryFundsDomain>
+            </xbrldi:typedMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+        
+        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_GovernmentalActivities">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:GovernmentalActivitiesMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
             
@@ -886,99 +947,16 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_CapitalImprovementProgram">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:CapitalImprovementProgramMember
-                    </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_BusinessTypeActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:BusinessTypeActivitiesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromOperatingGrantsAndContributions_GovernmentalActivities">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions_BusinessTypeActivities">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
                 <acfr:NoneDomain>
-                    acfr:ProgramRevenuesFromOperatingGrantsAndContributionsMember
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
                     </acfr:NoneDomain>
             </xbrldi:explicitMember>
-            
-            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
-                <acfr:NoneDomain>
-                    acfr:GovernmentalActivitiesMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-         
-        <xbrli:startDate>2021-07-01</xbrli:startDate>
-        <xbrli:endDate>2022-06-30</xbrli:endDate>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Idate_parse_error_GovernmentalFunds">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
-            
-            <xbrldi:explicitMember dimension="acfr:GovernmentalFundsAxis">
-                <acfr:NoneDomain>
-                    acfr:GovernmentalFundsMember
-                    </acfr:NoneDomain>
-            </xbrldi:explicitMember>
-            
-        </xbrli:segment>   
-    </xbrli:entity>
-    <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
-         
-    </xbrli:period>
-</xbrli:context>
-
-<xbrli:context id="Idate_parse_error_BusinessTypeActivities">
-    <xbrli:entity>
-        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
-        <xbrli:segment>
             
             <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
                 <acfr:NoneDomain>
@@ -989,21 +967,22 @@ img {
         </xbrli:segment>   
     </xbrli:entity>
     <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
          
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Ddate_parse_error_SuccessorHousingAgency">
+<xbrli:context id="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:SuccessorHousingAgencyMember
-                    </acfr:FundIdentifierDomain>
+            <xbrldi:typedMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+                <acfr:ProprietaryFundsDomain>
+                    acfr:BusinessTypeActivitiesEndeavorHallMember
+                    </acfr:ProprietaryFundsDomain>
             </xbrldi:typedMember>
             
         </xbrli:segment>   
@@ -1016,42 +995,65 @@ img {
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Idate_parse_error_SuccessorHousingAgency">
+<xbrli:context id="Ddate_parse_error_InternalServiceFunds">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:SuccessorHousingAgencyMember
-                    </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
+            <xbrldi:explicitMember dimension="acfr:TypeOfActivitiesProprietaryFundsAxis">
+                <acfr:ProprietaryFundsDomain>
+                    acfr:InternalServiceFundsMember
+                    </acfr:ProprietaryFundsDomain>
+            </xbrldi:explicitMember>
             
         </xbrli:segment>   
     </xbrli:entity>
     <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
          
     </xbrli:period>
 </xbrli:context>
 
-<xbrli:context id="Idate_parse_error_LandscapeMaintenanceDistrict">
+<xbrli:context id="Ddate_parse_error_ProgramRevenuesFromCapitalGrantsAndContributions">
     <xbrli:entity>
         <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
         <xbrli:segment>
             
-            <xbrldi:typedMember dimension="acfr:FundIdentifierAxis">
-                <acfr:FundIdentifierDomain>
-                    acfr:LandscapeMaintenanceDistrictMember
-                    </acfr:FundIdentifierDomain>
-            </xbrldi:typedMember>
+            <xbrldi:explicitMember dimension="acfr:TypeOfProgramRevenuesAxis">
+                <acfr:NoneDomain>
+                    acfr:ProgramRevenuesFromCapitalGrantsAndContributionsMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
             
         </xbrli:segment>   
     </xbrli:entity>
     <xbrli:period>
-        
-        <xbrli:instant>2022-06-30</xbrli:instant>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
+         
+    </xbrli:period>
+</xbrli:context>
+
+<xbrli:context id="Ddate_parse_error_ComponentUnitDiscretelyPresented">
+    <xbrli:entity>
+        <xbrli:identifier scheme="https://www2.census.gov/geo/docs/reference/codes2020/national_place2020.txt">0613882</xbrli:identifier>
+        <xbrli:segment>
+            
+            <xbrldi:explicitMember dimension="acfr:TypeOfGovernmentUnitAxis">
+                <acfr:NoneDomain>
+                    acfr:ComponentUnitDiscretelyPresentedMember
+                    </acfr:NoneDomain>
+            </xbrldi:explicitMember>
+            
+        </xbrli:segment>   
+    </xbrli:entity>
+    <xbrli:period>
+         
+        <xbrli:startDate>2021-07-01</xbrli:startDate>
+        <xbrli:endDate>2022-06-30</xbrli:endDate>
          
     </xbrli:period>
 </xbrli:context>
@@ -1278,26 +1280,26 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_StatementofNetPosition_C10">  
             Accounts Receivable Net Of Allowance
         </td> 
     
-    <td id="StatementofNetPosition_C10" class="total">
+    <td id="StatementofNetPosition_C10" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_GovernmentalActivities" name="acfr:AccountsReceivableNetOfAllowance" unitRef="USD" id="StatementofNetPosition_C10" decimals="0" format="ixt:num-dot-decimal" >1,133,315</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofNetPosition_D10" class="total">
+    <td id="StatementofNetPosition_D10" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_BusinessTypeActivities" name="acfr:AccountsReceivableNetOfAllowance" unitRef="USD" id="StatementofNetPosition_D10" decimals="0" format="ixt:fixed-zero" >-</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofNetPosition_E10" class="total">
+    <td id="StatementofNetPosition_E10" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_PrimaryGovernmentActivities" name="acfr:AccountsReceivableNetOfAllowance" unitRef="USD" id="StatementofNetPosition_E10" decimals="0" format="ixt:num-dot-decimal" >1,133,315</ix:nonFraction>
             
@@ -1467,26 +1469,26 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_StatementofNetPosition_C26">  
             Notes And Loans Receivable Net Noncurrent
         </td> 
     
-    <td id="StatementofNetPosition_C26" class="total">
+    <td id="StatementofNetPosition_C26" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_GovernmentalActivities" name="acfr:NotesAndLoansReceivableNetNoncurrent" unitRef="USD" id="StatementofNetPosition_C26" decimals="0" format="ixt:num-dot-decimal" >3,311,550</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofNetPosition_D26" class="total">
+    <td id="StatementofNetPosition_D26" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_BusinessTypeActivities" name="acfr:NotesAndLoansReceivableNetNoncurrent" unitRef="USD" id="StatementofNetPosition_D26" decimals="0" format="ixt:fixed-zero" >-</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofNetPosition_E26" class="total">
+    <td id="StatementofNetPosition_E26" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_PrimaryGovernmentActivities" name="acfr:NotesAndLoansReceivableNetNoncurrent" unitRef="USD" id="StatementofNetPosition_E26" decimals="0" format="ixt:num-dot-decimal" >3,311,550</ix:nonFraction>
             
@@ -2061,26 +2063,26 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_StatementofNetPosition_C68">  
             Net OPEB Liability
         </td> 
     
-    <td id="StatementofNetPosition_C68" class="total">
+    <td id="StatementofNetPosition_C68" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_GovernmentalActivities" name="acfr:NetOPEBLiability" unitRef="USD" id="StatementofNetPosition_C68" decimals="0" format="ixt:num-dot-decimal" >578,315</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofNetPosition_D68" class="total">
+    <td id="StatementofNetPosition_D68" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_BusinessTypeActivities" name="acfr:NetOPEBLiability" unitRef="USD" id="StatementofNetPosition_D68" decimals="0" format="ixt:fixed-zero" >-</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofNetPosition_E68" class="total">
+    <td id="StatementofNetPosition_E68" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_PrimaryGovernmentActivities" name="acfr:NetOPEBLiability" unitRef="USD" id="StatementofNetPosition_E68" decimals="0" format="ixt:num-dot-decimal" >578,315</ix:nonFraction>
             
@@ -2088,26 +2090,26 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_StatementofNetPosition_C69">  
             Net Pension Liability
         </td> 
     
-    <td id="StatementofNetPosition_C69" class="total">
+    <td id="StatementofNetPosition_C69" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_GovernmentalActivities" name="acfr:NetPensionLiability" unitRef="USD" id="StatementofNetPosition_C69" decimals="0" format="ixt:num-dot-decimal" >2,759,739</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofNetPosition_D69" class="total">
+    <td id="StatementofNetPosition_D69" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_BusinessTypeActivities" name="acfr:NetPensionLiability" unitRef="USD" id="StatementofNetPosition_D69" decimals="0" format="ixt:fixed-zero" >-</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofNetPosition_E69" class="total">
+    <td id="StatementofNetPosition_E69" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_PrimaryGovernmentActivities" name="acfr:NetPensionLiability" unitRef="USD" id="StatementofNetPosition_E69" decimals="0" format="ixt:num-dot-decimal" >2,759,739</ix:nonFraction>
             
@@ -2385,26 +2387,26 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_StatementofNetPosition_C92">  
             Net Investment In Capital Assets
         </td> 
     
-    <td id="StatementofNetPosition_C92" class="total">
+    <td id="StatementofNetPosition_C92" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_GovernmentalActivities" name="acfr:NetInvestmentInCapitalAssets" unitRef="USD" id="StatementofNetPosition_C92" decimals="0" format="ixt:num-dot-decimal" >29,116,205</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofNetPosition_D92" class="total">
+    <td id="StatementofNetPosition_D92" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_BusinessTypeActivities" name="acfr:NetInvestmentInCapitalAssets" unitRef="USD" id="StatementofNetPosition_D92" decimals="0" format="ixt:num-dot-decimal" >1,009,203</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofNetPosition_E92" class="total">
+    <td id="StatementofNetPosition_E92" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_PrimaryGovernmentActivities" name="acfr:NetInvestmentInCapitalAssets" unitRef="USD" id="StatementofNetPosition_E92" decimals="0" format="ixt:num-dot-decimal" >30,125,408</ix:nonFraction>
             
@@ -2412,26 +2414,26 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_StatementofNetPosition_C93">  
             Restricted Net Position For Other
         </td> 
     
-    <td id="StatementofNetPosition_C93" class="total">
+    <td id="StatementofNetPosition_C93" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_GovernmentalActivities" name="acfr:RestrictedNetPositionForOther" unitRef="USD" id="StatementofNetPosition_C93" decimals="0" format="ixt:num-dot-decimal" >9,890,048</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofNetPosition_D93" class="total">
+    <td id="StatementofNetPosition_D93" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_BusinessTypeActivities" name="acfr:RestrictedNetPositionForOther" unitRef="USD" id="StatementofNetPosition_D93" decimals="0" format="ixt:fixed-zero" >-</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofNetPosition_E93" class="total">
+    <td id="StatementofNetPosition_E93" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_PrimaryGovernmentActivities" name="acfr:RestrictedNetPositionForOther" unitRef="USD" id="StatementofNetPosition_E93" decimals="0" format="ixt:num-dot-decimal" >9,890,048</ix:nonFraction>
             
@@ -2439,26 +2441,26 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_StatementofNetPosition_C94">  
             Unrestricted Net Position
         </td> 
     
-    <td id="StatementofNetPosition_C94" class="total">
+    <td id="StatementofNetPosition_C94" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_GovernmentalActivities" name="acfr:UnrestrictedNetPosition" unitRef="USD" id="StatementofNetPosition_C94" decimals="0" format="ixt:num-dot-decimal" >5,873,482</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofNetPosition_D94" class="total">
+    <td id="StatementofNetPosition_D94" class="row">
             
             (<ix:nonFraction contextRef="Idate_parse_error_BusinessTypeActivities" name="acfr:UnrestrictedNetPosition" unitRef="USD" id="StatementofNetPosition_D94" decimals="0" format="ixt:num-dot-decimal"  sign="-" >129,064</ix:nonFraction>)
             
         </td>
      
     
-    <td id="StatementofNetPosition_E94" class="total">
+    <td id="StatementofNetPosition_E94" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_PrimaryGovernmentActivities" name="acfr:UnrestrictedNetPosition" unitRef="USD" id="StatementofNetPosition_E94" decimals="0" format="ixt:num-dot-decimal" >5,744,418</ix:nonFraction>
             
@@ -4356,54 +4358,54 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_StatementofActivities_C74">  
             Change in Net Position
         </td> 
     
-    <td id="StatementofActivities_C74" class="total">
+    <td id="StatementofActivities_C74" class="row">
             
                 
             
         </td>
      
     
-    <td id="StatementofActivities_D74" class="total">
+    <td id="StatementofActivities_D74" class="row">
             
                 
             
         </td>
      
     
-    <td id="StatementofActivities_E74" class="total">
+    <td id="StatementofActivities_E74" class="row">
             
                 
             
         </td>
      
     
-    <td id="StatementofActivities_F74" class="total">
+    <td id="StatementofActivities_F74" class="row">
             
                 
             
         </td>
      
     
-    <td id="StatementofActivities_G74" class="total">
+    <td id="StatementofActivities_G74" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_GovernmentalActivities" name="acfr:ChangesInNetPosition" unitRef="USD" id="StatementofActivities_G74" decimals="0" format="ixt:num-dot-decimal" >381,717</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofActivities_H74" class="total">
+    <td id="StatementofActivities_H74" class="row">
             
             (<ix:nonFraction contextRef="Ddate_parse_error_BusinessTypeActivities" name="acfr:ChangesInNetPosition" unitRef="USD" id="StatementofActivities_H74" decimals="0" format="ixt:num-dot-decimal"  sign="-" >43,847</ix:nonFraction>)
             
         </td>
      
     
-    <td id="StatementofActivities_I74" class="total">
+    <td id="StatementofActivities_I74" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_PrimaryGovernmentActivities" name="acfr:ChangesInNetPosition" unitRef="USD" id="StatementofActivities_I74" decimals="0" format="ixt:num-dot-decimal" >337,870</ix:nonFraction>
             
@@ -4411,54 +4413,54 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_StatementofActivities_C75">  
             Net position (deficit), beginning of year
         </td> 
     
-    <td id="StatementofActivities_C75" class="total">
+    <td id="StatementofActivities_C75" class="row">
             
                 
             
         </td>
      
     
-    <td id="StatementofActivities_D75" class="total">
+    <td id="StatementofActivities_D75" class="row">
             
                 
             
         </td>
      
     
-    <td id="StatementofActivities_E75" class="total">
+    <td id="StatementofActivities_E75" class="row">
             
                 
             
         </td>
      
     
-    <td id="StatementofActivities_F75" class="total">
+    <td id="StatementofActivities_F75" class="row">
             
                 
             
         </td>
      
     
-    <td id="StatementofActivities_G75" class="total">
+    <td id="StatementofActivities_G75" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_GovernmentalActivities" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitRef="USD" id="StatementofActivities_G75" decimals="0" format="ixt:num-dot-decimal" >44,498,018</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofActivities_H75" class="total">
+    <td id="StatementofActivities_H75" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_BusinessTypeActivities" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitRef="USD" id="StatementofActivities_H75" decimals="0" format="ixt:num-dot-decimal" >923,986</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofActivities_I75" class="total">
+    <td id="StatementofActivities_I75" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_PrimaryGovernmentActivities" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitRef="USD" id="StatementofActivities_I75" decimals="0" format="ixt:num-dot-decimal" >45,422,004</ix:nonFraction>
             
@@ -4466,54 +4468,54 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_StatementofActivities_C76">  
             Net position (deficit), end of year
         </td> 
     
-    <td id="StatementofActivities_C76" class="total">
+    <td id="StatementofActivities_C76" class="row">
             
                 
             
         </td>
      
     
-    <td id="StatementofActivities_D76" class="total">
+    <td id="StatementofActivities_D76" class="row">
             
                 
             
         </td>
      
     
-    <td id="StatementofActivities_E76" class="total">
+    <td id="StatementofActivities_E76" class="row">
             
                 
             
         </td>
      
     
-    <td id="StatementofActivities_F76" class="total">
+    <td id="StatementofActivities_F76" class="row">
             
                 
             
         </td>
      
     
-    <td id="StatementofActivities_G76" class="total">
+    <td id="StatementofActivities_G76" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_GovernmentalActivities" name="acfr:NetPosition" unitRef="USD" id="StatementofActivities_G76" decimals="0" format="ixt:num-dot-decimal" >44,879,735</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofActivities_H76" class="total">
+    <td id="StatementofActivities_H76" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_BusinessTypeActivities" name="acfr:NetPosition" unitRef="USD" id="StatementofActivities_H76" decimals="0" format="ixt:num-dot-decimal" >880,139</ix:nonFraction>
             
         </td>
      
     
-    <td id="StatementofActivities_I76" class="total">
+    <td id="StatementofActivities_I76" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_PrimaryGovernmentActivities" name="acfr:NetPosition" unitRef="USD" id="StatementofActivities_I76" decimals="0" format="ixt:num-dot-decimal" >45,759,874</ix:nonFraction>
             
@@ -4679,54 +4681,54 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_GovFundBalanceSheet_C8">  
             Accounts Receivable Net Of Allowance
         </td> 
     
-    <td id="GovFundBalanceSheet_C8" class="total">
+    <td id="GovFundBalanceSheet_C8" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_GeneralFund" name="acfr:AccountsReceivableNetOfAllowanceModifiedAccrual" unitRef="USD" id="GovFundBalanceSheet_C8" decimals="0" format="ixt:num-dot-decimal" >646,294</ix:nonFraction>
             
         </td>
      
     
-    <td id="GovFundBalanceSheet_D8" class="total">
+    <td id="GovFundBalanceSheet_D8" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_LandscapeMaintenanceDistrict" name="acfr:AccountsReceivableNetOfAllowanceModifiedAccrual" unitRef="USD" id="GovFundBalanceSheet_D8" decimals="0" format="ixt:fixed-zero" >-</ix:nonFraction>
             
         </td>
      
     
-    <td id="GovFundBalanceSheet_E8" class="total">
+    <td id="GovFundBalanceSheet_E8" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_SuccessorHousingAgency" name="acfr:AccountsReceivableNetOfAllowanceModifiedAccrual" unitRef="USD" id="GovFundBalanceSheet_E8" decimals="0" format="ixt:fixed-zero" >-</ix:nonFraction>
             
         </td>
      
     
-    <td id="GovFundBalanceSheet_F8" class="total">
+    <td id="GovFundBalanceSheet_F8" class="row">
             
                 
             
         </td>
      
     
-    <td id="GovFundBalanceSheet_G8" class="total">
+    <td id="GovFundBalanceSheet_G8" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_CapitalImprovementProgram" name="acfr:AccountsReceivableNetOfAllowanceModifiedAccrual" unitRef="USD" id="GovFundBalanceSheet_G8" decimals="0" format="ixt:fixed-zero" >-</ix:nonFraction>
             
         </td>
      
     
-    <td id="GovFundBalanceSheet_H8" class="total">
+    <td id="GovFundBalanceSheet_H8" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_OtherGovernmentalFunds" name="acfr:AccountsReceivableNetOfAllowanceModifiedAccrual" unitRef="USD" id="GovFundBalanceSheet_H8" decimals="0" format="ixt:num-dot-decimal" >487,021</ix:nonFraction>
             
         </td>
      
     
-    <td id="GovFundBalanceSheet_I8" class="total">
+    <td id="GovFundBalanceSheet_I8" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_GovernmentalFunds" name="acfr:AccountsReceivableNetOfAllowanceModifiedAccrual" unitRef="USD" id="GovFundBalanceSheet_I8" decimals="0" format="ixt:num-dot-decimal" >1,133,315</ix:nonFraction>
             
@@ -6375,12 +6377,12 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationBalanceSheet_B14">  
             Depreciable capital assets (net of internal service fund assets of $493,547)
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B14" class="total">
+    <td id="ReconciliationBalanceSheet_B14" class="row">
             
                 25,441,841
             
@@ -6479,12 +6481,12 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationBalanceSheet_B22">  
             Net OPEB liability not reported on the Governmental Funds Balance Sheet
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B22" class="total">
+    <td id="ReconciliationBalanceSheet_B22" class="row">
             
                 578,315
             
@@ -6505,12 +6507,12 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationBalanceSheet_B24">  
             Net pension liability not reported on the Governmental Funds Balance Sheet
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B24" class="total">
+    <td id="ReconciliationBalanceSheet_B24" class="row">
             
                 2,759,739
             
@@ -6570,12 +6572,12 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationBalanceSheet_B29">  
             Deferred outflows of resources for net pension liability
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B29" class="total">
+    <td id="ReconciliationBalanceSheet_B29" class="row">
             
                 1,285,641
             
@@ -6583,12 +6585,12 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationBalanceSheet_B30">  
             Deferred inflows of resources for net pension liability
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B30" class="total">
+    <td id="ReconciliationBalanceSheet_B30" class="row">
             
                 2,471,384
             
@@ -6596,12 +6598,12 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationBalanceSheet_B31">  
             Deferred outflows of resources for net OPEB liability
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B31" class="total">
+    <td id="ReconciliationBalanceSheet_B31" class="row">
             
                 
             
@@ -6609,12 +6611,12 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationBalanceSheet_B32">  
             Deferred inflows of resources for net OPEB liability
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B32" class="total">
+    <td id="ReconciliationBalanceSheet_B32" class="row">
             
                 
             
@@ -6648,12 +6650,12 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationBalanceSheet_B35">  
             Internal service funds are used by management to charge the costs of certain activities to individual funds. The assets and liabilities of the internal service funds are included in the governmental activities in the Government-wide Statement of Net Position.
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B35" class="total">
+    <td id="ReconciliationBalanceSheet_B35" class="row">
             
                 1,000,736
             
@@ -6674,12 +6676,12 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationBalanceSheet_B37">  
             Net Position of Governmental Activities
         </td> 
     
-    <td id="ReconciliationBalanceSheet_B37" class="total">
+    <td id="ReconciliationBalanceSheet_B37" class="row">
             
                 44,879,735
             
@@ -8495,54 +8497,54 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_GovFundStmtofRevExpandChg_C58">  
             Net Change in Fund Balances
         </td> 
     
-    <td id="GovFundStmtofRevExpandChg_C58" class="total">
+    <td id="GovFundStmtofRevExpandChg_C58" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_GeneralFund" name="acfr:NetChangeInFundBalance" unitRef="USD" id="GovFundStmtofRevExpandChg_C58" decimals="0" format="ixt:num-dot-decimal" >249,464</ix:nonFraction>
             
         </td>
      
     
-    <td id="GovFundStmtofRevExpandChg_D58" class="total">
+    <td id="GovFundStmtofRevExpandChg_D58" class="row">
             
             (<ix:nonFraction contextRef="Ddate_parse_error_LandscapeMaintenanceDistrict" name="acfr:NetChangeInFundBalance" unitRef="USD" id="GovFundStmtofRevExpandChg_D58" decimals="0" format="ixt:num-dot-decimal"  sign="-" >447,353</ix:nonFraction>)
             
         </td>
      
     
-    <td id="GovFundStmtofRevExpandChg_E58" class="total">
+    <td id="GovFundStmtofRevExpandChg_E58" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_SuccessorHousingAgency" name="acfr:NetChangeInFundBalance" unitRef="USD" id="GovFundStmtofRevExpandChg_E58" decimals="0" format="ixt:num-dot-decimal" >187,452</ix:nonFraction>
             
         </td>
      
     
-    <td id="GovFundStmtofRevExpandChg_F58" class="total">
+    <td id="GovFundStmtofRevExpandChg_F58" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_AmericanRescuePlanAct" name="acfr:NetChangeInFundBalance" unitRef="USD" id="GovFundStmtofRevExpandChg_F58" decimals="0" format="ixt:fixed-zero" >-</ix:nonFraction>
             
         </td>
      
     
-    <td id="GovFundStmtofRevExpandChg_G58" class="total">
+    <td id="GovFundStmtofRevExpandChg_G58" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_CapitalImprovementProgram" name="acfr:NetChangeInFundBalance" unitRef="USD" id="GovFundStmtofRevExpandChg_G58" decimals="0" format="ixt:num-dot-decimal" >681,698</ix:nonFraction>
             
         </td>
      
     
-    <td id="GovFundStmtofRevExpandChg_H58" class="total">
+    <td id="GovFundStmtofRevExpandChg_H58" class="row">
             
             (<ix:nonFraction contextRef="Ddate_parse_error_OtherGovernmentalFunds" name="acfr:NetChangeInFundBalance" unitRef="USD" id="GovFundStmtofRevExpandChg_H58" decimals="0" format="ixt:num-dot-decimal"  sign="-" >850,946</ix:nonFraction>)
             
         </td>
      
     
-    <td id="GovFundStmtofRevExpandChg_I58" class="total">
+    <td id="GovFundStmtofRevExpandChg_I58" class="row">
             
             (<ix:nonFraction contextRef="Ddate_parse_error_GovernmentalFunds" name="acfr:NetChangeInFundBalance" unitRef="USD" id="GovFundStmtofRevExpandChg_I58" decimals="0" format="ixt:num-dot-decimal"  sign="-" >179,685</ix:nonFraction>)
             
@@ -8858,12 +8860,12 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationofRevExp_B13">  
             The amounts below included in the Statement of Activities do not provide (or require) the use of  current financial resources and therefore are not reported as revenue or expenditures in the Governmental Funds (net change).
         </td> 
     
-    <td id="ReconciliationofRevExp_B13" class="total">
+    <td id="ReconciliationofRevExp_B13" class="row">
             
                 
             
@@ -8871,12 +8873,12 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationofRevExp_B14">  
             Net change in post-employment benefits (OPEB) liability and deferred inflows (outflows)
         </td> 
     
-    <td id="ReconciliationofRevExp_B14" class="total">
+    <td id="ReconciliationofRevExp_B14" class="row">
             
                 74,942
             
@@ -8897,12 +8899,12 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationofRevExp_B16">  
             Net change in pension liability and deferred inflows (outflows).
         </td> 
     
-    <td id="ReconciliationofRevExp_B16" class="total">
+    <td id="ReconciliationofRevExp_B16" class="row">
             
                 730,720
             
@@ -8923,12 +8925,12 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationofRevExp_B18">  
             Net change in lease liability
         </td> 
     
-    <td id="ReconciliationofRevExp_B18" class="total">
+    <td id="ReconciliationofRevExp_B18" class="row">
             
                 244,640
             
@@ -8988,13 +8990,13 @@ img {
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationofRevExp_B23">  
             Depreciation expense is deducted from the fund balance (Net of internal service fund depreciation
 of $100,425).
         </td> 
     
-    <td id="ReconciliationofRevExp_B23" class="total">
+    <td id="ReconciliationofRevExp_B23" class="row">
             
                 947,745
             
@@ -9028,12 +9030,12 @@ of $100,425).
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationofRevExp_B26">  
             Internal service funds are used by management to charge the costs of certain activities, such as insurance and fleet management, to individual funds. The net gain or loss of the internal service funds is reported with governmental activities.
         </td> 
     
-    <td id="ReconciliationofRevExp_B26" class="total">
+    <td id="ReconciliationofRevExp_B26" class="row">
             
                 4,806
             
@@ -9054,12 +9056,12 @@ of $100,425).
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_ReconciliationofRevExp_B28">  
             Change in Net Position of Governmental Activities on Statement of Activities
         </td> 
     
-    <td id="ReconciliationofRevExp_B28" class="total">
+    <td id="ReconciliationofRevExp_B28" class="row">
             
                 381,717
             
@@ -9098,7 +9100,7 @@ of $100,425).
     <tr>
         <th></th>
         
-        <th>Business Type Activities   Endeavor Hall</th>
+        <th>Business Type Activities Endeavor Hall</th>
         
         <th>Internal Service Funds</th>
         
@@ -9545,19 +9547,19 @@ of $100,425).
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_PropFunds-NetPosition_C69">  
             Net investment in capital assets
         </td> 
     
-    <td id="PropFunds-NetPosition_C69" class="total">
+    <td id="PropFunds-NetPosition_C69" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" name="acfr:NetInvestmentInCapitalAssets" unitRef="USD" id="PropFunds-NetPosition_C69" decimals="0" format="ixt:num-dot-decimal" >1,009,203</ix:nonFraction>
             
         </td>
      
     
-    <td id="PropFunds-NetPosition_D69" class="total">
+    <td id="PropFunds-NetPosition_D69" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_InternalServiceFunds" name="acfr:NetInvestmentInCapitalAssets" unitRef="USD" id="PropFunds-NetPosition_D69" decimals="0" format="ixt:num-dot-decimal" >540,610</ix:nonFraction>
             
@@ -9565,19 +9567,19 @@ of $100,425).
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_PropFunds-NetPosition_C70">  
             Unrestricted Net Position
         </td> 
     
-    <td id="PropFunds-NetPosition_C70" class="total">
+    <td id="PropFunds-NetPosition_C70" class="row">
             
             (<ix:nonFraction contextRef="Idate_parse_error_BusinessTypeActivitiesEndeavorHall" name="acfr:UnrestrictedNetPosition" unitRef="USD" id="PropFunds-NetPosition_C70" decimals="0" format="ixt:num-dot-decimal"  sign="-" >129,064</ix:nonFraction>)
             
         </td>
      
     
-    <td id="PropFunds-NetPosition_D70" class="total">
+    <td id="PropFunds-NetPosition_D70" class="row">
             
             <ix:nonFraction contextRef="Idate_parse_error_InternalServiceFunds" name="acfr:UnrestrictedNetPosition" unitRef="USD" id="PropFunds-NetPosition_D70" decimals="0" format="ixt:num-dot-decimal" >460,126</ix:nonFraction>
             
@@ -9636,7 +9638,7 @@ of $100,425).
     <tr>
         <th></th>
         
-        <th>Business Type Activities   Endeavor Hall</th>
+        <th>Business Type Activities Endeavor Hall</th>
         
         <th>Internal Service Funds</th>
         
@@ -10003,19 +10005,19 @@ of $100,425).
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_PropFundStmtofRevExpandCh_C65">  
             Change in net position
         </td> 
     
-    <td id="PropFundStmtofRevExpandCh_C65" class="total">
+    <td id="PropFundStmtofRevExpandCh_C65" class="row">
             
             (<ix:nonFraction contextRef="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" name="acfr:ChangesInNetPosition" unitRef="USD" id="PropFundStmtofRevExpandCh_C65" decimals="0" format="ixt:num-dot-decimal"  sign="-" >43,847</ix:nonFraction>)
             
         </td>
      
     
-    <td id="PropFundStmtofRevExpandCh_D65" class="total">
+    <td id="PropFundStmtofRevExpandCh_D65" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_InternalServiceFunds" name="acfr:ChangesInNetPosition" unitRef="USD" id="PropFundStmtofRevExpandCh_D65" decimals="0" format="ixt:num-dot-decimal" >2,911</ix:nonFraction>
             
@@ -10063,19 +10065,19 @@ of $100,425).
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_PropFundStmtofRevExpandCh_C68">  
             Net position, beginning of year
         </td> 
     
-    <td id="PropFundStmtofRevExpandCh_C68" class="total">
+    <td id="PropFundStmtofRevExpandCh_C68" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitRef="USD" id="PropFundStmtofRevExpandCh_C68" decimals="0" format="ixt:num-dot-decimal" >923,986</ix:nonFraction>
             
         </td>
      
     
-    <td id="PropFundStmtofRevExpandCh_D68" class="total">
+    <td id="PropFundStmtofRevExpandCh_D68" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_InternalServiceFunds" name="acfr:NetPositionAtBeginningOfPeriodAfterAdjustments" unitRef="USD" id="PropFundStmtofRevExpandCh_D68" decimals="0" format="ixt:num-dot-decimal" >1,005,542</ix:nonFraction>
             
@@ -10083,19 +10085,19 @@ of $100,425).
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_PropFundStmtofRevExpandCh_C69">  
             Net position, end of year
         </td> 
     
-    <td id="PropFundStmtofRevExpandCh_C69" class="total">
+    <td id="PropFundStmtofRevExpandCh_C69" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" name="acfr:NetPosition" unitRef="USD" id="PropFundStmtofRevExpandCh_C69" decimals="0" format="ixt:num-dot-decimal" >880,139</ix:nonFraction>
             
         </td>
      
     
-    <td id="PropFundStmtofRevExpandCh_D69" class="total">
+    <td id="PropFundStmtofRevExpandCh_D69" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_InternalServiceFunds" name="acfr:NetPosition" unitRef="USD" id="PropFundStmtofRevExpandCh_D69" decimals="0" format="ixt:num-dot-decimal" >1,008,453</ix:nonFraction>
             
@@ -10134,7 +10136,7 @@ of $100,425).
     <tr>
         <th></th>
         
-        <th>Business Type Activities   Endeavor Hall</th>
+        <th>Business Type Activities  Endeavor Hall</th>
         
         <th>Internal Service Funds</th>
         
@@ -10241,19 +10243,19 @@ of $100,425).
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_PropFundCashFlows_C22">  
             Net cash provided by (used in) operating activities
         </td> 
     
-    <td id="PropFundCashFlows_C22" class="total">
+    <td id="PropFundCashFlows_C22" class="row">
             
             (<ix:nonFraction contextRef="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" name="acfr:NetCashProvidedByUsedInOperatingActivities" unitRef="USD" id="PropFundCashFlows_C22" decimals="0" format="ixt:num-dot-decimal"  sign="-" >8,720</ix:nonFraction>)
             
         </td>
      
     
-    <td id="PropFundCashFlows_D22" class="total">
+    <td id="PropFundCashFlows_D22" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_InternalServiceFunds" name="acfr:NetCashProvidedByUsedInOperatingActivities" unitRef="USD" id="PropFundCashFlows_D22" decimals="0" format="ixt:num-dot-decimal" >103,471</ix:nonFraction>
             
@@ -10321,19 +10323,19 @@ of $100,425).
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_PropFundCashFlows_C37">  
             Net cash flows from noncapital financing activities
         </td> 
     
-    <td id="PropFundCashFlows_C37" class="total">
+    <td id="PropFundCashFlows_C37" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" name="acfr:NetCashProvidedByUsedInNonCapitalFinancingActivities" unitRef="USD" id="PropFundCashFlows_C37" decimals="0" format="ixt:num-dot-decimal" >8,720</ix:nonFraction>
             
         </td>
      
     
-    <td id="PropFundCashFlows_D37" class="total">
+    <td id="PropFundCashFlows_D37" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_InternalServiceFunds" name="acfr:NetCashProvidedByUsedInNonCapitalFinancingActivities" unitRef="USD" id="PropFundCashFlows_D37" decimals="0" format="ixt:fixed-zero" >-</ix:nonFraction>
             
@@ -10421,19 +10423,19 @@ of $100,425).
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_PropFundCashFlows_C51">  
             Net cash provided by (used in) capital and related financing activities
         </td> 
     
-    <td id="PropFundCashFlows_C51" class="total">
+    <td id="PropFundCashFlows_C51" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" name="acfr:NetCashProvidedByUsedInCapitalAndRelatedFinancingActivities" unitRef="USD" id="PropFundCashFlows_C51" decimals="0" format="ixt:fixed-zero" >-</ix:nonFraction>
             
         </td>
      
     
-    <td id="PropFundCashFlows_D51" class="total">
+    <td id="PropFundCashFlows_D51" class="row">
             
             (<ix:nonFraction contextRef="Ddate_parse_error_InternalServiceFunds" name="acfr:NetCashProvidedByUsedInCapitalAndRelatedFinancingActivities" unitRef="USD" id="PropFundCashFlows_D51" decimals="0" format="ixt:num-dot-decimal"  sign="-" >146,226</ix:nonFraction>)
             
@@ -10501,19 +10503,19 @@ of $100,425).
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_PropFundCashFlows_C63">  
             Net cash provided by (used in) investing activities
         </td> 
     
-    <td id="PropFundCashFlows_C63" class="total">
+    <td id="PropFundCashFlows_C63" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" name="acfr:NetCashProvidedByUsedInInvestingActivities" unitRef="USD" id="PropFundCashFlows_C63" decimals="0" format="ixt:fixed-zero" >-</ix:nonFraction>
             
         </td>
      
     
-    <td id="PropFundCashFlows_D63" class="total">
+    <td id="PropFundCashFlows_D63" class="row">
             
             (<ix:nonFraction contextRef="Ddate_parse_error_InternalServiceFunds" name="acfr:NetCashProvidedByUsedInInvestingActivities" unitRef="USD" id="PropFundCashFlows_D63" decimals="0" format="ixt:num-dot-decimal"  sign="-" >14,675</ix:nonFraction>)
             
@@ -10521,19 +10523,19 @@ of $100,425).
      
     
     </tr>
-    <tr class="total">
+    <tr class="row">
         <td id="header_PropFundCashFlows_C64">  
             Net Increase (Decrease) in Cash and Cash Equivalents
         </td> 
     
-    <td id="PropFundCashFlows_C64" class="total">
+    <td id="PropFundCashFlows_C64" class="row">
             
             <ix:nonFraction contextRef="Ddate_parse_error_BusinessTypeActivitiesEndeavorHall" name="acfr:CashAndCashEquivalentsPeriodIncreaseDecrease" unitRef="USD" id="PropFundCashFlows_C64" decimals="0" format="ixt:fixed-zero" >-</ix:nonFraction>
             
         </td>
      
     
-    <td id="PropFundCashFlows_D64" class="total">
+    <td id="PropFundCashFlows_D64" class="row">
             
             (<ix:nonFraction contextRef="Ddate_parse_error_InternalServiceFunds" name="acfr:CashAndCashEquivalentsPeriodIncreaseDecrease" unitRef="USD" id="PropFundCashFlows_D64" decimals="0" format="ixt:num-dot-decimal"  sign="-" >57,430</ix:nonFraction>)
             

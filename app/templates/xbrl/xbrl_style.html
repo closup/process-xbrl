@@ -20,14 +20,15 @@ table.statement tr:last-child {
 /* Style for th elements within a table with class 'statement' */
 table.statement th {
     border-bottom: 1px solid black;
-    text-align: right;
+    text-align: center;
     padding: 10px;
+    vertical-align: bottom;
     /* max-width: var(--max-row-width); */
 }
 
 /* Style for the last th and td elements within a row within a table with class 'statement' */
 table.statement th:last-child, table.statement td:last-child {
-    min-width: 120px;
+    min-width: 110px;
     /* max-width: var(--max-row-width); */
     width: auto;
 }
@@ -38,7 +39,7 @@ table td {
     text-align: right;
     font-size: 14px;
     margin: 10px;
-    min-width: 120px;
+    min-width: 110px;
     padding-right: 10px;
     padding-top: 2.5px;
     padding-bottom: 2.5px;
@@ -46,6 +47,7 @@ table td {
 }
 table td:first-child {
     text-align: left;
+    min-width: 150px;
 }
 
 .section_header, .subsection_header {
