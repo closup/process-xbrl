@@ -18,4 +18,7 @@ venv/
 # ignore files that change each time we run the app
 app/static/output/output.html
 app/templates/site/viewer.html
-# app/static/img/*
+
+
+# Ignore image files
+*.png
