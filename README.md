@@ -3,7 +3,7 @@ Katrina Wheelan
 
 ## Purpose
 
-An open-source tool to convert Excel into XBRL
+An open-source tool to convert ACFR components in Excel and Word into inline XBRL
 
 ## Demo
 
