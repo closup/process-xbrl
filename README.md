@@ -1,4 +1,4 @@
-Last updated: April 2024
+Last updated: May 2024
 Katrina Wheelan
 
 ## Purpose
@@ -7,7 +7,8 @@ An open-source tool to convert Excel into XBRL
 
 ## Demo
 
-View the app on Heroku here: https://xbrl-converter-22f50351e04c.herokuapp.com/
+View the app on Heroku here: [https://xbrl-converter-22f50351e04c.herokuapp.com/](https://xbrl-converter-22f50351e04c.herokuapp.com/)
+or embedded on the CLOSUP site here: [https://closup.umich.edu/acfr-tool](https://closup.umich.edu/acfr-tool)
 
 ## To Run Locally
 
@@ -27,7 +28,7 @@ git submodule update
 python3 main.py
 ```
 4. This will launch a Flask server -- open a web browser and navigate to the address given in the terminal output (http://127.0.0.1:8080/)
-5. You can test the functionality by uploading the sample file where prompted on the app: `static/input_files/samples/Clayton.xlsx`
+5. You can test the functionality by uploading the sample file where prompted on the app: `static/input_files/samples/Clayton_sample.xlsx`
 
 
 ## File structure
