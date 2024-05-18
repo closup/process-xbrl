@@ -12,6 +12,7 @@ pip==23.2.1
 python-dateutil==2.8.2
 setuptools==68.0.0
 mammoth == 1.7.0
+Flask-Session
 bs4
 werkzeug
 python-dotenv

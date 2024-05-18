@@ -7,6 +7,7 @@ from app.utils import *
 
 # flask dependencies
 from flask import Blueprint, request, render_template, jsonify, session, redirect, url_for
+from flask_session import Session
 
 import uuid, shutil
 
