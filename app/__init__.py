@@ -19,11 +19,6 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('FLASK_SECRET_KEY')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.static_folder = 'static'
-app.config['SESSION_PERMANENT'] = False
-app.config['SESSION_TYPE'] = 'filesystem'
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(seconds=40)
-
-Session(app)
 
 # Registers the blueprint from routes.py to the app
 app.register_blueprint(routes_bp)

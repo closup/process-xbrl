@@ -6,6 +6,8 @@ Helper functions for utils/ and main.py
 import re
 from app.utils.constants import *
 from typing import *
+from datetime import datetime, timedelta, timezone
+import shutil
 import os
 
 def nth_parent_dir(file, n):
@@ -57,3 +59,33 @@ def allowed_file(filename : str) -> bool:
 def is_spreadsheet(filename : str) -> bool:
     """ Check file extension against allowed extensions for spreadsheets """
     return check_ext(filename, SPREADSHEET_EXTENSIONS)
+
+# SESSION
+SESSION_TIMEOUT_SECONDS = 60
+
+# Function to check session expiry
+def check_session_expiry(session):
+    if 'session_id' in session:
+        session_timestamp = session.get('session_timestamp')
+        if session_timestamp:
+            # Make session_expiry_time offset-aware
+            session_expiry_time = session_timestamp + timedelta(seconds=SESSION_TIMEOUT_SECONDS)
+            session_expiry_time = session_expiry_time.replace(tzinfo=timezone.utc)
+
+            # Make current_time offset-aware
+            current_time = datetime.now(timezone.utc)
+
+            if current_time > session_expiry_time:
+                # Session has expired, delete session and associated data
+                session_id = session['session_id']
+                session_folder_path = os.path.join('app/static/sessions_data', session_id)
+                if os.path.exists(session_folder_path):
+                    shutil.rmtree(session_folder_path)  # Delete the session folder
+                session.clear()  # Clear the session data
+                print("Session expired for session ID:", session_id)
+                return True
+    return False
+
+# Function to update session timestamp
+def update_session_timestamp(session):
+    session['session_timestamp'] = datetime.now(timezone.utc)
