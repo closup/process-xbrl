@@ -77,12 +77,16 @@ def check_session_expiry(session):
 
             if current_time > session_expiry_time:
                 # Session has expired, delete session and associated data
-                session_id = session['session_id']
-                session_folder_path = os.path.join('app/static/sessions_data', session_id)
+ 
+                session_folder_path = os.path.join('app/static/sessions_data')
                 if os.path.exists(session_folder_path):
-                    shutil.rmtree(session_folder_path)  # Delete the session folder
+                    # Iterate over subfolders and delete them
+                    for root, dirs, files in os.walk(session_folder_path):
+                        for directory in dirs:
+                            shutil.rmtree(os.path.join(root, directory))
+                    print("All expired sessions deleted successfully.")
+                    
                 session.clear()  # Clear the session data
-                print("Session expired for session ID:", session_id)
                 return True
     return False
 
