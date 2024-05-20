@@ -101,3 +101,21 @@ header {
     list-style-type: none;
     padding: 0;
   }
+
+  .return-button {
+    /* Add margin to place the button lower */
+    margin-top: 20px;
+    border: 2px solid #ffcb09;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #00274c;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .return-button:hover {
+      /* Slightly darker Maize for the hover effect */
+      background-color: #003e78;
+      color: #fcfcfd;
+      border: 2px solid #ffcb09;
+  }

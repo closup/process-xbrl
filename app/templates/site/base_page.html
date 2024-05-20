@@ -26,10 +26,16 @@
                     {% endblock %}
                 </div>
             </div>
-            {% block loader %}
-            
-            {% endblock %}
         </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                {% block return_button %}
+                {% endblock %}
+            </div>
+        </div>
+        {% block loader %}
+        {% endblock %}
     </div>
 
 </body>
