@@ -6,7 +6,9 @@ from typing import * # to specify funtion inputs and outputs
 from app.utils import *
 
 # flask dependencies
-from flask import Blueprint, request, render_template, jsonify
+from flask import Blueprint, request, render_template, jsonify, session, redirect, url_for
+
+import uuid, shutil
 
 # =============================================================
 # Set up routes
@@ -17,6 +19,9 @@ routes_bp = Blueprint('routes_bp', __name__)
 
 @routes_bp.route('/')
 def home():
+    if check_session_expiry(session):
+        return redirect(url_for('routes_bp.home'))
+    
     return render_template('site/home.html', loading=True)
 
 @routes_bp.route('/viewer')
@@ -25,8 +30,20 @@ def view():
 
 @routes_bp.route('/upload', methods=['POST'])
 def upload_file():
+    # Generate a unique session ID
+    session_id = str(uuid.uuid4())
+    session['session_id'] = session_id
+    update_session_timestamp(session)
+
+    input_folder = os.path.join('app/static/sessions_data/', session_id, 'input')
+    output_folder = os.path.join('app/static/sessions_data/', session_id, 'output')
+
+    # Create session folders if they don't exist
+    os.makedirs(input_folder, exist_ok=True)
+    os.makedirs(output_folder, exist_ok=True)
+
     # Set default values
-    output_file = "app/static/output/output.html"
+    output_file = os.path.join(output_folder, "output.html")
     format = "gray"
 
     # Check for the 'files[]' part in the request
@@ -37,30 +54,71 @@ def upload_file():
 
     # Retrieve the list of files from the request
     file_list = request.files.getlist('files[]')
+    print('files', file_list)
 
     # Process each file and store filenames
-    filenames = []
     excel_files = []
     for file in file_list:
         if file.filename == '':
             return jsonify({'error': 'No selected file'}), 400
         if not allowed_file(file.filename):
             return jsonify({'error': 'One or more of your files has a disallowed extension. Allowed extensions are: ' + ", ".join([str(i) for i in ALLOWED_EXTENSIONS])})
-        if file and allowed_file(file.filename):  # allowed files are excel and docx
-            filenames.append(file.filename)
-        if is_spreadsheet(file.filename):
-            excel_files += [file]
-    # confirm that there is exactly one Excel file among the uploads
+        
+        # Save uploaded files to session input folder
+        if file and allowed_file(file.filename):
+            file.save(os.path.join(input_folder, file.filename))
+    
+    # Process uploaded files and save output to session output folder
+    excel_files = [file for file in file_list if is_spreadsheet(file.filename)]
+    print('test', excel_files)
     if len(excel_files) != 1:
         return jsonify({'error': 'Please upload exactly one Excel file'})
+    
+    # define output path
+    output_file = os.path.join(output_folder, 'output.html')
+
     # create ixbrl file
     print("Converting Excel to inline XBRL...")
     write_html(file_list, output_file, format)
     # create page for the interactive viewer (prints progress in create_viewer_html fn)
     viewer_file_name = "app/templates/site/viewer.html"
     create_viewer_html(output_file, viewer_file_name)
+
     return jsonify({'message': 'Files successfully uploaded'})
 
 @routes_bp.route('/upload/complete', methods=['GET'])
 def successful_upload():
-    return render_template("site/upload.html")
+    # Check if session has expired
+    if check_session_expiry(session):
+        return redirect(url_for('routes_bp.home'))
+
+    # Get the current session ID
+    session_id = session.get('session_id')
+    print('in successful upload func, id is: ', session_id)
+    
+    update_session_timestamp(session)
+
+    return render_template("site/upload.html", session_id=session_id)
+
+# @routes_bp.route("/delete_session", methods=["GET"])
+# def delete_session():
+#     if check_session_expiry(session):
+#         session_id = request.args.get("session_id")
+#         print('session id:', session_id)
+#         if session_id:
+
+#             print('session ID does exist')
+
+#             session_folder_path = os.path.join('app/static/sessions_data', session_id)
+
+#             print('path to folder is', session_folder_path)
+
+#             if os.path.exists(session_folder_path):
+#                 print('sesh folder does exist')
+#                 shutil.rmtree(session_folder_path)  # Delete the session folder
+#                 session.clear()
+#                 return redirect(url_for('routes_bp.home'))
+#             else:
+#                 return "Session folder not found", 404  # Return 404 if session folder doesn't exist
+#         else:
+#             return "No session ID provided", 400  # Return 400 if no session ID provided
