@@ -114,6 +114,8 @@ class Table:
         # Reshape using 'melt' to give one row per taggable item
         id_cols = self._df.columns[:self.extra_left_cols].tolist() + ["row"]
         val_cols = self._df.columns[self.extra_left_cols:].tolist()
+        print(id_cols)
+        print(val_cols)
         self._df = pd.melt(self._df, id_vars=id_cols, value_vars=val_cols, var_name="header")
 
         # Calculate original sheet column and cell in Excel document

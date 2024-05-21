@@ -12,7 +12,7 @@
     <!-- <script src="{{ url_for('static', filename='js/download.js') }}"></script> -->
 {% endblock %}
 {% block card1 %}
-        <div class="card-header">Download XBRL as HTML</div>
+        <div class="card-header">Download your machine-readable financial statement</div>
         <div class="card-body text-center">
             <a href="#" id="downloadLink" download="converted_xbrl.html">
                 <button type="button" class="btn btn-michigan btn-lg" onclick="changeDownloadLocation()">Download file</button>
@@ -21,10 +21,10 @@
 {% endblock %}
 {% block card2 %}
     <div class="card">
-        <div class="card-header">View XBRL online</div>
+        <div class="card-header">View your machine-readable financial statement in browser</div>
         <div class="card-body text-center">
             <a href="/viewer" target="_blank">
-                <button type="button" class="btn btn-michigan btn-lg">Click to view in XBRL viewer</button>
+                <button type="button" class="btn btn-michigan btn-lg">Click to view in browser</button>
             </a>
         </div>
     </div>
