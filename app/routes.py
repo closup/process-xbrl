@@ -54,7 +54,6 @@ def upload_file():
 
     # Retrieve the list of files from the request
     file_list = request.files.getlist('files[]')
-    print('files', file_list)
 
     # Process each file and store filenames
     excel_files = []
