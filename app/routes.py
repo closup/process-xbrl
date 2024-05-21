@@ -103,29 +103,6 @@ def successful_upload():
 
     return render_template("site/upload.html", session_id=session_id, download_url=download_url)
 
-# @routes_bp.route("/delete_session", methods=["GET"])
-# def delete_session():
-#     if check_session_expiry(session):
-#         session_id = request.args.get("session_id")
-#         print('session id:', session_id)
-#         if session_id:
-
-#             print('session ID does exist')
-
-#             session_folder_path = os.path.join('app/static/sessions_data', session_id)
-
-#             print('path to folder is', session_folder_path)
-
-#             if os.path.exists(session_folder_path):
-#                 print('sesh folder does exist')
-#                 shutil.rmtree(session_folder_path)  # Delete the session folder
-#                 session.clear()
-#                 return redirect(url_for('routes_bp.home'))
-#             else:
-#                 return "Session folder not found", 404  # Return 404 if session folder doesn't exist
-#         else:
-#             return "No session ID provided", 400  # Return 400 if no session ID provided
-
 @routes_bp.route('/serve_image/<filename>')
 def serve_image(filename):
     # Specify the directory to send from.
