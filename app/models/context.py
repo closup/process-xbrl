@@ -20,6 +20,9 @@ class Context:
     def dims(self) -> List[Dimension]:
         return self._dims
     
+    def add_dim(self, dim : Dimension):
+        self._dims.append(dim)
+    
     def time_type(self):
         return self._time_type
 
