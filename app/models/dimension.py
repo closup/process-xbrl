@@ -17,6 +17,11 @@ class Dimension():
             self._member_type = "typed"
             self._axis, self._domain = "TypeOfActivitiesProprietaryFunds", "ProprietaryFunds"
             self._member_name = get_col_no_spaces(col_name)
+        elif(type == "custom"):
+            # Custom line item
+            self._member_type = "typed"
+            self._axis, self._domain = "DisaggregationLineItem", ""
+            self._member_name = col_name
 
     @property
     def axis(self):
