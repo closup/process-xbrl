@@ -36,9 +36,10 @@
         </div>
         <!-- Visible content starts here -->
 
-        <a href="#tables">Go to financial tables</a>
         <br />
-        <br />
+        <div class="table-container">
+            <a href="#tables">Jump to financial tables</a>
+        </div>
         
         {% for page in acfr.pages %}
             {% if acfr.is_table(page) %}
@@ -46,21 +47,27 @@
         
         <span id="tables"></span>
 
-        <div>
+    <div class = "table-container">
+        <h2 class="header">
             <!-- Header for the sheet from the Excel doc -->
             {% for line in table.header() %}
                 <b>{{ line }}</b><br />
             {% endfor %}
-        </div>
+        </h2>
 
         <!-- Sheet cell data -->
         {% include 'xbrl/table.html' %}
+    </div>
         <br />
         <br />
         <br />
         {% else %}
-        <!-- Include converted Word content -->
-        {{ page.get_html() | safe }}
+        <div style="text-align: center;">
+            <!-- Include converted Word content -->
+            <div class="word-content">
+                {{ page.get_html() | safe }}
+            </div>
+        </div>
         {% endif %}
         {% endfor %}
 

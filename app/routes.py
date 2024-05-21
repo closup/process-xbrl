@@ -6,7 +6,7 @@ from typing import * # to specify funtion inputs and outputs
 from app.utils import *
 
 # flask dependencies
-from flask import Blueprint, request, render_template, jsonify, session, redirect, url_for
+from flask import Blueprint, request, render_template, jsonify, session, redirect, url_for, send_from_directory, current_app
 
 import uuid, shutil
 
@@ -88,37 +88,4 @@ def upload_file():
 
 @routes_bp.route('/upload/complete', methods=['GET'])
 def successful_upload():
-    # Check if session has expired
-    if check_session_expiry(session):
-        return redirect(url_for('routes_bp.home'))
-
-    # Get the current session ID
-    session_id = session.get('session_id')
-    print('in successful upload func, id is: ', session_id)
-    
-    update_session_timestamp(session)
-
-    return render_template("site/upload.html", session_id=session_id)
-
-# @routes_bp.route("/delete_session", methods=["GET"])
-# def delete_session():
-#     if check_session_expiry(session):
-#         session_id = request.args.get("session_id")
-#         print('session id:', session_id)
-#         if session_id:
-
-#             print('session ID does exist')
-
-#             session_folder_path = os.path.join('app/static/sessions_data', session_id)
-
-#             print('path to folder is', session_folder_path)
-
-#             if os.path.exists(session_folder_path):
-#                 print('sesh folder does exist')
-#                 shutil.rmtree(session_folder_path)  # Delete the session folder
-#                 session.clear()
-#                 return redirect(url_for('routes_bp.home'))
-#             else:
-#                 return "Session folder not found", 404  # Return 404 if session folder doesn't exist
-#         else:
-#             return "No session ID provided", 400  # Return 400 if no session ID provided
+    return render_template("site/upload.html")

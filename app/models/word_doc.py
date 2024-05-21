@@ -6,8 +6,6 @@ import io
 from lxml import etree
 from bs4 import BeautifulSoup
 from typing import *
-from flask import session, url_for
-from PIL import Image as PILImage
 
 NAMESPACES = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
 
@@ -48,61 +46,46 @@ class Comment:
     {self.selected_text}
 </ix:nonFraction>\n\n''')
 
+
+
+
+
+
+
 class WordDoc:
     """ Class to represent a Word file """
     def __init__(self, docx_file):
-        self.html_content = self.convert_to_html(docx_file)
-        self.html_content = self.remove_links()
-        self.html_content = self.remove_empty_tags()
-        self.html_content = self.insert_comments(docx_file) 
+        self.docx_file = docx_file
+        html_content = self.convert2html(docx_file)
+        self.soup = BeautifulSoup(html_content, "lxml")
+        
+        # Processing steps
+        self.remove_links()
+        self.insert_comments()
+        self.identify_and_insert_html_page_breaks()
 
     @staticmethod
     def convert_image(image):
         """ 
         Save the image; return a dictionary {"src" : <file location>}
         """
-        # Get the session ID
-        session_id = session.get('session_id')
-        if not session_id:
-            raise ValueError("Session ID not found")
-        
-        # Output folder based on the session ID
-        output_folder = os.path.join('app/static/sessions_data', session_id, 'input/img')
-
-        os.makedirs(output_folder, exist_ok=True)
-
-        # Generate unique filename for image (e.g., using UUID)
-        image_filename = str(uuid.uuid4()) + '.png'
-
-        # Save the image to the output folder
-        image_path = os.path.join(output_folder, image_filename)
-        web_path = url_for('static', filename=f'sessions_data/{session_id}/input/img/{image_filename}')
-
-        with image.open() as image_file:
-            # Read the image data
-            image_data = image_file.read()
-            
-        # Create a PIL Image object from the image data
-        pil_image = PILImage.open(io.BytesIO(image_data))
-
-        # Save the image as PNG
-        pil_image.save(image_path, format='PNG')
-
-        # Return the file location (directory) of the saved image
-        return {"src": web_path}
-    
+        return {"src" : ""}
 
     def convert_to_html(self, docx_file):
         """ Use mammoth to extract content and images """
         result = mammoth.convert_to_html(docx_file, convert_image = mammoth.images.img_element(self.convert_image))
-        print('test msgs\n', result.messages)
         return result.value
+        # TODO: convert images to files
+        #self.images = result.messages 
     
-    def soup(self):
-        return BeautifulSoup(self.html_content, "lxml")
+    def update_html_content(self):
+        """ Update the HTML content from the soup object """
+        self.html_content = self.soup.prettify().replace("&lt;", "<").replace("&gt;", ">")
 
     def get_html(self):
-        """Format the parsed HTML onto several lines (human readable)"""
+        """ Return the HTML content """
+        # Ensure the content is up-to-date
+        self.update_html_content()
         return self.html_content
     
     def remove_links(self):
@@ -111,7 +94,7 @@ class WordDoc:
         for a in soup.find_all(['a']):
             a.decompose()
         return soup.prettify()
-     
+    
     def remove_empty_tags(self):
         """ Recursively find all tags with no content and remove them """
         soup = self.soup()
@@ -129,7 +112,7 @@ class WordDoc:
         comment_list = []
         try:
             # Zip the docx file to extract its xml content
-            with zipfile.ZipFile(docx_file) as docx_zip:
+            with zipfile.ZipFile(self.docx_file) as docx_zip:
                 comments_xml = docx_zip.read('word/comments.xml')
                 document_xml = docx_zip.read('word/document.xml')
 
@@ -154,15 +137,35 @@ class WordDoc:
             print(f"An error occurred while extracting comments: {e}")
         return comment_list
     
-    def insert_comments(self, docx_file):
-        """ Add comments into html """
-        soup = self.soup()
+    def insert_comments(self):
+        """ Add comments into HTML """
         # grab all html code tagged with <p>
-        p_tags = [p for p in soup.find_all('p')]
-        comment_list = self.extract_comments(docx_file)
+        p_tags = self.soup.find_all('p')
+        comment_list = self.extract_comments()
+        
         # add the relevant ixbrl tag in each corresponding paragraph
-        for c in comment_list:
-            p_tags[c.p_num].replace_with(c.ix_tag())
-        # TODO: remove this after fixing the jinja template in the Comment class
-        html = str(soup).replace('&gt;', '>').replace('&lt;', '<') 
-        return html
+        for comment in comment_list:
+            if 0 <= comment.p_num < len(p_tags):
+                p_tags[comment.p_num].replace_with(comment.ix_tag())
+        self.update_html_content()
+    
+    # Page breaks (see corresponding css)
+
+    def identify_and_insert_html_page_breaks(self):
+        """Go through the converted HTML document, insert page breaks before paragraphs that contain
+        only a number and are not contained in a table, and add a class to the paragraph itself."""
+        
+        for paragraph in self.soup.find_all('p'):
+            # Check if paragraph contains only a number and is not a child of a table
+            if paragraph.string and \
+                paragraph.string.strip().isdigit()  and \
+                not paragraph.find_parent('table'):
+                # Add a custom class to the paragraph itself to indicate it's a page number
+                paragraph['class'] = paragraph.get('class', []) + ["page-number"]
+
+                # Create a div with the 'page-break' class and insert it after this paragraph
+                page_break_div = self.soup.new_tag("div", **{'class': 'page-break'})
+                paragraph.insert_after(page_break_div)
+        
+        # Update the html_content with the modified soup
+        self.update_html_content()

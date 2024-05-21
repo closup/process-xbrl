@@ -1,6 +1,6 @@
 from app.utils import helper_functions
 from app.utils.constants import *
-from app.models import Context
+from app.models import Context, Dimension
 from typing import *
 
 class Cell:
@@ -15,6 +15,8 @@ class Cell:
         self._value = helper_functions.format_value(value)
         self._n_left_cols = n_left_cols
         self._first_row = False
+        # adjust dimensions based on line item if relevant
+        self.handle_custom_line_item()
 
     def sign(self):
         """ get sign of value (ie. negative or positive) """
@@ -52,9 +54,8 @@ class Cell:
         return self._xbrl_tag
 
     def context_ref(self):
-        # TODO: fix
-        if self._context is None:
-            return "ERROR"
+        # if self._context is None:
+        #     return "ERROR"
         return self._context.id
     
     def in_first_col(self):
@@ -85,10 +86,16 @@ class Cell:
         """
         ret = ""
         if self._value < 0:
-            ret = "-" + ret
+            ret = "("
         if self._first_row:
-            ret = "$ " + ret
+            ret = f"$ {ret}"
         return ret
+    
+    def suffix(self):
+        """Add closing parans if relevant"""
+        if self._value < 0:
+            return ")"
+        return ""
     
     def tr_class(self):
         """
@@ -125,3 +132,10 @@ class Cell:
     
     def __eq__(self, other):
         return self.index() == other.index()
+
+    def needs_ix_tag(self):
+        return self.show_value() != "" and self._context != None
+    
+    def handle_custom_line_item(self):
+        if self._xbrl_tag and "custom" in self._xbrl_tag.lower():
+            self._context.add_dim(Dimension(self._row_name, "custom"))
