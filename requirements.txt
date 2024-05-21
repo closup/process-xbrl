@@ -21,9 +21,6 @@ lxml
 uuid
 blinker
 python-docx
-pillow
-uuid
-python-dotenv
 
 #Additional Arelle requirements
 regex

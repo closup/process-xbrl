@@ -6,7 +6,7 @@ from typing import * # to specify funtion inputs and outputs
 from app.utils import *
 
 # flask dependencies
-from flask import Blueprint, request, render_template, jsonify, send_from_directory, current_app, session, redirect, url_for
+from flask import Blueprint, request, render_template, jsonify, session, redirect, url_for, send_from_directory, current_app
 
 import uuid, shutil
 
@@ -54,7 +54,6 @@ def upload_file():
 
     # Retrieve the list of files from the request
     file_list = request.files.getlist('files[]')
-    print('files', file_list)
 
     # Process each file and store filenames
     excel_files = []

@@ -132,15 +132,25 @@ class WordDoc:
 
     def convert2html(self, docx_file):
         """ Use mammoth to extract content and images """
-        result = mammoth.convert_to_html(docx_file, 
-                                         style_map = custom_style_map,
-                                         convert_image = mammoth.images.img_element(self.convert_image))
-        html_content = result.value
-        return html_content
+        result = mammoth.convert_to_html(docx_file, convert_image = mammoth.images.img_element(self.convert_image))
+        return result.value
+        # TODO: convert images to files
+        #self.images = result.messages 
+    
+    def update_html_content(self):
+        """ Update the HTML content from the soup object """
+        self.html_content = self.soup.prettify().replace("&lt;", "<").replace("&gt;", ">")
 
+    def get_html(self):
+        """ Return the HTML content """
+        # Ensure the content is up-to-date
+        self.update_html_content()
+        return self.html_content
+    
     def remove_links(self):
-        """ Remove anchors without hrefs """
-        for a in self.soup.find_all('a'):
+        """ ixbrl does not allow anchors without hrefs; for now, just remove these """
+        soup = self.soup()
+        for a in soup.find_all(['a']):
             a.decompose()
         self.update_html_content()
     
