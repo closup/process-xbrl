@@ -1,5 +1,4 @@
 body {
-    /* Maize */
     background-color: #365885;
     color: #00274c;
 }
@@ -7,7 +6,13 @@ body {
 .card {
     /* Blue */
     color: #003e78;
+    /* Maize */
     background-color: #ffcb09;
+    /* text-align: center; */
+}
+
+#upload-card {
+  margin-bottom: 30px;
 }
 
 .card-header {

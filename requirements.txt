@@ -19,9 +19,11 @@ python-dotenv
 # io
 lxml
 uuid
-python-dotenv
-pillow
 blinker
+python-docx
+pillow
+uuid
+python-dotenv
 
 #Additional Arelle requirements
 regex

@@ -6,7 +6,7 @@ from typing import * # to specify funtion inputs and outputs
 from app.utils import *
 
 # flask dependencies
-from flask import Blueprint, request, render_template, jsonify, session, redirect, url_for
+from flask import Blueprint, request, render_template, jsonify, send_from_directory, current_app, session, redirect, url_for
 
 import uuid, shutil
 
@@ -125,3 +125,9 @@ def successful_upload():
 #                 return "Session folder not found", 404  # Return 404 if session folder doesn't exist
 #         else:
 #             return "No session ID provided", 400  # Return 400 if no session ID provided
+
+@routes_bp.route('/serve_image/<filename>')
+def serve_image(filename):
+    # Specify the directory to send from.
+    images_directory = os.path.join(current_app.root_path, 'static/img')
+    return send_from_directory(images_directory, filename)

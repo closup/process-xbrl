@@ -43,6 +43,11 @@ class Table:
     def raw_date(self) -> str:
         return clean(str(self._df.iloc[3, 1]))
     
+    def formatted_date(self) -> str:
+        if self.get_time_type() == 'D':
+            return self.raw_date()
+        return self.date.strftime('%B %d, %Y')
+
     def contexts(self) -> List[Context]:
         return self._contexts
     
@@ -57,7 +62,7 @@ class Table:
 
     def get_header(self) -> List[str]:
         """ Header at the top of each sheet containing city, date, etc"""
-        return [print_nicely(line) for line in [self.city(), self.scope(), self.statement(), self.raw_date()]]
+        return [print_nicely(line) for line in [self.city(), self.scope(), self.statement(), self.formatted_date()]]
 
     def n_header_lines(self) -> int:
         # determine number of lines above the first taggable row
@@ -79,7 +84,8 @@ class Table:
                     date = datetime.strptime(date, "%Y-%m-%d_%H%M%S")
                 except ValueError:
                     pass
-        return date
+        finally:
+            return date
 
     def get_col_names(self) -> List[str]:
         """ Get unique column names in the sheet """
@@ -114,8 +120,6 @@ class Table:
         # Reshape using 'melt' to give one row per taggable item
         id_cols = self._df.columns[:self.extra_left_cols].tolist() + ["row"]
         val_cols = self._df.columns[self.extra_left_cols:].tolist()
-        print(id_cols)
-        print(val_cols)
         self._df = pd.melt(self._df, id_vars=id_cols, value_vars=val_cols, var_name="header")
 
         # Calculate original sheet column and cell in Excel document
