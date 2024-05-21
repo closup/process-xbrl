@@ -6,11 +6,6 @@ import io
 from lxml import etree
 from bs4 import BeautifulSoup
 from typing import *
-from docx import Document
-from app.utils.constants import custom_style_map
-from flask import session, url_for
-from PIL import Image as PILImage
-
 
 NAMESPACES = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
 
@@ -74,40 +69,14 @@ class WordDoc:
         """ 
         Save the image; return a dictionary {"src" : <file location>}
         """
-        # Generate unique filename for image (e.g., using UUID)
-        image_filename = str(uuid.uuid4()) + '.png'
+        return {"src" : ""}
 
-        # Save the image to the output folder
-        image_path = os.path.join("app/static/img", image_filename)
-        # Serve the newly saved image using a dedicated route.
-        web_path = url_for('routes_bp.serve_image', filename=image_filename, _external = True)
-
-        with image.open() as image_file:
-            # Read the image data
-            image_data = image_file.read()
-            
-        # Create a PIL Image object from the image data
-        pil_image = PILImage.open(io.BytesIO(image_data))
-
-        # Save the image as PNG
-        pil_image.save(image_path, format='PNG')
-
-        # Return the file location (directory) of the saved image
-        return {"src": web_path}
-
-    def convert2html(self, docx_file):
+    def convert_to_html(self, docx_file):
         """ Use mammoth to extract content and images """
-        result = mammoth.convert_to_html(docx_file, 
-                                         style_map = custom_style_map,
-                                         convert_image = mammoth.images.img_element(self.convert_image))
-        html_content = result.value
-        return html_content
-
-    def remove_links(self):
-        """ Remove anchors without hrefs """
-        for a in self.soup.find_all('a'):
-            a.decompose()
-        self.update_html_content()
+        result = mammoth.convert_to_html(docx_file, convert_image = mammoth.images.img_element(self.convert_image))
+        return result.value
+        # TODO: convert images to files
+        #self.images = result.messages 
     
     def update_html_content(self):
         """ Update the HTML content from the soup object """
@@ -118,8 +87,23 @@ class WordDoc:
         # Ensure the content is up-to-date
         self.update_html_content()
         return self.html_content
-
-    def extract_comments(self) -> List[Comment]:
+    
+    def remove_links(self):
+        """ ixbrl does not allow anchors without hrefs; for now, just remove these """
+        soup = self.soup()
+        for a in soup.find_all(['a']):
+            a.decompose()
+        return soup.prettify()
+    
+    def remove_empty_tags(self):
+        """ Recursively find all tags with no content and remove them """
+        soup = self.soup()
+        for tag in soup.find_all():
+            if len(tag.get_text(strip=True)) == 0 and not tag.contents:
+                tag.extract()
+        return str(soup)
+    
+    def extract_comments(self, docx_file) -> List[Comment]:
         """
         Extract comments from a Word document and match them to corresponding paragraphs in HTML.
         Returns HTML with comments inserted.

@@ -22,3 +22,6 @@ app/templates/site/viewer.html
 
 # Ignore image files
 *.png
+
+# Ignore sessions data
+sessions_data/*
