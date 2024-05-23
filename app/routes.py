@@ -81,6 +81,7 @@ def upload_file():
     print("Converting Excel to inline XBRL...")
     write_html(file_list, output_file, format)
     # create page for the interactive viewer (prints progress in create_viewer_html fn)
+    # TODO Change location of saving
     viewer_file_name = "app/templates/site/viewer.html"
     create_viewer_html(output_file, viewer_file_name)
 
