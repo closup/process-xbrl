@@ -14,8 +14,8 @@
 {% block card1 %}
         <div class="card-header">Download your machine-readable financial statement</div>
         <div class="card-body text-center">
-            <a href="#" id="downloadLink" download="converted_xbrl.html">
-                <button type="button" class="btn btn-michigan btn-lg" onclick="changeDownloadLocation()">Download file</button>
+            <a href="{{ download_url }}" id="downloadLink" download="converted_xbrl.html">
+                <button type="button" class="btn btn-michigan btn-lg">Download file</button>
             </a>
         </div>
 {% endblock %}

@@ -80,6 +80,7 @@ def upload_file():
     print("Converting Excel to inline XBRL...")
     write_html(file_list, output_file, format)
     # create page for the interactive viewer (prints progress in create_viewer_html fn)
+    # TODO Change location of saving
     viewer_file_name = "app/templates/site/viewer.html"
     create_viewer_html(output_file, viewer_file_name)
 
@@ -87,4 +88,23 @@ def upload_file():
 
 @routes_bp.route('/upload/complete', methods=['GET'])
 def successful_upload():
-    return render_template("site/upload.html")
+    # Check if session has expired
+    if check_session_expiry(session):
+        return redirect(url_for('routes_bp.home'))
+
+    # Get the current session ID
+    session_id = session.get('session_id')
+    print('in successful upload func, id is: ', session_id)
+    
+    update_session_timestamp(session)
+
+    download_url = url_for('static', filename=f'sessions_data/{session_id}/output/output.html')
+
+
+    return render_template("site/upload.html", session_id=session_id, download_url=download_url)
+
+@routes_bp.route('/serve_image/<filename>')
+def serve_image(filename):
+    # Specify the directory to send from.
+    images_directory = os.path.join(current_app.root_path, 'static/img')
+    return send_from_directory(images_directory, filename)
