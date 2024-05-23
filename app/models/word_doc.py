@@ -68,7 +68,6 @@ class WordDoc:
         self.soup = BeautifulSoup(html_content, "lxml")
         
         # Processing steps
-        self.remove_links()
         self.insert_comments()
         self.identify_and_insert_html_page_breaks()
 
@@ -146,13 +145,6 @@ class WordDoc:
         # Ensure the content is up-to-date
         self.update_html_content()
         return self.html_content
-    
-    def remove_links(self):
-        """ ixbrl does not allow anchors without hrefs; for now, just remove these """
-        soup = self.soup()
-        for a in soup.find_all(['a']):
-            a.decompose()
-        self.update_html_content()
     
     def update_html_content(self):
         """ Update the HTML content from the soup object """
