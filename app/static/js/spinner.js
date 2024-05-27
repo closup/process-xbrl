@@ -74,11 +74,37 @@ function updateButton() {
     li.setAttribute('class', 'draggable');
     li.setAttribute('draggable', true);
     fileList.appendChild(li);
+
+    // Create delete button for each file
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'btn btn-michigan btn-sm delete-button';
+    deleteButton.onclick = function() {
+      removeFile(fileInput, index);
+      li.remove();
+      updateSubmitButtonState();
+    };
+
+    li.appendChild(deleteButton);
+    fileListElement.appendChild(li);
   });
+
+  li.appendChild(deleteButton);
+  fileListElement.appendChild(li);
 
   makeDraggable(); // Make the new file list items draggable
   updateSubmitButtonState(); // Update the display of the submit button
 }
+
+// Function to remove a file from the file input element
+function removeFile(fileInput, index) {
+  const dataTransfer = new DataTransfer();
+  Array.from(fileInput.files)
+    .filter((_, i) => i !== index)
+    .forEach(file => dataTransfer.items.add(file));
+  fileInput.files = dataTransfer.files;
+}
+
 
 function clearAndHideFileList() {
   var fileListElement = document.getElementById('fileList');
