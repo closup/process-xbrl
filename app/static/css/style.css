@@ -109,11 +109,12 @@ header {
 
   .delete-button {
     margin-left: 10px;
-    background-color: #ffcb09; /* Maize color */
+    background-color: #ffffff; /* Maize color */
     color: #00274c; /* Blue color */
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+    float: right;
   }
 
   .delete-button:hover {

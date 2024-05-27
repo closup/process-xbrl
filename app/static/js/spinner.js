@@ -52,7 +52,7 @@ function updateSubmitButtonState() {
   }
 }
 
-function updateButton() {
+function updateFileList() {
   var input = document.getElementById('upload');
   var fileList = document.getElementById('fileList');
   var dragInstruction = document.getElementById('dragInstruction');

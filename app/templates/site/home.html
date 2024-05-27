@@ -22,7 +22,7 @@
         <form action="/upload" method="POST" enctype="multipart/form-data" id="uploadForm" onsubmit="startProcessing(event)">
             
             <!-- Hidden file input -->
-            <input type="file" name="files[]" id="upload" multiple onchange="updateButton()">
+            <input type="file" name="files[]" id="upload" multiple onchange="updateFileList()">
             
             <!-- Custom button that triggers the file input -->
             <label for="upload" class="btn btn-michigan btn-lg" id="fileInputLabel">
