@@ -52,7 +52,7 @@ function updateSubmitButtonState() {
   }
 }
 
-function updateFileList() {
+function updateButton() {
   var input = document.getElementById('upload');
   var fileList = document.getElementById('fileList');
   var dragInstruction = document.getElementById('dragInstruction');
@@ -70,37 +70,32 @@ function updateFileList() {
 
   Array.from(input.files).forEach((file, index) => {
     let li = document.createElement('li');
-    li.textContent = file.name;
     li.setAttribute('class', 'draggable');
     li.setAttribute('draggable', true);
 
-    // Create delete button for each file
-    var deleteButton = document.createElement('button');
+    let span = document.createElement('span');
+    span.textContent = file.name;
+
+    let deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
-    deleteButton.className = 'btn btn-michigan btn-sm delete-button';
-    deleteButton.onclick = function() {
-      removeFile(fileInput, index);
+    deleteButton.setAttribute('class', 'delete-btn');
+    deleteButton.addEventListener('click', function () {
       li.remove();
       updateSubmitButtonState();
-    };
+      if (!fileList.hasChildNodes()) {
+        dragInstruction.style.display = 'none'; // Hide the drag instruction text if no files are left
+      }
+    });
 
+    li.appendChild(span);
     li.appendChild(deleteButton);
-    fileListElement.appendChild(li);
+    fileList.appendChild(li);
   });
+
 
   makeDraggable(); // Make the new file list items draggable
   updateSubmitButtonState(); // Update the display of the submit button
 }
-
-// Function to remove a file from the file input element
-function removeFile(fileInput, index) {
-  const dataTransfer = new DataTransfer();
-  Array.from(fileInput.files)
-    .filter((_, i) => i !== index)
-    .forEach(file => dataTransfer.items.add(file));
-  fileInput.files = dataTransfer.files;
-}
-
 
 function clearAndHideFileList() {
   var fileListElement = document.getElementById('fileList');
@@ -115,6 +110,32 @@ function clearAndHideFileList() {
   submitButton.style.display = 'none';
   if (dragInstruction) {
       dragInstruction.style.display = 'none';
+  }
+}
+
+function updateFileList() {
+  var fileInput = document.getElementById('upload');
+  var fileListElement = document.getElementById('fileList');
+  var submitButton = document.getElementById('convert-button');
+  var dragInstruction = document.getElementById('dragInstruction');
+
+  // Clear existing list
+  fileListElement.innerHTML = '';
+  
+  // Populate list with new files
+  for (var i = 0; i < fileInput.files.length; i++) {
+      var listItem = document.createElement('li');
+      listItem.textContent = fileInput.files[i].name;
+      fileListElement.appendChild(listItem);
+  }
+  
+  // Show the file list, drag instructions, and submit button if files are selected
+  if (fileInput.files.length > 0) {
+      fileListElement.style.display = '';
+      submitButton.style.display = '';
+      if (dragInstruction) {
+          dragInstruction.style.display = '';
+      }
   }
 }
 

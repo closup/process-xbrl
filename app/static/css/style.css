@@ -101,24 +101,22 @@ header {
   .draggable.dragging {
     opacity: .5;
   }
-  
-  .sortable-list {
-    list-style-type: none;
-    padding: 0;
-  }
 
-  .delete-button {
-    margin-left: 10px;
-    background-color: #ffffff; /* Maize color */
-    color: #00274c; /* Blue color */
+  .sortable-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+  }
+  
+  .sortable-list .delete-btn {
+    background-color: rgb(159, 23, 23);
+    color: white;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    float: right;
-  }
-
-  .delete-button:hover {
-      background-color: #e0a800; /* Darker Maize color for hover effect */
   }
 
   .return-button {
