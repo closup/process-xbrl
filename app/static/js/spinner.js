@@ -73,7 +73,6 @@ function updateFileList() {
     li.textContent = file.name;
     li.setAttribute('class', 'draggable');
     li.setAttribute('draggable', true);
-    fileList.appendChild(li);
 
     // Create delete button for each file
     var deleteButton = document.createElement('button');
@@ -88,9 +87,6 @@ function updateFileList() {
     li.appendChild(deleteButton);
     fileListElement.appendChild(li);
   });
-
-  li.appendChild(deleteButton);
-  fileListElement.appendChild(li);
 
   makeDraggable(); // Make the new file list items draggable
   updateSubmitButtonState(); // Update the display of the submit button
@@ -119,32 +115,6 @@ function clearAndHideFileList() {
   submitButton.style.display = 'none';
   if (dragInstruction) {
       dragInstruction.style.display = 'none';
-  }
-}
-
-function updateFileList() {
-  var fileInput = document.getElementById('upload');
-  var fileListElement = document.getElementById('fileList');
-  var submitButton = document.getElementById('convert-button');
-  var dragInstruction = document.getElementById('dragInstruction');
-
-  // Clear existing list
-  fileListElement.innerHTML = '';
-  
-  // Populate list with new files
-  for (var i = 0; i < fileInput.files.length; i++) {
-      var listItem = document.createElement('li');
-      listItem.textContent = fileInput.files[i].name;
-      fileListElement.appendChild(listItem);
-  }
-  
-  // Show the file list, drag instructions, and submit button if files are selected
-  if (fileInput.files.length > 0) {
-      fileListElement.style.display = '';
-      submitButton.style.display = '';
-      if (dragInstruction) {
-          dragInstruction.style.display = '';
-      }
   }
 }
 
