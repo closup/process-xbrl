@@ -1,3 +1,6 @@
+// global var
+let fileListData = [];
+
 // Make items draggable
 function makeDraggable() {
   const draggables = document.querySelectorAll('.draggable');
@@ -44,9 +47,9 @@ function getDragAfterElement(container, y) {
 function updateSubmitButtonState() {
   var input = document.getElementById('upload');
   var convertButton = document.getElementById('convert-button');
-  if(input.files.length > 0) { // Check if any files were selected
+  if(fileListData.length > 0) { // Check if any files were selected
       convertButton.style.display = 'block'; // Show the convert button
-      convertButton.value = 'Combine and convert ' + input.files.length + ' file(s)'; // Display the number of files
+      convertButton.value = 'Combine and convert ' + fileListData.length + ' file(s)'; // Display the number of files
   } else {
       convertButton.style.display = 'none'; // Hide the convert button if no files are selected
   }
@@ -59,6 +62,8 @@ function updateButton() {
   var fileInputButtonText = document.getElementById('fileInputButtonText');
   fileList.innerHTML = ''; // Clear the existing list
 
+  fileListData = Array.from(input.files);
+
   // Update label text and drag instructions
   if (input.files && input.files.length > 0) {
       dragInstruction.style.display = 'block'; // Show the drag instruction text
@@ -68,26 +73,26 @@ function updateButton() {
       fileInputButtonText.textContent = 'Choose File(s)'; // Reset button text to original
   }
 
-  Array.from(input.files).forEach((file, index) => {
+  fileListData.forEach((file, index) => {
     let li = document.createElement('li');
-    li.setAttribute('class', 'draggable');
-    li.setAttribute('draggable', true);
+    li.setAttribute('class', 'draggable file-item');
+    li.setAttribute('draggable', 'true');
 
-    let span = document.createElement('span');
-    span.textContent = file.name;
+    const fileNameSpan = document.createElement('span');
+    fileNameSpan.textContent = file.name;
+    fileNameSpan.setAttribute('class', 'file-name');
 
-    let deleteButton = document.createElement('button');
+    const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.setAttribute('class', 'delete-btn');
-    deleteButton.addEventListener('click', function () {
-      li.remove();
-      updateSubmitButtonState();
-      if (!fileList.hasChildNodes()) {
-        dragInstruction.style.display = 'none'; // Hide the drag instruction text if no files are left
-      }
+
+    deleteButton.addEventListener('click', function() {
+      fileListData.splice(index, 1); // Remove the file from the list
+      li.remove(); // Remove the list item from the DOM
+      updateSubmitButtonState(); // Update the submit button state
     });
 
-    li.appendChild(span);
+    li.appendChild(fileNameSpan);
     li.appendChild(deleteButton);
     fileList.appendChild(li);
   });
