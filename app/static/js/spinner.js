@@ -164,18 +164,10 @@ function startProcessing(event) {
   document.getElementById('loader').style.display = 'block';
 
   var formData = new FormData();
-  var fileListElement = document.getElementById('fileList');
 
-  // Iterate over the list and append each file to FormData
-  Array.from(fileListElement.children).forEach((listItem) => {
-      var fileName = listItem.textContent;
-      var fileInput = document.getElementById('upload');
-      for (var i = 0; i < fileInput.files.length; i++) {
-          if (fileInput.files[i].name === fileName) {
-              formData.append('files[]', fileInput.files[i]);
-              break;
-          }
-      }
+  // Iterate over the fileListData and append each file to FormData
+  fileListData.forEach((file) => {
+    formData.append('files[]', file);
   });
 
   // AJAX request to Flask backend
@@ -203,7 +195,7 @@ function startProcessing(event) {
   })
   .catch(error => {
       console.error('Error:', error);
-      //document.getElementById('loader').style.display = 'none'; // hide loader wheel
-      //handleUploadError('An unexpected error occurred. Please try again.');
+      document.getElementById('loader').style.display = 'none'; // hide loader wheel
+      handleUploadError('An unexpected error occurred. Please try again.');
   });
 }
