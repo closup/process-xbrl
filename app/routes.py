@@ -6,9 +6,10 @@ from typing import * # to specify funtion inputs and outputs
 from app.utils import *
 
 # flask dependencies
-from flask import Blueprint, request, render_template, jsonify, session, redirect, url_for, send_from_directory, current_app
+from flask import Blueprint, request, render_template, jsonify, send_file, session, redirect, url_for, send_from_directory, current_app
 
-import uuid, shutil
+import uuid, zipfile
+from io import BytesIO
 
 # =============================================================
 # Set up routes
@@ -97,9 +98,31 @@ def successful_upload():
     
     update_session_timestamp(session)
 
-    download_url = url_for('static', filename=f'sessions_data/{session_id}/output/output.html')
+    download_url = url_for('routes_bp.download_zip', session_id=session_id)
 
     return render_template("site/upload.html", session_id=session_id, download_url=download_url)
+
+@routes_bp.route('/download_zip/<session_id>')
+def download_zip(session_id):
+    html_file_path = os.path.join('static', 'sessions_data', session_id, 'output', 'output.html')
+    img_directory_path = os.path.join('static', 'sessions_data', session_id, 'input', 'img')
+
+    # Create a zip file in memory
+    memory_file = BytesIO()
+    with zipfile.ZipFile(memory_file, 'w') as zf:
+        # Add HTML file to zip
+        zf.write(html_file_path, os.path.basename(html_file_path))
+        
+        # Add images to zip
+        for root, dirs, files in os.walk(img_directory_path):
+            for file in files:
+                file_path = os.path.join(root, file)
+                zf.write(file_path, os.path.join('img', file))
+
+    memory_file.seek(0)
+
+    return send_file(memory_file, attachment_filename='converted_xbrl.zip', as_attachment=True)
+
 
 @routes_bp.route('/serve_image/<filename>')
 def serve_image(filename):
