@@ -99,7 +99,6 @@ def successful_upload():
 
     download_url = url_for('static', filename=f'sessions_data/{session_id}/output/output.html')
 
-
     return render_template("site/upload.html", session_id=session_id, download_url=download_url)
 
 @routes_bp.route('/serve_image/<filename>')
