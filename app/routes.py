@@ -80,7 +80,7 @@ def upload_file():
     print("Converting Excel to inline XBRL...")
     write_html(file_list, output_file, format)
     # create page for the interactive viewer (prints progress in create_viewer_html fn)
-    viewer_output_path = f'app/static/sessions_data/{session_id}/output/'
+    viewer_output_path = "app/templates/site/viewer.html"
     create_viewer_html(output_file, viewer_output_path)
 
     return jsonify({'message': 'Files successfully uploaded'})
