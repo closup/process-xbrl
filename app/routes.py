@@ -100,7 +100,7 @@ def successful_upload():
 
     # Generate the ZIP file and save it
     generate_zip_file(session_id)
-    
+
     print('before download url set')
     download_url = f'app/static/sessions_data/{session_id}/output/converted_xbrl.zip'
     print('download url is', download_url)
@@ -141,6 +141,8 @@ def generate_zip_file(session_id):
                     zf.write(file_path, archive_name)
         else:
             print(f"Image directory not found: {img_directory_path}")
+    
+    zf.close()
 
 @routes_bp.route('/serve_image/<filename>')
 def serve_image(filename):
