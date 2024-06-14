@@ -102,7 +102,7 @@ def successful_upload():
     generate_zip_file(session_id)
 
     print('before download url set')
-    download_url = f'app/static/sessions_data/{session_id}/output/converted_xbrl.zip'
+    download_url = url_for('static', filename=f'sessions_data/{session_id}/output/converted_xbrl.zip')
     print('download url is', download_url)
 
     return render_template("site/upload.html", session_id=session_id, download_url=download_url)
