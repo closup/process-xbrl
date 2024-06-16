@@ -97,9 +97,10 @@ def successful_upload():
     
     update_session_timestamp(session)
 
+    # make sure output.html can generate images
+    modify_img_paths(session_id)
     # Generate the ZIP file and save it
     generate_zip_file(session_id)
-    modify_img_paths(session_id)
 
     print('before download url set')
     download_url = url_for('static', filename=f'sessions_data/{session_id}/output/converted_xbrl.zip')
