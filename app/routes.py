@@ -8,8 +8,7 @@ from app.utils import *
 # flask dependencies
 from flask import Blueprint, request, render_template, jsonify, send_file, session, redirect, url_for, send_from_directory, current_app
 
-import uuid, zipfile
-from io import BytesIO
+import uuid
 
 # =============================================================
 # Set up routes
@@ -100,49 +99,13 @@ def successful_upload():
 
     # Generate the ZIP file and save it
     generate_zip_file(session_id)
+    modify_img_paths(session_id)
 
     print('before download url set')
     download_url = url_for('static', filename=f'sessions_data/{session_id}/output/converted_xbrl.zip')
     print('download url is', download_url)
 
     return render_template("site/upload.html", session_id=session_id, download_url=download_url)
-
-
-def generate_zip_file(session_id):
-    output_dir = os.path.join('app/static', 'sessions_data', session_id, 'output')
-    html_file_path = os.path.join(output_dir, 'output.html')
-    img_directory_path = os.path.join('app/static', 'sessions_data', session_id, 'input', 'img')
-    zip_file_path = os.path.join(output_dir, 'converted_xbrl.zip')
-
-    # Ensure the output directory exists
-    os.makedirs(output_dir, exist_ok=True)
-
-    # Debug prints to check paths
-    print(f"HTML file path: {html_file_path}")
-    print(f"Image directory path: {img_directory_path}")
-    print(f"ZIP file path: {zip_file_path}")
-
-    # Create ZIP file
-    with zipfile.ZipFile(zip_file_path, 'w', zipfile.ZIP_DEFLATED) as zf:
-        # Add HTML file to zip
-        if os.path.exists(html_file_path):
-            print(f"Adding HTML file to zip: {html_file_path}")
-            zf.write(html_file_path, os.path.basename(html_file_path))
-        else:
-            print(f"HTML file not found: {html_file_path}")
-        
-        # Add images to zip
-        if os.path.exists(img_directory_path):
-            for root, dirs, files in os.walk(img_directory_path):
-                for file in files:
-                    file_path = os.path.join(root, file)
-                    archive_name = os.path.relpath(file_path, img_directory_path)
-                    print(f"Adding image to zip: {file_path} as {archive_name}")
-                    zf.write(file_path, archive_name)
-        else:
-            print(f"Image directory not found: {img_directory_path}")
-    
-    zf.close()
 
 @routes_bp.route('/serve_image/<filename>')
 def serve_image(filename):

@@ -8,7 +8,9 @@ from app.utils.constants import *
 from typing import *
 from datetime import datetime, timedelta, timezone
 import shutil
-import os
+import os, zipfile
+from bs4 import BeautifulSoup
+from io import BytesIO
 
 def nth_parent_dir(file, n):
     """ give file path for n directories up"""
@@ -93,3 +95,60 @@ def check_session_expiry(session):
 # Function to update session timestamp
 def update_session_timestamp(session):
     session['session_timestamp'] = datetime.now(timezone.utc)
+
+def modify_img_paths(session_id):
+    # Define the path to the HTML file
+    html_file_path = os.path.join('app', 'static', 'sessions_data', session_id, 'output', 'output.html')
+
+    # Read the HTML file
+    with open(html_file_path, 'r', encoding='utf-8') as file:
+        soup = BeautifulSoup(file, 'html.parser')
+
+    # Find all <img> tags and modify their src attribute
+    for img_tag in soup.find_all('img'):
+        src = img_tag.get('src')
+        if src and src.startswith('/static/sessions_data/'):
+            # Truncate '/static/sessions_data' from the src attribute
+            new_src = src.replace('/static/sessions_data', '')
+            img_tag['src'] = new_src
+
+    # Save the modified HTML back to the file
+    with open(html_file_path, 'w', encoding='utf-8') as file:
+        file.write(str(soup))
+
+# Generates a zip file to download once conversion is complete
+def generate_zip_file(session_id):
+    output_dir = os.path.join('app/static', 'sessions_data', session_id, 'output')
+    html_file_path = os.path.join(output_dir, 'output.html')
+    img_directory_path = os.path.join('app/static', 'sessions_data', session_id, 'input', 'img')
+    zip_file_path = os.path.join(output_dir, 'converted_xbrl.zip')
+
+    # Ensure the output directory exists
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Debug prints to check paths
+    print(f"HTML file path: {html_file_path}")
+    print(f"Image directory path: {img_directory_path}")
+    print(f"ZIP file path: {zip_file_path}")
+
+    # Create ZIP file
+    with zipfile.ZipFile(zip_file_path, 'w', zipfile.ZIP_DEFLATED) as zf:
+        # Add HTML file to zip
+        if os.path.exists(html_file_path):
+            print(f"Adding HTML file to zip: {html_file_path}")
+            zf.write(html_file_path, os.path.basename(html_file_path))
+        else:
+            print(f"HTML file not found: {html_file_path}")
+        
+        # Add images to zip
+        if os.path.exists(img_directory_path):
+            for root, dirs, files in os.walk(img_directory_path):
+                for file in files:
+                    file_path = os.path.join(root, file)
+                    archive_name = os.path.relpath(file_path, img_directory_path)
+                    print(f"Adding image to zip: {file_path} as {archive_name}")
+                    zf.write(file_path, archive_name)
+        else:
+            print(f"Image directory not found: {img_directory_path}")
+    
+    zf.close()
