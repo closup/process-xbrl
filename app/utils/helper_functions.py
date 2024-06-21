@@ -107,10 +107,12 @@ def modify_img_paths(session_id):
     # Find all <img> tags and modify their src attribute
     for img_tag in soup.find_all('img'):
         src = img_tag.get('src')
-        if src and src.startswith('/static/sessions_data/'):
-            # Truncate '/static/sessions_data' from the src attribute
-            new_src = src.replace('/static/sessions_data', '')
-            img_tag['src'] = new_src
+        if src and f"/{session_id}/input/img/" in src:
+            # Extract the filename
+            filename = os.path.basename(src)
+            # Set the new src to just the filename
+            img_tag['src'] = filename
+
 
     # Save the modified HTML back to the file
     with open(html_file_path, 'w', encoding='utf-8') as file:
