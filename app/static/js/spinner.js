@@ -1,6 +1,3 @@
-// global var
-let fileListData = [];
-
 // Make items draggable
 function makeDraggable() {
   const draggables = document.querySelectorAll('.draggable');
@@ -44,36 +41,28 @@ function getDragAfterElement(container, y) {
   }, { offset: Number.NEGATIVE_INFINITY }).element;
 }
 
-function updateSubmitButtonState() {
-  var input = document.getElementById('upload');
-  var convertButton = document.getElementById('convert-button');
-  if(fileListData.length > 0) { // Check if any files were selected
-      convertButton.style.display = 'block'; // Show the convert button
-      convertButton.value = 'Combine and convert ' + fileListData.length + ' file(s)'; // Display the number of files
-  } else {
-      convertButton.style.display = 'none'; // Hide the convert button if no files are selected
-  }
-}
-
 function updateButton() {
   var input = document.getElementById('upload');
   var fileList = document.getElementById('fileList');
   var dragInstruction = document.getElementById('dragInstruction');
   var fileInputButtonText = document.getElementById('fileInputButtonText');
-  fileList.innerHTML = ''; // Clear the existing list
+  var convertButton = document.getElementById('convert-button');
 
-  fileListData = Array.from(input.files);
+  fileList.innerHTML = ''; // Clear the existing list
 
   // Update label text and drag instructions
   if (input.files && input.files.length > 0) {
-      dragInstruction.style.display = 'block'; // Show the drag instruction text
-      fileInputButtonText.textContent = 'Choose new files';  // Change button text
+    dragInstruction.style.display = 'block'; // Show the drag instruction text
+    fileInputButtonText.textContent = 'Choose new files';  // Change button text
+    convertButton.style.display = 'block'; // Show the convert button
+    convertButton.value = 'Combine and convert file(s)'; // Display a generic message
   } else {
-      dragInstruction.style.display = 'none'; // Hide the drag instruction text
-      fileInputButtonText.textContent = 'Choose File(s)'; // Reset button text to original
+    dragInstruction.style.display = 'none'; // Hide the drag instruction text
+    fileInputButtonText.textContent = 'Choose File(s)'; // Reset button text to original
+    convertButton.style.display = 'none'; // Hide the convert button
   }
 
-  fileListData.forEach((file, index) => {
+  Array.from(input.files).forEach((file, index) => {
     let li = document.createElement('li');
     li.setAttribute('class', 'draggable file-item');
     li.setAttribute('draggable', 'true');
@@ -87,9 +76,9 @@ function updateButton() {
     deleteButton.setAttribute('class', 'delete-btn');
 
     deleteButton.addEventListener('click', function() {
-      fileListData.splice(index, 1); // Remove the file from the list
+      input.files = removeFileAtIndex(input.files, index); // Remove the file from the input
       li.remove(); // Remove the list item from the DOM
-      updateSubmitButtonState(); // Update the submit button state
+      updateButton(); // Update the button and file list
     });
 
     li.appendChild(fileNameSpan);
@@ -97,9 +86,18 @@ function updateButton() {
     fileList.appendChild(li);
   });
 
-
   makeDraggable(); // Make the new file list items draggable
-  updateSubmitButtonState(); // Update the display of the submit button
+}
+
+// Helper function to remove a file at a specific index from a FileList
+function removeFileAtIndex(fileList, index) {
+  const dataTransfer = new DataTransfer();
+  Array.from(fileList).forEach((file, i) => {
+    if (i !== index) {
+      dataTransfer.items.add(file);
+    }
+  });
+  return dataTransfer.files;
 }
 
 function clearAndHideFileList() {
@@ -114,7 +112,7 @@ function clearAndHideFileList() {
   fileListElement.style.display = 'none';
   submitButton.style.display = 'none';
   if (dragInstruction) {
-      dragInstruction.style.display = 'none';
+    dragInstruction.style.display = 'none';
   }
 }
 
@@ -129,32 +127,34 @@ function updateFileList() {
   
   // Populate list with new files
   for (var i = 0; i < fileInput.files.length; i++) {
-      var listItem = document.createElement('li');
-      listItem.textContent = fileInput.files[i].name;
-      fileListElement.appendChild(listItem);
+    var listItem = document.createElement('li');
+    listItem.textContent = fileInput.files[i].name;
+    fileListElement.appendChild(listItem);
   }
   
   // Show the file list, drag instructions, and submit button if files are selected
   if (fileInput.files.length > 0) {
-      fileListElement.style.display = '';
-      submitButton.style.display = '';
-      if (dragInstruction) {
-          dragInstruction.style.display = '';
-      }
+    fileListElement.style.display = '';
+    submitButton.style.display = '';
+    if (dragInstruction) {
+      dragInstruction.style.display = '';
+    }
   }
 }
 
 // Add event listener to file input to handle new selections
-document.getElementById('upload').addEventListener('change', updateFileList);
+document.getElementById('upload').addEventListener('change', updateButton);
 
 function handleUploadError(errorMessage) {
   document.getElementById('loader').style.display = 'none'; // hide loader wheel
   alert(errorMessage);    // Shows the alert with the error message
   clearAndHideFileList(); // Clears and hides the file list
+  var submitButton = document.getElementById('convert-button');
   submitButton.style.display = 'none';
-          if (dragInstruction) {
-              dragInstruction.style.display = 'none';
-          }
+  var dragInstruction = document.getElementById('dragInstruction');
+  if (dragInstruction) {
+    dragInstruction.style.display = 'none';
+  }
 }
 
 function startProcessing(event) {
@@ -164,38 +164,38 @@ function startProcessing(event) {
   document.getElementById('loader').style.display = 'block';
 
   var formData = new FormData();
+  var input = document.getElementById('upload');
 
-  // Iterate over the fileListData and append each file to FormData
-  fileListData.forEach((file) => {
+  // Iterate over the files and append each file to FormData
+  Array.from(input.files).forEach((file) => {
     formData.append('files[]', file);
   });
 
   // AJAX request to Flask backend
   fetch('/upload', {
-      method: 'POST',
-      body: formData,
+    method: 'POST',
+    body: formData,
   })
   .then(response => {
     // Make sure to handle HTTP errors even if the response is not ok
     if (!response.ok) {
-        throw new Error('Network response was not ok');
+      throw new Error('Network response was not ok');
     }
     return response.json();
-})
+  })
   .then(data => {
-      if (data.error) {
-        document.getElementById('loader').style.display = 'none'; // hide loader wheel
-        handleUploadError(data.error);
-      } else {
-          // No error, proceed to the success page
-          console.log('Success:', data);
-          window.location.href = '/upload/complete';
-
-      }
+    if (data.error) {
+      document.getElementById('loader').style.display = 'none'; // hide loader wheel
+      handleUploadError(data.error);
+    } else {
+      // No error, proceed to the success page
+      console.log('Success:', data);
+      window.location.href = '/upload/complete';
+    }
   })
   .catch(error => {
-      console.error('Error:', error);
-      document.getElementById('loader').style.display = 'none'; // hide loader wheel
-      handleUploadError('An unexpected error occurred. Please try again.');
+    console.error('Error:', error);
+    document.getElementById('loader').style.display = 'none'; // hide loader wheel
+    handleUploadError('An unexpected error occurred. Please try again.');
   });
 }
