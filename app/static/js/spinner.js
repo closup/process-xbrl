@@ -159,6 +159,7 @@ function handleUploadError(errorMessage) {
   if (dragInstruction) {
       dragInstruction.style.display = 'none';
   }
+  document.getElementById('upload').value = '';
 }
 
 function startProcessing(event) {
