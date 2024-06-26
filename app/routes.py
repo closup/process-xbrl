@@ -70,8 +70,10 @@ def upload_file():
     # Process uploaded files and save output to session output folder
     excel_files = [file for file in file_list if is_spreadsheet(file.filename)]
     print('test', excel_files)
-    if len(excel_files) != 1:
-        return jsonify({'error': 'Please upload exactly one Excel file'})
+    if len(excel_files) == 0:
+        return jsonify({'error': 'An Excel file is missing'}), 400
+    elif len(excel_files) != 1:
+        return jsonify({'error': 'Please upload exactly one Excel file'}), 400
     
     # define output path
     output_file = os.path.join(output_folder, 'output.html')
