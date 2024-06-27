@@ -26,7 +26,10 @@ def home():
 
 @routes_bp.route('/viewer')
 def view():
-    return render_template("site/viewer.html")
+    session_id = session.get('session_id')
+    print('pulled', session_id)
+
+    return render_template(f'app/static/sessions_data/{session_id}/output/viewer.html')
 
 @routes_bp.route('/upload', methods=['POST'])
 def upload_file():
@@ -82,7 +85,8 @@ def upload_file():
     print("Converting Excel to inline XBRL...")
     write_html(file_list, output_file, format)
     # create page for the interactive viewer (prints progress in create_viewer_html fn)
-    viewer_output_path = "app/templates/site/viewer.html"
+    # TEMP viewer_output_path = "app/templates/site/viewer.html"
+    viewer_output_path = f'app/static/sessions_data/{session_id}/output/'
     create_viewer_html(output_file, viewer_output_path)
 
     return jsonify({'message': 'Files successfully uploaded'})

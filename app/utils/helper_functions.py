@@ -98,7 +98,7 @@ def update_session_timestamp(session):
 
 def modify_img_paths(session_id):
     # Define the path to the HTML file
-    html_file_path = os.path.join('app', 'static', 'sessions_data', session_id, 'output', 'output.html')
+    html_file_path = os.path.join('app', 'static', 'sessions_data', session_id, 'output', 'viewer.html')
 
     # Read the HTML file
     with open(html_file_path, 'r', encoding='utf-8') as file:
@@ -121,7 +121,7 @@ def modify_img_paths(session_id):
 # Generates a zip file to download once conversion is complete
 def generate_zip_file(session_id):
     output_dir = os.path.join('app/static', 'sessions_data', session_id, 'output')
-    html_file_path = os.path.join(output_dir, 'output.html')
+    html_file_path = os.path.join(output_dir, 'viewer.html')
     img_directory_path = os.path.join('app/static', 'sessions_data', session_id, 'input', 'img')
     zip_file_path = os.path.join(output_dir, 'converted_xbrl.zip')
 
