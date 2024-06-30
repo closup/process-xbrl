@@ -15,7 +15,8 @@ import uuid
 # =============================================================
 
 # A blueprint for all routes
-routes_bp = Blueprint('routes_bp', __name__)
+current_directory = os.path.dirname(os.path.abspath(__file__))
+routes_bp = Blueprint('routes_bp', __name__, template_folder=current_directory)
 
 @routes_bp.route('/')
 def home():
