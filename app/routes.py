@@ -6,9 +6,9 @@ from typing import * # to specify funtion inputs and outputs
 from app.utils import *
 
 # flask dependencies
-from flask import Blueprint, request, render_template, jsonify, session, redirect, url_for, send_from_directory, current_app
+from flask import Blueprint, request, render_template, jsonify, send_file, session, redirect, url_for, send_from_directory, current_app
 
-import uuid, shutil
+import uuid
 
 # =============================================================
 # Set up routes
@@ -80,7 +80,7 @@ def upload_file():
     print("Converting Excel to inline XBRL...")
     write_html(file_list, output_file, format)
     # create page for the interactive viewer (prints progress in create_viewer_html fn)
-    viewer_output_path = f'app/static/sessions_data/{session_id}/output/'
+    viewer_output_path = "app/templates/site/viewer.html"
     create_viewer_html(output_file, viewer_output_path)
 
     return jsonify({'message': 'Files successfully uploaded'})
@@ -97,8 +97,14 @@ def successful_upload():
     
     update_session_timestamp(session)
 
-    download_url = url_for('static', filename=f'sessions_data/{session_id}/output/output.html')
+    # make sure output.html can generate images
+    modify_img_paths(session_id)
+    # Generate the ZIP file and save it
+    generate_zip_file(session_id)
 
+    print('before download url set')
+    download_url = url_for('static', filename=f'sessions_data/{session_id}/output/converted_xbrl.zip')
+    print('download url is', download_url)
 
     return render_template("site/upload.html", session_id=session_id, download_url=download_url)
 

@@ -101,10 +101,22 @@ header {
   .draggable.dragging {
     opacity: .5;
   }
+
+  .sortable-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+  }
   
-  .sortable-list {
-    list-style-type: none;
-    padding: 0;
+  .sortable-list .delete-btn {
+    background-color: rgb(159, 23, 23);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
   }
 
   .return-button {

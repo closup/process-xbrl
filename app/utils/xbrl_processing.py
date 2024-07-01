@@ -48,12 +48,12 @@ def write_html(file_list : List[Any],
         write_location.write(rendered_ixbrl)
 
 def create_viewer_html(output_file : str,
-                       viewer_outpath : str):
+                       viewer_outpath : str = "templates/site/viewer.html"):
     """
     Runs Arelle and ixbrl-viewer submodules to create a viewer html and 
     accompanying javascript file.
     """
-    viewer_filepath = os.path.join(ROOT, viewer_outpath, 'viewer.html')
+    viewer_filepath = os.path.join(ROOT, viewer_outpath)
 
     # command to run Arelle process
     plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
@@ -85,5 +85,4 @@ def create_viewer_html(output_file : str,
     with open(viewer_filepath, 'w', encoding="utf8") as file:
         file.write(str(soup))
 
-    viewer_js_path = os.path.join(viewer_outpath, 'ixbrlviewer.js')
-    os.rename(viewer_js_path, 'app/static/js/ixbrlviewer.js')
+    os.rename('app/templates/site/ixbrlviewer.js', 'app/static/js/ixbrlviewer.js')
