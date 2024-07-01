@@ -15,7 +15,8 @@ import uuid
 # =============================================================
 
 # A blueprint for all routes
-routes_bp = Blueprint('routes_bp', __name__)
+current_directory = os.path.dirname(os.path.abspath(__file__))
+routes_bp = Blueprint('routes_bp', __name__, template_folder=current_directory)
 
 @routes_bp.route('/')
 def home():
@@ -26,7 +27,10 @@ def home():
 
 @routes_bp.route('/viewer')
 def view():
-    return render_template("site/viewer.html")
+    session_id = session.get('session_id')
+    print('pulled', session_id)
+
+    return render_template(f'app/static/sessions_data/{session_id}/output/viewer.html')
 
 @routes_bp.route('/upload', methods=['POST'])
 def upload_file():
@@ -70,8 +74,10 @@ def upload_file():
     # Process uploaded files and save output to session output folder
     excel_files = [file for file in file_list if is_spreadsheet(file.filename)]
     print('test', excel_files)
-    if len(excel_files) != 1:
-        return jsonify({'error': 'Please upload exactly one Excel file'})
+    if len(excel_files) == 0:
+        return jsonify({'error': 'An Excel file is missing'}), 400
+    elif len(excel_files) != 1:
+        return jsonify({'error': 'Please upload exactly one Excel file'}), 400
     
     # define output path
     output_file = os.path.join(output_folder, 'output.html')
@@ -80,7 +86,8 @@ def upload_file():
     print("Converting Excel to inline XBRL...")
     write_html(file_list, output_file, format)
     # create page for the interactive viewer (prints progress in create_viewer_html fn)
-    viewer_output_path = "app/templates/site/viewer.html"
+    # TEMP viewer_output_path = "app/templates/site/viewer.html"
+    viewer_output_path = f'app/static/sessions_data/{session_id}/output/'
     create_viewer_html(output_file, viewer_output_path)
 
     return jsonify({'message': 'Files successfully uploaded'})
