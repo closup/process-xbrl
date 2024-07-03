@@ -15,8 +15,7 @@ import uuid
 # =============================================================
 
 # A blueprint for all routes
-current_directory = os.path.dirname(os.path.abspath(__file__))
-routes_bp = Blueprint('routes_bp', __name__, template_folder=current_directory)
+routes_bp = Blueprint('routes_bp', __name__)
 
 @routes_bp.route('/')
 def home():
@@ -30,7 +29,16 @@ def view():
     session_id = session.get('session_id')
     print('pulled', session_id)
 
-    return render_template(f'app/static/sessions_data/{session_id}/output/viewer.html')
+    session_template_path = os.path.join('static', 'sessions_data', session_id, 'output')
+    full_path = os.path.join(current_app.root_path, session_template_path)
+    
+    print('session_template_path:', session_template_path)
+    print('full_path:', full_path)
+    
+    if not os.path.isdir(full_path):
+        return "Directory not found", 404
+
+    return send_from_directory(full_path, 'viewer.html')
 
 @routes_bp.route('/upload', methods=['POST'])
 def upload_file():
@@ -47,7 +55,7 @@ def upload_file():
     os.makedirs(output_folder, exist_ok=True)
 
     # Set default values
-    output_file = os.path.join(output_folder, "output.html")
+    output_file = os.path.join(output_folder, "viewer.html")
     format = "gray"
 
     # Check for the 'files[]' part in the request
@@ -80,7 +88,7 @@ def upload_file():
         return jsonify({'error': 'Please upload exactly one Excel file'}), 400
     
     # define output path
-    output_file = os.path.join(output_folder, 'output.html')
+    output_file = os.path.join(output_folder, 'viewer.html')
 
     # create ixbrl file
     print("Converting Excel to inline XBRL...")
