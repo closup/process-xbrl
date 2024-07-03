@@ -123,8 +123,8 @@ def successful_upload():
 
     return render_template("site/upload.html", session_id=session_id, download_url=download_url)
 
-@routes_bp.route('/serve_image/<filename>')
-def serve_image(filename):
+@routes_bp.route('/serve_image/<session_id>/<filename>')
+def serve_image(session_id, filename):
     # Specify the directory to send from.
-    images_directory = os.path.join(current_app.root_path, 'static/img')
+    images_directory = os.path.join(current_app.root_path, 'static/sessions_data', session_id, 'input/img')
     return send_from_directory(images_directory, filename)
