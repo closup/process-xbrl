@@ -32,6 +32,7 @@ header {
 .container {
     /* Space after the header and before the cards */
     margin-top: 30px;
+    text-align: center;
 }
 
 .btn-michigan {
@@ -40,7 +41,7 @@ header {
     background-color: #ffffff;
     border: 2px solid #00274c;
     /* width:72%;  */
-    text-align: justify;
+    text-align: center;
 }
 
 .btn-michigan:hover {
