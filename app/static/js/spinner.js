@@ -69,7 +69,7 @@ function updateButton() {
 
         const fileNameSpan = document.createElement('span');
         fileNameSpan.textContent = file.name;
-        fileNameSpan.setAttribute('class', 'file-name');
+        fileNameSpan.setAttribute('class', 'filename');
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';

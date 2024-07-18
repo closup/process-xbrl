@@ -112,6 +112,14 @@ header {
     margin-bottom: 5px;
   }
   
+  .sortable-list .filename {
+    flex-grow: 1; /* Allow filename to take the remaining space */
+    overflow: hidden; /* Hide any overflowing content */
+    text-overflow: ellipsis; /* Add ellipsis (...) for overflowing text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    margin-right: 10px; /* Add some space between the filename and the delete button */
+  }
+
   .sortable-list .delete-btn {
     background-color: rgb(159, 23, 23);
     color: white;
