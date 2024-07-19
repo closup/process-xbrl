@@ -16,7 +16,7 @@ class Cell:
         self._n_left_cols = n_left_cols
         self._first_row = False
         # adjust dimensions based on line item if relevant
-        self.handle_custom_line_item()
+        #self.handle_custom_line_item()
 
     def sign(self):
         """ get sign of value (ie. negative or positive) """
