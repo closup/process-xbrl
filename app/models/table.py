@@ -22,8 +22,11 @@ class Table:
         self._header = self.get_header()
         self.sheet_name = sheet_name
         # Process underlying sheet
-        self.reshape_data()
-        self._col_names = self.get_col_names()
+        try:
+            self.reshape_data()
+            self._col_names = self.get_col_names()
+        catch:
+
 
     def data(self) -> List[Cell]:
         return self._data
@@ -116,14 +119,6 @@ class Table:
         self._df.reset_index(drop=True, inplace=True)
         self._df["row"] = 1 + self.n_header_lines() + len(self.header()) + self._df.index  
         n_rows_orig = len(self._df) # num of rows before reshaping
-
-        # Print the DataFrame to inspect its structure
-        print("DataFrame before melt:")
-        print(self._df)
-        # Save DataFrame to a CSV file for inspection
-        self._df.to_csv("full_dataframe_before_melt.csv", index=False)
-
-        print("Columns:", self._df.columns)
 
         # Reshape using 'melt' to give one row per taggable item
         id_cols = self._df.columns[:self.extra_left_cols].tolist() + ["row"]

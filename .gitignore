@@ -24,4 +24,7 @@ app/templates/site/viewer.html
 *.png
 
 # Ignore sessions data
-sessions_data/*
+app/static/sessions_data/*
+
+# ignore csv for inspection
+.csv
