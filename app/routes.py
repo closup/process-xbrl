@@ -26,7 +26,19 @@ def home():
 
 @routes_bp.route('/viewer')
 def view():
-    return render_template("site/viewer.html")
+    session_id = session.get('session_id')
+    print('pulled', session_id)
+
+    session_template_path = os.path.join('static', 'sessions_data', session_id, 'output')
+    full_path = os.path.join(current_app.root_path, session_template_path)
+    
+    print('session_template_path:', session_template_path)
+    print('full_path:', full_path)
+    
+    if not os.path.isdir(full_path):
+        return "Directory not found", 404
+
+    return send_from_directory(full_path, 'viewer.html')
 
 @routes_bp.route('/upload', methods=['POST'])
 def upload_file():
@@ -43,7 +55,7 @@ def upload_file():
     os.makedirs(output_folder, exist_ok=True)
 
     # Set default values
-    output_file = os.path.join(output_folder, "output.html")
+    output_file = os.path.join(output_folder, "viewer.html")
     format = "gray"
 
     # Check for the 'files[]' part in the request
@@ -70,17 +82,20 @@ def upload_file():
     # Process uploaded files and save output to session output folder
     excel_files = [file for file in file_list if is_spreadsheet(file.filename)]
     print('test', excel_files)
-    if len(excel_files) != 1:
-        return jsonify({'error': 'Please upload exactly one Excel file'})
+    if len(excel_files) == 0:
+        return jsonify({'error': 'An Excel file is missing'}), 400
+    elif len(excel_files) != 1:
+        return jsonify({'error': 'Please upload exactly one Excel file'}), 400
     
     # define output path
-    output_file = os.path.join(output_folder, 'output.html')
+    output_file = os.path.join(output_folder, 'viewer.html')
 
     # create ixbrl file
     print("Converting Excel to inline XBRL...")
     write_html(file_list, output_file, format)
     # create page for the interactive viewer (prints progress in create_viewer_html fn)
-    viewer_output_path = "app/templates/site/viewer.html"
+    # TEMP viewer_output_path = "app/templates/site/viewer.html"
+    viewer_output_path = f'app/static/sessions_data/{session_id}/output/'
     create_viewer_html(output_file, viewer_output_path)
 
     return jsonify({'message': 'Files successfully uploaded'})
@@ -108,8 +123,8 @@ def successful_upload():
 
     return render_template("site/upload.html", session_id=session_id, download_url=download_url)
 
-@routes_bp.route('/serve_image/<filename>')
-def serve_image(filename):
+@routes_bp.route('/serve_image/<session_id>/<filename>')
+def serve_image(session_id, filename):
     # Specify the directory to send from.
-    images_directory = os.path.join(current_app.root_path, 'static/img')
+    images_directory = os.path.join(current_app.root_path, 'static/sessions_data', session_id, 'input/img')
     return send_from_directory(images_directory, filename)
