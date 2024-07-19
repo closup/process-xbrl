@@ -13,4 +13,4 @@ class PropFunds(NetPosition):
     def n_header_lines(self) -> int:
         # determine number of lines above the first taggable row
         # TODO: fix this hard-coding
-        return self._df[self._df.columns[-1]].first_valid_index() + 1
+        return self._df[self._df.columns[-1]].first_valid_index()

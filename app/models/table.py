@@ -25,7 +25,9 @@ class Table:
         try:
             self.reshape_data()
             self._col_names = self.get_col_names()
-        catch:
+        except Exception as e:
+            print(f'Failed to parse {self.sheet_name}: {e}')
+            exit()
 
 
     def data(self) -> List[Cell]:
@@ -123,11 +125,6 @@ class Table:
         # Reshape using 'melt' to give one row per taggable item
         id_cols = self._df.columns[:self.extra_left_cols].tolist() + ["row"]
         val_cols = self._df.columns[self.extra_left_cols:].tolist()
-
-        # Print id_cols and val_cols to inspect them
-        print("ID columns:", id_cols)
-        print("Value columns:", val_cols)
-
         self._df = pd.melt(self._df, id_vars=id_cols, value_vars=val_cols, var_name="header")
 
         # Calculate original sheet column and cell in Excel document
