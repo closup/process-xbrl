@@ -147,7 +147,7 @@ function updateFileList() {
 }
 
 // Add event listener to file input to handle new selections
-document.getElementById('upload').addEventListener('change', updateButton);
+// document.getElementById('upload').addEventListener('change', updateButton);
 
 function handleUploadError(errorMessage) {
     document.getElementById('loader').style.display = 'none'; // hide loader wheel
