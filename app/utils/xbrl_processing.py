@@ -58,6 +58,8 @@ def create_viewer_html(output_file : str,
     # command to run Arelle process
     plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
+
+    print('viewer path', viewer_filepath)
     args = f"--plugins={plugins} -f {output_file} --save-viewer {viewer_filepath} --viewer-url {viewer_url}"
     
     args = shlex.split(args)
@@ -78,7 +80,7 @@ def create_viewer_html(output_file : str,
     script_tag = soup.find('script', {'src': 'ixbrlviewer.js'})
     if script_tag:
         # Update the src attribute
-        script_tag['src'] = '{{ url_for(\'static\', filename=\'js/ixbrlviewer.js\') }}'
+        script_tag['src'] = '/static/js/ixbrlviewer.js'
 
     # Write the modified HTML back out
     print("Writing files...")
