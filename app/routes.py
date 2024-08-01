@@ -55,7 +55,7 @@ def upload_file():
     os.makedirs(output_folder, exist_ok=True)
 
     # Set default values
-    output_file = os.path.join(output_folder, "viewer.html")
+    output_file = os.path.join(output_folder, "output.html")
     format = "gray"
 
     # Check for the 'files[]' part in the request

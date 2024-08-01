@@ -14,7 +14,7 @@ from app.models import Acfr
 from typing import *
 from app.utils.constants import * #all global variables
 from app.utils.helper_functions import *
-from flask import render_template
+from flask import render_template, url_for
 
 # Make arelle imports possible
 base_dir = os.path.abspath(nth_parent_dir(__file__, 3))
@@ -80,7 +80,7 @@ def create_viewer_html(output_file : str,
     script_tag = soup.find('script', {'src': 'ixbrlviewer.js'})
     if script_tag:
         # Update the src attribute
-        script_tag['src'] = '/static/js/ixbrlviewer.js'
+        script_tag['src'] = url_for('static', filename='js/ixbrlviewer.js')
 
     # Write the modified HTML back out
     print("Writing files...")
