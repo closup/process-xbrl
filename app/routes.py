@@ -55,7 +55,7 @@ def upload_file():
     os.makedirs(output_folder, exist_ok=True)
 
     # Set default values
-    output_file = os.path.join(output_folder, "viewer.html")
+    output_file = os.path.join(output_folder, "output.html")
     format = "gray"
 
     # Check for the 'files[]' part in the request
@@ -87,9 +87,6 @@ def upload_file():
     elif len(excel_files) != 1:
         return jsonify({'error': 'Please upload exactly one Excel file'}), 400
     
-    # define output path
-    output_file = os.path.join(output_folder, 'viewer.html')
-
     # create ixbrl file
     print("Converting Excel to inline XBRL...")
     write_html(file_list, output_file, format)

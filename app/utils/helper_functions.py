@@ -121,7 +121,7 @@ def modify_img_paths(session_id):
 # Generates a zip file to download once conversion is complete
 def generate_zip_file(session_id):
     output_dir = os.path.join('app/static', 'sessions_data', session_id, 'output')
-    html_file_path = os.path.join(output_dir, 'viewer.html')
+    html_file_path = os.path.join(output_dir, 'output.html')
     img_directory_path = os.path.join('app/static', 'sessions_data', session_id, 'input', 'img')
     zip_file_path = os.path.join(output_dir, 'converted_xbrl.zip')
 
