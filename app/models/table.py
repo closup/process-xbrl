@@ -22,8 +22,13 @@ class Table:
         self._header = self.get_header()
         self.sheet_name = sheet_name
         # Process underlying sheet
-        self.reshape_data()
-        self._col_names = self.get_col_names()
+        try:
+            self.reshape_data()
+            self._col_names = self.get_col_names()
+        except Exception as e:
+            print(f'Failed to parse {self.sheet_name}: {e}')
+            exit()
+
 
     def data(self) -> List[Cell]:
         return self._data
@@ -66,7 +71,16 @@ class Table:
 
     def n_header_lines(self) -> int:
         # determine number of lines above the first taggable row
-        return self._df[self._df.columns[-1]].first_valid_index()
+        first_column = self._df[self._df.columns[0]]
+        # Determine the index of the row which contains "XBRL Element" in the first column
+        idx = first_column[first_column == "XBRL Element"].index
+
+        # If "XBRL Element" is not found, return the number of rows in the DataFrame
+        if idx.empty:
+            return len(first_column)
+        
+        # Return the row number before "XBRL Element"
+        return idx[0]
     
     def parse_date(self) -> datetime :
         """ Get date from spreadsheet and interpret """

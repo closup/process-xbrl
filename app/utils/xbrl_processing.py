@@ -14,7 +14,7 @@ from app.models import Acfr
 from typing import *
 from app.utils.constants import * #all global variables
 from app.utils.helper_functions import *
-from flask import render_template
+from flask import render_template, url_for
 
 # Make arelle imports possible
 base_dir = os.path.abspath(nth_parent_dir(__file__, 3))
@@ -48,16 +48,18 @@ def write_html(file_list : List[Any],
         write_location.write(rendered_ixbrl)
 
 def create_viewer_html(output_file : str,
-                       viewer_filepath : str = "templates/site/viewer.html"):
+                       viewer_outpath : str):
     """
     Runs Arelle and ixbrl-viewer submodules to create a viewer html and 
     accompanying javascript file.
     """
-    viewer_filepath = os.path.join(ROOT, viewer_filepath)
+    viewer_filepath = os.path.join(ROOT, viewer_outpath, 'viewer.html')
 
     # command to run Arelle process
     plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
+
+    print('viewer path', viewer_filepath)
     args = f"--plugins={plugins} -f {output_file} --save-viewer {viewer_filepath} --viewer-url {viewer_url}"
     
     args = shlex.split(args)
@@ -78,11 +80,12 @@ def create_viewer_html(output_file : str,
     script_tag = soup.find('script', {'src': 'ixbrlviewer.js'})
     if script_tag:
         # Update the src attribute
-        script_tag['src'] = '{{ url_for(\'static\', filename=\'js/ixbrlviewer.js\') }}'
+        script_tag['src'] = url_for('static', filename='js/ixbrlviewer.js')
 
     # Write the modified HTML back out
     print("Writing files...")
     with open(viewer_filepath, 'w', encoding="utf8") as file:
         file.write(str(soup))
 
-    os.rename('app/templates/site/ixbrlviewer.js', 'app/static/js/ixbrlviewer.js')
+    viewer_js_path = os.path.join(viewer_outpath, 'ixbrlviewer.js')
+    os.rename(viewer_js_path, 'app/static/js/ixbrlviewer.js')

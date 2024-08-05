@@ -3,6 +3,9 @@ import zipfile
 import os
 import uuid
 import io
+import os
+import uuid
+import io
 from lxml import etree
 from bs4 import BeautifulSoup
 from typing import *
@@ -65,7 +68,6 @@ class WordDoc:
         self.soup = BeautifulSoup(html_content, "lxml")
         
         # Processing steps
-        self.remove_links()
         self.insert_comments()
         self.identify_and_insert_html_page_breaks()
 
@@ -74,13 +76,22 @@ class WordDoc:
         """ 
         Save the image; return a dictionary {"src" : <file location>}
         """
+        # Get the session ID
+        session_id = session.get('session_id')
+        if not session_id:
+            raise ValueError("Session ID not found")
+        
+        # Output folder based on the session ID
+        output_folder = os.path.join('app/static/sessions_data', session_id, 'input/img')
+
+        os.makedirs(output_folder, exist_ok=True)
+
         # Generate unique filename for image (e.g., using UUID)
         image_filename = str(uuid.uuid4()) + '.png'
 
         # Save the image to the output folder
-        image_path = os.path.join("app/static/img", image_filename)
-        # Serve the newly saved image using a dedicated route.
-        web_path = url_for('routes_bp.serve_image', filename=image_filename, _external = True)
+        image_path = os.path.join(output_folder, image_filename)
+        web_path = url_for('routes_bp.serve_image', session_id=session_id, filename=image_filename, _external=True)
 
         with image.open() as image_file:
             # Read the image data
@@ -92,22 +103,25 @@ class WordDoc:
         # Save the image as PNG
         pil_image.save(image_path, format='PNG')
 
-        # Return the file location (directory) of the saved image
+        # Return the web path to the image
         return {"src": web_path}
 
     def convert2html(self, docx_file):
         """ Use mammoth to extract content and images """
-        result = mammoth.convert_to_html(docx_file, 
-                                         style_map = custom_style_map,
-                                         convert_image = mammoth.images.img_element(self.convert_image))
-        html_content = result.value
-        return html_content
+        result = mammoth.convert_to_html(docx_file, convert_image = mammoth.images.img_element(self.convert_image))
+        return result.value
+        # TODO: convert images to files
+        #self.images = result.messages 
+    
+    def update_html_content(self):
+        """ Update the HTML content from the soup object """
+        self.html_content = self.soup.prettify().replace("&lt;", "<").replace("&gt;", ">")
 
-    def remove_links(self):
-        """ Remove anchors without hrefs """
-        for a in self.soup.find_all('a'):
-            a.decompose()
+    def get_html(self):
+        """ Return the HTML content """
+        # Ensure the content is up-to-date
         self.update_html_content()
+        return self.html_content
     
     def update_html_content(self):
         """ Update the HTML content from the soup object """
