@@ -159,44 +159,64 @@ function handleUploadError(errorMessage) {
 function startProcessing(event) {
     event.preventDefault();  // Stops the normal form submission process
 
-    // Show the loader as soon as the process starts
     document.getElementById('loader').style.display = 'block';
+    
+    let notificationDiv = document.getElementById('notification');
+    if (!notificationDiv) {
+        notificationDiv = document.createElement('div');
+        notificationDiv.id = 'notification';
+        notificationDiv.style.textAlign = 'center';
+        notificationDiv.style.marginTop = '10px';
+        document.getElementById('loader').after(notificationDiv);
+    }
 
-    var formData = new FormData();
-    var input = document.getElementById('upload');
+    let formData = new FormData(document.getElementById('uploadForm'));
 
-    // Iterate over the files and append each file to FormData
-    Array.from(input.files).forEach((file) => {
-        formData.append('files[]', file);
-    });
-
-    // AJAX request to Flask backend
+    // Send POST request to initiate the upload
     fetch('/upload', {
         method: 'POST',
-        body: formData,
-    })
-    .then(response => {
-        // Make sure to handle HTTP errors even if the response is not ok
-        if (response.redirected) {
-            window.location.href = response.url;
-        } else if (!response.ok) {
-            return response.json().then(err => { throw err; });
+        body: formData
+    }).then(response => {
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+
+        function readStream() {
+            reader.read().then(({ done, value }) => {
+                if (done) {
+                    console.log('Stream complete');
+                    return;
+                }
+
+                const chunk = decoder.decode(value, { stream: true });
+                console.log('Received chunk:', chunk);  // Log the raw chunk
+                const lines = chunk.split('\n');
+                lines.forEach(line => {
+                    console.log('Processing line:', line);  // Log each line
+                    if (line.startsWith('data:')) {
+                        const message = line.slice(5).trim();
+                        notificationDiv.textContent = message;
+                        console.log('Received message:', message);
+
+                        if (message === 'Conversion finishing...') {
+                            console.log('Conversion complete, attempting to redirect...');
+                            window.location.href = '/upload/complete';
+                            console.log('Redirect instruction executed');
+                        } else if (message.startsWith('Error:')) {
+                            document.getElementById('loader').style.display = 'none';
+                        }
+                    }
+                });
+
+                readStream();
+            }).catch(error => {
+                console.error('Error in readStream:', error);
+            });
         }
-        return response.json();
-    })
-    .then(data => {
-        if (data.error) {
-            document.getElementById('loader').style.display = 'none'; // hide loader wheel
-            handleUploadError(data.error);
-        } else {
-            // No error, proceed to the success page
-            console.log('Success:', data);
-            window.location.href = '/upload/complete';
-        }
-    })
-    .catch(error => {
+
+        readStream();
+    }).catch(error => {
         console.error('Error:', error);
-        document.getElementById('loader').style.display = 'none'; // hide loader wheel
-        handleUploadError('An unexpected error occurred. Please try again.');
+        document.getElementById('loader').style.display = 'none';
+        notificationDiv.textContent = 'An error occurred during upload';
     });
 }
