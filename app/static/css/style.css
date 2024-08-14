@@ -63,21 +63,9 @@ header {
     display:none;
 }
 
-#notification {
-  font-weight: bold;
-  color: #702082;
-  text-align: center;
-  position: fixed;
-  z-index: 1001;
-  width: 100%;
-  left: 0;
-  top: 60%; /* Adjust this value to move the text up or down */
-  transform: translateY(-50%);
-}
-
 .loader {
     position: fixed;
-    z-index: 999;
+    z-index: 1000;
     overflow: show;
     margin: auto;
     top: 0;

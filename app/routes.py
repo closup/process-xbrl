@@ -8,7 +8,7 @@ from app.utils import *
 # flask dependencies
 from flask import Blueprint, request, render_template, jsonify, Response, stream_with_context, session, redirect, url_for, send_from_directory, current_app
 
-import uuid
+import uuid, time
 
 # =============================================================
 # Set up routes
@@ -68,6 +68,7 @@ def upload_file():
                 return
 
             yield "data: Uploading files\n\n"
+            time.sleep(1)
 
             # Retrieve the list of files from the request
             file_list = request.files.getlist('files[]')
@@ -87,6 +88,7 @@ def upload_file():
                     file.save(os.path.join(input_folder, file.filename))
 
             yield "data: Processing and validating files\n\n"
+            time.sleep(1)
 
             # Process uploaded files and save output to session output folder
             excel_files = [file for file in file_list if is_spreadsheet(file.filename)]

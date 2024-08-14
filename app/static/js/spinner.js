@@ -161,14 +161,22 @@ function startProcessing(event) {
 
     document.getElementById('loader').style.display = 'block';
     
-    let notificationDiv = document.getElementById('notification');
-    if (!notificationDiv) {
-        notificationDiv = document.createElement('div');
-        notificationDiv.id = 'notification';
-        notificationDiv.style.textAlign = 'center';
-        notificationDiv.style.marginTop = '10px';
-        document.getElementById('loader').after(notificationDiv);
-    }
+    const notyf = new Notyf({
+        duration: 0,
+        position: {x:'left',y:'top'},
+        types: [
+            {
+                type: 'info',
+                background: '#00B2A9',
+                icon: false
+            }
+        ]
+    });
+
+    let notificationId = notyf.open({
+        type: 'info',
+        message: 'Starting process...'
+    });
 
     let formData = new FormData(document.getElementById('uploadForm'));
 
@@ -191,18 +199,26 @@ function startProcessing(event) {
                 console.log('Received chunk:', chunk);  // Log the raw chunk
                 const lines = chunk.split('\n');
                 lines.forEach(line => {
-                    console.log('Processing line:', line);  // Log each line
+                    console.log('Processing line:', line);
                     if (line.startsWith('data:')) {
                         const message = line.slice(5).trim();
-                        notificationDiv.textContent = message;
+                        notyf.dismiss(notificationId);
+                        notificationId = notyf.open({
+                            type: 'info',
+                            message: message
+                        });
                         console.log('Received message:', message);
 
                         if (message === 'Conversion finishing...') {
                             console.log('Conversion complete, attempting to redirect...');
-                            window.location.href = '/upload/complete';
+                            setTimeout(() => {
+                                window.location.href = '/upload/complete';
+                            }, 1000);
                             console.log('Redirect instruction executed');
                         } else if (message.startsWith('Error:')) {
                             document.getElementById('loader').style.display = 'none';
+                            notyf.dismiss(notificationId);
+                            notyf.error(message);
                         }
                     }
                 });
@@ -210,6 +226,7 @@ function startProcessing(event) {
                 readStream();
             }).catch(error => {
                 console.error('Error in readStream:', error);
+                notyf.error('An error occurred during processing');
             });
         }
 
@@ -217,6 +234,6 @@ function startProcessing(event) {
     }).catch(error => {
         console.error('Error:', error);
         document.getElementById('loader').style.display = 'none';
-        notificationDiv.textContent = 'An error occurred during upload';
+        notyf.error('An error occurred during upload');
     });
 }
