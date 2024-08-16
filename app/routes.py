@@ -6,9 +6,9 @@ from typing import * # to specify funtion inputs and outputs
 from app.utils import *
 
 # flask dependencies
-from flask import Blueprint, request, render_template, jsonify, send_file, session, redirect, url_for, send_from_directory, current_app
+from flask import Blueprint, request, render_template, jsonify, Response, stream_with_context, session, redirect, url_for, send_from_directory, current_app
 
-import uuid
+import uuid, time
 
 # =============================================================
 # Set up routes
@@ -47,78 +47,108 @@ def upload_file():
     session['session_id'] = session_id
     update_session_timestamp(session)
 
-    input_folder = os.path.join('app/static/sessions_data/', session_id, 'input')
-    output_folder = os.path.join('app/static/sessions_data/', session_id, 'output')
+    def generate():
+        try:
+            yield "data: Initializing upload\n\n"
 
-    # Create session folders if they don't exist
-    os.makedirs(input_folder, exist_ok=True)
-    os.makedirs(output_folder, exist_ok=True)
+            input_folder = os.path.join('app/static/sessions_data/', session_id, 'input')
+            output_folder = os.path.join('app/static/sessions_data/', session_id, 'output')
 
-    # Set default values
-    output_file = os.path.join(output_folder, "output.html")
-    format = "gray"
+            # Create session folders if they don't exist
+            os.makedirs(input_folder, exist_ok=True)
+            os.makedirs(output_folder, exist_ok=True)
 
-    # Check for the 'files[]' part in the request
-    if 'files[]' not in request.files:
-        return jsonify({'error': 'No files submitted'}), 400  # Bad Request
-    
-    print("Uploading files...")
+            # Set default values
+            output_file = os.path.join(output_folder, "output.html")
+            format = "gray"
 
-    # Retrieve the list of files from the request
-    file_list = request.files.getlist('files[]')
+            # Check for the 'files[]' part in the request
+            if 'files[]' not in request.files:
+                yield "data: Error: No files submitted\n\n"
+                return
 
-    # Process each file and store filenames
-    excel_files = []
-    for file in file_list:
-        if file.filename == '':
-            return jsonify({'error': 'No selected file'}), 400
-        if not allowed_file(file.filename):
-            return jsonify({'error': 'One or more of your files has a disallowed extension. Allowed extensions are: ' + ", ".join([str(i) for i in ALLOWED_EXTENSIONS])})
-        
-        # Save uploaded files to session input folder
-        if file and allowed_file(file.filename):
-            file.save(os.path.join(input_folder, file.filename))
-    
-    # Process uploaded files and save output to session output folder
-    excel_files = [file for file in file_list if is_spreadsheet(file.filename)]
-    print('test', excel_files)
-    if len(excel_files) == 0:
-        return jsonify({'error': 'An Excel file is missing'}), 400
-    elif len(excel_files) != 1:
-        return jsonify({'error': 'Please upload exactly one Excel file'}), 400
-    
-    # create ixbrl file
-    print("Converting Excel to inline XBRL...")
-    write_html(file_list, output_file, format)
-    # create page for the interactive viewer (prints progress in create_viewer_html fn)
-    # TEMP viewer_output_path = "app/templates/site/viewer.html"
-    viewer_output_path = f'app/static/sessions_data/{session_id}/output/'
-    create_viewer_html(output_file, viewer_output_path)
+            yield "data: Uploading files\n\n"
+            time.sleep(1)
 
-    return jsonify({'message': 'Files successfully uploaded'})
+            # Retrieve the list of files from the request
+            file_list = request.files.getlist('files[]')
+
+            # Process each file and store filenames
+            excel_files = []
+            for file in file_list:
+                if file.filename == '':
+                    yield "data: Error: No selected file\n\n"
+                    return
+                if not allowed_file(file.filename):
+                    yield f"data: Error: Disallowed file extension. Allowed: {', '.join(ALLOWED_EXTENSIONS)}\n\n"
+                    return
+                
+                # Save uploaded files to session input folder
+                if file and allowed_file(file.filename):
+                    file.save(os.path.join(input_folder, file.filename))
+
+            yield "data: Processing and validating files\n\n"
+            time.sleep(1)
+
+            # Process uploaded files and save output to session output folder
+            excel_files = [file for file in file_list if is_spreadsheet(file.filename)]
+
+            if len(excel_files) == 0:
+                yield "data: Error: An Excel file is missing\n\n"
+                return
+            elif len(excel_files) != 1:
+                yield "data: Error: Please upload exactly one Excel file\n\n"
+                return
+
+            # create ixbrl file
+            yield "data: Creating iXBRL file\n\n"
+            write_html(file_list, output_file, format)
+
+            yield "data: Creating viewer\n\n"
+            viewer_output_path = f'app/static/sessions_data/{session_id}/output/'
+            create_viewer_html(output_file, viewer_output_path)
+            print('viewer created\n')
+
+            yield "data: Conversion finishing...\n\n"
+
+        except Exception as e:
+            error_message = f"Error: {str(e)}"
+            yield f"data: Error: {str(e)}\n\n"
+            print(error_message)
+
+    return Response(stream_with_context(generate()), content_type='text/event-stream')
 
 @routes_bp.route('/upload/complete', methods=['GET'])
 def successful_upload():
     # Check if session has expired
     if check_session_expiry(session):
+        print("Session has expired")
         return redirect(url_for('routes_bp.home'))
 
     # Get the current session ID
     session_id = session.get('session_id')
     print('in successful upload func, id is: ', session_id)
     
+    if not session_id:
+        print("No session ID found")
+        return redirect(url_for('routes_bp.home'))
+
     update_session_timestamp(session)
 
-    # make sure output.html can generate images
-    modify_img_paths(session_id)
-    # Generate the ZIP file and save it
-    generate_zip_file(session_id)
+    try:
+        # make sure output.html can generate images
+        modify_img_paths(session_id)
+        # Generate the ZIP file and save it
+        generate_zip_file(session_id)
 
-    print('before download url set')
-    download_url = url_for('static', filename=f'sessions_data/{session_id}/output/converted_xbrl.zip')
-    print('download url is', download_url)
+        print('before download url set')
+        download_url = url_for('static', filename=f'sessions_data/{session_id}/output/converted_xbrl.zip')
+        print('download url is', download_url)
 
-    return render_template("site/upload.html", session_id=session_id, download_url=download_url)
+        return render_template("site/upload.html", session_id=session_id, download_url=download_url)
+    except Exception as e:
+        print(f"Error in successful_upload: {str(e)}")
+        return redirect(url_for('routes_bp.home'))
 
 @routes_bp.route('/serve_image/<session_id>/<filename>')
 def serve_image(session_id, filename):

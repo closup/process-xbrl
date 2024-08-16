@@ -101,22 +101,26 @@ def modify_img_paths(session_id):
     html_file_path = os.path.join('app', 'static', 'sessions_data', session_id, 'output', 'viewer.html')
 
     # Read the HTML file
-    with open(html_file_path, 'r', encoding='utf-8') as file:
-        soup = BeautifulSoup(file, 'html.parser')
+    try:
+        with open(html_file_path, 'r', encoding='utf-8') as file:
+            soup = BeautifulSoup(file, 'html.parser')
 
-    # Find all <img> tags and modify their src attribute
-    for img_tag in soup.find_all('img'):
-        src = img_tag.get('src')
-        if src and f"/{session_id}/input/img/" in src:
-            # Extract the filename
-            filename = os.path.basename(src)
-            # Set the new src to just the filename
-            img_tag['src'] = filename
+        # Find all <img> tags and modify their src attribute
+        for img_tag in soup.find_all('img'):
+            src = img_tag.get('src')
+            if src and f"/{session_id}/input/img/" in src:
+                # Extract the filename
+                filename = os.path.basename(src)
+                # Set the new src to just the filename
+                img_tag['src'] = filename
 
-
-    # Save the modified HTML back to the file
-    with open(html_file_path, 'w', encoding='utf-8') as file:
-        file.write(str(soup))
+        # Save the modified HTML back to the file
+        with open(html_file_path, 'w', encoding='utf-8') as file:
+            file.write(str(soup))
+        
+        print(f"Successfully modified {html_file_path}")
+    except Exception as e:
+        print(f"Error in modify_img_paths: {str(e)}")
 
 # Generates a zip file to download once conversion is complete
 def generate_zip_file(session_id):

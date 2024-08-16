@@ -46,7 +46,8 @@ class StatementofActivities(Table):
 
                 # process xbrl tags according to the relevant column groups 
                 # (see color coding on Excel sheet)
-                xbrl_list = str(row["xbrl_element"]).strip().split(',')
+                xbrl_list = [element.strip() for element in str(row["xbrl_element"]).split(',')]
+
                 if len(xbrl_list) == 1 or col_name == "expenses":
                     # first tag in list from relevant cell in column A in the excel sheet
                     xbrl_tag = xbrl_list[0]

@@ -159,44 +159,81 @@ function handleUploadError(errorMessage) {
 function startProcessing(event) {
     event.preventDefault();  // Stops the normal form submission process
 
-    // Show the loader as soon as the process starts
     document.getElementById('loader').style.display = 'block';
-
-    var formData = new FormData();
-    var input = document.getElementById('upload');
-
-    // Iterate over the files and append each file to FormData
-    Array.from(input.files).forEach((file) => {
-        formData.append('files[]', file);
+    
+    const notyf = new Notyf({
+        duration: 0,
+        position: {x:'left',y:'top'},
+        types: [
+            {
+                type: 'info',
+                background: '#00B2A9',
+                icon: false
+            }
+        ]
     });
 
-    // AJAX request to Flask backend
+    let notificationId = notyf.open({
+        type: 'info',
+        message: 'Starting process...'
+    });
+
+    let formData = new FormData(document.getElementById('uploadForm'));
+
+    // Send POST request to initiate the upload
     fetch('/upload', {
         method: 'POST',
-        body: formData,
-    })
-    .then(response => {
-        // Make sure to handle HTTP errors even if the response is not ok
-        if (response.redirected) {
-            window.location.href = response.url;
-        } else if (!response.ok) {
-            return response.json().then(err => { throw err; });
+        body: formData
+    }).then(response => {
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+
+        function readStream() {
+            reader.read().then(({ done, value }) => {
+                if (done) {
+                    console.log('Stream complete');
+                    return;
+                }
+
+                const chunk = decoder.decode(value, { stream: true });
+                console.log('Received chunk:', chunk);  // Log the raw chunk
+                const lines = chunk.split('\n');
+                lines.forEach(line => {
+                    console.log('Processing line:', line);
+                    if (line.startsWith('data:')) {
+                        const message = line.slice(5).trim();
+                        notyf.dismiss(notificationId);
+                        notificationId = notyf.open({
+                            type: 'info',
+                            message: message
+                        });
+                        console.log('Received message:', message);
+
+                        if (message === 'Conversion finishing...') {
+                            console.log('Conversion complete, attempting to redirect...');
+                            setTimeout(() => {
+                                window.location.href = '/upload/complete';
+                            }, 1000);
+                            console.log('Redirect instruction executed');
+                        } else if (message.startsWith('Error:')) {
+                            document.getElementById('loader').style.display = 'none';
+                            notyf.dismiss(notificationId);
+                            notyf.error(message);
+                        }
+                    }
+                });
+
+                readStream();
+            }).catch(error => {
+                console.error('Error in readStream:', error);
+                notyf.error('An error occurred during processing');
+            });
         }
-        return response.json();
-    })
-    .then(data => {
-        if (data.error) {
-            document.getElementById('loader').style.display = 'none'; // hide loader wheel
-            handleUploadError(data.error);
-        } else {
-            // No error, proceed to the success page
-            console.log('Success:', data);
-            window.location.href = '/upload/complete';
-        }
-    })
-    .catch(error => {
+
+        readStream();
+    }).catch(error => {
         console.error('Error:', error);
-        document.getElementById('loader').style.display = 'none'; // hide loader wheel
-        handleUploadError('An unexpected error occurred. Please try again.');
+        document.getElementById('loader').style.display = 'none';
+        notyf.error('An error occurred during upload');
     });
 }
