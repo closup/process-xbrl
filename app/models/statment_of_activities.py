@@ -48,6 +48,7 @@ class StatementofActivities(Table):
                 # (see color coding on Excel sheet)
                 xbrl_list = [element.strip() for element in str(row["xbrl_element"]).split(',')]
 
+                # TODO: We need to make sure that xbrl_list is at least 3 elements long
                 if len(xbrl_list) == 1 or col_name == "expenses":
                     # first tag in list from relevant cell in column A in the excel sheet
                     xbrl_tag = xbrl_list[0]
@@ -58,6 +59,13 @@ class StatementofActivities(Table):
                     # third tag in list from relevant cell in column A (net revenue/deficit)
                     xbrl_tag = xbrl_list[2]
                 
+                print('xbrl tag: ', xbrl_tag)
+                if xbrl_tag == 'acfr:RevenueUsedForGeneralGovernmentServicesAdministration':
+                    print('found xbrl tag')
+                    print('col_name', col_name)
+                    print('xbrl list: ', xbrl_list)
+                    print('DIMENSIONS["TypeOfProgramRevenues"]: ', DIMENSIONS["TypeOfProgramRevenues"])
+
                 # create cell data
                 if xbrl_tag != "Choose from drop-down -->":
                     cell = Cell(id = row["id"], 
