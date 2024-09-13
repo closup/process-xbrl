@@ -1,46 +1,14 @@
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: #f0f3f8; /* e0eaff */
-  color: #00274c;
+    background-color: #365885;
+    color: #00274c;
 }
-
-/* You might want to adjust other elements to use specific weights */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-}
-
-/* For lighter text, if needed */
-.light-text {
-  font-weight: 400;
-}
-
 
 .card {
     /* Blue */
-    color: #00274C;
+    color: #003e78;
     /* Maize */
-    box-shadow:
-      8px 8px 8px rgba(112, 32, 130, 0.3),
-      8px 8px 8px rgba(112, 32, 130, 0.2),
-      6px 6px 6px rgba(112, 32, 130, 0.1);
-
     background-color: #ffcb09;
-    background-image: 
-    linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 100%),
-    linear-gradient(to right, #ffcb09, #ffd700);
     /* text-align: center; */
-}
-
-.gradient-text {
-  font-size: 2.5rem; /* Adjusted size for title */
-  font-weight: bold;
-  letter-spacing: -0.05em;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(to right, #FFCB05, #A5A508, #00B2A9);
-  display: inline-block; /* Added to ensure the gradient applies correctly */
-  padding: 10px 0; /* Added some padding for better visibility */
 }
 
 #upload-card {
@@ -48,35 +16,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-header {
-  background-color: #01274b;
-  color: #ffffff;
-  text-align: center;
-  background-image: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.05) 0%,
-      rgba(255, 255, 255, 0.02) 50%,
-      rgba(0, 0, 0, 0.02) 51%,
-      rgba(0, 0, 0, 0.05) 100%
-  );
-  box-shadow: 
-      inset 0 1px 2px rgba(255, 255, 255, 0.1),
-      inset 0 -1px 2px rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 15px;
-  position: relative;
+    /* Maize */
+    background-color: #01274b;
+    color: #ffffff;
+    text-align: center;
 }
 
 header {
-  /* Blue */
-  background-color: #00274c;
-  color: #ffcb05;
-  padding: 20px;
-  background-image: 
-      linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 100%),
-      linear-gradient(to right, #00274c, #003e78);
-  box-shadow: 
-      inset 0 2px 3px rgba(255,255,255,0.1),
-      inset 0 -2px 3px rgba(0,0,0,0.1);
+    /* Blue */
+    background-color: #00274c;
+    color: #ffcb05;
+    padding: 20px;
 }
 
 .container {
@@ -86,23 +36,18 @@ header {
 }
 
 .btn-michigan {
-  color: #00274c;
-  background-color: #ffffff;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  border: 2px solid #00274c;
-  text-align: center;
-  background-image: 
-      linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 100%),
-      linear-gradient(to right, #ffffff, #f0f0f0);
-  transition: all 0.3s ease;
+    /* Maize */
+    color: #00274c;
+    background-color: #ffffff;
+    border: 2px solid #00274c;
+    /* width:72%;  */
+    text-align: center;
 }
 
 .btn-michigan:hover {
-  background-color: #003e78;
-  color: #fcfcfd;
-  background-image: 
-      linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 100%),
-      linear-gradient(to right, #003e78, #00274c);
+    /* Slightly darker Maize for the hover effect */
+    background-color: #003e78;
+    color: #fcfcfd
 }
 
 .file-container {
@@ -119,91 +64,84 @@ header {
 }
 
 .loader {
-  position: fixed;
-  z-index: 1000;
-  overflow: show;
-  margin: auto;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #00B2A9;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
+    position: fixed;
+    z-index: 1000;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .draggable {
+    user-select: none;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    background-color: #f8f9fa;
+    cursor: move;
+  }
   
-  /* 3D enhancements */
-  box-shadow: 
-    0 4px 6px rgba(0,0,0,0.1),
-    0 1px 3px rgba(0,0,0,0.08);
-  background: linear-gradient(145deg, #ffffff, #e6e6e6);
-}
+  .draggable.dragging {
+    opacity: .5;
+  }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+  .sortable-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+  }
+  
+  .sortable-list .filename {
+    flex-grow: 1; /* Allow filename to take the remaining space */
+    overflow: hidden; /* Hide any overflowing content */
+    text-overflow: ellipsis; /* Add ellipsis (...) for overflowing text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    margin-right: 10px; /* Add some space between the filename and the delete button */
+  }
 
-/* Optional: Add this if you want a slight pulsing effect */
-@keyframes pulse {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  50% { transform: scale(1.05) rotate(180deg); }
-}
+  .sortable-list .delete-btn {
+    background-color: rgb(159, 23, 23);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
 
-.draggable {
-  user-select: none;
-  padding: 10px;
-  margin: 0 0 10px 0;
-  background-color: #f8f9fa;
-  cursor: move;
-}
-
-.draggable.dragging {
-  opacity: .5;
-}
-
-.sortable-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px;
-  border: 1px solid #ccc;
-  margin-bottom: 5px;
-}
-
-.sortable-list .filename {
-  flex-grow: 1; /* Allow filename to take the remaining space */
-  overflow: hidden; /* Hide any overflowing content */
-  text-overflow: ellipsis; /* Add ellipsis (...) for overflowing text */
-  white-space: nowrap; /* Prevent text from wrapping */
-  margin-right: 10px; /* Add some space between the filename and the delete button */
-}
-
-.sortable-list .delete-btn {
-  background-color: rgb(159, 23, 23);
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.return-button {
-  /* Add margin to place the button lower */
-  margin-top: 20px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  border: 2px solid #ffcb09;
-  padding: 10px 20px;
-  background-color: #ffffff;
-  color: #00274c;
-  text-align: center;
-  display: inline-block;
-}
-
-.return-button:hover {
-    /* Slightly darker Maize for the hover effect */
-    background-color: #003e78;
-    color: #fcfcfd; /*fcfcfd
+  .return-button {
+    /* Add margin to place the button lower */
+    margin-top: 20px;
     border: 2px solid #ffcb09;
-}
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #00274c;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .return-button:hover {
+      /* Slightly darker Maize for the hover effect */
+      background-color: #003e78;
+      color: #fcfcfd;
+      border: 2px solid #ffcb09;
+  }
