@@ -1,0 +1,26 @@
+{% extends "site/base_landing.html" %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4 gradient-text">Welcome to XBRL Conversion Tool</h1>
+    <p class="lead">Convert your financial reports to machine-readable Inline XBRL format with ease.</p>
+    <hr class="my-4">
+    <p>Start converting your ACFR documents today!</p>
+    <a class="btn btn-michigan btn-lg" href="{{ url_for('routes_bp.acfr_tool') }}" role="button">Get Started</a>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <h2>Easy to Use</h2>
+        <p>Our tool simplifies the process of converting your financial reports to Inline XBRL format.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Accurate Results</h2>
+        <p>Ensure your financial data is accurately represented in a machine-readable format.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Time-Saving</h2>
+        <p>Automate the conversion process and save valuable time in your reporting workflow.</p>
+    </div>
+</div>
+{% endblock %}

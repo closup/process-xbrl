@@ -18,9 +18,19 @@ import uuid, time
 routes_bp = Blueprint('routes_bp', __name__)
 
 @routes_bp.route('/')
+@routes_bp.route('/landing')
+def landing():
+    return render_template('site/landing.html')
+
+# Update the home route to redirect to landing
+@routes_bp.route('/home')
 def home():
+    return redirect(url_for('routes_bp.landing'))
+
+@routes_bp.route('/acfr-tool')
+def acfr_tool():
     if check_session_expiry(session):
-        return redirect(url_for('routes_bp.home'))
+        return redirect(url_for('routes_bp.acfr_tool'))
     
     return render_template('site/home.html', loading=True)
 
@@ -155,3 +165,15 @@ def serve_image(session_id, filename):
     # Specify the directory to send from.
     images_directory = os.path.join(current_app.root_path, 'static/sessions_data', session_id, 'input/img')
     return send_from_directory(images_directory, filename)
+
+@routes_bp.route('/tutorial')
+def tutorial():
+    return render_template('site/tutorial.html')
+
+@routes_bp.route('/faq')
+def faq():
+    return render_template('site/faq.html')
+
+@routes_bp.route('/contact')
+def contact():
+    return render_template('site/contact.html')

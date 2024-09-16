@@ -207,3 +207,68 @@ header {
     color: #fcfcfd; /*fcfcfd
     border: 2px solid #ffcb09;
 }
+
+.bg-michigan {
+    background-color: #00274c;
+}
+
+/* Update these styles for consistency */
+.navbar-light .navbar-nav .nav-link,
+.navbar-dark .navbar-nav .nav-link,
+.navbar .nav-link,
+.navbar .nav-link.brand-link {
+    color: #702082 !important;
+    font-weight: 600;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar .nav-link:hover,
+.navbar .nav-link.brand-link:hover {
+    color: #8a2be2 !important; /* A slightly lighter shade for hover effect */
+}
+
+/* Remove these conflicting styles */
+/*
+.navbar-dark .navbar-nav .nav-item.active .nav-link,
+.navbar-dark .navbar-nav .nav-item:hover .nav-link {
+    color: #ffffff !important;
+}
+*/
+
+.jumbotron {
+    background-color: #f0f3f8;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: .3rem;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #ffcb05;
+    color: #00274c;
+}
+
+.accordion-button:focus {
+    border-color: #ffcb05;
+    box-shadow: 0 0 0 0.25rem rgba(255, 203, 5, 0.25);
+}
+
+/* Add this new style to override Bootstrap's default active link color */
+.navbar-dark .navbar-nav .nav-item.active .nav-link,
+.navbar-dark .navbar-nav .nav-item:hover .nav-link {
+    color: #ffffff !important;
+}
+
+.navbar-nav .nav-link,
+.navbar .nav-link {
+    color: #702082 !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar .nav-link:hover {
+    color: #8a2be2 !important; /* A slightly lighter shade for hover effect */
+}
+
+.navbar .nav-link.brand-link {
+    color: #702082 !important;
+}
