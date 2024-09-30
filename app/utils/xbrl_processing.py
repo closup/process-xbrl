@@ -14,7 +14,7 @@ from app.models import Acfr
 from typing import *
 from app.utils.constants import * #all global variables
 from app.utils.helper_functions import *
-from flask import render_template
+from flask import render_template, url_for
 
 # Make arelle imports possible
 base_dir = os.path.abspath(nth_parent_dir(__file__, 3))
@@ -48,16 +48,18 @@ def write_html(file_list : List[Any],
         write_location.write(rendered_ixbrl)
 
 def create_viewer_html(output_file : str,
-                       viewer_filepath : str = "templates/site/viewer.html"):
+                       viewer_outpath : str):
     """
     Runs Arelle and ixbrl-viewer submodules to create a viewer html and 
     accompanying javascript file.
     """
-    viewer_filepath = os.path.join(ROOT, viewer_filepath)
+    viewer_filepath = os.path.join(ROOT, viewer_outpath, 'viewer.html')
 
     # command to run Arelle process
     plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.8/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
+
+    print('viewer path', viewer_filepath)
     args = f"--plugins={plugins} -f {output_file} --save-viewer {viewer_filepath} --viewer-url {viewer_url}"
     
     args = shlex.split(args)
@@ -68,21 +70,49 @@ def create_viewer_html(output_file : str,
 
     # Read in the generated HTML
     print("Creating interactive viewer...")
-    with open(viewer_filepath, 'r', encoding="utf8") as file:
-        html_content = file.read()
+    try:
+        with open(viewer_filepath, 'r', encoding="utf8") as file:
+            html_content = file.read()
+        print("HTML content read successfully")
+    except Exception as e:
+        print(f"Error reading HTML file: {str(e)}")
+        return
 
     # Parse the HTML with BeautifulSoup
-    soup = BeautifulSoup(html_content, 'html.parser')
+    try:
+        soup = BeautifulSoup(html_content, 'html.parser')
+        print("HTML parsed successfully")
+    except Exception as e:
+        print(f"Error parsing HTML: {str(e)}")
+        return
 
     # Find the script tag we wish to modify
     script_tag = soup.find('script', {'src': 'ixbrlviewer.js'})
     if script_tag:
         # Update the src attribute
-        script_tag['src'] = '{{ url_for(\'static\', filename=\'js/ixbrlviewer.js\') }}'
+        script_tag['src'] = url_for('static', filename='js/ixbrlviewer.js')
+        print("Script tag updated")
+    else:
+        print("Script tag not found")
 
     # Write the modified HTML back out
-    print("Writing files...")
-    with open(viewer_filepath, 'w', encoding="utf8") as file:
-        file.write(str(soup))
+    print("Writing modified HTML file...")
+    try:
+        with open(viewer_filepath, 'w', encoding="utf8") as file:
+            file.write(str(soup))
+        print("Modified HTML file written successfully")
+    except Exception as e:
+        print(f"Error writing modified HTML file: {str(e)}")
+        return
 
-    os.rename('app/templates/site/ixbrlviewer.js', 'app/static/js/ixbrlviewer.js')
+    # Move the ixbrlviewer.js file
+    viewer_js_path = os.path.join(viewer_outpath, 'ixbrlviewer.js')
+    destination_js_path = 'app/static/js/ixbrlviewer.js'
+    print(f"Moving {viewer_js_path} to {destination_js_path}")
+    try:
+        os.rename(viewer_js_path, destination_js_path)
+        print("ixbrlviewer.js moved successfully")
+    except Exception as e:
+        print(f"Error moving ixbrlviewer.js: {str(e)}")
+
+    print("create_viewer_html function completed")
