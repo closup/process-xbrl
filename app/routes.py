@@ -22,17 +22,17 @@ routes_bp = Blueprint('routes_bp', __name__)
 def landing():
     return render_template('site/landing.html')
 
-# Update the home route to redirect to landing
-@routes_bp.route('/home')
-def home():
-    return redirect(url_for('routes_bp.landing'))
+# Remove the redundant home route
+# @routes_bp.route('/home')
+# def home():
+#     return redirect(url_for('routes_bp.landing'))
 
 @routes_bp.route('/acfr-tool')
 def acfr_tool():
     if check_session_expiry(session):
-        return redirect(url_for('routes_bp.acfr_tool'))
+        return redirect(url_for('routes_bp.landing'))
     
-    return render_template('site/home.html', loading=True)
+    return render_template('site/landing.html', loading=True)
 
 @routes_bp.route('/viewer')
 def view():
@@ -133,7 +133,7 @@ def successful_upload():
     # Check if session has expired
     if check_session_expiry(session):
         print("Session has expired")
-        return redirect(url_for('routes_bp.home'))
+        return redirect(url_for('routes_bp.landing'))
 
     # Get the current session ID
     session_id = session.get('session_id')
@@ -141,7 +141,7 @@ def successful_upload():
     
     if not session_id:
         print("No session ID found")
-        return redirect(url_for('routes_bp.home'))
+        return redirect(url_for('routes_bp.landing'))
 
     update_session_timestamp(session)
 
@@ -158,7 +158,7 @@ def successful_upload():
         return render_template("site/upload.html", session_id=session_id, download_url=download_url)
     except Exception as e:
         print(f"Error in successful_upload: {str(e)}")
-        return redirect(url_for('routes_bp.home'))
+        return redirect(url_for('routes_bp.landing'))
 
 @routes_bp.route('/serve_image/<session_id>/<filename>')
 def serve_image(session_id, filename):

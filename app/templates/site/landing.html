@@ -1,12 +1,130 @@
 {% extends "site/base_landing.html" %}
 
+{% block head %}
+    {{ super() }}
+    <script src="{{url_for('static', filename='js/spinner.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function updateButton() {
+        var fileInput = document.getElementById('upload');
+        var fileInputLabel = document.getElementById('fileInputLabel');
+        var fileInputButtonText = document.getElementById('fileInputButtonText');
+        var convertButton = document.getElementById('convert-button');
+        var dragInstruction = document.getElementById('dragInstruction');
+        var fileList = document.getElementById('fileList');
+
+        if (fileInput.files.length > 0) {
+            fileInputButtonText.textContent = fileInput.files.length + ' file(s) selected';
+            convertButton.style.display = 'inline-block';
+            dragInstruction.style.display = 'block';
+            
+            // Clear previous list
+            fileList.innerHTML = '';
+            
+            // Add files to the list
+            for (var i = 0; i < fileInput.files.length; i++) {
+                var li = document.createElement('li');
+                li.textContent = fileInput.files[i].name;
+                li.className = 'list-group-item';
+                fileList.appendChild(li);
+            }
+
+            // Initialize sortable
+            new Sortable(fileList, {
+                animation: 150,
+                ghostClass: 'blue-background-class'
+            });
+        } else {
+            fileInputButtonText.textContent = 'Choose File(s)';
+            convertButton.style.display = 'none';
+            dragInstruction.style.display = 'none';
+            fileList.innerHTML = '';
+        }
+    }
+
+    function startProcessing(event) {
+        event.preventDefault();
+        document.getElementById('loader').style.display = 'block';
+        document.getElementById('notification').innerHTML = 'Processing...';
+
+        var formData = new FormData(document.getElementById('uploadForm'));
+
+        var eventSource = new EventSource('/upload');
+
+        eventSource.onmessage = function(event) {
+            document.getElementById('notification').innerHTML = event.data;
+        };
+
+        eventSource.onerror = function(event) {
+            eventSource.close();
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('notification').innerHTML = 'An error occurred during processing.';
+        };
+
+        $.ajax({
+            url: '/upload',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                eventSource.close();
+                window.location.href = '/upload/complete';
+            },
+            error: function(xhr, status, error) {
+                eventSource.close();
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('notification').innerHTML = 'An error occurred during upload: ' + error;
+            }
+        });
+    }
+</script>
+{% endblock %}
+
 {% block content %}
 <div class="jumbotron text-center">
     <h1 class="display-4 gradient-text">Welcome to XBRL Conversion Tool</h1>
     <p class="lead">Convert your financial reports to machine-readable Inline XBRL format with ease.</p>
     <hr class="my-4">
-    <p>Start converting your ACFR documents today!</p>
-    <a class="btn btn-michigan btn-lg" href="{{ url_for('routes_bp.acfr_tool') }}" role="button">Get Started</a>
+    <h5>Start converting your ACFR documents today!</h5>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header card-header-lg">1). Download our Excel ACFR template</div>
+            <div class="card-body text-center">
+                <a href="{{ url_for('static', filename='input_files/ACFR_template.xlsx') }}" download="ACFR_template.xlsx">
+                    <button type="button" class="btn btn-michigan btn-lg">Download Excel template</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header card-header-lg">2). Upload exactly one Excel file and 0-5 Word docs</div>
+            <div class="card-body">
+                <form action="/upload" method="POST" enctype="multipart/form-data" id="uploadForm" onsubmit="startProcessing(event)">
+                    <input type="file" name="files[]" id="upload" multiple onchange="updateButton()">
+                    <label for="upload" class="btn btn-michigan btn-lg" id="fileInputLabel">
+                        <span id="fileInputButtonText">Choose File(s)</span>
+                    </label>
+                    <p id="dragInstruction" style="display: none; margin-top: 20px;">Drag the files into the correct order</p>
+                    <ol id="fileList" class="sortable-list"></ol>
+                    <input type="submit" id="convert-button" class="btn btn-michigan btn-lg" value="Convert" style="display: none;">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <div id="loader" class="loader" style="display: none;"></div>
+    <div id="notification" style="margin-top: 10px;"></div>
 </div>
 
 <div class="row mt-5">

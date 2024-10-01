@@ -157,13 +157,14 @@ function handleUploadError(errorMessage) {
 }
 
 function startProcessing(event) {
-    event.preventDefault();  // Stops the normal form submission process
+    event.preventDefault();
 
+    // Show the loader wheel
     document.getElementById('loader').style.display = 'block';
     
     const notyf = new Notyf({
         duration: 0,
-        position: {x:'left',y:'top'},
+        position: {x:'center',y:'top'},
         types: [
             {
                 type: 'info',
@@ -180,11 +181,13 @@ function startProcessing(event) {
 
     let formData = new FormData(document.getElementById('uploadForm'));
 
-    // Send POST request to initiate the upload
     fetch('/upload', {
         method: 'POST',
         body: formData
     }).then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
 
@@ -196,10 +199,10 @@ function startProcessing(event) {
                 }
 
                 const chunk = decoder.decode(value, { stream: true });
-                console.log('Received chunk:', chunk);  // Log the raw chunk
+                console.log('Received chunk:', chunk);
                 const lines = chunk.split('\n');
                 lines.forEach(line => {
-                    console.log('Processing line:', line);
+                    console.log('Processing line:', line);  // Add this line for debugging
                     if (line.startsWith('data:')) {
                         const message = line.slice(5).trim();
                         notyf.dismiss(notificationId);
@@ -214,7 +217,6 @@ function startProcessing(event) {
                             setTimeout(() => {
                                 window.location.href = '/upload/complete';
                             }, 1000);
-                            console.log('Redirect instruction executed');
                         } else if (message.startsWith('Error:')) {
                             document.getElementById('loader').style.display = 'none';
                             notyf.dismiss(notificationId);
@@ -226,7 +228,9 @@ function startProcessing(event) {
                 readStream();
             }).catch(error => {
                 console.error('Error in readStream:', error);
-                notyf.error('An error occurred during processing');
+                document.getElementById('loader').style.display = 'none';
+                notyf.dismiss(notificationId);
+                notyf.error('An error occurred during processing: ' + error.message);
             });
         }
 
@@ -234,6 +238,7 @@ function startProcessing(event) {
     }).catch(error => {
         console.error('Error:', error);
         document.getElementById('loader').style.display = 'none';
-        notyf.error('An error occurred during upload');
+        notyf.dismiss(notificationId);
+        notyf.error('An error occurred during upload: ' + error.message);
     });
 }
