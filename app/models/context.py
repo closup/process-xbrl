@@ -43,7 +43,8 @@ class Context:
             ret = ret + "_" + dim._member_name
         try:
             return self._time_type + self._date.strftime('%Y%m%d') + ret
-        finally:
+        except Exception as e:
+            print(f"Error parsing date: {e}")
             return self._time_type + "date_parse_error" + ret
         
     
