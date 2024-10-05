@@ -28,3 +28,5 @@ isodate
 pyparsing
 certifi
 pycountry
+
+Pillow==8.4.0
