@@ -25,7 +25,7 @@ arelle_dir = os.path.join(base_dir, "dependencies", "Arelle")
 sys.path.append(arelle_dir)
 from arelle import CntlrCmdLine
 from arelle.Locale import setApplicationLocale
-
+from arelle.CntlrCmdLine import parseAndRun
 # =============================================================
 # Function definitions
 # =============================================================
@@ -66,7 +66,7 @@ def create_viewer_html(output_file : str,
     setApplicationLocale()
     gettext.install("arelle")
     print("Validating XBRL...")
-    CntlrCmdLine.parseAndRun(args)
+    parseAndRun(args)  # Use parseAndRun instead of CntlrCmdLine.parseAndRun
 
     # Read in the generated HTML
     print("Creating interactive viewer...")
