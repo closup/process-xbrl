@@ -30,4 +30,5 @@ pyparsing
 certifi
 pycountry
 
-Pillow==8.4.0
+Pillow==10.0.1
+arelle==2.6.0
