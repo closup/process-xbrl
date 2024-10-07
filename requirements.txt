@@ -30,5 +30,5 @@ pyparsing
 certifi
 pycountry
 
-Pillow==10.0.1
-arelle==2.2.0
+Pillow==10.4.0
+arelle-release
