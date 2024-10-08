@@ -110,6 +110,7 @@ def upload_file():
             print('viewer created\n')
 
             yield "data: Conversion finishing...\n\n"
+            yield f"data: redirect:/upload/complete?session_id={session_id}\n\n"
 
         except Exception as e:
             error_message = f"Error: {str(e)}"
@@ -120,20 +121,15 @@ def upload_file():
 
 @routes_bp.route('/upload/complete', methods=['GET'])
 def successful_upload():
-    # Check if session has expired
-    if check_session_expiry(session):
-        print("Session has expired")
-        return redirect(url_for('routes_bp.home'))
-
-    # Get the current session ID
-    session_id = session.get('session_id')
+    print("Entering successful_upload function")
+    # Get the session ID from query parameter
+    session_id = request.args.get('session_id') or session.get('session_id')
+    
     print('in successful upload func, id is: ', session_id)
     
     if not session_id:
         print("No session ID found")
         return redirect(url_for('routes_bp.home'))
-
-    update_session_timestamp(session)
 
     try:
         # make sure output.html can generate images
@@ -142,7 +138,7 @@ def successful_upload():
         generate_zip_file(session_id)
 
         print('before download url set')
-        download_url = url_for('static', filename=f'sessions_data/{session_id}/output/converted_xbrl.zip')
+        download_url = url_for('static', filename=f'sessions_data/{session_id}/output/converted_xbrl.zip', _external=True)
         print('download url is', download_url)
 
         return render_template("site/upload.html", session_id=session_id, download_url=download_url)
