@@ -9,7 +9,7 @@ jinja2==3.1.2
 openpyxl==3.1.2
 # pandas==2.0.3
 pandas
-pip==23.2.1
+pip==24.2.0
 python-dateutil==2.8.2
 setuptools==68.0.0
 mammoth == 1.7.0
@@ -31,4 +31,5 @@ certifi
 pycountry
 
 Pillow==10.4.0
+ixbrl-viewer
 arelle-release
