@@ -31,4 +31,3 @@ certifi
 pycountry
 
 Pillow==10.4.0
-arelle-release
