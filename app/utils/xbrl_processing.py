@@ -56,8 +56,8 @@ def create_viewer_html(output_file : str,
     viewer_filepath = os.path.join(ROOT, viewer_outpath, 'viewer.html')
 
     # command to run Arelle process
-    plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
-    #ixbrl-viewer = "iXBRLViewerPlugin:load_plugin_url"
+    # OLD YOU DON'T NEED THIS!! plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
+    # ixbrl-viewer automatically uses "iXBRLViewerPlugin:load_plugin_url"
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.36/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
 
     print('viewer path', viewer_filepath)
