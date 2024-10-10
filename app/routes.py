@@ -110,7 +110,7 @@ def upload_file():
             print('viewer created\n')
 
             yield "data: Conversion finishing...\n\n"
-            yield f"data: redirect:/upload/complete?session_id={session_id}\n\n"
+            yield f"data: complete:{session_id}\n\n"  # Make sure this line is present
 
         except Exception as e:
             error_message = f"Error: {str(e)}"
