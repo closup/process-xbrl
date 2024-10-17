@@ -83,7 +83,7 @@ class Cell:
     
     def prefix(self):
         """
-        Add dollar sign and/or negative sign as relevant
+        Add dollar sign and/or opening parenthesis as relevant
         """
         ret = ""
         if self._value < 0:
@@ -94,8 +94,8 @@ class Cell:
         return ret
     
     def suffix(self):
-        """Add closing parans if relevant"""
-        ret = "" if self._value >= 0 else ")"
+        """Add closing parenthesis if relevant"""
+        ret = ")" if self._value < 0 else ""
         print(f"Debug: value = {self._value}, suffix = {ret}")  # Debug log
         return ret
     
@@ -120,7 +120,7 @@ class Cell:
         return self.tr_class()
     
     def __repr__(self):
-        return self.show_value()
+        return f"{self.prefix()}{self.show_value()}{self.suffix()}"
     
     def index(self):
         """ ex. 5B for a cell originall in B5 in Excel """
