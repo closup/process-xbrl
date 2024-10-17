@@ -1,4 +1,4 @@
-from app.models import Table, Cell
+from app.models import Table, Cell, Context, Dimension
 from app.utils import *
 import pandas as pd
 
@@ -15,20 +15,23 @@ class Reconciliation(Table):
     def process_cells(self):
         """Create a list of Cell objects to represent Excel data"""
         for col_name in self._df['header'].unique():
-            # get the rows
+            # Create a context for this column
+            context = Context(self.time_type, self.date, col_name, [Dimension(col_name)])
+            self._contexts.append(context)
+
             rows = self._df[self._df['header'] == col_name]
 
-            # Iterate through filtered rows and create Cell objects with the specified context
             for _, row in rows.iterrows():
-                cell = Cell(id = row["id"], 
-                            xbrl_tag = None, 
-                            row_name = str(row["nan"]), 
-                            col_name = str(row["header"]),
-                            value = row["value"],
-                            context = None,
-                            n_left_cols = self.extra_left_cols)
-                self._data.append(cell)
-        # put data back in its original order
+                xbrl_tag = str(row.get("xbrl_element", "")).strip()
+                if xbrl_tag and xbrl_tag != "Choose from drop-down -->":
+                    cell = Cell(id = row["id"], 
+                                xbrl_tag = xbrl_tag, 
+                                row_name = str(row["nan"]), 
+                                col_name = str(row["header"]),
+                                value = row["value"],
+                                context = context,
+                                n_left_cols = self.extra_left_cols)
+                    self._data.append(cell)
         self._data.sort()
 
     def n_header_lines(self) -> int:
