@@ -142,8 +142,8 @@ class Cell:
         return self.index() == other.index()
 
     def needs_ix_tag(self):
-        return self.show_value() != "" and self._context is not None and self._xbrl_tag is not None and self._xbrl_tag != ""
-
+        return self.show_value() != "" and self._context != None
+    
     def handle_custom_line_item(self):
         if self._xbrl_tag and "custom" in self._xbrl_tag.lower():
             self._context.add_dim(Dimension(self._row_name, "custom"))
