@@ -72,6 +72,7 @@ class Cell:
         ret = '{:,}'.format(abs(self._value))
         if ret == "0":
             ret = "-"
+        print(f"Debug: original value = {self._value}, formatted value = {ret}")  # Debug log
         return ret
     
     def first_row(self):
@@ -89,13 +90,14 @@ class Cell:
             ret = "("
         if self._first_row:
             ret = f"$ {ret}"
+        print(f"Debug: value = {self._value}, prefix = {ret}")  # Debug log
         return ret
     
     def suffix(self):
         """Add closing parans if relevant"""
-        if self._value < 0:
-            return ")"
-        return ""
+        ret = "" if self._value >= 0 else ")"
+        print(f"Debug: value = {self._value}, suffix = {ret}")  # Debug log
+        return ret
     
     def tr_class(self):
         """
