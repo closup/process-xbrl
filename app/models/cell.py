@@ -86,10 +86,10 @@ class Cell:
         Add dollar sign and/or opening parenthesis as relevant
         """
         ret = ""
-        if self._value < 0:
-            ret = "("
         if self._first_row:
-            ret = f"$ {ret}"
+            ret = "$ "
+        if self._value < 0:
+            ret += "("
         print(f"Debug: value = {self._value}, prefix = {ret}")  # Debug log
         return ret
     
@@ -119,9 +119,15 @@ class Cell:
             return "data_total"
         return self.tr_class()
     
-    def __repr__(self):
+    def formatted_value(self):
+        """
+        Combine prefix, value, and suffix for complete formatted representation
+        """
         return f"{self.prefix()}{self.show_value()}{self.suffix()}"
-    
+
+    def __repr__(self):
+        return self.formatted_value()
+
     def index(self):
         """ ex. 5B for a cell originall in B5 in Excel """
         return self.row() + self.col()
