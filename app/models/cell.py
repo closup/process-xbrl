@@ -87,13 +87,13 @@ class Cell:
             ret = "$ "
         if isinstance(self._value, (int, float)) and self._value < 0:
             ret += "("
-        print(f"Debug: value = {self._value}, prefix = {ret}")  # Debug log
+        # print(f"Debug: value = {self._value}, prefix = {ret}")  # Debug log
         return ret
     
     def suffix(self):
         """Add closing parenthesis if relevant"""
         ret = ")" if isinstance(self._value, (int, float)) and self._value < 0 else ""
-        print(f"Debug: value = {self._value}, suffix = {ret}")  # Debug log
+        # print(f"Debug: value = {self._value}, suffix = {ret}")  # Debug log
         return ret
     
     def tr_class(self):

@@ -18,7 +18,7 @@ class Reconciliation(Table):
         self._contexts.append(context)
 
         for _, row in self._df.iterrows():
-            xbrl_tag = row.get("XBRL Element", "")  # Assuming "XBRL Element" column exists
+            xbrl_tag = row.get("XBRL Element", None)  # Use None as default
             if pd.notna(row["value"]):  # Process all non-NaN values
                 cell = Cell(id = row["id"], 
                             xbrl_tag = xbrl_tag, 
