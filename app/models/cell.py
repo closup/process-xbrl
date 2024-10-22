@@ -63,18 +63,14 @@ class Cell:
         return self._id[self._id.find('_') + 1] == ALPHABET[self._n_left_cols]
 
     def show_value(self):
-        """
-        Format the value as it should appear in the html table
-        (ie. add a $ if the first row; add commas, etc)
-        """
         if self._value == "" or isinstance(self._value, str):
             return self._value
-        # Convert to integer and format with commas
-        ret = '{:,}'.format(abs(int(round(float(self._value)))))
-        if ret == "0":
-            ret = "-"
-        print(f"Debug: original value = {self._value}, formatted value = {ret}")  # Debug log
-        return ret
+        try:
+            ret = '{:,}'.format(abs(int(round(float(self._value)))))
+            return "-" if ret == "0" else ret
+        except ValueError:
+            print(f"Warning: Unable to format value: {self._value}")
+            return str(self._value)
     
     def first_row(self):
         return self._first_row
