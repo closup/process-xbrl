@@ -67,9 +67,10 @@ class Cell:
         Format the value as it should appear in the html table
         (ie. add a $ if the first row; add commas, etc)
         """
-        if self._value == "" or type(self._value) is str:
+        if self._value == "" or isinstance(self._value, str):
             return self._value
-        ret = '{:,}'.format(abs(self._value))
+        # Convert to integer and format with commas
+        ret = '{:,}'.format(abs(int(round(float(self._value)))))
         if ret == "0":
             ret = "-"
         print(f"Debug: original value = {self._value}, formatted value = {ret}")  # Debug log
@@ -88,14 +89,14 @@ class Cell:
         ret = ""
         if self._first_row:
             ret = "$ "
-        if self._value < 0:
+        if isinstance(self._value, (int, float)) and self._value < 0:
             ret += "("
         print(f"Debug: value = {self._value}, prefix = {ret}")  # Debug log
         return ret
     
     def suffix(self):
         """Add closing parenthesis if relevant"""
-        ret = ")" if self._value < 0 else ""
+        ret = ")" if isinstance(self._value, (int, float)) and self._value < 0 else ""
         print(f"Debug: value = {self._value}, suffix = {ret}")  # Debug log
         return ret
     

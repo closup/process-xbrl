@@ -14,13 +14,14 @@
         </td> 
     {% endif %}
     <td id="{{ cell.id }}" class="{{ cell.td_class() }}">
-            {% if cell.needs_ix_tag() %}
-            {{ cell.prefix() }}<ix:nonFraction contextRef="{{ cell.context_ref() }}" name="{{ cell.xbrl_tag() }}" unitRef="USD" id="{{ cell.id }}" decimals="0" format="{{ cell.format() }}" {% if cell.sign() == 'negative' %} sign="-" {% endif %}>{{ cell.show_value() }}</ix:nonFraction>{{ cell.suffix() }}
-            {% else %}
-                {{ cell.show_value() }}
-            {% endif %}
-        </td>
+        {% if cell.needs_ix_tag() %}
+            <ix:nonFraction contextRef="{{ cell.context_ref() }}" name="{{ cell.xbrl_tag() }}" unitRef="USD" id="{{ cell.id }}" decimals="0" format="{{ cell.format() }}" {% if cell.sign() == 'negative' %} sign="-" {% endif %}>
+                {{ cell.formatted_value() }}
+            </ix:nonFraction>
+        {% else %}
+            {{ cell.formatted_value() }}
+        {% endif %}
+    </td>
     {% endfor %}
     </tr>
 </table>
-

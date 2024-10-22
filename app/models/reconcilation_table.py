@@ -56,6 +56,9 @@ class Reconciliation(Table):
         val_cols = self._df.columns[self.extra_left_cols:].tolist()
         self._df = pd.melt(self._df, id_vars=id_cols, value_vars=val_cols, var_name="header")
 
+        # Ensure 'value' column is numeric and preserves negative values
+        self._df['value'] = pd.to_numeric(self._df['value'], errors='coerce')
+
         # Calculate original sheet column and cell in Excel document
         self._df['col'] = [ALPHABET[i] for i in (self.extra_left_cols + (self._df.index // n_rows_orig))]
         cells = [f'{c}{r}' for c, r in zip(self._df['col'], self._df["row"])]
