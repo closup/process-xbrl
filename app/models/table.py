@@ -136,6 +136,19 @@ class Table:
         
         # Clean column names and handle duplicates
         raw_columns = self._df.iloc[self.n_header_lines()].apply(clean)
+        
+        # First, identify which columns to keep
+        columns_to_keep = []
+        for i, col in enumerate(raw_columns):
+            column_data = self._df.iloc[:, i]
+            if not column_data.isna().all():
+                columns_to_keep.append(i)
+        
+        # Keep only non-hidden columns
+        self._df = self._df.iloc[:, columns_to_keep]
+        raw_columns = raw_columns.iloc[columns_to_keep]
+        
+        # Now handle duplicate names
         unique_columns = []
         seen = set()
         for i, col in enumerate(raw_columns):
@@ -145,6 +158,7 @@ class Table:
                 unique_columns.append(col)
                 seen.add(col)
         
+        # Assign the new column names
         self._df.columns = unique_columns
         print(f"Debug: Columns after cleaning: {self._df.columns}")
         
