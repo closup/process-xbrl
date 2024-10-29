@@ -141,8 +141,18 @@ class Table:
         columns_to_keep = []
         for i, col in enumerate(raw_columns):
             column_data = self._df.iloc[:, i]
-            if not column_data.isna().all():
+            
+            # Check if column has any non-empty evaluated values
+            has_values = False
+            for value in column_data:
+                if pd.notna(value) and str(value).strip() != "":
+                    has_values = True
+                    break
+                    
+            if has_values:
                 columns_to_keep.append(i)
+                
+            print(f"Debug: Column {i} ({'kept' if has_values else 'dropped'})")
         
         # Keep only non-hidden columns
         self._df = self._df.iloc[:, columns_to_keep]
