@@ -18,17 +18,25 @@ class NetPosition(Table):
 
     def process_cells(self):
         """Create a list of Cell objects to represent Excel data"""
+        # Debug the DataFrame structure
+        print(f"Debug: DataFrame columns: {self._df.columns}")
+        print(f"Debug: Unique headers: {self._df['header'].unique()}")
+        
         for col_name in self._df['header'].unique():
+            # Debug each column's data
+            print(f"Debug: Processing column: {col_name}")
+            
             # for each column, create the relevant dimension and context 
             dim = self.create_dim_list(col_name)
             context = Context(self.time_type, self.date, col_name, dim)
-            # add new context to sheet's list
             self._contexts.append(context)
             
             # Grab all cells within the given context
             rows = self._df[self._df['header'] == col_name]
+            print(f"Debug: Rows shape for {col_name}: {rows.shape}")
+            print(f"Debug: First few rows:\n{rows.head()}")
 
-            # Iterate through filtered rows and create Cell objects with the specified context
+            # Iterate through filtered rows and create Cell objects
             for _, row in rows.iterrows():
                 xbrl_tag = str(row["xbrl_element"]).strip()
                 if xbrl_tag != "Choose from drop-down -->":
@@ -39,5 +47,4 @@ class NetPosition(Table):
                                 value = row["value"],
                                 context = context)
                     self._data.append(cell)
-        # put data back in its original order
         self._data.sort()
