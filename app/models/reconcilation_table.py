@@ -1,4 +1,4 @@
-from app.models import Table, Cell
+from app.models import Table, Cell, Context, Dimension
 from app.utils import *
 import pandas as pd
 
@@ -14,22 +14,32 @@ class Reconciliation(Table):
 
     def process_cells(self):
         """Create a list of Cell objects to represent Excel data"""
-        for col_name in self._df['header'].unique():
-            # get the rows
-            rows = self._df[self._df['header'] == col_name]
+        context = Context(self.time_type, self.date, "Amount", [Dimension("Amount")])
+        self._contexts.append(context)
 
-            # Iterate through filtered rows and create Cell objects with the specified context
-            for _, row in rows.iterrows():
+        for _, row in self._df.iterrows():
+            xbrl_tag = row.get("XBRL Element", None)  # Use None as default
+            if pd.notna(row["value"]):  # Process all non-NaN values
                 cell = Cell(id = row["id"], 
-                            xbrl_tag = None, 
+                            xbrl_tag = xbrl_tag, 
                             row_name = str(row["nan"]), 
                             col_name = str(row["header"]),
                             value = row["value"],
-                            context = None,
+                            context = context,
                             n_left_cols = self.extra_left_cols)
                 self._data.append(cell)
-        # put data back in its original order
-        self._data.sort()
+    
+        if self._data:
+            self._data.sort()
+            print(f"Debug: Number of cells processed: {len(self._data)}")
+            print(f"Debug: First cell: {self._data[0]}")
+            print(f"Debug: Last cell: {self._data[-1]}")
+        else:
+            print("Debug: No cells were processed.")
+    
+        print(f"Debug: DataFrame shape: {self._df.shape}")
+        print(f"Debug: DataFrame columns: {self._df.columns}")
+        print(f"Debug: First few rows of DataFrame:\n{self._df.head()}")
 
     def n_header_lines(self) -> int:
         # determine number of lines above the first taggable row
@@ -53,12 +63,20 @@ class Reconciliation(Table):
 
         # Reshape using 'melt' to give one row per taggable item
         id_cols = self._df.columns[:self.extra_left_cols].tolist() + ["row"]
-        val_cols = self._df.columns[self.extra_left_cols:].tolist()
+        if "XBRL Element" in self._df.columns:
+            id_cols.append("XBRL Element")
+        val_cols = [col for col in self._df.columns if col not in id_cols and col != "row"]
         self._df = pd.melt(self._df, id_vars=id_cols, value_vars=val_cols, var_name="header")
 
+        # Ensure 'value' column is numeric and preserves negative values
+        self._df['value'] = pd.to_numeric(self._df['value'], errors='coerce')
+
         # Calculate original sheet column and cell in Excel document
-        self._df['col'] = [ALPHABET[i] for i in (self.extra_left_cols + (self._df.index // n_rows_orig))]
+        self._df['col'] = [ALPHABET[min(i, len(ALPHABET)-1)] for i in (self.extra_left_cols + (self._df.index // n_rows_orig))]
         cells = [f'{c}{r}' for c, r in zip(self._df['col'], self._df["row"])]
         self._df["id"] = [f'{self.sheet_name.replace(" ", "")}_{cell}' for cell in cells]
-        self._df = self._df.sort_values(by=['row', 'col'])  
+        self._df = self._df.sort_values(by=['row', 'col'])
 
+        print(f"Debug: Final DataFrame shape: {self._df.shape}")
+        print(f"Debug: Final DataFrame columns: {self._df.columns}")
+        print(f"Debug: First few rows of final DataFrame:\n{self._df.head()}")
