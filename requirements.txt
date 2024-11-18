@@ -31,5 +31,5 @@ certifi
 pycountry
 
 Pillow==10.4.0
-ixbrl-viewer
-arelle-release
+# ixbrl-viewer
+# arelle-release
