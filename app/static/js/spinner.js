@@ -180,9 +180,6 @@ function startProcessing(event) {
 
     let formData = new FormData(document.getElementById('uploadForm'));
 
-    // Create a new window/tab immediately
-    let newWindow = window.open('about:blank', '_blank');
-
     // Send POST request to initiate the upload
     fetch('/upload', {
         method: 'POST',
