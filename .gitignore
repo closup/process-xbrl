@@ -12,6 +12,9 @@ xbrl_venv/
 .venv
 venv/
 
+# FLASK API KEY in this environment file
+.env
+
 # ignore unsaved Microsoft docs
 ~$*
 
