@@ -185,6 +185,10 @@ function startProcessing(event) {
         method: 'POST',
         body: formData
     }).then(response => {
+
+        // set newWindow to null
+        let newWindow = null;
+
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
 
