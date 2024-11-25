@@ -41,7 +41,7 @@ class NetPosition(Table):
                 value = row["value"]
                 
                 # Skip empty cells or those without XBRL tags
-                if pd.isna(value) or value == "" or xbrl_tag == "Choose from drop-down -->":
+                if xbrl_tag == "Choose from drop-down -->":
                     continue
                 
                 try:
