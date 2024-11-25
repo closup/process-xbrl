@@ -25,7 +25,7 @@ class Reconciliation(Table):
                        row_name = str(row["nan"]), 
                        col_name = str(row["header"]),
                        value = row["value"],
-                       context = context,
+                       context = None,
                        n_left_cols = self.extra_left_cols)
             self._data.append(cell)
     
