@@ -14,20 +14,20 @@ class Reconciliation(Table):
 
     def process_cells(self):
         """Create a list of Cell objects to represent Excel data"""
+        # Single context for all cells in reconciliation table
         context = Context(self.time_type, self.date, "Amount", [Dimension("Amount")])
         self._contexts.append(context)
 
         for _, row in self._df.iterrows():
-            xbrl_tag = row.get("XBRL Element", None)  # Use None as default
-            if pd.notna(row["value"]):  # Process all non-NaN values
-                cell = Cell(id = row["id"], 
-                            xbrl_tag = xbrl_tag, 
-                            row_name = str(row["nan"]), 
-                            col_name = str(row["header"]),
-                            value = row["value"],
-                            context = context,
-                            n_left_cols = self.extra_left_cols)
-                self._data.append(cell)
+            # Only check if value exists (no XBRL tag check needed)
+            cell = Cell(id = row["id"], 
+                       xbrl_tag = None,  # No XBRL tags in reconciliation tables
+                       row_name = str(row["nan"]), 
+                       col_name = str(row["header"]),
+                       value = row["value"],
+                       context = context,
+                       n_left_cols = self.extra_left_cols)
+            self._data.append(cell)
     
         if self._data:
             self._data.sort()
@@ -35,7 +35,7 @@ class Reconciliation(Table):
             print(f"Debug: First cell: {self._data[0]}")
             print(f"Debug: Last cell: {self._data[-1]}")
         else:
-            print("Debug: No cells were processed.")
+            print("Debug: No cells were processed")
     
         print(f"Debug: DataFrame shape: {self._df.shape}")
         print(f"Debug: DataFrame columns: {self._df.columns}")
