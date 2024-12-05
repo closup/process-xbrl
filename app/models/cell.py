@@ -102,7 +102,7 @@ class Cell:
         """
         if self._row_name in ["", "nan"]:
             return "empty_row"
-        if self._row_name.isupper():
+        if self._row_name.isupper() and self._row_name.strip() != "OPEB":
             return "section_header"
         if self._row_name[-1] == ":":
             return "subsection_header"
