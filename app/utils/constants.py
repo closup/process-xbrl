@@ -5,7 +5,7 @@ Updated March 2024
 
 __all__ = ["axis_dict", "ALPHABET", "ROOT", "UPLOAD_FOLDER", 
            "SPREADSHEET_EXTENSIONS", "ALLOWED_EXTENSIONS", 
-           "DIMENSIONS"]
+           "DIMENSIONS", "EXCLUDED_HEADERS"]
 
 # =============================================================
 # Global variables
@@ -65,4 +65,7 @@ p[style-name='title'] => h1.title
 p[style-name='header'] => h2.header
 p[style-name='header2'] => h3.header2
 """
+
+# OPEB is for cell.py
+EXCLUDED_HEADERS = ["OPEB"]  # Headers that shouldn't be treated as section headers
 
