@@ -92,24 +92,31 @@ class Table:
         # Return the row number before "XBRL Element"
         return idx[0]
     
-    def parse_date(self) -> datetime :
+    def parse_date(self) -> datetime:
         """ Get date from spreadsheet and interpret """
         # clean date of extra words
-        date = str.replace(self.raw_date(), "for_the_year_ended_", "")
-        try:
-        # First try parsing with the numerical year-month-day format (default if "date" in Excel)
-            date = datetime.strptime(date, "%Y-%m-%d_%H:%M:%S")
-        except ValueError:
+        date_str = str.replace(self.raw_date(), "for_the_year_ended_", "")
+        
+        # Print debug info
+        print(f"Debug: Raw date string: {date_str}")
+        
+        formats_to_try = [
+            "%Y-%m-%d_%H:%M:%S",
+            '%B_%d,_%Y',
+            "%Y-%m-%d_%H%M%S",
+            "%B %d, %Y",
+            "%d/%m/%Y",  # Add this format
+        ]
+        
+        for date_format in formats_to_try:
             try:
-                # If the above format fails, try the month-name_day,_year format.
-                date = datetime.strptime(date, '%B_%d,_%Y')
+                return datetime.strptime(date_str, date_format)
             except ValueError:
-                try: 
-                    date = datetime.strptime(date, "%Y-%m-%d_%H%M%S")
-                except ValueError:
-                    pass
-        finally:
-            return date
+                continue
+        
+        # If no format works, return today's date and log warning
+        print(f"Warning: Could not parse date '{date_str}'. Using current date.")
+        return datetime.now()
 
     def get_col_names(self) -> List[str]:
         """ Get unique column names in the sheet """
