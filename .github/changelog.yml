@@ -1,19 +1,24 @@
 name: Update Changelog
 
 on:
-  push:
+  pull_request:
+    types:
+      - closed  # Trigger when a PR is closed
     branches:
-      - main
+      # Specify branches to track
       - dev
+      - main
 
 jobs:
   update_changelog:
+    if: github.event.pull_request.merged == true  # Only run if the PR was merged
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    # Generate changelog from merged PR metadata
     - name: Generate Changelog
       uses: mikepenz/release-changelog-builder-action@v2
       with:
@@ -25,5 +30,5 @@ jobs:
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git add CHANGELOG.md
-        git commit -m "Update changelog"
+        git commit -m "Update changelog with merged PRs"
         git push
