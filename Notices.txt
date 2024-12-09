@@ -1,0 +1,66 @@
+This software includes the following third-party open source components:
+
+1. Arelle
+   - Copyright (c) 2010-present Workiva Inc.
+   - License: Apache License 2.0
+   - Website: https://arelle.org/
+   - Source: https://github.com/Arelle/Arelle
+
+2. Flask
+   - Copyright (c) 2010 Pallets
+   - License: BSD 3-Clause License
+   - Website: https://flask.palletsprojects.com/
+
+3. Jinja2
+   - Copyright (c) 2009 by the Jinja Team
+   - License: BSD 3-Clause License
+   - Website: https://jinja.palletsprojects.com/
+
+4. OpenPyXL
+   - Copyright (c) 2010 openpyxl
+   - License: MIT License
+   - Website: https://openpyxl.readthedocs.io/
+
+5. Pandas
+   - Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team
+   - License: BSD 3-Clause License
+   - Website: https://pandas.pydata.org/
+
+6. python-mammoth
+   - Copyright (c) 2013, Michael Williamson
+   - License: BSD 2-Clause License
+   - Website: https://github.com/mwilliamson/python-mammoth
+
+7. Beautiful Soup (bs4)
+   - Copyright (c) 2004-2019 Leonard Richardson
+   - License: MIT License
+   - Website: https://www.crummy.com/software/BeautifulSoup/
+
+8. Werkzeug
+   - Copyright (c) 2007 Pallets
+   - License: BSD 3-Clause License
+   - Website: https://werkzeug.palletsprojects.com/
+
+9. python-dotenv
+   - Copyright (c) 2014, Saurabh Kumar
+   - License: BSD 3-Clause License
+   - Website: https://github.com/theskumar/python-dotenv
+
+10. lxml
+    - Copyright (c) 2004 Infrae
+    - License: BSD 3-Clause License
+    - Website: https://lxml.de/
+
+11. Pillow
+    - Copyright (c) 2010-2024 by Alex Clark and contributors
+    - License: HPND License
+    - Website: https://python-pillow.org/
+
+12. iXBRL Viewer
+    - Copyright (c) 2019 Workiva Inc.
+    - License: Apache License 2.0
+    - Website: https://github.com/Arelle/ixbrl-viewer
+
+Additional dependencies and their licenses can be found in the respective packages' documentation.
+
+The above notices are provided for information only and do not modify the applicable license terms.

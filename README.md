@@ -1,4 +1,5 @@
-Last updated: May 2024
+Copyright © <2024> The Regents of the University of Michigan
+Last updated: December 2024
 Katrina Wheelan
 
 ## Purpose
