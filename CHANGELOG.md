@@ -130,4 +130,6 @@
    - PR: #155
 - Setting up release-config.yml
    - PR: #156
+- 147 changelog automate
+   - PR: #157
 
