@@ -14,6 +14,9 @@ categories:
       - 'documentation'
       - 'docs'
       - 'refactor'
+  - title: '📦 Other Changes'  # Default category
+    labels:
+      - '*'  # Catch-all for PRs with no matching labels
 
 template: |
   ## Changes
