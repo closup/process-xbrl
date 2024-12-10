@@ -1,10 +1,9 @@
 Copyright © <2024> The Regents of the University of Michigan
 Last updated: December 2024
-Katrina Wheelan
 
 ## Purpose
 
-An open-source tool to convert ACFR components in Excel and Word into inline XBRL
+An open-source tool to convert ACFR files in Excel and Word into inline XBRL
 
 ## Demo
 
@@ -32,7 +31,7 @@ python3 main.py
 5. You can test the functionality by uploading the sample file where prompted on the app: `static/input_files/samples/Clayton_sample.xlsx`
 
 ## Running into issues?
-There may be an issue with FLASK_SECRET_KEY. If you are running into issues, generate a .env file and set the FLASK_SECRET_KEY to a 32 character string that can be generated via `python -c "import secrets; print(secrets.token_hex(16))"`.
+There may be an issue with FLASK_SECRET_KEY. If you are running into issues, generate a .env file and set the FLASK_SECRET_KEY to a 32 character string that can be generated via `python -c "import secrets; print(secrets.token_hex(16))"` in terminal.
 
 ## File structure
 
