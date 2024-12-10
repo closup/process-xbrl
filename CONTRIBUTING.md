@@ -26,9 +26,12 @@ Please contact closup-ixbrl@umich.edu
 4. Write or update tests as needed.
 5. Update documentation as needed.
 6. Label your PR with one of the following categories:
-   - `feature` or `enhancement` for new features and improvements
+   - `feature`, `enhancement`, or `high priority` for new features and improvements
    - `fix`, `bugfix`, or `bug` for bug fixes
-   - `chore`, `documentation`, `docs`, or `refactor` for maintenance tasks
+   - `documentation` or `docs` for documentation changes
+   - `chore` or `refactor` for maintenance tasks
+   - Technology-specific labels (`python`, `js`, `Javascript`, `html`, `excel`, `xbrl`)
+   - UI/UX labels (`web design`, `web app`)
 7. Submit a pull request with a clear title and description.
 8. Reference the issue number in your pull request description.
 
@@ -41,9 +44,12 @@ Please contact closup-ixbrl@umich.edu
 * Write clear commit messages
 * Ensure all tests pass before submitting
 * Properly label your PR for changelog categorization:
-  - 🚀 Features: use `feature` or `enhancement` labels
+  - 🚀 Features: use `feature`, `enhancement`, or `high priority` labels
   - 🐛 Bug Fixes: use `fix`, `bugfix`, or `bug` labels
-  - 🧰 Maintenance: use `chore`, `documentation`, `docs`, or `refactor` labels
+  - 📝 Documentation: use `documentation` or `docs` labels
+  - 🧰 Maintenance: use `chore` or `refactor` labels
+  - 💻 Technology Updates: use `python`, `js`, `Javascript`, `html`, `excel`, or `xbrl` labels
+  - 🎨 UI/UX: use `web design` or `web app` labels
   - 📦 Other Changes: PRs without any of the above labels will be categorized here
 
 ### Code Review Process
@@ -57,7 +63,7 @@ Please contact closup-ixbrl@umich.edu
 * Any functionality change should have a GitHub issue opened. For minor changes that affect documentation, you do not need to open up a GitHub issue. Instead you can prefix the title of your PR with "MINOR: " if meets one of the following:
   * Grammar, usage and spelling fixes that affect no more than 2 files
   * Documentation updates affecting no more than 2 files and not more than 500 words.
-  * These should still be labeled with `documentation` or `docs` for proper changelog categorization
+  * These should still be labeled with `documentation` or `docs` for proper changelog categorization in the 📝 Documentation section
 
 ## Proposing Significant Changes
 
