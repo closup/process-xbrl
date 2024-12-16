@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "@antiwork/shortest": "^0.0.7",
     "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2"
   }
 }
