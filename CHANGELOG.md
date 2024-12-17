@@ -12,12 +12,6 @@
    - PR: #35
 - 25 improve loading wheel
    - PR: #40
-- 36 template fixes
-   - PR: #41
-- 30 support for new tables
-   - PR: #33
-- Update dev
-   - PR: #45
 - Merge pull request #45 from closup/main
    - PR: #46
 - update for template
@@ -132,4 +126,6 @@
    - PR: #156
 - 147 changelog automate
    - PR: #157
+- Added message Natalie requested about warning in-prod
+   - PR: #160
 
