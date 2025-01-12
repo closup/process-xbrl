@@ -12,10 +12,8 @@
    - PR: #35
 - 25 improve loading wheel
    - PR: #40
-- Merge pull request #45 from closup/main
-   - PR: #46
-- update for template
-   - PR: #47
+- 36 template fixes
+   - PR: #41
 - 30 support for new tables
    - PR: #49
 - 7 sessions
@@ -128,4 +126,6 @@
    - PR: #157
 - Added message Natalie requested about warning in-prod
    - PR: #160
+- 161 viewer not loading
+   - PR: #162
 
