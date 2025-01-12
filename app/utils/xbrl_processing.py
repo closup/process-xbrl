@@ -58,7 +58,7 @@ def create_viewer_html(output_file : str,
     # command to run Arelle process
     # OLD YOU DON'T NEED THIS!! plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
     # ixbrl-viewer automatically uses "iXBRLViewerPlugin:load_plugin_url"
-    viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.36/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
+    viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.48/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
 
     print('viewer path', viewer_filepath)
     args = f"--plugins=ixbrl-viewer -f {output_file} --save-viewer {viewer_filepath} --viewer-url {viewer_url}"
@@ -67,8 +67,14 @@ def create_viewer_html(output_file : str,
     setApplicationLocale()
     gettext.install("arelle")
     print("Validating XBRL...")
-    parseAndRun(args)  # Use parseAndRun instead of CntlrCmdLine.parseAndRun
+    try:
+        parseAndRun(args)
+        print("XBRL validation complete")
+    except Exception as e:
+        print(f"Error during XBRL validation: {str(e)}")
+        raise
 
+    
     # Read in the generated HTML
     print("Creating interactive viewer...")
     try:

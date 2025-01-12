@@ -18,6 +18,9 @@ venv/
 # ignore unsaved Microsoft docs
 ~$*
 
+# Ignore cursor
+.specstory/
+
 # ignore files that change each time we run the app
 app/static/output/output.html
 app/templates/site/viewer.html
