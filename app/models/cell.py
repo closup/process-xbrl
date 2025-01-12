@@ -123,7 +123,7 @@ class Cell:
         return f"{self.prefix()}{self.show_value()}{self.suffix()}"
 
     def __repr__(self):
-        return self.formatted_value()
+        return self.show_value()
 
     def index(self):
         """ ex. 5B for a cell originall in B5 in Excel """
