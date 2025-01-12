@@ -6,8 +6,8 @@ class Dimension():
     def __init__(self, col_name : str, type = None):
         self._member_name = get_col_no_spaces(col_name)  # Default value
         self._member_type = "typed"  # Default type
-        self._axis = "DefaultAxis"
-        self._domain = "DefaultDomain"
+        self._axis = "Default"
+        self._domain = "Default"
 
         if col_name in axis_dict:
             self._member_type = "explicit"
