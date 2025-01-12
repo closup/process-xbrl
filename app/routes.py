@@ -106,8 +106,13 @@ def upload_file():
 
             yield "data: Creating viewer\n\n"
             viewer_output_path = f'app/static/sessions_data/{session_id}/output/'
-            create_viewer_html(output_file, viewer_output_path)
-            print('viewer created\n')
+            try:
+                create_viewer_html(output_file, viewer_output_path)
+                print('viewer created\n')
+            except Exception as e:
+                print(f"Error creating viewer: {str(e)}")
+                yield f"data: Error creating viewer: {str(e)}\n\n"
+                return
 
             yield "data: Conversion finishing...\n\n"
             yield f"data: complete:{session_id}\n\n"  # Make sure this line is present

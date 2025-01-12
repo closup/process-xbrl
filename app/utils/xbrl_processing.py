@@ -67,8 +67,14 @@ def create_viewer_html(output_file : str,
     setApplicationLocale()
     gettext.install("arelle")
     print("Validating XBRL...")
-    parseAndRun(args)  # Use parseAndRun instead of CntlrCmdLine.parseAndRun
+    try:
+        parseAndRun(args)
+        print("XBRL validation complete")
+    except Exception as e:
+        print(f"Error during XBRL validation: {str(e)}")
+        raise
 
+    
     # Read in the generated HTML
     print("Creating interactive viewer...")
     try:
