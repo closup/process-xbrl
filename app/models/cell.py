@@ -63,16 +63,14 @@ class Cell:
         return self._id[self._id.find('_') + 1] == ALPHABET[self._n_left_cols]
 
     def show_value(self):
-        """
-        Format the value as it should appear in the html table
-        (ie. add a $ if the first row; add commas, etc)
-        """
-        if self._value == "" or type(self._value) is str:
+        if self._value == "" or isinstance(self._value, str):
             return self._value
-        ret = '{:,}'.format(abs(self._value))
-        if ret == "0":
-            ret = "-"
-        return ret
+        try:
+            ret = '{:,}'.format(abs(int(round(float(self._value)))))
+            return "-" if ret == "0" else ret
+        except ValueError:
+            print(f"Warning: Unable to format value: {self._value}")
+            return str(self._value)
     
     def first_row(self):
         return self._first_row
@@ -82,20 +80,21 @@ class Cell:
     
     def prefix(self):
         """
-        Add dollar sign and/or negative sign as relevant
+        Add dollar sign and/or opening parenthesis as relevant
         """
         ret = ""
-        if self._value < 0:
-            ret = "("
         if self._first_row:
-            ret = f"$ {ret}"
+            ret = "$ "
+        if isinstance(self._value, (int, float)) and self._value < 0:
+            ret += "("
+        # print(f"Debug: value = {self._value}, prefix = {ret}")  # Debug log
         return ret
     
     def suffix(self):
-        """Add closing parans if relevant"""
-        if self._value < 0:
-            return ")"
-        return ""
+        """Add closing parenthesis if relevant"""
+        ret = ")" if isinstance(self._value, (int, float)) and self._value < 0 else ""
+        # print(f"Debug: value = {self._value}, suffix = {ret}")  # Debug log
+        return ret
     
     def tr_class(self):
         """
@@ -103,7 +102,7 @@ class Cell:
         """
         if self._row_name in ["", "nan"]:
             return "empty_row"
-        if self._row_name.isupper():
+        if self._row_name.isupper() and self._row_name.strip() not in EXCLUDED_HEADERS:
             return "section_header"
         if self._row_name[-1] == ":":
             return "subsection_header"
@@ -117,9 +116,15 @@ class Cell:
             return "data_total"
         return self.tr_class()
     
+    def formatted_value(self):
+        """
+        Combine prefix, value, and suffix for complete formatted representation
+        """
+        return f"{self.prefix()}{self.show_value()}{self.suffix()}"
+
     def __repr__(self):
         return self.show_value()
-    
+
     def index(self):
         """ ex. 5B for a cell originall in B5 in Excel """
         return self.row() + self.col()

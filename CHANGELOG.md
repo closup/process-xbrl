@@ -1,0 +1,135 @@
+## 📦 Uncategorized
+
+- Integrate Suresh's fork (with Word features)
+   - PR: #4
+- 5 word integration
+   - PR: #21
+- 20 typed dimensions
+   - PR: #27
+- module import fix
+   - PR: #29
+- 24 acfr edits
+   - PR: #35
+- 25 improve loading wheel
+   - PR: #40
+- 36 template fixes
+   - PR: #41
+- 30 support for new tables
+   - PR: #49
+- 7 sessions
+   - PR: #51
+- 28 image handling
+   - PR: #38
+- #54 implemented custom line items
+   - PR: #55
+- 52 add back button
+   - PR: #56
+- use jinja to download session specific outputs.
+   - PR: #61
+- 58 downloads session
+   - PR: #70
+- Zip download
+   - PR: #73
+- Improve uploads
+   - PR: #74
+- Fix Ogemaw bug
+   - PR: #79
+- 82 fix viewer js
+   - PR: #84
+- Custom line items adjustment to Excel template
+   - PR: #78
+- [PR] improve process updates and design
+   - PR: #87
+- #85 - Fix date parse error
+   - PR: #88
+- #68 improved web design
+   - PR: #90
+- fixed post conversion page not being displayed
+   - PR: #97
+- Adding sessions updates
+   - PR: #53
+- replaced ACFR template with Sarrah upload
+   - PR: #100
+- PIL Import so Heroku deployment works for main branch
+   - PR: #102
+- heroku still fails so updating ver and specifying arelle too
+   - PR: #103
+- fixed arelle ver
+   - PR: #104
+- changed arelle ver again
+   - PR: #105
+- parse and run added
+   - PR: #106
+- 98 address template errors
+   - PR: #107
+- Template update
+   - PR: #108
+- updated ixbrl viewer ver
+   - PR: #109
+- test push of ixbrlviewer.js change
+   - PR: #110
+- try 1.4.8 for ixbrlviewer
+   - PR: #111
+- added a runtime.txt for heroku
+   - PR: #112
+- test deletion of arelle import
+   - PR: #113
+- add back arelle release
+   - PR: #114
+- Fixed --save-viewer issue, use ixbrl-viewer from pip
+   - PR: #115
+- changed handling session using query param
+   - PR: #116
+- opens in new tab
+   - PR: #118
+- opens in new tab
+   - PR: #117
+- parentheses for negative numbers + 'No' business activities
+   - PR: #123
+- Move all partial fixes to dev branch
+   - PR: #124
+- Update .gitignore
+   - PR: #135
+- flask key .env deleted (only local on Luca pc rn)
+   - PR: #136
+- fix heading formatting issues
+   - PR: #137
+- removed context to revert clickable reconciliation tables
+   - PR: #138
+- Open tab only after conversion complete
+   - PR: #142
+- #122 uploading emailed template
+   - PR: #127
+- added condition to handle 'OPEB' to not treat it as header
+   - PR: #143
+- defined in constants.py
+   - PR: #144
+- handle different date formats in master info sheet
+   - PR: #146
+- Set up GitHub actions / CHANGELOG.md for main and dev branches
+   - PR: #148
+- Update changelog.yml
+   - PR: #149
+- Updated README.md
+   - PR: #150
+- README, License, Notices, Contributing documentation
+   - PR: #151
+- Update README.md
+   - PR: #153
+- Change location of changelog.yml
+   - PR: #154
+- Added GITHUB_TOKEN to changelog.yml
+   - PR: #155
+- Setting up release-config.yml
+   - PR: #156
+- 147 changelog automate
+   - PR: #157
+- Added message Natalie requested about warning in-prod
+   - PR: #160
+- 161 viewer not loading
+   - PR: #162
+- 163 submodule versions
+   - PR: #167
+- 158 dev review
+   - PR: #168
+

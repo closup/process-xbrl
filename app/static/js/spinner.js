@@ -157,7 +157,7 @@ function handleUploadError(errorMessage) {
 }
 
 function startProcessing(event) {
-    event.preventDefault();  // Stops the normal form submission process
+    event.preventDefault();
 
     document.getElementById('loader').style.display = 'block';
     
@@ -200,30 +200,24 @@ function startProcessing(event) {
                 }
 
                 const chunk = decoder.decode(value, { stream: true });
-                console.log('Received chunk:', chunk);  // Log the raw chunk
                 const lines = chunk.split('\n');
                 lines.forEach(line => {
-                    console.log('Processing line:', line);
                     if (line.startsWith('data:')) {
                         const message = line.slice(5).trim();
-                        console.log('Received message:', message);
 
                         if (message.startsWith('complete:')) {
-                            console.log('Conversion complete, opening new tab...');
+                            console.log('Conversion complete, redirecting...');
                             const sessionId = message.split(':')[1];
                             const newTabUrl = `/upload/complete?session_id=${sessionId}`;
-                            if (newWindow) {
-                                newWindow.location.href = newTabUrl;
-                            } else {
-                                window.open(newTabUrl, '_blank');
-                            }
+                            
                             notyf.dismiss(notificationId);
-                            notyf.success('Conversion complete. Results opened in a new tab.');
-                            // Stop the loading wheel
+                            notyf.success('Conversion complete. Redirecting...');
                             document.getElementById('loader').style.display = 'none';
-                            // Reset the form
                             document.getElementById('uploadForm').reset();
                             updateButton();
+
+                            window.location.href = newTabUrl;
+
                         } else {
                             notyf.dismiss(notificationId);
                             notificationId = notyf.open({
@@ -236,10 +230,6 @@ function startProcessing(event) {
                             document.getElementById('loader').style.display = 'none';
                             notyf.dismiss(notificationId);
                             notyf.error(message);
-                            if (newWindow) {
-                                newWindow.close();
-                            }
-                            // Reset the form
                             document.getElementById('uploadForm').reset();
                             updateButton();
                         }
@@ -250,12 +240,7 @@ function startProcessing(event) {
             }).catch(error => {
                 console.error('Error in readStream:', error);
                 notyf.error('An error occurred during processing');
-                if (newWindow) {
-                    newWindow.close();
-                }
-                // Stop the loading wheel
                 document.getElementById('loader').style.display = 'none';
-                // Reset the form
                 document.getElementById('uploadForm').reset();
                 updateButton();
             });
@@ -266,10 +251,6 @@ function startProcessing(event) {
         console.error('Error:', error);
         document.getElementById('loader').style.display = 'none';
         notyf.error('An error occurred during upload');
-        if (newWindow) {
-            newWindow.close();
-        }
-        // Reset the form
         document.getElementById('uploadForm').reset();
         updateButton();
     });

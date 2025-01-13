@@ -1,0 +1,50 @@
+name: Update Changelog
+
+on:
+  pull_request:
+    branches: [dev, main]
+    types: [opened, synchronize, closed]
+
+jobs:
+  update_changelog:
+    # Only run if PR is merged (not just closed)
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Need to fetch all history for changelog generation
+          fetch-depth: 0
+          # Checkout the branch that the PR is being merged into
+          ref: ${{ github.event.pull_request.base.ref }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Generate Changelog
+        uses: mikepenz/release-changelog-builder-action@v4
+        with:
+          configuration: ".github/release-config.yml"
+          # Specify output file
+          outputFile: "CHANGELOG.md"
+          # Use PR title and body for changelog entry
+          failOnError: false
+          toTag: ${{ github.sha }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and Push Changes
+        run: |
+          # Check if there are changes to commit
+          if git diff --quiet CHANGELOG.md; then
+            echo "No changes to CHANGELOG.md"
+            exit 0
+          fi
+          
+          git add CHANGELOG.md
+          git commit -m "docs: update changelog for PR #${{ github.event.pull_request.number }}"
+          git push origin ${{ github.event.pull_request.base.ref }}

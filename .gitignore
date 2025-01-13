@@ -12,8 +12,14 @@ xbrl_venv/
 .venv
 venv/
 
+# FLASK API KEY in this environment file
+.env
+
 # ignore unsaved Microsoft docs
 ~$*
+
+# Ignore cursor
+.specstory/
 
 # ignore files that change each time we run the app
 app/static/output/output.html

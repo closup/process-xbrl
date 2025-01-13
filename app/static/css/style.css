@@ -115,7 +115,16 @@ header {
 }
 
 #convert-button {
-    display:none;
+    display: none;  /* Initially hidden */
+    margin: 20px auto;  /* Add vertical margin */
+    text-align: center;  /* Center text inside button */
+}
+
+/* Update the button-container class */
+.button-container {
+    text-align: center;  /* Center the button within container */
+    width: 100%;
+    margin: 20px 0;
 }
 
 .loader {
