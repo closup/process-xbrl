@@ -12,10 +12,6 @@
    - PR: #35
 - 25 improve loading wheel
    - PR: #40
-- 36 template fixes
-   - PR: #41
-- 30 support for new tables
-   - PR: #49
 - 7 sessions
    - PR: #51
 - 28 image handling
@@ -88,6 +84,8 @@
    - PR: #123
 - Move all partial fixes to dev branch
    - PR: #124
+- Revert changes to make main functional
+   - PR: #130
 - Update .gitignore
    - PR: #135
 - flask key .env deleted (only local on Luca pc rn)
@@ -132,4 +130,6 @@
    - PR: #167
 - 158 dev review
    - PR: #168
+- Add 'more information' button
+   - PR: #171
 
