@@ -27,10 +27,6 @@ class Dimension():
         return f"acfr:{self._axis}Axis"
     
     @property
-    def domain(self):
-        return f"acfr:{self._domain}Domain"
-    
-    @property
     def member_name(self):
         return f"acfr:{self._member_name}Member"
     
