@@ -152,4 +152,6 @@
    - PR: #174
 - 165 domain issues
    - PR: #173
+- Member should be an element, not text
+   - PR: #176
 
