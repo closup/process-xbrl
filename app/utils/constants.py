@@ -41,20 +41,20 @@ DIMENSIONS = {"TypeOfGovernmentUnit" : ["governmental_activities",
                                        "capital_grants_and_contributions"],
             "GovernmentalFunds"     : ["total", "general_fund"] }
 
-# Dimension axis, domain, and member name by column name in Excel template
-axis_dict = {"governmental_activities"  : ("TypeOfGovernmentUnit", None, "GovernmentalActivities"),
-             "business-type_activities" : ("TypeOfGovernmentUnit", None, "BusinessTypeActivities"),
-             "total_primary_government" : ("TypeOfGovernmentUnit", None, "PrimaryGovernmentActivities"),
-             "component_units"          : ("TypeOfGovernmentUnit", None, "ComponentUnitDiscretelyPresented"),
-             "charges_for_services"     : ("TypeOfProgramRevenues", None, "ProgramRevenuesFromChargesForServices"),
-             "operating_grants_and_contributions" : ("TypeOfProgramRevenues", None, "ProgramRevenuesFromOperatingGrantsAndContributions"),
-             "capital_grants_and_contributions"   : ("TypeOfProgramRevenues", None, "ProgramRevenuesFromCapitalGrantsAndContributions"),
+# Dimension axis and member name by column name in Excel template
+axis_dict = {"governmental_activities"  : ("TypeOfGovernmentUnit", "GovernmentalActivities"),
+             "business-type_activities" : ("TypeOfGovernmentUnit", "BusinessTypeActivities"),
+             "total_primary_government" : ("TypeOfGovernmentUnit", "PrimaryGovernmentActivities"),
+             "component_units"          : ("TypeOfGovernmentUnit", "ComponentUnitDiscretelyPresented"),
+             "charges_for_services"     : ("TypeOfProgramRevenues", "ProgramRevenuesFromChargesForServices"),
+             "operating_grants_and_contributions" : ("TypeOfProgramRevenues", "ProgramRevenuesFromOperatingGrantsAndContributions"),
+             "capital_grants_and_contributions"   : ("TypeOfProgramRevenues", "ProgramRevenuesFromCapitalGrantsAndContributions"),
             # gov funds
-             "general_fund"             : ("GovernmentalFunds", None, "GeneralFund"),
-             "total_governmental_funds" : ("GovernmentalFunds", None, "GovernmentalFunds"),
+             "general_fund"             : ("GovernmentalFunds", "GeneralFund"),
+             "total_governmental_funds" : ("GovernmentalFunds", "GovernmentalFunds"),
              # Prop funds
-             "total_enterprise_funds" : ("TypeOfActivitiesProprietaryFunds", "ProprietaryFunds", "BusinessTypeActivitiesEnterpriseFunds"),
-             "internal_service_funds" : ("TypeOfActivitiesProprietaryFunds", "ProprietaryFunds", "InternalServiceFunds")}
+             "total_enterprise_funds" : ("TypeOfActivitiesProprietaryFunds", "BusinessTypeActivitiesEnterpriseFunds"),
+             "internal_service_funds" : ("TypeOfActivitiesProprietaryFunds", "InternalServiceFunds")}
 
 # =============================================================
 # Mammoth style conversions from Word
