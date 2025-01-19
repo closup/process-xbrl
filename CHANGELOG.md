@@ -12,10 +12,20 @@
    - PR: #35
 - 25 improve loading wheel
    - PR: #40
+- 36 template fixes
+   - PR: #41
+- 30 support for new tables
+   - PR: #33
+- Update dev
+   - PR: #45
+- Merge pull request #45 from closup/main
+   - PR: #46
+- update for template
+   - PR: #47
+- 30 support for new tables
+   - PR: #49
 - 7 sessions
    - PR: #51
-- 28 image handling
-   - PR: #38
 - #54 implemented custom line items
    - PR: #55
 - 52 add back button
@@ -130,6 +140,14 @@
    - PR: #167
 - 158 dev review
    - PR: #168
+- Dev
+   - PR: #158
+- Create TEMPLATE-README
+   - PR: #169
+- Update README.md
+   - PR: #170
 - Add 'more information' button
    - PR: #171
+- Update with patches and documentation
+   - PR: #174
 
