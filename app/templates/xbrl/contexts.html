@@ -5,7 +5,7 @@
         <xbrli:segment>
             {% for dim in context.dims() %}
             <xbrldi:{{dim.member_type}}Member dimension="{{dim.axis}}">
-                <{{ dim.member_name }}/>
+                {{ dim.member_name }}
             </xbrldi:{{dim.member_type}}Member>
             {% endfor %}
         </xbrli:segment>   
