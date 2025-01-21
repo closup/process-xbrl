@@ -154,4 +154,6 @@
    - PR: #173
 - Member should be an element, not text
    - PR: #176
+- Fix XBRL error created by introducing element without proper close
+   - PR: #178
 
