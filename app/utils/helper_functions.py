@@ -97,12 +97,16 @@ def update_session_timestamp(session):
     session['session_timestamp'] = datetime.now(timezone.utc)
 
 def modify_img_paths(session_id):
-    # Define the path to the HTML file
-    html_file_path = os.path.join('app', 'static', 'sessions_data', session_id, 'output', 'viewer.html')
+    # Define the paths to both HTML files
+    output_html_path = os.path.join('app', 'static', 'sessions_data', session_id, 'output', 'output.html')
+    viewer_html_path = os.path.join('app', 'static', 'sessions_data', session_id, 'output', 'viewer.html')
 
-    # Read the HTML file
     try:
-        with open(html_file_path, 'r', encoding='utf-8') as file:
+        # First, copy output.html to viewer.html
+        shutil.copy2(output_html_path, viewer_html_path)
+        
+        # Then modify the viewer.html file
+        with open(viewer_html_path, 'r', encoding='utf-8') as file:
             soup = BeautifulSoup(file, 'html.parser')
 
         # Find all <img> tags and modify their src attribute
@@ -114,13 +118,14 @@ def modify_img_paths(session_id):
                 # Set the new src to just the filename
                 img_tag['src'] = filename
 
-        # Save the modified HTML back to the file
-        with open(html_file_path, 'w', encoding='utf-8') as file:
+        # Save the modified HTML back to viewer.html
+        with open(viewer_html_path, 'w', encoding='utf-8') as file:
             file.write(str(soup))
         
-        print(f"Successfully modified {html_file_path}")
+        print(f"Successfully created and modified {viewer_html_path}")
     except Exception as e:
         print(f"Error in modify_img_paths: {str(e)}")
+        raise  # Re-raise the exception to handle it in the calling function
 
 # Generates a zip file to download once conversion is complete
 def generate_zip_file(session_id):
@@ -129,32 +134,22 @@ def generate_zip_file(session_id):
     img_directory_path = os.path.join('app/static', 'sessions_data', session_id, 'input', 'img')
     zip_file_path = os.path.join(output_dir, 'converted_xbrl.zip')
 
-    # Ensure the output directory exists
-    os.makedirs(output_dir, exist_ok=True)
-
-    # Debug prints to check paths
-    print(f"HTML file path: {html_file_path}")
-    print(f"Image directory path: {img_directory_path}")
-    print(f"ZIP file path: {zip_file_path}")
-
-    # Create ZIP file
-    with zipfile.ZipFile(zip_file_path, 'w', zipfile.ZIP_DEFLATED) as zf:
-        # Add HTML file to zip
-        if os.path.exists(html_file_path):
-            print(f"Adding HTML file to zip: {html_file_path}")
-            zf.write(html_file_path, os.path.basename(html_file_path))
-        else:
-            print(f"HTML file not found: {html_file_path}")
+    try:
+        with zipfile.ZipFile(zip_file_path, 'w', zipfile.ZIP_DEFLATED) as zf:
+            # Add HTML file
+            if os.path.exists(html_file_path):
+                zf.write(html_file_path, 'output.html')
+            
+            # Add images if they exist
+            if os.path.exists(img_directory_path):
+                for root, dirs, files in os.walk(img_directory_path):
+                    for file in files:
+                        file_path = os.path.join(root, file)
+                        archive_name = os.path.join('img', file)
+                        zf.write(file_path, archive_name)
         
-        # Add images to zip
-        if os.path.exists(img_directory_path):
-            for root, dirs, files in os.walk(img_directory_path):
-                for file in files:
-                    file_path = os.path.join(root, file)
-                    archive_name = os.path.relpath(file_path, img_directory_path)
-                    print(f"Adding image to zip: {file_path} as {archive_name}")
-                    zf.write(file_path, archive_name)
-        else:
-            print(f"Image directory not found: {img_directory_path}")
-    
-    zf.close()
+        return zip_file_path
+            
+    except Exception as e:
+        print(f"Error generating zip file: {str(e)}")
+        raise

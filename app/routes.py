@@ -6,7 +6,7 @@ from typing import * # to specify funtion inputs and outputs
 from app.utils import *
 
 # flask dependencies
-from flask import Blueprint, request, render_template, jsonify, Response, stream_with_context, session, redirect, url_for, send_from_directory, current_app
+from flask import Blueprint, request, render_template, Response, stream_with_context, session, redirect, url_for, send_from_directory, current_app, send_file
 
 import uuid, time
 
@@ -27,18 +27,16 @@ def home():
 @routes_bp.route('/viewer')
 def view():
     session_id = session.get('session_id')
-    print('pulled', session_id)
+    if not session_id:
+        return "Session not found", 404
 
-    session_template_path = os.path.join('static', 'sessions_data', session_id, 'output')
-    full_path = os.path.join(current_app.root_path, session_template_path)
+    output_path = os.path.join(current_app.root_path, 'static', 'sessions_data', 
+                              session_id, 'output')
     
-    print('session_template_path:', session_template_path)
-    print('full_path:', full_path)
-    
-    if not os.path.isdir(full_path):
+    if not os.path.isdir(output_path):
         return "Directory not found", 404
 
-    return send_from_directory(full_path, 'viewer.html')
+    return send_from_directory(output_path, 'output.html')
 
 @routes_bp.route('/upload', methods=['POST'])
 def upload_file():
@@ -127,28 +125,41 @@ def upload_file():
 @routes_bp.route('/upload/complete', methods=['GET'])
 def successful_upload():
     print("Entering successful_upload function")
-    # Get the session ID from query parameter
     session_id = request.args.get('session_id') or session.get('session_id')
-    
-    print('in successful upload func, id is: ', session_id)
     
     if not session_id:
         print("No session ID found")
         return redirect(url_for('routes_bp.home'))
 
     try:
-        # make sure output.html can generate images
-        modify_img_paths(session_id)
-        # Generate the ZIP file and save it
+        # Generate the ZIP file with HTML and images
         generate_zip_file(session_id)
-
-        print('before download url set')
-        download_url = url_for('static', filename=f'sessions_data/{session_id}/output/converted_xbrl.zip', _external=True)
-        print('download url is', download_url)
-
-        return render_template("site/upload.html", session_id=session_id, download_url=download_url)
+        return render_template("site/upload.html", session_id=session_id)
     except Exception as e:
         print(f"Error in successful_upload: {str(e)}")
+        return redirect(url_for('routes_bp.home'))
+
+@routes_bp.route('/download_zip/<session_id>')
+def download_zip(session_id):
+    try:
+        # Use current_app.root_path to get absolute path
+        zip_path = os.path.join(current_app.root_path, 'static', 'sessions_data', 
+                              session_id, 'output', 'converted_xbrl.zip')
+        
+        if not os.path.exists(zip_path):
+            print(f"ZIP file not found at: {zip_path}")
+            return redirect(url_for('routes_bp.home'))
+            
+        print(f"Sending file from: {zip_path}")
+        
+        return send_file(
+            zip_path,
+            mimetype='application/zip',
+            as_attachment=True,
+            download_name='converted_xbrl.zip'
+        )
+    except Exception as e:
+        print(f"Error in download_zip: {str(e)}")
         return redirect(url_for('routes_bp.home'))
 
 @routes_bp.route('/serve_image/<session_id>/<filename>')
