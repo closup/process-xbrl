@@ -36,7 +36,7 @@ def view():
     if not os.path.isdir(output_path):
         return "Directory not found", 404
 
-    return send_from_directory(output_path, 'output.html')
+    return send_from_directory(output_path, 'viewer.html')
 
 @routes_bp.route('/upload', methods=['POST'])
 def upload_file():
