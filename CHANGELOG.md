@@ -12,20 +12,10 @@
    - PR: #35
 - 25 improve loading wheel
    - PR: #40
-- 36 template fixes
-   - PR: #41
-- 30 support for new tables
-   - PR: #33
-- Update dev
-   - PR: #45
-- Merge pull request #45 from closup/main
-   - PR: #46
-- update for template
-   - PR: #47
-- 30 support for new tables
-   - PR: #49
 - 7 sessions
    - PR: #51
+- 28 image handling
+   - PR: #38
 - #54 implemented custom line items
    - PR: #55
 - 52 add back button
@@ -154,4 +144,8 @@
    - PR: #173
 - Member should be an element, not text
    - PR: #176
+- Fix XBRL error created by introducing element without proper close
+   - PR: #178
+- Revert bracket change
+   - PR: #180
 
