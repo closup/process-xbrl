@@ -12,8 +12,6 @@
    - PR: #35
 - 25 improve loading wheel
    - PR: #40
-- 7 sessions
-   - PR: #51
 - 28 image handling
    - PR: #38
 - #54 implemented custom line items
@@ -148,4 +146,6 @@
    - PR: #178
 - Revert bracket change
    - PR: #180
+- 139 download blocked
+   - PR: #182
 
