@@ -129,32 +129,22 @@ def generate_zip_file(session_id):
     img_directory_path = os.path.join('app/static', 'sessions_data', session_id, 'input', 'img')
     zip_file_path = os.path.join(output_dir, 'converted_xbrl.zip')
 
-    # Ensure the output directory exists
-    os.makedirs(output_dir, exist_ok=True)
-
-    # Debug prints to check paths
-    print(f"HTML file path: {html_file_path}")
-    print(f"Image directory path: {img_directory_path}")
-    print(f"ZIP file path: {zip_file_path}")
-
-    # Create ZIP file
-    with zipfile.ZipFile(zip_file_path, 'w', zipfile.ZIP_DEFLATED) as zf:
-        # Add HTML file to zip
-        if os.path.exists(html_file_path):
-            print(f"Adding HTML file to zip: {html_file_path}")
-            zf.write(html_file_path, os.path.basename(html_file_path))
-        else:
-            print(f"HTML file not found: {html_file_path}")
+    try:
+        with zipfile.ZipFile(zip_file_path, 'w', zipfile.ZIP_DEFLATED) as zf:
+            # Add HTML file
+            if os.path.exists(html_file_path):
+                zf.write(html_file_path, 'output.html')
+            
+            # Add images if they exist
+            if os.path.exists(img_directory_path):
+                for root, dirs, files in os.walk(img_directory_path):
+                    for file in files:
+                        file_path = os.path.join(root, file)
+                        archive_name = os.path.join('img', file)
+                        zf.write(file_path, archive_name)
         
-        # Add images to zip
-        if os.path.exists(img_directory_path):
-            for root, dirs, files in os.walk(img_directory_path):
-                for file in files:
-                    file_path = os.path.join(root, file)
-                    archive_name = os.path.relpath(file_path, img_directory_path)
-                    print(f"Adding image to zip: {file_path} as {archive_name}")
-                    zf.write(file_path, archive_name)
-        else:
-            print(f"Image directory not found: {img_directory_path}")
-    
-    zf.close()
+        return zip_file_path
+            
+    except Exception as e:
+        print(f"Error generating zip file: {str(e)}")
+        raise

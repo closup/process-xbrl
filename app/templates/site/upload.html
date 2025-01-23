@@ -12,7 +12,7 @@
 {% block card1 %}
     <div class="card-header card-header-lg">Download your machine-readable financial statement</div>
     <div class="card-body text-center">
-        <a href="{{ download_url }}" download>
+        <a href="{{ url_for('routes_bp.download_zip', session_id=session_id) }}">
             <button type="button" class="btn btn-michigan btn-lg">Download file</button>
         </a>
     </div>
