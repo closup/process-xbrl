@@ -14,8 +14,6 @@
    - PR: #40
 - 28 image handling
    - PR: #38
-- #54 implemented custom line items
-   - PR: #55
 - 52 add back button
    - PR: #56
 - use jinja to download session specific outputs.
@@ -148,4 +146,6 @@
    - PR: #180
 - 139 download blocked
    - PR: #182
+- Fix re-ordering & display of docs
+   - PR: #184
 
