@@ -12,10 +12,20 @@
    - PR: #35
 - 25 improve loading wheel
    - PR: #40
-- 28 image handling
-   - PR: #38
-- 52 add back button
-   - PR: #56
+- 36 template fixes
+   - PR: #41
+- 30 support for new tables
+   - PR: #33
+- Update dev
+   - PR: #45
+- Merge pull request #45 from closup/main
+   - PR: #46
+- update for template
+   - PR: #47
+- 30 support for new tables
+   - PR: #49
+- #54 implemented custom line items
+   - PR: #55
 - use jinja to download session specific outputs.
    - PR: #61
 - 58 downloads session
@@ -148,4 +158,6 @@
    - PR: #182
 - Fix re-ordering & display of docs
    - PR: #184
+- Updated package versions
+   - PR: #185
 
