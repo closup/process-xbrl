@@ -158,17 +158,37 @@ function handleUploadError(errorMessage) {
 
 function startProcessing(event) {
     event.preventDefault();
+    
+    // Get files in the current display order
+    const fileList = document.getElementById('fileList');
+    const orderedFiles = Array.from(fileList.children).map(li => {
+        const fileName = li.querySelector('.filename').textContent;
+        return Array.from(document.getElementById('upload').files)
+            .find(file => file.name === fileName);
+    });
+    
+    // Create new FormData with ordered files
+    let formData = new FormData();
+    orderedFiles.forEach(file => {
+        formData.append('files[]', file);
+    });
 
     document.getElementById('loader').style.display = 'block';
     
     const notyf = new Notyf({
-        duration: 0,
+        duration: 1000,  // Set default duration to 5 seconds
         position: {x:'left',y:'top'},
         types: [
             {
                 type: 'info',
                 background: '#00B2A9',
                 icon: false
+            },
+            {
+                type: 'error',
+                duration: 5000,  // Explicitly set for error messages
+                background: '#FF0000',
+                dismissible: true
             }
         ]
     });
@@ -177,8 +197,6 @@ function startProcessing(event) {
         type: 'info',
         message: 'Starting process...'
     });
-
-    let formData = new FormData(document.getElementById('uploadForm'));
 
     // Send POST request to initiate the upload
     fetch('/upload', {
@@ -229,7 +247,11 @@ function startProcessing(event) {
                         if (message.startsWith('Error:')) {
                             document.getElementById('loader').style.display = 'none';
                             notyf.dismiss(notificationId);
-                            notyf.error(message);
+                            notyf.error({
+                                message: message,
+                                duration: 5000,  // 5 seconds
+                                dismissible: true
+                            });
                             document.getElementById('uploadForm').reset();
                             updateButton();
                         }
