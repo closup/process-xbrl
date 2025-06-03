@@ -167,3 +167,7 @@ def serve_image(session_id, filename):
     # Specify the directory to send from.
     images_directory = os.path.join(current_app.root_path, 'static/sessions_data', session_id, 'input/img')
     return send_from_directory(images_directory, filename)
+
+@routes_bp.route('/license')
+def license():
+    return render_template('site/license.html', loading=True)
