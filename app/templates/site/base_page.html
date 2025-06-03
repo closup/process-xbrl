@@ -9,16 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link type="text/css" href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
-    <style>
-        .card-header-lg {
-            font-size: 1.25rem; /* This matches the font size of btn-lg */
-            font-weight: 500; /* This gives it a bit more prominence */
-            line-height: 1.5; /* This matches the line height of btn-lg */
-        }
-    </style>
     {% endblock %}
 </head>
+
 <body>
+{% block body %}
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <header class="text-center">
@@ -50,15 +45,14 @@
         {% block loader %}
         {% endblock %}
     </div>
-    <div class="container mt-4 fixed-bottom mb-3">
-        <div class="alert alert-warning text-center">
-            By using this tool, you acknowledge that you have read and agreed to the <a href="https://closup.umich.edu/sites/closup/files/2025-06/EULA-XBRL.docx" target="_blank">terms of use</a>. This is a research tool that is available for demonstration and educational purposes only and may contain errors. You are expressly prohibited from using the tool for production of official financial reports or regulatory filings. <br> Data uploaded as part of using the tool will not be stored on a server and will be deleted at the end of the session. iXBRL output and downloadable html files will also not be stored on a server, and will be deleted once the browser window has been closed.
-            <div class="mt-2">
-                <a href="https://closup.umich.edu/acfr-tool" class="btn btn-warning fw-bold" target="_blank">
-                    More Information
-                </a>
-            </div>
-        </div>
+
+    {% block terms_footer %}
+    <div class="container mt-4 mb-3 fixed-bottom terms-footer">
+        {% include 'site/terms.html' %}
     </div>
+    {% endblock %}
+
+{% endblock %}
 </body>
+
 </html>
