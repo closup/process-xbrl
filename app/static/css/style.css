@@ -216,3 +216,9 @@ header {
     color: #fcfcfd; /*fcfcfd
     border: 2px solid #ffcb09; */
 }
+
+.card-header-lg {
+  font-size: 1.25rem; /* This matches the font size of btn-lg */
+  font-weight: 500; /* This gives it a bit more prominence */
+  line-height: 1.5; /* This matches the line height of btn-lg */
+}

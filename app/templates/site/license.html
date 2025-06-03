@@ -1,39 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "site/base_page.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <title>End-User License Agreement</title>
-  <style>
-    body {
-      font-family: "Times New Roman", serif;
-      font-size: 12pt;
-      line-height: 1.5;
-      word-wrap: break-word;
-    }
-
-    h1,
-    h2,
-    h3 {
-      text-align: center;
-    }
-
-    ol {
-      margin-left: 1.5em;
-    }
-
-    b {
-      font-weight: bold;
-    }
-
-    a {
-      color: blue;
-      text-decoration: underline;
-    }
-  </style>
-</head>
-
-<body>
+{% block head %}
+  <link type="text/css" href="{{url_for('static', filename='css/license_style.css')}}" rel="stylesheet">
+{% endblock %}
+  
+{% block body %}
   <h1>End-User License Agreement – Evaluation Use</h1>
   <h2>University of Michigan Innovation Partnerships File# 2025-204 (“Open Source Inline XBRL Instance Generator”)</h2>
 
@@ -100,5 +71,4 @@
     <li>LICENSEE acknowledges that the PROGRAM is of United States origin. LICENSEE agrees to comply with all applicable international and national laws that apply to the PROGRAM, including the United States Export Administration Regulations, as well as end-user, end-use, and destination restrictions issued by the United States.</li>
     <li>MICHIGAN and LICENSEE agree that any electronically signed copy of this fully executed agreement shall have the same legal force and effect as any copy bearing original signatures of the parties.</li>
   </ol>
-</body>
-</html>
+{% endblock %}
