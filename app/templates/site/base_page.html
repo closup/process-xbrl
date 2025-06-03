@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link type="text/css" href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+    <link type="text/css" href="{{url_for('static', filename='css/modal_style.css')}}" rel="stylesheet">
     {% endblock %}
 </head>
 
@@ -45,22 +46,11 @@
         {% block loader %}
         {% endblock %}
     </div>
-    <div class="container mt-4 fixed-bottom mb-3">
-        <div class="alert alert-warning text-center">
-            By using this tool, you acknowledge that you have read and agreed to the 
-            <a href="{{ url_for('routes_bp.license') }}"> terms of use</a>. 
-            This is a research tool that is available for demonstration and educational purposes only and may 
-            contain errors. You are expressly prohibited from using the tool for production of official financial r
-            eports or regulatory filings. Data uploaded as part of using the tool will not be stored on a server 
-            and will be deleted at the end of the session. iXBRL output and downloadable html files will also not 
-            be stored on a server, and will be deleted once the browser window has been closed.
-            <div class="mt-2">
-                <a href="https://closup.umich.edu/acfr-tool" class="btn btn-warning fw-bold" target="_blank">
-                    More project information
-                </a>
-            </div>
-        </div>
-    </div>
+
+    {% block terms_modal %}
+    {% include 'site/terms_window.html' %}
+    {% endblock %}
+
 {% endblock %}
 </body>
 
