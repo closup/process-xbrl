@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link type="text/css" href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
-    <link type="text/css" href="{{url_for('static', filename='css/modal_style.css')}}" rel="stylesheet">
     {% endblock %}
 </head>
 
@@ -47,7 +46,10 @@
         {% endblock %}
     </div>
 
-    {% block terms_modal %}
+    {% block terms_footer %}
+    <div class="container mt-4 mb-3 fixed-bottom terms-footer">
+        {% include 'site/terms.html' %}
+    </div>
     {% endblock %}
 
 {% endblock %}

@@ -245,3 +245,12 @@ header {
   max-width: 60%;
   padding: 20px;
 }
+
+.terms-link {
+  color: 00274c;
+  font-weight: 800;
+}
+
+/* .terms-footer {
+  background-color: yellow;
+} */
