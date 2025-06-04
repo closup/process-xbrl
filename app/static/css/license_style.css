@@ -1,0 +1,25 @@
+body {
+    font-family: "Times New Roman", serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-align: center;
+  }
+
+  ol {
+    margin-left: 1.5em;
+  }
+
+  b {
+    font-weight: bold;
+  }
+
+  a {
+    color: blue;
+    text-decoration: underline;
+  }

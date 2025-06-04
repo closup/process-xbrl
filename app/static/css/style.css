@@ -216,3 +216,41 @@ header {
     color: #fcfcfd; /*fcfcfd
     border: 2px solid #ffcb09; */
 }
+
+.card-header-lg {
+  font-size: 1.25rem; /* This matches the font size of btn-lg */
+  font-weight: 500; /* This gives it a bit more prominence */
+  line-height: 1.5; /* This matches the line height of btn-lg */
+}
+
+.card {
+  margin-bottom: 5%;
+}
+
+/* Styles for the modal (background overlay) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.65); /* Black with opacity */
+}
+
+.alert {
+  margin: 20% auto;
+  max-width: 60%;
+  padding: 20px;
+}
+
+.terms-link {
+  color: 00274c;
+  font-weight: 800;
+}
+
+/* .terms-footer {
+  background-color: yellow;
+} */

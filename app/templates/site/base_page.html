@@ -9,16 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link type="text/css" href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
-    <style>
-        .card-header-lg {
-            font-size: 1.25rem; /* This matches the font size of btn-lg */
-            font-weight: 500; /* This gives it a bit more prominence */
-            line-height: 1.5; /* This matches the line height of btn-lg */
-        }
-    </style>
     {% endblock %}
 </head>
+
 <body>
+{% block body %}
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <header class="text-center">
@@ -50,15 +45,14 @@
         {% block loader %}
         {% endblock %}
     </div>
-    <div class="container mt-4 fixed-bottom mb-3">
-        <div class="alert alert-warning text-center">
-            This product is available for demonstration and educational purposes only. This product should not be used for production of official financial reports or regulatory filings. The University of Michigan is not liable for any errors in financial reports produced using this tool.
-            <div class="mt-2">
-                <a href="https://closup.umich.edu/acfr-tool" class="btn btn-warning fw-bold" target="_blank">
-                    More Information
-                </a>
-            </div>
-        </div>
+
+    {% block terms_footer %}
+    <div class="container mt-4 mb-3 fixed-bottom terms-footer">
+        {% include 'site/terms.html' %}
     </div>
+    {% endblock %}
+
+{% endblock %}
 </body>
+
 </html>
