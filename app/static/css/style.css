@@ -231,7 +231,7 @@ header {
 .modal {
   display: none; /* Hidden by default */
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
@@ -240,9 +240,12 @@ header {
   background-color: rgba(0,0,0,0.65); /* Black with opacity */
 }
 
-.alert {
+.modal-text {
   margin: 20% auto;
   max-width: 60%;
+}
+
+.alert {
   padding: 20px;
 }
 
@@ -251,6 +254,6 @@ header {
   font-weight: 800;
 }
 
-/* .terms-footer {
-  background-color: yellow;
-} */
+.terms-footer {
+  z-index: 50;
+}
