@@ -31,15 +31,6 @@ class Reconciliation(Table):
     
         if self._data:
             self._data.sort()
-            print(f"Debug: Number of cells processed: {len(self._data)}")
-            print(f"Debug: First cell: {self._data[0]}")
-            print(f"Debug: Last cell: {self._data[-1]}")
-        else:
-            print("Debug: No cells were processed")
-    
-        print(f"Debug: DataFrame shape: {self._df.shape}")
-        print(f"Debug: DataFrame columns: {self._df.columns}")
-        print(f"Debug: First few rows of DataFrame:\n{self._df.head()}")
 
     def n_header_lines(self) -> int:
         # determine number of lines above the first taggable row
@@ -76,7 +67,3 @@ class Reconciliation(Table):
         cells = [f'{c}{r}' for c, r in zip(self._df['col'], self._df["row"])]
         self._df["id"] = [f'{self.sheet_name.replace(" ", "")}_{cell}' for cell in cells]
         self._df = self._df.sort_values(by=['row', 'col'])
-
-        print(f"Debug: Final DataFrame shape: {self._df.shape}")
-        print(f"Debug: Final DataFrame columns: {self._df.columns}")
-        print(f"Debug: First few rows of final DataFrame:\n{self._df.head()}")

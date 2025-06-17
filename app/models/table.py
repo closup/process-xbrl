@@ -13,11 +13,8 @@ class Table:
             excel_file : file location for file to convert to XBRL 
             sheet_name : name of relevant tab on Excel sheet 
             extra_left_cols : number of untaggable columns to the left of data """
-        print(f"Debug: Reading Excel file: {excel_file}, sheet: {sheet_name}")
         # Initialize the DataFrame as a private member
         self._df = pd.read_excel(excel_file, sheet_name=sheet_name, header=None)
-        print(f"Debug: Initial DataFrame shape: {self._df.shape}")
-        print(f"Debug: Initial DataFrame columns: {self._df.columns}")
         
         # Initialize the rest of the slots
         self.extra_left_cols = extra_left_cols 
@@ -28,16 +25,10 @@ class Table:
         
         # Process underlying sheet
         try:
-            print("Debug: Starting reshape_data")
             self.reshape_data()
-            print("Debug: reshape_data completed")
             self._col_names = self.get_col_names()
         except Exception as e:
             print(f'Failed to parse {self.sheet_name}: {str(e)}')
-            print(f"Debug: DataFrame state when error occurred:")
-            print(f"Shape: {self._df.shape}")
-            print(f"Columns: {self._df.columns}")
-            print(f"First few rows:\n{self._df.head()}")
             raise e
 
     def data(self) -> List[Cell]:
@@ -97,9 +88,6 @@ class Table:
         # clean date of extra words
         date_str = str.replace(self.raw_date(), "for_the_year_ended_", "")
         
-        # Print debug info
-        print(f"Debug: Raw date string: {date_str}")
-        
         formats_to_try = [
             "%Y-%m-%d_%H:%M:%S",
             '%B_%d,_%Y',
@@ -138,8 +126,6 @@ class Table:
         """
         Process Excel sheet data to extract values and cell locations
         """   
-        print("Debug: Starting reshape_data")
-        print(f"Debug: DataFrame shape before reshape: {self._df.shape}")
         
         # Clean column names and handle duplicates
         raw_columns = self._df.iloc[self.n_header_lines()].apply(clean)
@@ -158,9 +144,7 @@ class Table:
                     
             if has_values:
                 columns_to_keep.append(i)
-                
-            print(f"Debug: Column {i} ({'kept' if has_values else 'dropped'})")
-        
+                        
         # Keep only non-hidden columns
         self._df = self._df.iloc[:, columns_to_keep]
         raw_columns = raw_columns.iloc[columns_to_keep]
@@ -177,12 +161,10 @@ class Table:
         
         # Assign the new column names
         self._df.columns = unique_columns
-        print(f"Debug: Columns after cleaning: {self._df.columns}")
         
         # Drop unneeded rows (above taggable portion)
         self._df.drop(index = self._df.index[:self.n_header_lines() + 1], inplace=True)
         self._df.reset_index(drop=True, inplace=True)
-        print(f"Debug: DataFrame shape after dropping rows: {self._df.shape}")
         
         # Record original row number
         self._df["row"] = 1 + self.n_header_lines() + len(self.header()) + self._df.index  
@@ -192,17 +174,12 @@ class Table:
         id_cols = self._df.columns[:self.extra_left_cols].tolist() + ["row"]
         val_cols = [col for col in self._df.columns[self.extra_left_cols:] 
                     if col != "row" and not col.startswith("nan_")]  # Exclude 'row' and duplicate 'nan' columns
-        print(f"Debug: id_cols: {id_cols}")
-        print(f"Debug: val_cols: {val_cols}")
         
         self._df = pd.melt(self._df, id_vars=id_cols, value_vars=val_cols, var_name="header")
-        print(f"Debug: DataFrame shape after melt: {self._df.shape}")
 
         # Calculate original sheet column and cell in Excel document
         self._df['col'] = [ALPHABET[min(i, len(ALPHABET)-1)] for i in (self.extra_left_cols + (self._df.index // n_rows_orig))]
         cells = [f'{c}{r}' for c, r in zip(self._df['col'], self._df["row"])]
         self._df["id"] = [f'{self.sheet_name.replace(" ", "")}_{cell}' for cell in cells]
-        
-        print(f"Debug: Final DataFrame columns: {self._df.columns}")
-        print(f"Debug: First few rows of final DataFrame:\n{self._df.head()}")
+
 
