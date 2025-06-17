@@ -19,11 +19,8 @@ class NetPosition(Table):
 
     def process_cells(self):
         """Create a list of Cell objects to represent Excel data"""
-        print(f"Debug: DataFrame columns: {self._df.columns}")
-        print(f"Debug: Unique headers: {self._df['header'].unique()}")
         
         for col_name in self._df['header'].unique():
-            print(f"Debug: Processing column: {col_name}")
             
             # for each column, create the relevant dimension and context 
             dim = self.create_dim_list(col_name)
@@ -32,8 +29,6 @@ class NetPosition(Table):
             
             # Grab all cells within the given context
             rows = self._df[self._df['header'] == col_name]
-            print(f"Debug: Rows shape for {col_name}: {rows.shape}")
-            print(f"Debug: First few rows:\n{rows.head()}")
 
             # Iterate through filtered rows and create Cell objects
             for _, row in rows.iterrows():
@@ -58,8 +53,3 @@ class NetPosition(Table):
                     
         if self._data:
             self._data.sort()
-            print(f"Debug: Number of cells processed: {len(self._data)}")
-            print(f"Debug: First cell: {self._data[0]}")
-            print(f"Debug: Last cell: {self._data[-1]}")
-        else:
-            print("Debug: No cells were processed")
