@@ -212,6 +212,7 @@ function startProcessing(event) {
 
         function readStream() {
             reader.read().then(({ done, value }) => {
+                console.log('Read chunk:', done, value);
                 if (done) {
                     console.log('Stream complete');
                     return;
