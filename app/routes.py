@@ -61,21 +61,33 @@ def upload_file():
             # Set default values
             output_file = os.path.join(output_folder, "output.html")
             format = "gray"
+        
+        except Exception as e:
+            error_message = f"Error: {str(e)}"
+            yield f"data: Error: {str(e)}\n\n"
+            print(error_message)
 
+        try: 
             # Check for the 'files[]' part in the request
             if 'files[]' not in request.files:
                 yield "data: Error: No files submitted\n\n"
                 return
 
             yield "data: Uploading files\n\n"
-            # time.sleep(1)
+            time.sleep(1)
 
             # Retrieve the list of files from the request
             file_list = request.files.getlist('files[]')
 
             yield "data: Retrieving files\n\n"
 
-            # Process each file and store filenames
+        except Exception as e:
+            error_message = f"Error: {str(e)}"
+            yield f"data: Error: {str(e)}\n\n"
+            print(error_message)
+
+        # Process each file and store filenames
+        try: 
             excel_files = []
             for file in file_list:
                 if file.filename == '':
@@ -90,8 +102,15 @@ def upload_file():
                     file.save(os.path.join(input_folder, file.filename))
 
             yield "data: Processing and validating files\n\n"
-            # time.sleep(1)
+            time.sleep(1)
 
+        except Exception as e:
+            error_message = f"Error: {str(e)}"
+            yield f"data: Error: {str(e)}\n\n"
+            print(error_message)
+            
+
+        try:
             # Process uploaded files and save output to session output folder
             excel_files = [file for file in file_list if is_spreadsheet(file.filename)]
 
@@ -101,28 +120,33 @@ def upload_file():
             elif len(excel_files) != 1:
                 yield "data: Error: Please upload exactly one Excel file\n\n"
                 return
+        except Exception as e:
+            error_message = f"Error: {str(e)}"
+            yield f"data: Error: {str(e)}\n\n"
+            print(error_message)
 
+        try: 
             # create ixbrl file
             yield "data: Creating iXBRL file\n\n"
             write_html(file_list, output_file, format)
 
             yield "data: Creating viewer\n\n"
             viewer_output_path = f'app/static/sessions_data/{session_id}/output/'
-            try:
-                create_viewer_html(output_file, viewer_output_path)
-                print('viewer created\n')
-            except Exception as e:
-                print(f"Error creating viewer: {str(e)}")
-                yield f"data: Error creating viewer: {str(e)}\n\n"
-                return
-
-            yield "data: Conversion finishing...\n\n"
-            yield f"data: complete:{session_id}\n\n"  # Make sure this line is present
-
         except Exception as e:
             error_message = f"Error: {str(e)}"
             yield f"data: Error: {str(e)}\n\n"
             print(error_message)
+            
+        try:
+                create_viewer_html(output_file, viewer_output_path)
+                print('viewer created\n')
+        except Exception as e:
+                print(f"Error creating viewer: {str(e)}")
+                yield f"data: Error creating viewer: {str(e)}\n\n"
+                return
+            
+        yield "data: Conversion finishing...\n\n"
+        yield f"data: complete:{session_id}\n\n"  # Make sure this line is present
 
     return Response(stream_with_context(generate()), content_type='text/event-stream')
 
