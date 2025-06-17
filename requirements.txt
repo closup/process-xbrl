@@ -23,6 +23,8 @@ uuid==1.30
 blinker==1.9.0
 python-docx==1.0.1
 
+gunicorn==23.0.0
+
 #Additional Arelle requirements
 regex==2024.11.6
 isodate==0.7.2
