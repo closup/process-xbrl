@@ -56,6 +56,8 @@ def upload_file():
             os.makedirs(input_folder, exist_ok=True)
             os.makedirs(output_folder, exist_ok=True)
 
+            yield "data: Created folders\n\n"
+
             # Set default values
             output_file = os.path.join(output_folder, "output.html")
             format = "gray"
@@ -66,10 +68,12 @@ def upload_file():
                 return
 
             yield "data: Uploading files\n\n"
-            time.sleep(1)
+            # time.sleep(1)
 
             # Retrieve the list of files from the request
             file_list = request.files.getlist('files[]')
+
+            yield "data: Retrieving files\n\n"
 
             # Process each file and store filenames
             excel_files = []
@@ -86,7 +90,7 @@ def upload_file():
                     file.save(os.path.join(input_folder, file.filename))
 
             yield "data: Processing and validating files\n\n"
-            time.sleep(1)
+            # time.sleep(1)
 
             # Process uploaded files and save output to session output folder
             excel_files = [file for file in file_list if is_spreadsheet(file.filename)]

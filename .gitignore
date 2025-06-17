@@ -25,7 +25,6 @@ venv/
 app/static/output/output.html
 app/templates/site/viewer.html
 
-
 # Ignore image files
 *.png
 
@@ -34,3 +33,6 @@ app/static/sessions_data/*
 
 # ignore csv for inspection
 .csv
+
+# ignore node_modules
+node_modules/
