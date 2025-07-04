@@ -44,7 +44,7 @@ def upload_file():
     session_id = str(uuid.uuid4())
     session['session_id'] = session_id
     update_session_timestamp(session)
-    base_path = 'app/static/sessions_data/'
+    base_path = './app/static/sessions_data/'
 
     def generate():
         try:
