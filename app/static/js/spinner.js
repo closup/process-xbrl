@@ -205,7 +205,8 @@ function startProcessing(event) {
     }
 
     // Send POST request to initiate the upload
-    fetch('/upload', {
+    // change back
+    fetch('/debug-upload', {
         method: 'POST',
         body: formData,
         headers: {
