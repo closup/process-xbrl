@@ -45,7 +45,9 @@ def upload_file():
     base_path = os.path.join(PROJECT_ROOT, 'static', 'sessions_data')
 
     def generate():
-        # MOVE all former top-level logic INTO this generator!
+        # debug statement
+        print("DEBUG ALL FILES:", dict(request.files))
+
         session_id = str(uuid.uuid4())
         session['session_id'] = session_id
         update_session_timestamp(session)
