@@ -52,15 +52,18 @@ def upload_file():
     def generate():
         try:
             yield "data: Initializing upload\n\n"
+            print("Yielded - Initializing upload")  # <----- WATCH LOGS
+
             input_folder, output_folder = create_session_folders(base_path, session_id)
             output_file = os.path.join(output_folder, "output.html")
             format = "gray"
+            print(f"Made folders: {input_folder}, {output_folder}")
 
             file_list, error = get_file_list(request, 'files[]')
-            print("Checked get_file_list:", error)
+            print(f"file_list: {file_list}, error: {error}")  # <------ WATCH LOGS
             if error:
+                print(f"Error at get_file_list: {error}")
                 yield f"data: Error: {error}\n\n"
-                print("Yielded error from get_file_list")
                 return
 
             yield "data: Uploading files\n\n"
