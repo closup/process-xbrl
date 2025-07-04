@@ -53,11 +53,15 @@ def create_viewer_html(output_file : str,
     Runs Arelle and ixbrl-viewer submodules to create a viewer html and 
     accompanying javascript file.
     """
+
+    # Check that file exists
+    if not os.path.exists(output_file):
+        raise FileNotFoundError(f"Output file does not exist: {output_file}")
+
+    output_file = os.path.abspath(output_file)
     viewer_filepath = os.path.join(ROOT, viewer_outpath, 'viewer.html')
 
     # command to run Arelle process
-    # OLD YOU DON'T NEED THIS!! plugins = os.path.join(ROOT, "dependencies", "ixbrl-viewer", "iXBRLViewerPlugin")
-    # ixbrl-viewer automatically uses "iXBRLViewerPlugin:load_plugin_url"
     viewer_url = "https://cdn.jsdelivr.net/npm/ixbrl-viewer@1.4.48/iXBRLViewerPlugin/viewer/dist/ixbrlviewer.js"
     args = f"--plugins=ixbrl-viewer -f {output_file} --save-viewer {viewer_filepath} --viewer-url {viewer_url}"
     
@@ -71,7 +75,6 @@ def create_viewer_html(output_file : str,
     except Exception as e:
         print(f"Error during XBRL validation: {str(e)}")
         raise
-
     
     # Read in the generated HTML
     print("Creating interactive viewer...")

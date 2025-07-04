@@ -1,7 +1,7 @@
 """
 Initialize the Flask application and run the server.
 
-Last updated: K. Wheelan, April 2024
+Last updated: K. Wheelan, July 2025
 """
 
 from app import app
