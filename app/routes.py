@@ -27,7 +27,7 @@ def home():
 
 @routes_bp.route('/viewer')
 def view():
-    session_id = session.get('session_id')
+    session_id = request.args.get('session_id') or session.get('session_id')    
     if not session_id:
         return "Session not found", 404
 
@@ -104,7 +104,6 @@ def upload_file():
 
 @routes_bp.route('/upload/complete', methods=['GET'])
 def successful_upload():
-    print("Entering successful_upload function")
     session_id = request.args.get('session_id') or session.get('session_id')
     
     if not session_id:
@@ -152,9 +151,9 @@ def serve_image(session_id, filename):
 def license():
     return render_template('site/license.html', loading=True)
 
-@routes_bp.route("/debug-upload", methods=["POST"])
-def debug_upload():
-    print(dict(request.files))
-    print("files[] in request.files:", 'files[]' in request.files)
-    print("request.files.getlist('files[]'):", request.files.getlist('files[]'))
-    return "ok"
+# @routes_bp.route("/debug-upload", methods=["POST"])
+# def debug_upload():
+#     print(dict(request.files))
+#     print("files[] in request.files:", 'files[]' in request.files)
+#     print("request.files.getlist('files[]'):", request.files.getlist('files[]'))
+#     return "ok"
