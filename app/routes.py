@@ -44,7 +44,10 @@ def upload_file():
     session_id = str(uuid.uuid4())
     session['session_id'] = session_id
     update_session_timestamp(session)
-    base_path = './app/static/sessions_data/'
+
+    # This gets the *directory* containing the current file (not where your shell is, but where THIS .py file is).
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+    base_path = os.path.join(PROJECT_ROOT, 'static', 'sessions_data')
 
     def generate():
         try:
