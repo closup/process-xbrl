@@ -150,3 +150,10 @@ def serve_image(session_id, filename):
 @routes_bp.route('/license')
 def license():
     return render_template('site/license.html', loading=True)
+
+@routes_bp.route("/debug-upload", methods=["POST"])
+def debug_upload():
+    print(dict(request.files))
+    print("files[] in request.files:", 'files[]' in request.files)
+    print("request.files.getlist('files[]'):", request.files.getlist('files[]'))
+    return "ok"
