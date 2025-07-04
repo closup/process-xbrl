@@ -41,18 +41,17 @@ def view():
 
 @routes_bp.route('/upload', methods=['POST'])
 def upload_file():
-    session_id = str(uuid.uuid4())
-    session['session_id'] = session_id
-    update_session_timestamp(session)
-
-    # This gets the *directory* containing the current file (not where your shell is, but where THIS .py file is).
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
     base_path = os.path.join(PROJECT_ROOT, 'static', 'sessions_data')
 
     def generate():
+        # MOVE all former top-level logic INTO this generator!
+        session_id = str(uuid.uuid4())
+        session['session_id'] = session_id
+        update_session_timestamp(session)
         try:
             yield "data: Initializing upload\n\n"
-            print("Yielded - Initializing upload")  # <----- WATCH LOGS
+            print("Yielded - Initializing upload")
 
             input_folder, output_folder = create_session_folders(base_path, session_id)
             output_file = os.path.join(output_folder, "output.html")
@@ -60,7 +59,7 @@ def upload_file():
             print(f"Made folders: {input_folder}, {output_folder}")
 
             file_list, error = get_file_list(request, 'files[]')
-            print(f"file_list: {file_list}, error: {error}")  # <------ WATCH LOGS
+            print(f"file_list: {file_list}, error: {error}")
             if error:
                 print(f"Error at get_file_list: {error}")
                 yield f"data: Error: {error}\n\n"
