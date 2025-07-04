@@ -57,8 +57,10 @@ def upload_file():
             format = "gray"
 
             file_list, error = get_file_list(request, 'files[]')
+            print("Checked get_file_list:", error)
             if error:
                 yield f"data: Error: {error}\n\n"
+                print("Yielded error from get_file_list")
                 return
 
             yield "data: Uploading files\n\n"
