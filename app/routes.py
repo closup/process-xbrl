@@ -45,7 +45,8 @@ def upload_file():
     base_path = os.path.join(PROJECT_ROOT, 'static', 'sessions_data')
 
     def generate():
-        # debug statement
+        # DO NOT DELTE this print statement; referencing request.files is essential to 
+        # not return an empty stream on the Heroku deployment (will work locally even without)
         print("DEBUG ALL FILES:", dict(request.files))
 
         session_id = str(uuid.uuid4())
