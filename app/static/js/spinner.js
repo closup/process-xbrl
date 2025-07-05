@@ -201,11 +201,11 @@ function startProcessing(event) {
     // Send POST request to initiate the upload
     fetch('/upload', {
         method: 'POST',
-        body: formData
+        body: formData,
+        headers: {
+            'Accept-Encoding': 'identity'
+        }
     }).then(response => {
-
-        // set newWindow to null
-        let newWindow = null;
 
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
@@ -218,10 +218,13 @@ function startProcessing(event) {
                 }
 
                 const chunk = decoder.decode(value, { stream: true });
+
                 const lines = chunk.split('\n');
                 lines.forEach(line => {
+
                     if (line.startsWith('data:')) {
                         const message = line.slice(5).trim();
+                        console.log('Processed message:', message);
 
                         if (message.startsWith('complete:')) {
                             console.log('Conversion complete, redirecting...');
@@ -245,6 +248,7 @@ function startProcessing(event) {
                         }
 
                         if (message.startsWith('Error:')) {
+                            console.log('Error received:', message);
                             document.getElementById('loader').style.display = 'none';
                             notyf.dismiss(notificationId);
                             notyf.error({
