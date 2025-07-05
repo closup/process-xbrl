@@ -1,12 +1,16 @@
 """
 Initialize the Flask application and run the server.
 
-Last updated: K. Wheelan, April 2024
+Last updated: K. Wheelan, July 2025
 """
 
 from app import app
 import os
 import warnings
+import sys
+
+# make sure gunicorn prints debug statements
+print("debug", file=sys.stderr)
 
 warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 # Disable all FutureWarnings
