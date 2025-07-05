@@ -218,18 +218,15 @@ function startProcessing(event) {
 
         function readStream() {
             reader.read().then(({ done, value }) => {
-                console.log('Read chunk:', done, value);
                 if (done) {
                     console.log('Stream complete');
                     return;
                 }
 
                 const chunk = decoder.decode(value, { stream: true });
-                console.log('Decoded chunk:', chunk);
 
                 const lines = chunk.split('\n');
                 lines.forEach(line => {
-                    console.log('Received line:', line); // Log each line for visibility
 
                     if (line.startsWith('data:')) {
                         const message = line.slice(5).trim();
