@@ -198,12 +198,6 @@ function startProcessing(event) {
         message: 'Starting process...'
     });
 
-    // Debugging
-    console.log("FormData keys:");
-    for (let p of formData.entries()) {
-        console.log(p[0], p[1]);
-    }
-
     // Send POST request to initiate the upload
     fetch('/upload', {
         method: 'POST',
