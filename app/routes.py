@@ -45,8 +45,6 @@ def upload_file():
     base_path = os.path.join(PROJECT_ROOT, 'static', 'sessions_data')
 
     def generate():
-        # debug statement
-        print("DEBUG ALL FILES:", dict(request.files))
 
         session_id = str(uuid.uuid4())
         session['session_id'] = session_id
@@ -58,7 +56,6 @@ def upload_file():
             input_folder, output_folder = create_session_folders(base_path, session_id)
             output_file = os.path.join(output_folder, "output.html")
             format = "gray"
-            print(f"Made folders: {input_folder}, {output_folder}")
 
             file_list, error = get_file_list(request, 'files[]')
             print(f"file_list: {file_list}, error: {error}")
@@ -95,7 +92,6 @@ def upload_file():
                 return
 
             yield "data: Conversion finishing...\n\n"
-            yield f"data: complete:{session_id}\n\n"
 
         except Exception as e:
             yield f"data: Error: {str(e)}\n\n"
