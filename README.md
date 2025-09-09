@@ -91,4 +91,4 @@ There may be an issue with FLASK_SECRET_KEY. If you are running into issues, gen
 
 ## Resources
 
-See the Drive folder [here](https://drive.google.com/drive/folders/1oyI5-ivM86TF-zFTMOrO20etBB2uIb5B)
+See the Drive folder [here](https://drive.google.com/drive/folders/1ZpOy5Xa_hDW5Ztptwe5mDo6wdK50J7-e) for sample templates and other resources
